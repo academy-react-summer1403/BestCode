@@ -22,6 +22,10 @@ const router = createBrowserRouter([
           errorElement:<Error/> 
         },
         {
+          path:'/login',
+          element: <Login/>,
+        },
+        {
           path:'/landing',
           element: <Landing />,
           errorElement: <Error/> ,
@@ -37,11 +41,6 @@ const router = createBrowserRouter([
           errorElement: <Error/> ,
         }
       ]
-    },
-    {
-      path: '/login',
-      element:<Login />,
-      errorElement: <Error/> ,
     },
     {
       path:'/register',
