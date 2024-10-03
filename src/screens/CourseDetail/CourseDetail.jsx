@@ -7,7 +7,7 @@ const CourseDetail = () => {
     <>
     <div id="ADS" className=" h-[395px] w-[1251px] border-4 border-red-600 mx-auto flex gap-[29px]" >
        
-       <div className=" h-[395px] w-[624px] border-2 border-blue-500 " >
+       <div className=" h-[395px] w-[624px] border-2 border-blue-500   " >
         <img src="" alt="" className=" w-full h-full " />
        </div>
        
