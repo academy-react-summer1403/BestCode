@@ -31,8 +31,7 @@ const Header = () => {
                           flex justify-between  mt-[58px] 
                           max-h-full box-content max-md:px-[10px] max-md:mt-[20px] max-lg:px-[60px]
                           duration-700
-                          
-                          
+   
                           '>
                <div className='flex gap-[14px] box-border 
                                top-[3px] relative'>
