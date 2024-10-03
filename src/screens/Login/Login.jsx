@@ -24,12 +24,12 @@ const Login = () => {
     //       {/* {  } */}
     <div>
 
-     {/* <SignUpThirdStep/>   
-     <SignUpSecondStep/> 
-         <SignUpFirstStep/>    */}
-        {/* <LogInFirstStep/> */}
+          {/* <SignUpFirstStep/>       */}
+      {/* <SignUpSecondStep/>  */}
+          {/* <SignUpThirdStep/>            */}
+        { <LogInFirstStep/> }
         {/* <LogInSecondStep/> */}
-        { <Stepper1/> }
+        {/* {  <Stepper1/> } */}
            
          </div>
     //       <button className="text-[#006865] relative right-[-883px] top-[-530px] text-[24px] " >ثبت نام</button>

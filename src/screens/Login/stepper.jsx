@@ -16,10 +16,14 @@ function Stepper1(){
 
     const nextStep =() =>{
         if(activeStep < 2)
-        setActiveStep((currentStep) => currentStep + 1)
-        activeStep.class = "hidden"
+        setActiveStep((currentStep) => currentStep + 1)  
+        hide(activeStep)
     }
+      function hide(x){
+        {activeStep.display = "none"}
+     }
 
+    
     
     const previousStep =() =>{
         if(activeStep !== 0)

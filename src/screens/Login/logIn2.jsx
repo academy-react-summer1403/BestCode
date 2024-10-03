@@ -13,7 +13,7 @@ const LogInSecondStep = () => {
                 <div className="flex">
                 <img src="./07.png" alt="image" className=" w-[60px] h-[60px] mt-[320px] ml-[200px] "/>
             <div className="w-[377px] h-[350px] mt-[116px]
-            bg-[url('./13.png')] bg-center bg-contain grid grid-flow-row " >
+ bg-[url('./13.png')] bg-center bg-contain grid grid-flow-row " >
             
             <h1 className=" text-[25px] leading-[35.46px] text-[#005351] justify-center h-[46px]  mx-auto mt-[27px] 
                 text-center " >کد تایید </h1>
