@@ -8,63 +8,77 @@ const CourseDetail = () => {
   
   return (
     <>
-  <div className="bg-[url('/img/hero-pattern.svg')] font-['yekan'] ">
-    <div id="ADS" className=" h-[395px] w-[1251px] border-4 border-red-600 mx-auto flex gap-[29px]" >
+  <div dir="rtl" className="bg-[url('/img/hero-pattern.svg')] font-['BYekan'] ">
+    <div id="ADS" className=" h-[395px] w-[1251px]  mx-auto flex gap-[29px] mt-[35px]" >
        
        
-       <div className=" h-[395px] w-[598px] border-2 border-blue-500 flex flex-wrap" >
+       <div className=" h-[395px] w-[598px]  flex flex-wrap rounded-2xl shadow-[0_3px_5px_0px_rgba(0,0,0,3)]" >
         
-           <div className=" h-[41px] w-[100%] border-2 border-black flex gap-[168px] mt-[31px]">
+           <div className=" h-[41px] w-[100%]  flex gap-[168px] mt-[31px] ">
            
-               <div className=" h-[27px] w-[27px] border-2 border-pink-400 ml-[35px]"></div>
-               <div className=" h-[41px] w-[335px] border-2 border-pink-400 mr-[33px] text-[25px] leading-[42px] font-bold align-middle flex flex-nowrap ">
-                   <p> React Js دوره تخصصی و جامع   </p> 
+           
+               <div className=" h-[41px] w-[335px] mr-[33px] text-[25px] leading-[42px] font-bold align-middle flex flex-nowrap text-[#333333] ">
+                   <p>  دوره تخصصی و جامع  React Js </p> 
                </div>
-               
+               <div className=" h-[27px] w-[27px] ml-[35px]" >
+                 <img src={images.save} alt="" />
+               </div>
            </div>
 
-           <div className=" h-[84px] w-[100%] border-2 border-black ">
-                <div className=" h-[100%] w-[526px] border-2 border-pink-400 m-auto text-[18px] leading-[27px] font-normal aling-right text-slate-600 "> 
+           <div className=" h-[84px] w-[100%]  ">
+                <div className=" h-[100%] w-[526px]  m-auto text-[18px] leading-[27px] font-normal aling-right text-slate-600 "> 
                حدود 40 ساعت آموزش جامع و تخصصی ری اکت!  شما در دوره آموزش ری اکت ReactJS ، این کتابخانه قدرتمند و پر استفاده جاوا اسکریپت را به صورت کاملا پروژه محور و کاربردی یاد میگیرید
                </div>
            </div>
            
-           <div className=" h-[50px] w-[100%] border-2 border-black flex gap-[154px] ">
-               <div className=" h-[43px] w-[162px] border-2 border-pink-400 ml-[40px]">
-                  <span> مهدی اصغری </span>
-                  <img src="" alt="" />
+           <div className=" h-[50px] w-[100%]  flex gap-[154px] ">
+
+               <div className=" h-[43px] w-[210px] ml-[40px] flex ">
+               
+                  <img src={images.person} alt="" className=" h-[21px] w-[18px] mr-7" />
+
+                  <span className=" text-[20px] leading-[10px] font-normal text-[#005B58] mr-[8px] mt-[3px] "> مهدی اصغری </span>
+
                </div>
 
-               <div className=" h-[25px] w-[210px] border-2 border-pink-400  ">
-                  <img src="" alt="" />
-                  <span> 3,200,000 </span>
+               <div className=" h-[25px] w-[210px] flex ">
+               
+                  <span className=" text-[23px] leading-[10px] font-normal text-[#005B58]"> ۳,۴۰۰,۰۰۰ </span>
+                  <span className=" text-[14px] leading-[15px] font-normal ml-3 mr-1 text-[#006865] "> تومان </span>
+                  <img src={images.money} alt="" className=" h-[20px] w-[23px] " />
+
                   
                </div>
            </div>
            
-           <div className=" h-[55px] w-[100%] border-2 border-black flex">
-               <button className=" h-[55px] w-[80%] border-2 border-pink-400 m-auto text-[25px] font-bold "> !شرکت در دوره  </button>
+           <div className=" h-[55px] w-[100%] flex  ">
+               <button className=" h-[55px] w-[347px] m-auto bg-[#FF8A00] rounded-[9px] relative "> 
+               <span className=" mr-8 mt-[50px] text-[25px] text-[#FFFFFF] font-bold "> شرکت در دوره! </span>
+               <img src={images.Bpik} alt="" className=" h-[20px] w-[23px] mr-[80px] mt-[-25px] " />
+
+                </button>
+
            </div>
        </div>
 
-       <div className=" h-[395px] w-[624px] border-2 border-blue-500 " >
-        <img src="" alt="" className=" w-full h-full " />
+       <div className=" h-[395px] w-[624px] " >
+       <img src={images.ads} className=" w-[101%] "/>
        </div>
        
     </div>
     
-   
+  <div className=" flex gap-[30px] mt-7 " >
     
-    <div id="right" className=" h-[2462px] w-[810px] border-4 border-red-600 mx-auto flex flex-wrap mr-[133px] ">
+    <div id="right" className=" h-[2462px] w-[810px] flex flex-wrap mr-[133px] ">
 
-      <div className=" h-[620px] w-full border-2 border-blue-500 flex  flex-wrap " >
+      <div className=" h-[620px] w-full  flex  flex-wrap " >
         
-        <div className=" h-[33px] w-[100%] border-2 border-black " > 
+        <div className=" h-[33px] w-[100%] " > 
            <p className=" text-[25px] leading-[32px] font-bold aling-right text-[#005351] " > توضیحات </p> 
         </div>
          
-         <div className=" h-[570px] w-[810px] border-2  border-black m-auto shadow-inner overflow-hidden relative rounded-2xl ">
-          <div className="w-[710px] border-2 m-auto pt-6 border-pink-400 text-[18px] leading-[27px] font-normal aling-right text-slate-600 " > 
+         <div className=" h-[570px] w-[810px]rounded-2xl shadow-[0_3px_5px_0px_rgba(0,0,0,3)] m-auto overflow-hidden relative rounded-2xl ">
+          <div className="w-[710px] border-2 m-auto pt-6 text-[18px] leading-[27px] font-normal aling-right text-slate-600 pl-10 pr-10" > 
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
           </div>
@@ -89,9 +103,9 @@ const CourseDetail = () => {
 
     </div>
 
-    <div id="left" className=" h-[1616px] w-[412px] border-4 border-red-600 mx-auto flex flex-wrap absolute top-[420px] left-[133px] ">
+    <div id="left" className=" h-[1616px] w-[412px] flex flex-wrap  ">
 
-      <div className=" h-[1015px] w-[412px] rounded-[15px] shadow-[0_3px_5px_0px_rgba(0,0,0,3)] flex flex-wrap mt-7 relative ">
+      <div className=" h-[1015px] w-[412px] rounded-[15px] shadow-[0_3px_5px_0px_rgba(0,0,0,3)] flex flex-wrap relative ">
 
         <div className=" w-[367px] h-[71px]  flex mt-[24px] m-auto gap-[15px] ">
 
@@ -120,7 +134,6 @@ const CourseDetail = () => {
             <img src={images.star} />
             </div>
             
-
 
           </div>
         </div>
@@ -242,7 +255,10 @@ const CourseDetail = () => {
         <div className=" w-[379px] h-[496px]  flex flex-wrap relative m-auto border ">
           <div className=" w-[378px] h-[112px] bg-[#F7F7F7] flex rounded-[10px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.2)] relative ">
                 
-                <div className=" w-[126px] h-[84px] border rounded-[6px] shadow-[0_1px_1px_0px_rgba(0,0,0,0.2)] absolute top-[14px] right-[16px] "></div>
+                <div className=" w-[126px] h-[84px] border rounded-[6px] shadow-[0_1px_1px_0px_rgba(0,0,0,0.2)] absolute top-[14px] right-[16px] ">
+                <img src={images.fig}/>
+
+                </div>
                   
                 <div className=" w-[200px] h-[50px] absolute top-[14px] left-[21px] text-right text-[17px] leading-[21px] font-normal text-[#005351] ">
                   دوره تخصصی ترفند هایه طراحی فرانت اند
@@ -256,7 +272,10 @@ const CourseDetail = () => {
 
               <div className=" w-[378px] h-[112px] bg-[#F7F7F7] flex rounded-[10px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.2)] relative ">
                 
-                <div className=" w-[126px] h-[84px] border rounded-[6px] shadow-[0_1px_1px_0px_rgba(0,0,0,0.2)] absolute top-[14px] right-[16px] "></div>
+                <div className=" w-[126px] h-[84px] border rounded-[6px] shadow-[0_1px_1px_0px_rgba(0,0,0,0.2)] absolute top-[14px] right-[16px] ">
+                <img src={images.fig}/>
+
+                </div>
                   
                 <div className=" w-[200px] h-[50px] absolute top-[14px] left-[21px] text-right text-[17px] leading-[21px] font-normal text-[#005351] ">
                   دوره تخصصی ترفند هایه طراحی فرانت اند
@@ -270,7 +289,10 @@ const CourseDetail = () => {
 
               <div className=" w-[378px] h-[112px] bg-[#F7F7F7] flex rounded-[10px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.2)] relative ">
                 
-                <div className=" w-[126px] h-[84px] border rounded-[6px] shadow-[0_1px_1px_0px_rgba(0,0,0,0.2)] absolute top-[14px] right-[16px] "></div>
+                <div className=" w-[126px] h-[84px] border rounded-[6px] shadow-[0_1px_1px_0px_rgba(0,0,0,0.2)] absolute top-[14px] right-[16px] ">
+                <img src={images.fig}/>
+
+                </div>
                   
                 <div className=" w-[200px] h-[50px] absolute top-[14px] left-[21px] text-right text-[17px] leading-[21px] font-normal text-[#005351] ">
                   دوره تخصصی ترفند هایه طراحی فرانت اند
@@ -284,7 +306,9 @@ const CourseDetail = () => {
 
               <div className=" w-[378px] h-[112px] bg-[#F7F7F7] flex rounded-[10px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.2)] relative ">
                 
-                <div className=" w-[126px] h-[84px] border rounded-[6px] shadow-[0_1px_1px_0px_rgba(0,0,0,0.2)] absolute top-[14px] right-[16px] "></div>
+                <div className=" w-[126px] h-[84px] border rounded-[6px] shadow-[0_1px_1px_0px_rgba(0,0,0,0.2)] absolute top-[14px] right-[16px] ">              
+                  <img src={images.fig}/>
+                </div>
                   
                 <div className=" w-[200px] h-[50px] absolute top-[14px] left-[21px] text-right text-[17px] leading-[21px] font-normal text-[#005351] ">
                   دوره تخصصی ترفند هایه طراحی فرانت اند
@@ -299,6 +323,8 @@ const CourseDetail = () => {
       </div>
 
     </div>
+
+  </div>
 
   </div> 
     </>
