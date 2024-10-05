@@ -2,8 +2,10 @@ import images from '../../assets'
 
 const PodCastSection = () => {
   return (
-    <section className="h-[532px] grid justify-center mt-[157.34px] -mb-[36px]" >
-           <div className='w-[1247px] flex justify-center '>
+    <section className="h-[532px] grid justify-center xl:mt-[157.34px] -mb-[36px] max-md:mt-[700px] max-md:hidden
+    max-lg:hidden lg:mt-[80px]
+    " >
+           <div className='xl:w-[1247px] lg:w-full flex justify-center '>
            <div className=' h-[87px]  grid 
                             justify-center ml-[33px]'>
                <div className='flex justify-center items-center 
@@ -19,10 +21,10 @@ const PodCastSection = () => {
                    >مجموعه ای از تمام   آنچه شما نیاز دارید
                    </p>
                </div>
+           </div> 
            </div>
-           </div>
-           <div className='w-[1247px] flex justify-center '>
-              <div className='w-[920px] h-[297px]' >
+           <div className='xl:w-[1247px] lg:w-full flex justify-center '>
+              <div className='xl:w-[920px] lg:w-[900px] xl:h-[297px]' >
                  <div className="w-[879px] h-[350px] bg-podcast bg-cover 
                                  text-center  flex items-center
                                  mt-[-57px] ml-[0] gap-[45px] ">

@@ -26,4 +26,20 @@
     height: 100%;
     padding: 0;
     margin: 0;
+    background-color: #f7f7f7;
 }
+
+
+:root::-webkit-scrollbar{
+    width: 8px;
+    position: fixed;
+    
+}
+  
+:root::-webkit-scrollbar-thumb{
+    background: #01CEC9;
+}
+  
+  
+  
+  

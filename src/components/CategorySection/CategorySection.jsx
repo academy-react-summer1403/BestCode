@@ -16,7 +16,9 @@ const CategorySection = () => {
                         max-md:mt-[-380px]
                         md:mt-[-250px]  
                         lg:mt-[29px]
-                        grid gap-[10px]'>
+                        grid gap-[10px]
+                        duration-700
+                        '>
        <div className='w-full grid justify-center'>
        <div className='xl:w-[1247px]
                        grid justify-center'>
@@ -50,10 +52,10 @@ const CategorySection = () => {
               </div>
           </div>
        </div>
-       </div > 
+        </div > 
         <div className=' bg-category
                          bg-cover 
-                         h-[496px]
+                         h-[600px]
                          bg-center 
                           flex
                           justify-center

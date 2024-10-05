@@ -50,7 +50,7 @@ import frame1 from './Frame-3.png'
 import frame2 from './Frame-4.png'
 import frame3 from './Frame-5.png'
 import rec36 from './Rectangle-36.png'
-import rec141 from './Rectangle-141.png'
+import rec141 from './Rectangle145.png'
 import enamad from './samandehi-ezgif.png'
 import instagram from './icons8-instagram.png'
 import telegram from './icons8-telegram.png'
@@ -59,7 +59,11 @@ import linkedin from './icons8-linkedin.png'
 import copyright from './icons8-circled.png'
 import close from './close-black.svg'
 import shape from './shape.png'
-
+import t1 from './Rectangle-282.png'
+import t2 from './Rectangle-313.png'
+import t3 from './Rectangle-32.png'
+import t4 from './Rectangle-33.png'
+import play from './Frame-44.png'
 export default {
     logo,
     fav,
@@ -122,4 +126,9 @@ export default {
     enamad,
     close,
     shape,
+    t1,
+    t2,
+    t3,
+    t4,
+    play,
 }

@@ -114,7 +114,7 @@ const Header = () => {
                      
                     /> 
                      {sidebar? (    
-                        <div className='fixed w-screen h-screen top-0 left-0 bg-white z-[999] flex
+                        <div className='fixed w-screen h-screen top-0 left-0 bg-white z-[999999] flex 
                          '>
                               <SideBar HandleClose={HandleClose}  />
                            </div>

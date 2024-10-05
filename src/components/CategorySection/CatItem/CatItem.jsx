@@ -24,6 +24,7 @@ const CatItem = ({title, src, width, height, mt , mbq}) => {
                                md:h-[120px]
                                lg:h-[165.32px]
                                lg:w-[165.32px]
+                               duration-500
                                group'>
                     <div className='grid justify-center xl:w-[185.32px] 
                                     xl:h-[185.32px] align-middle justify-items-center 
