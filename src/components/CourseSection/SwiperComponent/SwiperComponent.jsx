@@ -19,6 +19,11 @@ const SwiperComponent = () => {
         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
     ])
+
+    
+
+
+
     const [activeIndex, setActiveIndex] = useState(0);
     const handleSlideChange = (swiper) => {
       const currentIndex = swiper.realIndex;
@@ -47,17 +52,24 @@ const SwiperComponent = () => {
   return (
     <div className='font-primaryRegular grid justify-center 
                     mt-[25px] justify-items-center 
-                    ml-[7px]
+                    ml-[7px] 
+                    sm1:w-full
+                    smx4:w-full
+                    lg:w-full 
+                    duration-700
                     '>
       <div className='xl:w-[1247px] grid justify-center justify-items-center
+         sm1:w-full smx4:w-full lg:w-full
       '>  
         
-        <div className='xl:w-[1187px] h-[323px]  '>
+        <div className='xl:w-[1187px] h-[323px] sm1:w-[280px] smx4:w-[565px] lg:w-[565px]
+        duration-700
+        '>
        <Swiper 
            loop={true}
-           slidesPerView={4}
-           spaceBetween={41}
            modules={[Navigation , Autoplay , Pagination]}
+           spaceBetween={41}
+           slidesPerView={4}
            className=''
            autoplay={{
            delay: 2500,
@@ -74,13 +86,24 @@ const SwiperComponent = () => {
               slidesPerView:1,
               
             },
+            600: {
+               width:600,
+               slidesPerView:2,
+               spaceBetween:-12,
+             },
             1024:{
-              slidesPerView:4
+              width:1024,
+              slidesPerView:2,
+              spaceBetween:-450
+            },
+            1187:{
+              width:1187,
+              slidesPerView:4,
+              spaceBetween:41,
             }
           }}
       >        
        {slidercard.map((item , index)=> (
-         
                <SwiperSlide  >
                    <SliderCard 
                         title={item.title} 
@@ -91,15 +114,14 @@ const SwiperComponent = () => {
                         index={index}
                     /> 
                </SwiperSlide>
-        
          ))} 
      
       </Swiper>
         </div>      
         
      </div>
-     <SwiperNavButton handleNext={handleNext} handlePrev={handlePrev} />
-     <div className="flex justify-center gap-[7px] mt-[-35px]">
+      <SwiperNavButton handleNext={handleNext} handlePrev={handlePrev} />
+     <div className="flex justify-center gap-[7px] mt-[-35px] max-md:mt-[10px] max-lg:mt-[10px] lg:mt-[10px]">
         {[0, 1, 2].map((index) => (
           <button
             key={index}
@@ -110,7 +132,7 @@ const SwiperComponent = () => {
            
           ></button>
         ))}
-      </div> 
+      </div>   
   </div>
   )
 }

@@ -14,10 +14,10 @@ const Landing = () => {
       <HeroSection /> 
       <CategorySection /> 
       <CourseSection /> 
-      {/* <BestTeacher />
-      <ServicesSection /> 
-      <ArticleSection />
-      <PodCastSection />    */}
+      <BestTeacher />
+       <ServicesSection /> 
+      <ArticleSection /> 
+      <PodCastSection />      
    </Fragment>
   )
 }
