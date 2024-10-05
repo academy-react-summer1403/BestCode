@@ -1,4 +1,4 @@
-import images from '../../../assets'
+import images from '../../../../assets/landingpng'
 
 
 const SliderCard = ({price, teacher, student , title , duration}) => {

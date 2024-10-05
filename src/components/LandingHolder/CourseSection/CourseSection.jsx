@@ -1,5 +1,5 @@
-import images from '../../assets'
-import SwiperComponent from "../../components/CourseSection/SwiperComponent/SwiperComponent"
+import images from '../../../assets/landingpng'
+import SwiperComponent from "./SwiperComponent/SwiperComponent"
 
 const CourseSection = () => {
   return (

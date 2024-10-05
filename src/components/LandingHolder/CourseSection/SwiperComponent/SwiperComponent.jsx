@@ -1,5 +1,4 @@
 import {useRef , useState} from 'react'
-import images from '../../../assets'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {Autoplay , Navigation , Pagination} from 'swiper/modules'
@@ -104,7 +103,7 @@ const SwiperComponent = () => {
           }}
       >        
        {slidercard.map((item , index)=> (
-               <SwiperSlide  >
+               <SwiperSlide key={item} >
                    <SliderCard 
                         title={item.title} 
                         price={item.price}

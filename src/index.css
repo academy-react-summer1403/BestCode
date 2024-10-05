@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'BYekan';
-    src: url('../src/fonts/BYekan+.ttf');
+    src: url('../src/assets/fonts/BYekan+.ttf');
     font-weight: normal;
     font-style: normal;
     font-display:swap;
@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: 'BYekan-bold';
-    src: url('../src/fonts/BYekan-Bold.ttf');
+    src: url('../src/assets/fonts/BYekan-Bold.ttf');
     font-weight: normal;
     font-style: normal;
     font-display:swap;
