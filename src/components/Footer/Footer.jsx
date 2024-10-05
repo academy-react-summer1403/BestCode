@@ -3,7 +3,7 @@ import images from '../../assets'
 
 const Footer = () => {
   return (
-      <footer className="grid max-md:mt-[600px]  max-lg:mt-[800px]" >
+      <footer className="grid max-md:mt-[600px]  max-lg:mt-[800px] mt-[2px]" >
       <div className="h-[352px] w-full mb-[-7.5px] relative" >
    
         <div className="z-[78888]
