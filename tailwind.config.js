@@ -14,11 +14,11 @@ export default {
                  '3xxxl' : 'inset 0px 4.5px 6px rgba(0, 0, 0, 0.3)',
       },
       backgroundImage: {
-        'podcast': "url('./src/assets/Rectangle-35.png')",
-        'footerbg': "url('./src/assets/Rectangle-141.png')",
-        'category': "url('./src/assets/Rectangle-2.png')",
-        'sliderbg':"url('./src/assets/Rectangle-23.png')",
-        'teacherbg':"url('./src/assets/Rectangle-15.png')",
+        'podcast': "url('./src/assets/landingpng/Rectangle-35.png')",
+        'footerbg': "url('./src/assets/landingpng/Rectangle-141.png')",
+        'category': "url('./src/assets/landingpng/Rectangle-2.png')",
+        'sliderbg':"url('./src/assets/landingpng/Rectangle-23.png')",
+        'teacherbg':"url('./src/assets/landingpng/Rectangle-15.png')",
         'custom-gradient': 'linear-gradient(180deg, rgba(0, 252, 246, 0.8) -80.75%, rgba(0, 43, 42, 0.8) 100%)',
         'custom-blur':'backdrop-filter: blur(5px)'
 

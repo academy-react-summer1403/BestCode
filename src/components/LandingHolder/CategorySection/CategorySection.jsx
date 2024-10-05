@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import images from '../../assets'
+import images from '../../../assets/landingpng'
 import CatItem from './CatItem/CatItem'
 
 const CategorySection = () => {

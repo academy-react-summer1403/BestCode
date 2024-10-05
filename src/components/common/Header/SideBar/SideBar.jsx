@@ -1,4 +1,4 @@
-import images from '../../../assets'
+import images from '../../../../assets/landingpng'
 import { IoCloseCircle } from 'react-icons/io5'
 
 const SideBar = ({HandleClose}) => {

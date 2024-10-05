@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import Landing from './screens/Landing/Landing'
+import Landing from '../screens/Landing/Landing'
 
 function App() {
 

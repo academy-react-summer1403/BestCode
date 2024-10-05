@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 
-import images from '../../assets'
+import images from '../../../assets/landingpng'
 import { IoReorderThreeOutline } from "react-icons/io5";
 import SideBar from './SideBar/SideBar';
 

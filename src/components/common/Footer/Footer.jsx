@@ -1,9 +1,9 @@
-import images from '../../assets'
+import images from '../../../assets/landingpng'
 
 
 const Footer = () => {
   return (
-      <footer className="grid max-md:mt-[600px]  max-lg:mt-[800px] mt-[2px]" >
+      <footer className="grid max-md:mt-[-300px]  max-lg:mt-[-100px] mt-[2px]" >
       <div className="h-[352px] w-full mb-[-7.5px] relative" >
    
         <div className="z-[78888]
