@@ -1,5 +1,5 @@
 
-import HeaderSignUp from "./header"
+import HeaderSignUp from "../../components/Register/header"
 
 const LogInFirstStep = () => {
     return(
@@ -11,7 +11,7 @@ const LogInFirstStep = () => {
           <div className="xl:w-[90%] xl:h-full lg:h-full  md:h-[80%] sm:w-[90%] sm:h-full  ml-[4%]   duration-1000">
             <img src="./11.png" alt="image" className="w-full h-full" />
                 <div className="flex  w-full h-full">
-                <img src="./04.png" alt="image" className="  md:w-[60px] md:h-[60px] sm:h-[50px] sm:w-[50px] sm:bottom-[74%] md:ml-[23%] sm:ml-[18%] duration-1000 relative md:bottom-[72%] left-[1%]"/>
+                <img src="./04.png" alt="image" className="  md:w-[60px] md:h-[60px] sm:h-[50px] sm:w-[50px] sm:bottom-[74%] md:ml-[23%] sm:ml-[18%] duration-1000 relative  md:bottom-[440px] left-[1%]"/>
                 <div className="md:w-[37%] md:h-[55%] sm:h-[70%] sm:w-[50%]  relative bottom-[83%] duration-1000  " >
                 <img src="./12.png" alt="image" className="w-full h-full"/>
                 <div className="relative bottom-[100%] w-full h-full">

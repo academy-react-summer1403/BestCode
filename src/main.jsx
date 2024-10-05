@@ -6,8 +6,8 @@ import App from './App'
 import Landing from './screens/Landing/Landing'
 import CourseDetail from './screens/CourseDetail/CourseDetail'
 import Courses from './screens/Courses/Courses'
-import Login from './screens/Login/Login'
 import Register from './screens/Register/Register'
+import Login from './screens/Login/Login'
 import Root from './components/Root/Root'
 import NotFound from './components/NotFound/NotFound'
 import Error from './components/Error/Error'
@@ -21,10 +21,7 @@ const router = createBrowserRouter([
           element: <App />,
           errorElement:<Error/> 
         },
-        {
-          path:'/login',
-          element: <Login/>,
-        },
+    
         {
           path:'/landing',
           element: <Landing />,
@@ -43,9 +40,13 @@ const router = createBrowserRouter([
       ]
     },
     {
+      path:'/login',
+      element: <Login/>,
+    },
+    {
       path:'/register',
-      element: <Register />,
-      errorElement: <Error/> ,
+      element: < Register />,
+   
     },
     {
       path: "*",

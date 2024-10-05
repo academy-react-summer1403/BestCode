@@ -1,5 +1,5 @@
-import InputCode from "./inputCode";
-import HeaderSignUp from "./header";
+import InputCode from "../../components/Register/inputCode";
+import HeaderSignUp from "../../components/Register/header";
 
 const LogInSecondStep = () => {
     return(
