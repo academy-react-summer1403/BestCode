@@ -4,10 +4,20 @@ import { useState } from 'react';
 import images from '../../../assets/landingpng'
 import { IoReorderThreeOutline } from "react-icons/io5";
 import SideBar from './SideBar/SideBar';
+import { useDarkMode } from '../../../../DarkModeContext.jsx';
+import { LuSunMedium } from "react-icons/lu";
+import { RiMoonFill } from "react-icons/ri";
 
 
 
 const Header = () => {
+
+
+   
+   const { isDarkMode, toggleDarkMode } = useDarkMode()
+ 
+
+
   const [sidebar ,setSideBar] = useState(false)
 
   const OpenSideMenu = () => {
@@ -22,7 +32,7 @@ const Header = () => {
     setSideBar(false)
  }
   return (
-    <header className='h-[120px] w-full flex justify-center '>
+    <header className='h-[120px] w-full flex justify-center dark:bg-gray-800'>
           <div className='xl:w-[1247px] h-[50px]   
                           lg:w-[1000px]
                           md:w-[1247px]
@@ -74,12 +84,14 @@ const Header = () => {
                                           
                                           '>۲</span> 
                      </div> 
-                      <div className='w-[30px] h-[30px] mb-[11px] mt-[3px]   max-md:hidden '>
-                         <img 
-                             src={images.fav} 
-                             width={30} 
-                             height={30}
-                          />
+                      <div className='w-[30px] h-[30px] mb-[11px] mt-[3px]   max-md:hidden '
+                         onClick={toggleDarkMode}
+                      >
+                      {isDarkMode? 
+                        <LuSunMedium className='text-[30px] text-white' />  : 
+                        <RiMoonFill className='text-[30px] text-[#cccccc]' />}
+
+                        
                       </div>
                   </div>
 
@@ -89,7 +101,7 @@ const Header = () => {
                                font-primaryRegular xl:mr-[97px] pt-[7px]
                                max-md:hidden max-lg:hidden
                                lg:mr-[55px]
-
+                               dark:text-[#f7f7f7]
                                '
                     style={{justifyContent:'right'}}
                    >
@@ -116,7 +128,7 @@ const Header = () => {
                      {sidebar? (    
                         <div className='fixed w-screen h-screen top-0 left-0 bg-white z-[999999] flex 
                          '>
-                              <SideBar HandleClose={HandleClose}  />
+                              <SideBar HandleClose={HandleClose} toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}  />
                            </div>
                         ) : (
                          <div className='lg:hidden max-lg:flex' >

@@ -5,7 +5,7 @@ import images from '../../../assets/landingpng'
 
 const ServicesSection = () => {
   return (
-    <section className='h-[516px] grid justify-center '>
+    <section className='h-[516px] grid justify-center  dark:bg-gray-800'>
         <div className='xl:w-[1247px] flex justify-center xl:mt-[62.34px]
         max-md:w-full duration-700
         '>
@@ -13,7 +13,8 @@ const ServicesSection = () => {
                             justify-center xl:ml-[23px]'>
                <div className='flex justify-center items-center 
                                h-[54.38px] gap-[14.13px]'>
-                  <p className='font-primaryMedium text-[35px] max-md:text-[25px] text-[#000000] 
+                  <p className='font-primaryMedium text-[35px] max-md:text-[25px] text-[#000000]
+                                dark:text-[#f7f7f7] 
                                 w-[122.71px] h-[54.38px]'>خدمات ما</p>
                   <div className='h-[13px] w-[13px] bg-[#01CEC9] 
                                   rounded-full max-md:ml-[-40px] max-md:mb-[13px]'>                    

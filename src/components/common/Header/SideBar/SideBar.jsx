@@ -1,15 +1,21 @@
 import images from '../../../../assets/landingpng'
 import { IoCloseCircle } from 'react-icons/io5'
+import { LuSunMedium } from "react-icons/lu";
+import { RiMoonFill } from "react-icons/ri";
 
-const SideBar = ({HandleClose}) => {
+
+
+const SideBar = ({HandleClose , toggleDarkMode , isDarkMode}) => {
   return (
-    <div className="h-screen w-full">
+    <div className="h-screen w-full dark:bg-gray-800">
         
          <div className='flex justify-between   mt-[20px] px-6 items-center'  >
             <div className='flex items-center gap-[6px]'>
               <IoCloseCircle className='text-[30px] relative top-[1px] right-[4px] text-[#01CEC9]' onClick={HandleClose} />
              <div className='flex items-center gap-[11px] h-[50px] mt-[4px]  '>
-                    <div className='flex md:hidden'>
+                    <div className='flex md:hidden' 
+                    
+                    >
                           <img 
                                src={images.shopbag} 
                                width={32} 
@@ -24,14 +30,17 @@ const SideBar = ({HandleClose}) => {
                                           
                                           '>۲</span>
                     </div>  
-                    
+                    {isDarkMode? 
+                        <LuSunMedium 
+                        onClick={toggleDarkMode}
+                        className='text-[30px] text-white relative right-[13px] md:hidden' 
+                        
+                        />  : 
+                         <RiMoonFill 
+                         onClick={toggleDarkMode}
+                         className='text-[30px] text-[#cccccc] relative right-[13px] md:hidden' />}
                
-                         <img 
-                             src={images.fav} 
-                             width={30} 
-                             height={30}
-                             className='relative right-[13px] md:hidden'
-                          />
+                    
                       
                   </div>
                 </div>
@@ -42,6 +51,7 @@ const SideBar = ({HandleClose}) => {
           <ul className='text-[#555555]  px-6 justify-items-end mt-[50px]
                                grid  text-[17px] font-bold 
                                font-primaryRegular gap-5
+                               dark:text-[#f7f7f7]
                                '
                     style={{justifyContent:'right'}}
                    >

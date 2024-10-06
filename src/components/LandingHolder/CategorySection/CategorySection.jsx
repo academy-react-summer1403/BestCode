@@ -12,14 +12,17 @@ const CategorySection = () => {
 
 
   return (
-    <section className='xl:mt-[70px] 
+    <section className='
+                        grid gap-[10px]
+                        duration-700
+                        dark:bg-gray-800
+                        '>
+       <div className='w-full grid justify-center
+                        xl:mt-[70px] 
                         max-md:mt-[-380px]
                         md:mt-[-250px]  
                         lg:mt-[29px]
-                        grid gap-[10px]
-                        duration-700
-                        '>
-       <div className='w-full grid justify-center'>
+       '>
        <div className='xl:w-[1247px]
                        grid justify-center'>
          <div className='grid justify-center justify-items-center text-center'>
@@ -40,6 +43,7 @@ const CategorySection = () => {
                                 justify-center mb-[11px]
                                 max-md:text-[25px]
                                 md:text-[30px]
+                                dark:text-[#f7f7f7]
                                 ' >محبوب ترین دسته بندی ها</p>
                    <span className='w-[12.49px] h-[13.05px]
                    bg-[#01CEC9] rounded-full mt-[-5px] ml-[10px]'></span>
@@ -53,13 +57,16 @@ const CategorySection = () => {
           </div>
        </div>
         </div > 
-        <div className=' bg-category
+        <div className='bg-category
                          bg-cover 
                          h-[600px]
                          bg-center 
                           flex
                           justify-center
                           items-center
+                          max-md:mt-[-280px]
+                          md:mt-[-150px] 
+                          lg:mt-0
                           '>
              <div className='xl:w-[1093.08]  
                              xl:flex  

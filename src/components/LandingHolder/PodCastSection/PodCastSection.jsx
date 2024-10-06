@@ -2,11 +2,15 @@ import images from '../../../assets/landingpng'
 
 const PodCastSection = () => {
   return (
-     <section className="h-[532px] grid justify-center xl:mt-[157.34px] -mb-[36px] 
-                         max-md:mt-[700px] 
-                         max-smx3:mt-[600px]
+     <section className="h-[536px] grid justify-center  mb-[-2px] 
+                         max-md:pt-[30px]
                          duration-700
-                         lg:mt-[80px] md:mt-[750px]
+                         lg:mt-[-1px] 
+                         lg:pt-0
+                         md:pt-[30px]
+                         dark:bg-gray-800
+                         xl:pt-[34px]
+                         xl:mt-0
                   " >
            <div className='xl:w-[1247px] lg:w-full flex justify-center 
                            max-md:w-full
@@ -16,7 +20,7 @@ const PodCastSection = () => {
                <div className='flex justify-center items-center 
                                h-[54.38px] gap-[14.13px] xl:ml-[33px] max-md:ml-[30px]'>
                   <p className='font-primaryMedium text-[35px] text-[#000000] 
-                                w-[147.71px] h-[54.38px] max-md:text-[25px] '>پادکست ها</p>
+                                w-[147.71px] h-[54.38px] max-md:text-[25px] dark:text-[#f7f7f7] '>پادکست ها</p>
                   <div className='h-[13px] w-[13px] bg-[#01CEC9] 
                                   rounded-full max-md:mb-[10px] 
                                   max-md:relative max-md:right-[40px]
@@ -35,7 +39,7 @@ const PodCastSection = () => {
                </div>
            </div> 
            </div>
-           <div className='xl:w-[1247px] flex justify-center max-md:w-full'>
+           <div className='xl:w-[1247px] flex justify-center max-md:w-full xl:mt-[35px]'>
               <div className='xl:w-[920px] lg:w-[900px] xl:h-[297px]' >
                  <div className="lg:w-[879px] 
                  max-md:w-[320px] 
