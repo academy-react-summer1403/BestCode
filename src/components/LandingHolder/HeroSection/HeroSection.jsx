@@ -2,9 +2,9 @@ import images from '../../../assets/landingpng'
 
 const HeroSection = () => {
   return (
-    <section className='h-[652px] flex justify-center  mt-[1px] '>
+    <section className='h-[652px] flex justify-center   dark:bg-gray-800 '>
         <div className='h-[625px] flex max-md:w-full max-lg:w-full
-                        w-[1247px] pt-[11px] max-md:justify-end 
+                        w-[1247px] pt-[11px] max-md:justify-end mt-[1px] 
                         justify-between 
                         max-lg:justify-end 
                         max-md:px-[10px]
@@ -129,6 +129,7 @@ const HeroSection = () => {
                               max-md:text-[50px]
                               max-sm:text-[40px]
                               max-md:mr-[-4.5px] 
+                              dark:text-[#f7f7f7]
                               ">عنوان <span className="text-[#01CEC9] 
                                                          drop-shadow-[#0000004D]"
                               >آموزشگاه</span>
@@ -139,6 +140,7 @@ const HeroSection = () => {
                               max-md:mb-[110px]
                               max-md:mr-[-4.5px]
                               max-sm:text-[14px]
+                              dark:text-[#f7f7f7]
 
                                                  "
                  >مرجع اموزش زنده و تعاملی برنامه نویسی حوزه وب 
@@ -184,6 +186,8 @@ const HeroSection = () => {
                                           h-[21.25px] mr-[39.27px] border-none 
                                           outline-none
                                           max-sm:placeholder:text-[15px]
+                                          dark:placeholder:dark:text-[#f7f7f7]
+                                          bg-transparent
                                           smx:text-[18px]
                                           '
                     />

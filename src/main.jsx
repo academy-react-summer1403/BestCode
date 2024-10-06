@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router-dom'
+import { DarkModeProvider } from '../DarkModeContext.jsx';
 
 import router from './config/router/router.jsx'
 
@@ -8,5 +9,7 @@ import router from './config/router/router.jsx'
 
 
 createRoot(document.getElementById('root')).render(
-    <RouterProvider  router={router}  />
+    <DarkModeProvider>
+      <RouterProvider  router={router}  />
+    </DarkModeProvider>
 )

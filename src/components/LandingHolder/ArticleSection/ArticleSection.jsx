@@ -5,7 +5,7 @@ import images from '../../../assets/landingpng'
 
 const ArticleSection = () => {
   return (
-    <section className=' h-[707px] grid justify-center '>
+    <section className=' lg:h-[864.34px] grid justify-center dark:bg-gray-800'>
         <div className='xl:w-[1247px] flex justify-center 
                         xl:mt-[126px]
                         max-smx3:mt-[500px]
@@ -13,13 +13,14 @@ const ArticleSection = () => {
                         smx3:mt-[500px]
                         md:mt-[550px]
                         lg:mt-[120px]
+                       
                         '>
            <div className=' h-[87px]  grid 
                             justify-center ml-[25px]'>
                <div className='flex justify-center items-center 
                                h-[54px] gap-[11.13px] max-md:mr-[35px]'>
                   <p className='font-primaryMedium text-[35px] text-[#000000] 
-                             max-md:text-[25px]   w-[179px] h-[54px]  text-center'>اخبار و مقالات</p>
+                             max-md:text-[25px]   w-[179px] h-[54px] dark:text-[#f7f7f7]  text-center'>اخبار و مقالات</p>
                   <div className='h-[13px] w-[13px] bg-[#01CEC9] 
                                   rounded-full max-md:ml-[-25px]
                                   max-md:mb-[15px]

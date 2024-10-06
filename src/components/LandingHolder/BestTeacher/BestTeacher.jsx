@@ -3,9 +3,12 @@ import images from '../../../assets/landingpng'
 
 const BestTeacher = () => {
   return (
-    <section className="flex justify-center mt-[106px] h-[467px]
-    duration-700
-    items-center"> 
+    <section className="h-[573px] pt-[106px]
+    duration-700 dark:bg-gray-800
+    "> 
+    <div className=' flex justify-center  h-[467px] 
+    duration-700 
+    items-center'>
            <img 
                src={images.reco44} 
                height={402}  
@@ -14,7 +17,8 @@ const BestTeacher = () => {
                           xl:w-full
                           max-lg:w-full
                '  />
-           <div className="xl:w-[1247px] h-[467px] 
+           <div className="xl:w-[1247px] h-[467px]
+                           
                            duration-700
                            max-md:w-full
                            max-md:flex
@@ -221,6 +225,7 @@ const BestTeacher = () => {
                     </div>  
                 </div>
           </div>
+    </div>
     </section>
   )
 }

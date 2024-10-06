@@ -4,11 +4,14 @@ import SwiperComponent from "./SwiperComponent/SwiperComponent"
 const CourseSection = () => {
   return (
   
-    <section className='xl:mt-[112px] xl:justify-center  grid max-md:mt-[20px] max-md:w-full sm1:w-full'>
+    <section className=' xl:justify-center  
+                      dark:bg-gray-800
+                       grid  max-md:w-full sm1:w-full'>
        <div className='xl:w-[1247px] justify-center grid 
                        max-md:w-full
                        duration-700
-
+                       xl:mt-[112px]
+                       max-md:mt-[20px]
         '>
           <div className='xl:w-[319px] h-[93px] grid xl:ml-[35px] xl:mb-[41px]
                           max-md:ml-[13px] 
@@ -19,6 +22,7 @@ const CourseSection = () => {
                                  h-[57.64px]  xl:ml-[20px]
                                  max-md:text-[25px]
                                  md:text-[30px]
+                                 dark:text-[#f7f7f7]
                                  ' >دوره های آموزشی</p>
                  <div className='h-[13px] w-[13px] bg-[#01CEC9] rounded-md 
                                  max-md:mb-[12px] md:mb-[5px] xl:mb-0'></div>
