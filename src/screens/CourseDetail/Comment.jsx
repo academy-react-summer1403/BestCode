@@ -1,231 +1,225 @@
 import React from 'react'
+import images from '../../assets/img/coursDetail'
+
 
 const Comment = () => {
   return (
     <>
-        <section class="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
-    <div class="max-w-2xl mx-auto px-4">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
-        </div>
-        <form class="mb-6">
-            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <label for="comment" class="sr-only">Your comment</label>
-                <textarea id="comment" rows="6"
-                    class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                    placeholder="Write a comment..." required></textarea>
-            </div>
-            <button type="submit"
-                class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                Post comment
+      <p className="relative top-[17px] right-[3px] w-[105px] h-[32px] text-[#005351] font-bold  text-2xl"> نظرات </p>
+      
+       <div className=" w-full h-[832px] mb-5 flex flex-wrap relative rounded-2xl shadow-[0_3px_5px_0px_rgba(0,0,0,3)] ">
+
+            <button class=" w-[185px] h-[37px] flex absolute left-5 top-4 rounded-lg border  py-2 px-4 text-center text-[15px] font-normal leading-[21px] transition-all shadow-sm hover:shadow-lg bg-[#00E2DC] text-[#005653] hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="sumbit">
+            
+            <img src={images.pm} className="w-[16px] h-[14px] mr-[10px] "/>
+
+            <p className=" w-28 h-full relative bottom-[3px] right-1"> ارسال دیدگاه جدید </p>    
+  
             </button>
-        </form>
-        <article class="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
-            <footer class="flex justify-between items-center mb-2">
-                <div class="flex items-center">
-                    <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-                        <img
-                            class="mr-2 w-6 h-6 rounded-full"
-                            src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                            alt="Michael Gough"/>Michael Gough</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
-                            title="February 8th, 2022">Feb. 8, 2022</time></p>
-                </div>
-                <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
-                    class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    type="button">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                        <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                    </svg>
-                    <span class="sr-only">Comment settings</span>
-                </button>
+        
+                <div class=" w-[95%] h-[313px] mt-[70px] mx-auto px-4 bg-[#F9F9F9] rounded-lg shadow-[0_3px_4px_0px_rgba(0,0,0,0.5)] ">
                 
-                <div id="dropdownComment1"
-                    class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdownMenuIconHorizontalButton">
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                        </li>
-                    </ul>
-                </div>
-            </footer>
-            <p class="text-gray-500 dark:text-gray-400">Very straight-to-point article. Really worth time reading. Thank you! But tools are just the
-                instruments for the UX designers. The knowledge of the design tools are as important as the
-                creation of the design strategy.</p>
-            <div class="flex items-center mt-4 space-x-4">
-                <button type="button"
-                    class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                    <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                    </svg>
-                    Reply
-                </button>
-            </div>
-        </article>
-        <article class="p-6 mb-3 ml-6 lg:ml-12 text-base bg-white rounded-lg dark:bg-gray-900">
-            <footer class="flex justify-between items-center mb-2">
-                <div class="flex items-center">
-                    <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-                        <img
-                            class="mr-2 w-6 h-6 rounded-full"
-                            src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                            alt="Jese Leos"/>
-                            Jese Leos</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-12"
-                            title="February 12th, 2022">Feb. 12, 2022</time></p>
-                </div>
-                <button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2"
-                    class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    type="button">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                        <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                    </svg>
-                    <span class="sr-only">Comment settings</span>
-                </button>
                 
-                <div id="dropdownComment2"
-                    class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdownMenuIconHorizontalButton">
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                        </li>
-                    </ul>
+                    <article class="p-2 text-base   dark:bg-gray-900 ">
+                        <footer class="flex justify-between items-center mb-2 border-b-2 relative">
+                            <div class="flex flex-wrap items-center w-[202px] h-[62px]  relative ">
+                               <div className="w-[28%] h-[95%] rounded-full border-2 border-[#E4E4E4] "><img
+                                        class=" w-[85%] h-[85%] m-auto mt-[3.5px] rounded-full"
+                                        src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                                        alt="Michael Gough"
+                                /></div>
+                                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">                                  
+                                کاربر | ali@gmail.com
+                                </p>
+                                <p class="text-sm text-[#888888] dark:text-gray-400 w-[70%] h-[50%] absolute bottom-[0px] right-[65px]">
+                                    <time pubdate datetime="2022-02-08"
+                                        title="February 8th, 2022"> 
+                                        ۱۴۰۳/۰۱/۲۵  
+                                    </time>
+                                </p>
+                            </div>
+                            <div className="flex w-[141px] h-[33px] cursor-pointer ">
+                               <div className="h-[100%] w-[30%]  flex gap-1">
+
+                                  <span className="text-[#888888] text-[18px]"> ۶ </span>
+                                  <img src={images.disLike} alt="" className="h-[24px] w-[24px]" />
+
+                               </div>
+                               <div className="h-[100%] w-[30%]  flex gap-1">
+
+                                  <span className="text-[#888888] text-[18px]"> ۲۵ </span>
+                                  <img src={images.Like} alt="" className="h-[22px] w-[22px]" />
+
+                               </div>
+                               <div className="h-[100%] w-[40%]  flex">
+
+                                <img src={images.Replay} alt="" className="h-[22px] w-[22px] mr-7 " />
+
+                               </div>
+                            </div>
+                           
+                            
+                        </footer>
+                        <p class="text-gray-500 dark:text-gray-400">
+                        سلام. من خيلي دوست دارم اين دوره رو بخرم ولي قيمتش خيلي بالاست، چه زماني دوباره اين دوره تخفيف ميخوره؟
+                        </p>
+                        <div class="flex items-center mt-4 space-x-4">
+                            
+                        </div>
+                    </article>
+
+                    <article class="p-6 mb-3 mx-auto relative bottom-4 shadow-[0_-2px_4px_0px_rgba(0,0,0,0.2)] text-base bg-[#ECECEC] rounded-xl border-r-4 border-[#01CEC9] dark:bg-gray-900">
+                    <footer class="flex justify-between items-center mb-2 border-b-2 border-[#DDDDDD] relative">
+                            <div class="flex flex-wrap items-center w-[202px] h-[62px]  relative ">
+                               <div className="w-[28%] h-[95%] rounded-full border-2 border-[#01CEC9] "><img
+                                        class=" w-[85%] h-[85%] m-auto mt-[3.5px] rounded-full"
+                                        src={images.mehdi}
+                                        alt="Michael Gough"
+                                /></div>
+                                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">                                  
+                                مهدی اصغری | مدرس
+                                </p>
+                                <p class="text-sm text-[#888888] dark:text-gray-400 w-[70%] h-[50%] absolute bottom-[0px] right-[65px]">
+                                    <time pubdate datetime="2022-02-08"
+                                        title="February 8th, 2022"> 
+                                        ۱۴۰۳/۰۱/۲۵  
+                                    </time>
+                                </p>
+                            </div>
+                            <div className="flex w-[141px] h-[33px] cursor-pointer ">
+                               <div className="h-[100%] w-[30%]  flex gap-1">
+
+                                  <span className="text-[#888888] text-[18px]"> ۶ </span>
+                                  <img src={images.disLike} alt="" className="h-[24px] w-[24px]" />
+
+                               </div>
+                               <div className="h-[100%] w-[30%]  flex gap-1">
+
+                                  <span className="text-[#888888] text-[18px]"> ۲۵ </span>
+                                  <img src={images.Like} alt="" className="h-[22px] w-[22px]" />
+
+                               </div>
+                               <div className="h-[100%] w-[40%]  flex">
+
+                                <img src={images.Replay} alt="" className="h-[22px] w-[22px] mr-7 " />
+
+                               </div>
+                            </div>
+                            
+                        </footer>
+                        <p class="text-gray-500 dark:text-gray-400">
+                        سلام عزیز. حدودا 9 روز دیگه (1 اردیبهشت) برای این دوره تخفیف خواهیم داشت. برای مطلع شدن از تخفیف‌ها و جشنواره‌ها لطفا خود سایت و سوشال های سبزلرن رو دنبال کنین 👌❤️                        </p>
+                        <div class="flex items-center mt-4 space-x-4">
+                            
+                        </div>
+                    </article>
+                    
                 </div>
-            </footer>
-            <p class="text-gray-500 dark:text-gray-400">Much appreciated! Glad you liked it ☺️</p>
-            <div class="flex items-center mt-4 space-x-4">
-                <button type="button"
-                    class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                    <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                    </svg>                
-                    Reply
-                </button>
-            </div>
-        </article>
-        <article class="p-6 mb-3 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-            <footer class="flex justify-between items-center mb-2">
-                <div class="flex items-center">
-                    <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-                        <img
-                            class="mr-2 w-6 h-6 rounded-full"
-                            src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-                            alt="Bonnie Green"/>
-                                Bonnie Green</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-03-12"
-                            title="March 12th, 2022">Mar. 12, 2022</time></p>
-                </div>
-                <button id="dropdownComment3Button" data-dropdown-toggle="dropdownComment3"
-                    class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    type="button">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                        <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                    </svg>
-                    <span class="sr-only">Comment settings</span>
-                </button>
+          
+                <div class="  h-[313px] w-[95%]  mx-auto px-4 bg-[#F9F9F9] rounded-lg shadow-[0_3px_4px_0px_rgba(0,0,0,0.5)] ">
                 
-                <div id="dropdownComment3"
-                    class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdownMenuIconHorizontalButton">
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                        </li>
-                    </ul>
-                </div>
-            </footer>
-            <p class="text-gray-500 dark:text-gray-400">The article covers the essentials, challenges, myths and stages the UX designer should consider while creating the design strategy.</p>
-            <div class="flex items-center mt-4 space-x-4">
-                <button type="button"
-                    class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                    <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                    </svg>
-                    Reply
-                </button>
-            </div>
-        </article>
-        <article class="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-            <footer class="flex justify-between items-center mb-2">
-                <div class="flex items-center">
-                    <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-                        <img
-                            class="mr-2 w-6 h-6 rounded-full"
-                            src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
-                            alt="Helene Engels"/>
-                            Helene Engels</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-06-23"
-                            title="June 23rd, 2022">Jun. 23, 2022</time></p>
-                </div>
-                <button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4"
-                    class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    type="button">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                        <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                    </svg>
-                </button>
                 
-                <div id="dropdownComment4"
-                    class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdownMenuIconHorizontalButton">
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                        </li>
-                    </ul>
+                    <article class="p-2 text-base   dark:bg-gray-900 ">
+                        <footer class="flex justify-between items-center mb-2 border-b-2 relative">
+                            <div class="flex flex-wrap items-center w-[202px] h-[62px]  relative ">
+                               <div className="w-[28%] h-[95%] rounded-full border-2 border-[#FFBD59] "><img
+                                        class=" w-[85%] h-[85%] m-auto mt-[3.5px] rounded-full"
+                                        src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                                        alt="Michael Gough"
+                                /></div>
+                                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">                                  
+                                کاربر | ali@gmail.com
+                                </p>
+                                <p class="text-sm text-[#888888] dark:text-gray-400 w-[70%] h-[50%] absolute bottom-[0px] right-[65px]">
+                                    <time pubdate datetime="2022-02-08"
+                                        title="February 8th, 2022"> 
+                                        ۱۴۰۳/۰۱/۲۵  
+                                    </time>
+                                </p>
+                            </div>
+                            <div className="flex w-[141px] h-[33px] cursor-pointer ">
+                               <div className="h-[100%] w-[30%]  flex gap-1">
+
+                                  <span className="text-[#888888] text-[18px]"> ۶ </span>
+                                  <img src={images.disLike} alt="" className="h-[24px] w-[24px]" />
+
+                               </div>
+                               <div className="h-[100%] w-[30%]  flex gap-1">
+
+                                  <span className="text-[#888888] text-[18px]"> ۲۵ </span>
+                                  <img src={images.Like} alt="" className="h-[22px] w-[22px]" />
+
+                               </div>
+                               <div className="h-[100%] w-[40%]  flex">
+
+                                <img src={images.Replay} alt="" className="h-[22px] w-[22px] mr-7 " />
+
+                               </div>
+                            </div>
+                           
+                            
+                        </footer>
+                        <p class="text-gray-500 dark:text-gray-400">
+                        سلام. من خيلي دوست دارم اين دوره رو بخرم ولي قيمتش خيلي بالاست، چه زماني دوباره اين دوره تخفيف ميخوره؟
+                        </p>
+                        <div class="flex items-center mt-4 space-x-4">
+                            
+                        </div>
+                    </article>
+
+                    <article class="p-6 mb-3 mx-auto relative bottom-4 shadow-[0_-2px_4px_0px_rgba(0,0,0,0.2)] text-base bg-[#ECECEC] rounded-xl border-r-4 border-[#01CEC9] dark:bg-gray-900">
+                    <footer class="flex justify-between items-center mb-2 border-b-2 border-[#DDDDDD] relative">
+                            <div class="flex flex-wrap items-center w-[202px] h-[62px]  relative ">
+                               <div className="w-[28%] h-[95%] rounded-full border-2 border-[#01CEC9] "><img
+                                        class=" w-[85%] h-[85%] m-auto mt-[3.5px] rounded-full"
+                                        src={images.mehdi}
+                                        alt="Michael Gough"
+                                /></div>
+                                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">                                  
+                                  مهدی اصغری | مدرس                               
+                                 </p>
+                                <p class="text-sm text-[#888888] dark:text-gray-400 w-[70%] h-[50%] absolute bottom-[0px] right-[65px]">
+                                    <time pubdate datetime="2022-02-08"
+                                        title="February 8th, 2022"> 
+                                        ۱۴۰۳/۰۱/۲۵  
+                                    </time>
+                                </p>
+                            </div>
+                            <div className="flex w-[141px] h-[33px] cursor-pointer ">
+                               <div className="h-[100%] w-[30%]  flex gap-1">
+
+                                  <span className="text-[#888888] text-[18px]"> ۶ </span>
+                                  <img src={images.disLike} alt="" className="h-[24px] w-[24px]" />
+
+                               </div>
+                               <div className="h-[100%] w-[30%]  flex gap-1">
+
+                                  <span className="text-[#888888] text-[18px]"> ۲۵ </span>
+                                  <img src={images.Like} alt="" className="h-[22px] w-[22px]" />
+
+                               </div>
+                               <div className="h-[100%] w-[40%]  flex">
+
+                                <img src={images.Replay} alt="" className="h-[22px] w-[22px] mr-7 " />
+
+                               </div>
+                            </div>
+                            
+                        </footer>
+                        <p class="text-gray-500 dark:text-gray-400">
+                        سلام عزیز. حدودا 9 روز دیگه (1 اردیبهشت) برای این دوره تخفیف خواهیم داشت. برای مطلع شدن از تخفیف‌ها و جشنواره‌ها لطفا خود سایت و سوشال های سبزلرن رو دنبال کنین 👌❤️                        </p>
+                        <div class="flex items-center mt-4 space-x-4">
+                            
+                        </div>
+                    </article>
+                    
                 </div>
-            </footer>
-            <p class="text-gray-500 dark:text-gray-400">Thanks for sharing this. I do came from the Backend development and explored some of the tools to design my Side Projects.</p>
-            <div class="flex items-center mt-4 space-x-4">
-                <button type="button"
-                    class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                    <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                    </svg>
-                    Reply
-                </button>
-            </div>
-        </article>
-    </div>
-        </section>
+              
+                <button class=" w-[177px] h-[40px] mt-[22px]  m-auto rounded-full border border-[#E48900] py-2 px-4 text-center text-[15px] font-normal leading-[21px] transition-all shadow-sm hover:shadow-lg text-[#6B3A00] hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                مشاهده بیشتر      +
+               </button>
+
+        </div>       
    </>
   )
 }

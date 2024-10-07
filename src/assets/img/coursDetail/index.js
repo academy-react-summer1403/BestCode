@@ -14,10 +14,28 @@ import person from './person.png'
 import Bpik from './Bpik.png'
 import ads from './ads.png'
 
+import play from './play.png'
+
+import pm from './pm.png'
+import Like from './Like.png'
+import disLike from './disLike.png'
+import Replay from './Replay.png'
+import prof from './prof.png'
+
+
+
+
+
 
 
 
 export default {
+    prof,
+    disLike,
+    Replay,
+    Like,
+    pm,
+    play,
     ads,
     save,
     person,
