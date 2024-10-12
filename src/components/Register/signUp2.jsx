@@ -5,7 +5,7 @@ import { Form,Formik,Field } from "formik"
 const SignUpSecondStep = ({setActive}) => {
     return(
        <Formik>
-               <div className="flex dark  ab:ml-[90px] sm:ml-0 ">
+               <div className="flex  ab:ml-[90px] sm:ml-0 ">
                 <img src="./07.png" alt="image" className=" cd:w-[60px] cd:h-[60px] lg:mt-[33%] cd:left-[2%] relative lg:ml-[22%]
                 cd:mt-[26%] cd:ml-[14%] md:ml-[10%] md:mt-[21%] md:w-[55px] md:h-[55px] ab:w-[50px] ab:h-[50px] ab:ml-[28%] ab:mt-[25%] ab:left-[1%]
                 sm:mt-[19%] sm:left-[1%] sm:ml-[8%]  md:left-[1%] duration-1000 dark:hidden  "/>

@@ -23,8 +23,8 @@ const LogInFirstStep = ({setActive}) => {
 text-center " > ورود به حساب کاربری</h1>
 
 <Field  type="text" placeholder="شماره همراه یا ایمیل" className="w-[74%] ab:h-[35px] md:h-[45px] text-right rounded-[9px]  font-BYekan
-bg-[#F7F7F7]  shadow-[0px 1px 2px 0px #00000040 inset] md:text-[17px] ab:text-[13px]
- mx-auto ml-[13%] cd:mt-[10%] sm:mt-[5%] ab:mt-[5%] md:mt-[8%] "/>
+bg-[#F7F7F7]  shadow-[0px_1px_2px_0px_#00000040_inset] md:text-[17px] ab:text-[13px]
+ mx-auto ml-[13%] cd:mt-[10%] sm:mt-[5%] ab:mt-[5%] md:mt-[8%]  pr-[22px]"/>
 <Field  type="text" placeholder="رمز عبور" className="w-[74%] ab:h-[35px] md:h-[45px] text-right rounded-[9px] font-BYekan 
 bg-[#F7F7F7]  shadow-[0px 1px 2px 0px #00000040 inset] md:text-[17px] ab:text-[13px]
  mt-[3%] mx-auto ml-[13%] "/>  
