@@ -1,12 +1,16 @@
 import { Fragment } from 'react'
+import Landing from '../screens/Landing/Landing'
 
 function App() {
 
   return (
     <Fragment>
-       <p className=''>App</p>
+       <Landing />
     </Fragment>
   )
 }
 
 export default App
+
+
+
