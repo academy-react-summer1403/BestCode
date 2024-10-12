@@ -37,7 +37,7 @@ const  Login = () => {
  
        </div>
           <NavLink to={"/register"} className=" text-[#006865] md:text-[24px] sm:text-[20px] text-nowrap relative xl:mt-[110px]
-          xl:left-[60px] lg:mt-[110px] lg:left-[60px] cd:mt-[100px] cd:left-[125px] md:mt-[70px] md:left-[120px]
+          xl:left-[60px] lg:mt-[110px] lg:left-[54px] cd:mt-[100px] cd:left-[125px] md:mt-[70px] md:left-[120px]
           sm:mt-[60px] sm:left-[85px] ab:right-[450px] ab:mt-[52px]" >ثبت نام</NavLink>
             
             <button onClick={()=>setActive(old=>old-1)} className="dark:text-[#005351] text-[#AAAAAA] ab:text-[18px] md:text-[20px] text-nowrap relative xl:right-[200px] ef:right-[200px] lg:right-[200px]
@@ -45,7 +45,7 @@ const  Login = () => {
             
            <button  className="text-[#006865] md:text-[24px] sm:text-[20px] relative xl:bottom-[80px] xl:right-[90px]
            lg:bottom-[17%] lg:right-[90px]  cd:bottom-[150px] cd:right-[10px] md:bottom-[190px] md:right-[23px] sm:bottom-[210px] sm:right-[40px] 
-           ab:right-[450px] font-BYekan ab:bottom-[300px]" >ورود</button>
+           ab:right-[410px] font-BYekan ab:bottom-[300px]" >ورود</button>
         </div>   
 
      </div>
