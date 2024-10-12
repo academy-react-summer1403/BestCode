@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
     extend: {
+      colors:{
+         'blue1':'#00E2DC'
+
+      },
       fontFamily: {
         primaryRegular:['BYekan'],
         primaryMedium:['BYekan-bold'],
