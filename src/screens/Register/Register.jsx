@@ -14,25 +14,15 @@ const Register = () => {
   const navigate=useNavigate()
   return (
     <>
-           <div  className="w-full h-screen"  >
+           <div  className="w-full h-screen flex font-BYekan  "   >
         {/* <HeaderSignUp/> */}
-        <div className="w-full h-screen  justify-center flex" >
-          <div className="xl:w-[952px] xl:h-[631px]
-          relative max-ab:left-[-30px] ab:left-[-30px]
-          lg:h-[550px] lg:w-[850px]
-           md:h-[500px] md:w-[550px]
-           sm:h-[450px]
-           sm:w-[470px]
-           ab:h-[450px]
-           ab:mt-[50px]
-           ab:w-[300px]
-           cd:w-[650px]
-           sm:mt-[102px] 
-           center  justify-center flex-wrap  duration-1000">
+        <div className="w-full h-screen  justify-center flex dark:bg-slate-950" >
+          <div className="lg:w-[869px] lg:h-[631px] cd:h-[550px] cd:w-[650px] duration-1000 
+          md:w-[550px] md:h-[450px] sm:w-[500px] sm:h-[400px] xl:ml-0 lg:ml-[9%] cd:ml-[2%] pt-3 pl-10">
           
-          <div className="w-[869px] h-screen      duration-1000">
-            <img src="./01.png" alt="image" className="w-full h-full relative" />
-       {active==1?<SignUpFirstStep setActive={setActive} />:null }
+          <div className="w-[869px] h-full  sm:bg-[url(../01.png)] bg-contain bg-no-repeat duration-1000">
+            {/* <img src="./01.png" alt="image" className="w-full h-full relative " /> */}
+       {active==1?<SignUpFirstStep  setActive={setActive} />:null }
        {active==2?<SignUpSecondStep setActive={setActive} />:null }
        {active==3?<SignUpThirdStep  />:null }
 
@@ -40,14 +30,21 @@ const Register = () => {
 
     </div>
          
-         <button onClick={()=>setActive(old=>old-1)} className="text-[#AAAAAA] relative ab:text-[17px] md:text-[20px] bottom-[10%] left-[10%] ">مرحله قبل</button>   
-                  <button className="text-[#006865] ab:text-[18px] sm:text-[24px] relative bottom-[85%] xl:left-[95%] lg:left-[92%]
-                  cd:left-[91%] md:left-[89%] sm:left-[84%] ab:left-[77%] text-nowrap " >ثبت نام</button>
-         <button onClick={()=>navigate("/Login")} className="text-[#006865] ab:text-[18px]  sm:text-[24px] relative bottom-[73%] xl:left-[88%] 
-         cd:left-[80%] lg:left-[85%]  md:left-[77%] sm:left-[70%] ab:left-[58%]" >ورود</button>     
+       
+
+  
      </div>
-        
+            <button className="text-[#006865] md:text-[24px] sm:text-[20px] text-nowrap relative xl:bottom-[190px] xl:right-[-40px]
+            lg:bottom-[230px] lg:right-[-50px] ef:bottom-[230px] ef:right-[-50px] cd:bottom-[250px] cd:right-[-60px] md:bottom-[270px] md:right-[-120px] sm:bottom-[280px]
+            ab:right-[450px] ab:bottom-[300px] md:ml-0 sm:ml-4 sm:right-[-80px] cd:ml-24 lg:ml-0 " >ثبت نام </button>
+            <button onClick={()=>setActive(old=>old-1)} className="text-[#AAAAAA] sm:text-[18px] md:text-[20px] text-nowrap relative lg:right-[190px] 
+            cd:mt-[310px] cd:right-[170px] xl:mt-[550px] lg:mt-[460px] ab:right-[350px] ab:mt-[70px] sm:right-[100px] sm:mt-[20px] md:right-[100px] md:mt-[120px] xl:right-[190px] dark:text-[#006865]">مرحله قبل</button> 
+            
+           <button onClick={()=>navigate("/Login")} className="text-[#006865] md:text-[24px] sm:text-[20px] relative xl:bottom-[90px] xl:right-[110px]
+           lg:bottom-[120px] lg:right-[100px] ef:right-[100px] cd:bottom-[150px] cd:right-[90px] md:bottom-[190px] md:right-[30px] sm:bottom-[200px] sm:right-[50px] 
+           ab:right-[450px] ab:bottom-[300px]" >ورود</button>         
       </div>   
+                         
    </div>
     </>
   )

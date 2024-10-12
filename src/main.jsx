@@ -11,6 +11,7 @@ import Login from './screens/Login/Login'
 import Root from './components/Root/Root'
 import NotFound from './components/NotFound/NotFound'
 import Error from './components/Error/Error'
+
 const router = createBrowserRouter([
     {
       path:'/',
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
     },
     {
       path:'/register',
-      element: < Register />,
+      element: <Register/>,
    
     },
     {

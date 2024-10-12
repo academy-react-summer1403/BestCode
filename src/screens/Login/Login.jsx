@@ -1,32 +1,32 @@
 
 import HeaderSignUp from "../../components/Login/header"
-import LogInFirstStep from "../../components/Login/Register1"
-import LogInSecondStep from "../../components/Login/register2"
-import { useNavigate } from "react-router-dom";
+import LogInFirstStep from "../../components/Login/Login1"
+import LogInSecondStep from "../../components/Login/Login2"
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { data } from "autoprefixer";
+
 const  Login = () => {
   
     const [active, setActive]=useState(1)
     const navigate=useNavigate()
+    const handleNavigate = () =>{
+        navigate("/register")
+    }
+   
+
+    
+    
+    
     return (
       <>
-             <div  className="w-[full] h-[1020px]"  >
-          <HeaderSignUp/>
-          <div className="w-full h-[900px]  justify-center flex" >
-            <div className="xl:w-[952px] xl:h-[631px]
-            relative max-ab:left-[-30px] ab:left-[-30px]
-            lg:h-[550px] lg:w-[850px]
-             md:h-[500px] md:w-[550px]
-             sm:h-[450px]
-             sm:w-[470px]
-             ab:h-[450px]
-             ab:mt-[50px]
-             ab:w-[300px]
-             cd:w-[650px]
-             sm:mt-[102px] center  justify-center flex-wrap  duration-1000">
-            
-            <div className="w-[869] h-full      duration-1000">
-              <img src="./11.png" alt="image" className="w-full h-full" />
+            <div  className="w-full h-screen flex font-BYekan  overflow-hidden"    >
+        {/* <HeaderSignUp/> */}
+        <div className="w-full h-screen  justify-center flex dark:bg-gray-950" >
+          <div className="lg:w-[869px] lg:h-[631px] cd:h-[550px] cd:w-[650px] duration-1000 
+          md:w-[550px] md:h-[450px] sm:w-[500px] sm:h-[400px] xl:ml-0 lg:ml-[9%] cd:ml-[2%] pt-3 pl-10">
+          
+          <div className="w-[869px] h-full  sm:bg-[url(../11.png)] bg-contain bg-no-repeat duration-1000">
          {active==1?<LogInFirstStep setActive={setActive} />:<LogInSecondStep/>}
 
 
@@ -34,15 +34,22 @@ const  Login = () => {
   
       </div>
            
-           <button onClick={()=>setActive(old=>old-1)} className="text-[#AAAAAA] relative ab:text-[17px] md:text-[20px] bottom-[10%] left-[10%] ">مرحله قبل</button>   
-                    <button onClick={()=>navigate("/register")} className="text-[#006865] ab:text-[18px] sm:text-[24px] relative bottom-[85%] xl:left-[95%] lg:left-[92%]
-                    cd:left-[91%] md:left-[89%] sm:left-[84%] ab:left-[77%] text-nowrap " >ثبت نام</button>
-           <button  className="text-[#006865] ab:text-[18px]  sm:text-[24px] relative bottom-[66%] xl:left-[88%] 
-           cd:left-[80%] lg:left-[85%]  md:left-[77%] sm:left-[70%] ab:left-[58%]" >ورود</button>     
+ 
        </div>
-          
+          <NavLink to={"/register"} className=" text-[#006865] md:text-[24px] sm:text-[20px] text-nowrap relative xl:mt-[110px]
+          xl:left-[60px] lg:mt-[110px] lg:left-[60px] cd:mt-[100px] cd:left-[125px] md:mt-[70px] md:left-[120px]
+          sm:mt-[60px] sm:left-[85px] ab:right-[450px] ab:mt-[52px]" >ثبت نام</NavLink>
+            
+            <button onClick={()=>setActive(old=>old-1)} className="dark:text-[#005351] text-[#AAAAAA] ab:text-[18px] md:text-[20px] text-nowrap relative xl:right-[200px] ef:right-[200px] lg:right-[200px]
+            cd:mt-[300px] font-BYekan cd:right-[80px] xl:mt-[530px]  lg:mt-[440px] ab:right-[340px] ab:mt-[50px] sm:right-[90px] sm:mt-[10px] md:right-[90px] md:mt-[100px]">مرحله قبل</button> 
+            
+           <button  className="text-[#006865] md:text-[24px] sm:text-[20px] relative xl:bottom-[80px] xl:right-[90px]
+           lg:bottom-[17%] lg:right-[90px]  cd:bottom-[150px] cd:right-[10px] md:bottom-[190px] md:right-[23px] sm:bottom-[210px] sm:right-[40px] 
+           ab:right-[450px] font-BYekan ab:bottom-[300px]" >ورود</button>
         </div>   
+
      </div>
+     
       </>
   )
 }
