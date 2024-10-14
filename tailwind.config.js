@@ -7,11 +7,14 @@ export default {
   ],
   important : "#root",
 
+  darkMode :'class',
   theme: {
     extend: {
+
       fontFamily: {
         primaryRegular:['BYekan'],
         primaryMedium:['BYekan-bold'],
+            'BYekan': ['BYekan'],
       },
       boxShadow: {'3xxl' : 'inset 4px 4px 6px rgba(0, 0, 0, 0.5)',
                  '3xxxl' : 'inset 0px 4.5px 6px rgba(0, 0, 0, 0.3)',
@@ -35,6 +38,9 @@ export default {
         'smx5':'1187px',
         'laptop': '1024px',
         'desktop': '1280px',
+        'ab':'320px',
+        'cd' : '850px',
+        'ef' : '1150px'
       },
       backgroundSize: {
         'auto': 'auto',
