@@ -64,6 +64,12 @@ import t2 from './Rectangle-313.png'
 import t3 from './Rectangle-32.png'
 import t4 from './Rectangle-33.png'
 import play from './Frame-44.png'
+import profilepic from './Ellipse-43.png'
+import frame19 from './Frame.svg'
+import line19 from './Line-19.svg'
+import rec667 from './Rectangle-15.svg'
+import rec668 from './Rectangle-14.svg'
+import rec669 from './Rectangle1433.svg'
 export default {
     logo,
     fav,
@@ -131,4 +137,10 @@ export default {
     t3,
     t4,
     play,
+    profilepic,
+    line19,
+    frame19,
+    rec667,
+    rec668,
+    rec669,    
 }

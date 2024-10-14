@@ -15,7 +15,8 @@ const ArticleSection = () => {
                         lg:mt-[120px]
                        
                         '>
-           <div className=' h-[87px]  grid 
+           <div className=' h-[87px]  grid max-md:ml-[30px]
+                   max-smx2::ml-0
                             justify-center ml-[25px]'>
                <div className='flex justify-center items-center 
                                h-[54px] gap-[11.13px] max-md:mr-[35px]'>
@@ -30,7 +31,9 @@ const ArticleSection = () => {
                <div className=' h-[30px]' style={{direction:'rtl'}}  >
                    <p className='font-primaryRegular text-[#AAAAAA] text-[20px] 
                    max-md:text-[16px]
-                   text-center xl:mr-[5px] mr-[20px] max-md:mt-[-10px]' 
+                   text-center xl:mr-[5px] mr-[20px] 
+                   
+                   max-md:mt-[-10px]' 
                    > خـــودت رو با خـــبر کن ! 
                    </p>
                </div>
@@ -42,6 +45,8 @@ const ArticleSection = () => {
                         smx3:mt-[30px] 
                         lg:w-full xl:ml-[18px]
                         duration-700
+                        max-md:ml-[10px]
+                        max-smx2:ml-0
          
         '>
             <div className='xl:w-[1068px] h-[474px] lg:w-[1024px] max-xl:flex

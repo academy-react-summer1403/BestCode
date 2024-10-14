@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+
+
 @font-face {
     font-family: 'BYekan';
     src: url('../src/assets/fonts/BYekan+.ttf');
@@ -27,8 +29,10 @@
     padding: 0;
     margin: 0;
     background-color: #f7f7f7;
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+    --font-regular:'BYekan-bold'
 }
-
 
 
 
