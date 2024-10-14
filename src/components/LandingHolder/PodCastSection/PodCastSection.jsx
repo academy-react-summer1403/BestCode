@@ -2,8 +2,9 @@ import images from '../../../assets/landingpng'
 
 const PodCastSection = () => {
   return (
-     <section className="h-[536px] grid justify-center  mb-[-2px] 
-                         max-md:pt-[30px]
+     <section className="h-[536px] grid justify-center  mb-[-2px] max-md:pl-[15px]
+                                                                  max-smx2:pl-0
+                         max-md:pt-[60px]
                          duration-700
                          lg:mt-[-1px] 
                          lg:pt-0
@@ -39,7 +40,7 @@ const PodCastSection = () => {
                </div>
            </div> 
            </div>
-           <div className='xl:w-[1247px] flex justify-center max-md:w-full xl:mt-[35px]'>
+           <div className='xl:w-[1247px] flex justify-center max-md:w-full xl:mt-[35px] max-md:mt-[60px]'>
               <div className='xl:w-[920px] lg:w-[900px] xl:h-[297px]' >
                  <div className="lg:w-[879px] 
                  max-md:w-[320px] 

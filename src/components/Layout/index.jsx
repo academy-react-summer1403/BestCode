@@ -2,10 +2,10 @@ import { Outlet } from "react-router-dom"
 import Header from "../common/Header/Header"
 import Footer from "../common/Footer/Footer"
 
-const Root = () => {
+const Layout = () => {
   return (
      <div>
-        <Header  />
+        <Header />
           <main>
             <Outlet />
           </main>
@@ -14,4 +14,4 @@ const Root = () => {
   )
 }
 
-export default Root
+export default Layout

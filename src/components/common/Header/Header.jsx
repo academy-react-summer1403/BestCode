@@ -1,25 +1,22 @@
 import { useState } from 'react';
-
-
 import images from '../../../assets/landingpng'
 import { IoReorderThreeOutline } from "react-icons/io5";
 import SideBar from './SideBar/SideBar';
 import { useDarkMode } from '../../../../DarkModeContext.jsx';
 import { LuSunMedium } from "react-icons/lu";
 import { RiMoonFill } from "react-icons/ri";
-
+import { useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
-
-
+ 
+  
    
-   const { isDarkMode, toggleDarkMode } = useDarkMode()
+const { isDarkMode, toggleDarkMode } = useDarkMode()
  
 
-
-  const [sidebar ,setSideBar] = useState(false)
-
+const [sidebar ,setSideBar] = useState(false)
+const nagivate = useNavigate()
   const OpenSideMenu = () => {
    if(!sidebar) {
     setSideBar(true)
@@ -28,20 +25,25 @@ const Header = () => {
   }
 } 
 
+{/*for test Project*/}
+const HandleNavigate = () => {
+  nagivate('/user')
+}
+
  const HandleClose = () => {
     setSideBar(false)
  }
+
   return (
     <header className='h-[120px] w-full flex justify-center dark:bg-gray-800'>
+      
           <div className='xl:w-[1247px] h-[50px]   
                           lg:w-[1000px]
-                          md:w-[1247px]
                           smx:w-full
                           max-sm:w-full
                           flex justify-between  mt-[58px] 
                           max-h-full box-content max-md:px-[10px] max-md:mt-[20px] max-lg:px-[60px]
                           duration-700
-   
                           '>
                <div className='flex gap-[14px] box-border 
                                top-[3px] relative'>
@@ -50,7 +52,9 @@ const Header = () => {
                                        h-[44px] box-content font-primaryRegular  
                                        items-center justify-center rounded-[26px]
                                        text-white max-md:relative max-md:bottom-[7px]
-                                       max-md:h-[38px] max-md:w-[140px]' >
+                                       max-md:h-[38px] max-md:w-[140px]'
+                           onClick={HandleNavigate}             
+                          >
                            
                             <img 
                                 src={images.profile} 
@@ -96,11 +100,11 @@ const Header = () => {
                   </div>
 
                 </div>
-                <ul className='h-[46.8px] w-[464px] text-[#555555]  
-                               flex gap-[31px] text-[17px] font-bold 
-                               font-primaryRegular xl:mr-[97px] pt-[7px]
+                <ul className='h-[46.8px] w-[466] text-[#555555]  
+                               flex gap-[33px] text-[17px] font-bold 
+                               font-primaryRegular xl:mr-[82px] pt-[7px]
                                max-md:hidden max-lg:hidden
-                               lg:mr-[55px]
+                               lg:mr-[57px]
                                dark:text-[#f7f7f7]
                                '
                     style={{justifyContent:'right'}}
@@ -126,10 +130,13 @@ const Header = () => {
                      
                     /> 
                      {sidebar? (    
+                      <div className='relative'>
                         <div className='fixed w-screen h-screen top-0 left-0 bg-white z-[999999] flex 
+                          lg:hidden
                          '>
                               <SideBar HandleClose={HandleClose} toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}  />
                            </div>
+                      </div>
                         ) : (
                          <div className='lg:hidden max-lg:flex' >
                                 <IoReorderThreeOutline className='max-md:text-[32px]

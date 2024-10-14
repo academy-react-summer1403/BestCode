@@ -1,19 +1,24 @@
 import images from '../../../assets/landingpng'
+import Svg2 from './Svg2'
 
 
 const Footer = () => {
   return (
-      <footer className="grid max-md:mt-[-300px]  max-lg:mt-[-100px] mt-[2px] dark:bg-gray-800" >
+      <footer className="grid   mt-[2px] dark:bg-gray-800" >
       <div className="h-[352px] w-full mb-[-7.5px] relative" >
-   
+        <div className='relative' >
+        <Svg2 />
+        </div>
         <div className="z-[78888]
             max-xl:mt-[80px]
-             bg-footerbg bg-cover  bg-no-repeat max-md:bg-center max-xl:bg-center
-            xl:h-[340px] mt-[41px] flex items-center justify-center max-md:pt-[60px]
-            
-            max-lg:pt-[60px]
+            xl:h-[340px] mt-[41px] flex items-center justify-center 
             xl:pr-0
             duration-700
+            max-md:bg-[#01CEC926]
+            max-md:dark:bg-[#1a424d]
+            max-lg:bg-[#01CEC926]
+            max-lg:dark:bg-[#1a424d]
+           
             ">
             <div className='mb-[32px] flex xl:w-[1247px] 
                                            lg:w-[1024px]          
@@ -49,11 +54,13 @@ const Footer = () => {
                                lg:relative
                                lg:top-0
                                xl:top-0
+                               dark:text-[#f7f7f7]
                                ' >مجموعه آموزشی فلان فعالیت خود را &nbsp;از سال &nbsp;&nbsp;۱۳۹۰   &nbsp;آغاز کرده است و
                    <br />
                    امروز به بزرگترین کلونی برنامه نویسی شمال کشور تبدیل شده است</p>
                    <p className='text-[#00605D] font-primaryMedium xl:text-right 
                                text-[16px]
+                             dark:text-[#f7f7f7]
                                max-md:mt-[10px]
                                max-lg:mt-[10px]
                                max-md:text-[15px]
@@ -61,7 +68,9 @@ const Footer = () => {
                                '>
                    ساری ، میدان خــزر ، جــاده فــرح آباد ، جنب 
                    <br />
-                    مجتمع دنیای آرزو<span className='text-[15px] text-[#004F4D] mr-[43px]'
+                    مجتمع دنیای آرزو<span className='text-[15px] text-[#004F4D] 
+                    max-md:mr-[10px] max-lg:mr-[10px]
+                    lg:mr-[43px]  dark:text-[#f7f7f7]'
                     >۴۳۳۳۲۰۰۰ -   ۱ ۱ ۰</span>
                    </p>
               </div>   
@@ -200,9 +209,9 @@ const Footer = () => {
                      gap-[1px] max-smx2:text-[13px]
                      max-md:text-[14px]
                      max-md:relative 
-                     max-md:top-[580px]
-                     max-smx2:top-[640px]
-                     max-lg:top-[580px]
+                     max-md:top-[520px]
+                     max-smx2:top-[590px]
+                     max-lg:top-[520px]
                      max-lg:relative
                      z-[44545]
                      duration-700
