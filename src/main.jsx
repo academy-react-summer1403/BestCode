@@ -5,11 +5,13 @@ import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import App from './App'
 import CourseDetail from './screens/CourseDetail/CourseDetail'
 import Courses from './screens/Courses/Courses'
+import News from './screens/News/News.jsx'
 import Login from './screens/Login/Login'
 import Register from './screens/Register/Register'
 import Root from './components/Root/Root'
 import NotFound from './components/NotFound/NotFound'
 import Error from './components/Error/Error'
+
 
 const router = createBrowserRouter([
     {
@@ -29,6 +31,11 @@ const router = createBrowserRouter([
         {
           path:'/courses',
           element:<Courses />,
+          errorElement: <Error/> ,
+        },
+        {
+          path:'/news',
+          element:<News />,
           errorElement: <Error/> ,
         }
       ]

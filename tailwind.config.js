@@ -25,6 +25,7 @@ export default {
         'footerbg': "url('./src/assets/Rectangle-141.png')",
         'category': "url('./src/assets/Rectangle-2.png')",
         'sliderbg':"url('./src/assets/Rectangle-23.png')",
+        'NewsBg': "url('./src/assets/img/News/mainBg.png)"
       },
       screens: {
         'sm1':'320px',
