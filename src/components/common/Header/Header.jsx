@@ -32,7 +32,7 @@ const Header = () => {
     setSideBar(false)
  }
   return (
-    <header className='h-[120px] w-full flex justify-center dark:bg-gray-800'>
+    <header className='h-[120px] w-full flex justify-center dark:bg-gray-800 text-nowrap'>
           <div className='xl:w-[1247px] h-[50px]   
                           lg:w-[1000px]
                           md:w-[1247px]

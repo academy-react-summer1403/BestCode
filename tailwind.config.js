@@ -12,7 +12,7 @@ export default {
       fontFamily: {
         primaryRegular:['BYekan'],
         primaryMedium:['BYekan-bold'],
-            'BYekan': ['BYekan'],
+           'BYekan1':['BYekan1']
       },
       boxShadow: {'3xxl' : 'inset 4px 4px 6px rgba(0, 0, 0, 0.5)',
                  '3xxxl' : 'inset 0px 4.5px 6px rgba(0, 0, 0, 0.3)',

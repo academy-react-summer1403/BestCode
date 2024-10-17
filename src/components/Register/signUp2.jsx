@@ -9,10 +9,10 @@ const SignUpSecondStep = ({setActive}) => {
                 <img src="./07.png" alt="image" className=" cd:w-[60px] cd:h-[60px] lg:mt-[33%] cd:left-[2%] relative lg:ml-[22%]
                 cd:mt-[26%] cd:ml-[14%] md:ml-[10%] md:mt-[21%] md:w-[55px] md:h-[55px] ab:w-[50px] ab:h-[50px] ab:ml-[28%] ab:mt-[25%] ab:left-[1%]
                 sm:mt-[19%] sm:left-[1%] sm:ml-[8%]  md:left-[1%] duration-1000 dark:hidden  "/>
-                <img src="./24.png" alt="image" className=" cd:w-[60px] cd:h-[60px] lg:mt-[33%] cd:left-[2%] relative lg:ml-[22%]
+                <img src="./75.png" alt="image" className=" cd:w-[60px] cd:h-[60px] lg:mt-[33%] cd:left-[2%] relative lg:ml-[22%]
                 cd:mt-[26%] cd:ml-[14%] md:ml-[10%] md:mt-[21%] md:w-[55px] md:h-[55px] ab:w-[50px] ab:h-[50px] ab:ml-[28%] ab:mt-[25%] ab:left-[1%]
                 sm:mt-[19%] sm:left-[1%] sm:ml-[8%]  md:left-[1%] duration-1000 hidden dark:block  "/>                
-            <div className="cd:w-[377px] cd:h-[400px] bg-[url(../08.png)] dark:bg-[url(../25.png)] bg-contain bg-no-repeat  cd:mt-[50px] lg:mt-[113px] 
+            <div className="cd:w-[377px] cd:h-[400px] bg-[url(../08.png)] dark:bg-[url(../78.png)] bg-contain bg-no-repeat  cd:mt-[50px] lg:mt-[113px] 
             md:w-[320px] md:h-[350px]  ab:w-[280px] ab:h-[310px] md:mt-[40px]  sm:mt-[40px] ab:mt-[70px] drop-shadow shadow-[#00000040]  " >
             {/* <img src="./02.png" alt="image" className="w-full h-full"/> */}
             <div className=" w-full h-full">
