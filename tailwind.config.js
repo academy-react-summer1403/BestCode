@@ -30,7 +30,7 @@ export default {
       backgroundImage: {
 
   
-        'NewsBg': "url('./src/assets/img/News/mainBg.png)"
+        'NewsBg': "url('./src/assets/img/News/mainBg.png)",
 
         'podcast': "url('./src/assets/landingpng/Rectangle-35.png')",
         'footerbg': "url('./src/assets/landingpng/Rectangle-141.png')",
