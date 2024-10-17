@@ -4,19 +4,18 @@ import images from '../../../assets/landingpng'
 const BestTeacher = () => {
   return (
     <section className="h-[573px] pt-[106px]
-    duration-700 dark:bg-gray-800
+    duration-700 dark:bg-gray-800 
+   
     "> 
+   <div style={{backgroundImage:`url(${images.rec667})`,
+             backgroundRepeat:'no-repeat', backgroundPosition:'center', 
+              backgroundSize: 'auto 400px',
+   }}
+    
+   >
     <div className=' flex justify-center  h-[467px] 
     duration-700 
-    items-center'>
-           <img 
-               src={images.reco44} 
-               height={402}  
-               className='relative h-[402px] 
-                          max-md:w-full 
-                          xl:w-full
-                          max-lg:w-full
-               '  />
+    items-center  w-full'>
            <div className="xl:w-[1247px] h-[467px]
                            
                            duration-700
@@ -202,12 +201,14 @@ const BestTeacher = () => {
                           <p className='font-primaryMedium text-[40px]
                            max-md:text-[20px]
                            max-lg:text-[30px]
-                          text-[#003231]    
+                          text-[#003231]  
+                         
                           '>برترین اساتید</p>
                           <span className='text-[#006865] font-primaryRegular 
                                            text-[25px] mt-[7px] xl:mr-[3px] 
                                            max-md:text-[15px] max-md:mr-[3px] max-md:pb-[4px]
                                            max-lg:text-[20px]
+                                           dark:text-[#f7f7f7]
                                            '>رو همینجا پیدا میکنید!!</span>  
                         </div>
                         <div className='flex justify-center'>
@@ -216,6 +217,7 @@ const BestTeacher = () => {
                                            xl:w-[385px] h-[61px]  mt-[4px]
                                            max-md:text-[15px]
                                            max-lg:text-[17px]
+                                           dark:text-[#989898]
                                          '>
                                 برجسته ترین اساتید بزرگترین مجموعه برنامه نویسی
                                 <br/>
@@ -226,6 +228,7 @@ const BestTeacher = () => {
                 </div>
           </div>
     </div>
+  </div>
     </section>
   )
 }
