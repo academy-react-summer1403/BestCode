@@ -7,7 +7,7 @@ import { RiMoonFill } from "react-icons/ri";
 
 const SideBar = ({HandleClose , toggleDarkMode , isDarkMode}) => {
   return (
-    <div className="h-screen w-full dark:bg-gray-800">
+    <div className="h-screen w-full dark:bg-gray-800 ">
         
          <div className='flex justify-between   mt-[20px] px-6 items-center'  >
             <div className='flex items-center gap-[6px]'>

@@ -16,6 +16,7 @@ const CategorySection = () => {
                         grid gap-[10px]
                         duration-700
                         dark:bg-gray-800
+                        w-full
                         '>
        <div className='w-full grid justify-center
                         xl:mt-[70px] 
@@ -57,17 +58,23 @@ const CategorySection = () => {
           </div>
        </div>
         </div > 
-        <div className='bg-category
-                         bg-cover 
+        <div className='
+                        
                          h-[600px]
-                         bg-center 
+                     
                           flex
                           justify-center
                           items-center
                           max-md:mt-[-280px]
                           md:mt-[-150px] 
                           lg:mt-0
-                          '>
+                          '
+                          style={{
+                            backgroundImage:`url(${images.rec667})`,
+                            backgroundRepeat:'no-repeat', backgroundPosition:'center', 
+                            backgroundSize: 'auto 495px',
+                          }}
+                          >
              <div className='xl:w-[1093.08]  
                              xl:flex  
                              xl:mb-[20px]
