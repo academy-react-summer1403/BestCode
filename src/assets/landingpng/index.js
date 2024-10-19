@@ -70,6 +70,7 @@ import line19 from './Line-19.svg'
 import rec667 from './Rectangle-15.svg'
 import rec668 from './Rectangle-14.svg'
 import rec669 from './Rectangle1433.svg'
+import elll from './Ellipse448.png'
 export default {
     logo,
     fav,
@@ -143,4 +144,5 @@ export default {
     rec667,
     rec668,
     rec669,    
+    elll,
 }

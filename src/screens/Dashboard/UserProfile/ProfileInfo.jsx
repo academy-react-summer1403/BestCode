@@ -4,8 +4,13 @@ import images from '../../../assets/dashboardpng'
 const ProfileInfo = ({HandleActive}) => {
   return (
     <Fragment>
-         <div className="w-[814px] h-[549px] border border-[#f7f7f7] dark:border-gray-800 mt-[50px] ml-[39px] relative ">
-          <div className='w-[50px] h-[50px] left-[719px] absolute z-[555] dark:bg-gray-800 
+         <div className="xl:w-[814px] 
+         h-[549px] border border-[#f7f7f7] dark:border-gray-800 xl:mt-[50px] xl:ml-[39px] relative 
+         max-smx3:flex max-smx3:justify-center
+         
+         ">
+          <div className='w-[50px] h-[50px] xl:left-[719px] absolute z-[555] dark:bg-gray-800 
+           
           justify-center flex flex-col items-center gap-[2px]  shadow-[0px_1px_2px_0px_#00000040]
           rounded-[10px] bg-[#F7F7F7]
         '>
@@ -16,64 +21,19 @@ const ProfileInfo = ({HandleActive}) => {
               <path d="M5.77011 3.03723C3.88374 4.19552 -1.06219 6.56066 1.95022 9.52033C3.42175 10.966 5.06066 12 7.12117 12H18.8788C20.9394 12 22.5783 10.966 24.0498 9.52033C27.0622 6.56066 22.1163 4.19552 20.2299 3.03723C15.8064 0.320924 10.1936 0.320924 5.77011 3.03723Z" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>
         </div>
-        <div className='w-[814px] h-[521px] relative'>
-         <div  className='w-[814px] h-[521px]  mt-[27px]
+        <div className='xl:w-[814px] h-[521px] relative'>
+         <div  className='xl:w-[814px] h-[521px]  mt-[27px]
            dark:bg-gray-800
-           rounded-[10px] pr-[45px] pl-[28px] pt-[41px] flex justify-between 
-            shadow-[0px_1px_3px_0px_#00000040]
-            bg-[#F6FFFF]
+           rounded-[10px] xl:pr-[45px] xl:pl-[28px] pt-[41px] flex justify-between 
+            shadow-[0px_1px_3px_0px_#00000040] max-smx3:grid max-smx3:shadow-none
+            max-smx3:justify-center
+            bg-[#F6FFFF] max-smx3:gap-[30px]
+            max-smx3:pr-[10px]
 
-         '>
-         
-            <div className='flex-col flex gap-[35px] mt-[-2px] ' style={{direction:'rtl'}}>
-               <div className='flex gap-[4px]'>
-                  <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
-                  ' >شماره همراه :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >۰۹۳۹۲۲۲۹۹۹۹</span>
-               </div>
-               <div className='flex gap-[4px]'>
-                 <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
-
-                  ' >تلگرام :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
-               </div>
-               <div className='flex gap-[4px]'>
-                 <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
-
-                  ' >لینکداین :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
-               </div>
-               <div className='flex gap-[4px] w-[334px] h-[52px]
-              
-               overflow-hidden leading-[24.11px]'>
-                 <p className='text-[17px] font-primaryMedium text-[#CC6E00]   line-clamp-3 font-[700]
-                  ' ><span className='text-[16px] text-[#ABABAB] font-[400] ml-[4px] 
-                  ' >آدرس :</span> 
-                   مازندران - ساری - میدان خزر - جاده فرح آباد خیابان دیمطوران  - ساختمان هوتن ۱۲ -واحد ۱۵
-                    </p>
-               </div>
-               <div className='flex w-[319px] h-[120px]  justify-between
-                      mt-[-12px] mr-[1px]
-               '  >
-                    <div className='flex-col flex gap-[15px]' >
-                     <div className='flex-col flex gap-[4px] '>
-                         <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
-                     ' >طول جغرافیایی :</p>
-                     <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
-                   </div>
-                    <div className='flex-col flex gap-[4px] '>
-                      <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400] 
-                     ' >عرض جغرافیایی :</p>
-                     <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
-                    </div>
-                    </div>
-                    <div className='w-[120px] h-[120px] rounded-full'>
-                       <img src={images.Eli51} />
-                    </div>
-               </div>
-            </div>
-           
-             <div className='flex-col flex gap-[35px] mt-[-2px] ' style={{direction:'rtl'}}>
+         ' 
+          style={{direction:'rtl'}}
+         >  
+         <div className='flex-col flex gap-[35px] mt-[-2px] ' style={{direction:'rtl'}}>
                <div className='flex gap-[4px]'>
                   <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
                   ' >نام و نام خانوادگی :</p>
@@ -103,9 +63,10 @@ const ProfileInfo = ({HandleActive}) => {
                   ' >جنسیت :</p>
                   <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
                </div> 
-               <div className='flex gap-[4px] w-[334px] h-[70px] overflow-hidden leading-[24.11px]'>
+               <div className='flex gap-[4px] xl:w-[334px] h-[70px] overflow-hidden leading-[24.11px]'>
                  <p className='text-[17px] font-primaryMedium text-[#CC6E00]   line-clamp-3 font-[700]
-                  ' ><span className='text-[16px] text-[#ABABAB] font-[400] ml-[4px] 
+                  ' >
+                     <span className='text-[16px] text-[#ABABAB] font-[400] ml-[4px] 
 
                   ' >درباره  من :</span> 
                      لورم ایپسوم متن ساختگی با تولید سادگی  
@@ -116,14 +77,67 @@ const ProfileInfo = ({HandleActive}) => {
                     </p>
                </div>
           
+            </div>      
+              <div className='flex-col flex gap-[35px] mt-[-2px] ' style={{direction:'rtl'}}>
+               <div className='flex gap-[4px]'>
+                  <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
+                  ' >شماره همراه :</p>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >۰۹۳۹۲۲۲۹۹۹۹</span>
+               </div>
+               <div className='flex gap-[4px]'>
+                 <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
+
+                  ' >تلگرام :</p>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+               </div>
+               <div className='flex gap-[4px]'>
+                 <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
+
+                  ' >لینکداین :</p>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+               </div>
+               <div className='flex gap-[4px] xl:w-[334px] h-[52px]
+               max-smx3:w-[280px] 
+              
+               overflow-hidden leading-[24.11px]'>
+                 <p className='text-[17px] font-primaryMedium text-[#CC6E00]   xl:line-clamp-3 font-[700]
+                   max-smx3:line-clamp-5
+                  ' ><span className='text-[16px] text-[#ABABAB] font-[400] ml-[4px] 
+                  ' >آدرس :</span> 
+                   مازندران - ساری - میدان خزر - جاده فرح آباد خیابان دیمطوران  - ساختمان هوتن ۱۲ -واحد ۱۵
+                    </p>
+               </div>
+                <div className='flex w-[319px] h-[120px]  justify-between
+                      mt-[-12px] mr-[1px]
+               '  >
+                    <div className='flex-col flex gap-[15px]' >
+                     <div className='flex-col flex gap-[4px] '>
+                         <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
+                     ' >طول جغرافیایی :</p>
+                     <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                   </div>
+                    <div className='flex-col flex gap-[4px] '>
+                      <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400] 
+                     ' >عرض جغرافیایی :</p>
+                     <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                    </div>
+                    </div>
+                    <div className='w-[120px] h-[120px] rounded-full'>
+                       <img src={images.Eli51} />
+                    </div>
+               </div> 
             </div>
+           
+            
 
             
          </div>
-          <button className='w-[113px] h-[30px] rounded-[20px] absolute
+           <button className='w-[113px] h-[30px] rounded-[20px] absolute
               border border-[#01CEC9]
-              left-[351px] right-[350px]
-              bottom-[39px]
+              xl:left-[351px] xl:right-[350px]
+              xl:bottom-[39px]
+              max-smx3:top-[900px] 
+              
               z-[555] flex items-center
               gap-[12px] justify-center pb-[2px]
               '
@@ -142,8 +156,8 @@ const ProfileInfo = ({HandleActive}) => {
                   </defs>
                 </svg>      
                 <p className='font-primaryMedium text-[15px] text-[#005653]'>ویرایش</p>
-           </button>
-        </div>
+           </button>  
+        </div> 
      </div>
     </Fragment>
   )

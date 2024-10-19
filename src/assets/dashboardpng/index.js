@@ -31,7 +31,7 @@ import eye from './Frame-66.png'
 import jrr from './Ellipse6667.png'
 import fr11 from './Frame-111.svg'
 import fr12 from './Frame-123.svg'
-import fr111 from './Frame1112.svg'
+import fr56 from './Ellipse9948.png'
 export default {
     profilepic,
     frame19,
@@ -66,5 +66,5 @@ export default {
     jrr,
     fr11,
     fr12,
-    fr111
+    fr56
 }
