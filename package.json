@@ -13,12 +13,14 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.2",
-    "@mui/material": "^6.1.2",
+    "@mui/material": "^6.1.4",
     "@neshan-maps-platform/ol": "^1.0.5",
     "@neshan-maps-platform/react-openlayers": "^3.0.1",
     "@react-google-maps/api": "^2.20.1",
+
     "deepmerge": "^4.3.1",
     "fastparse": "^1.1.2",
+
     "flowbite-react": "^0.10.2",
     "formik": "^2.4.6",
     "google-map-react": "^2.2.1",

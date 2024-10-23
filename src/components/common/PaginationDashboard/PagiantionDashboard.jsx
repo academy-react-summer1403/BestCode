@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 const PagiantionDashboard = () => {
   return (
     <Fragment>
-         <div className="w-[180px] h-[22px] ml-[338px] mt-[46px] flex items-center gap-[4.4px]" >
+         <div className="w-[180px] h-[22px] mt-[46px] flex items-center gap-[4.4px]" >
           <div className="w-[22px] h-[22px]  rounded-full flex justify-center justify-items-center
           items-center text-[14px] text-[#333333] font-primaryRegular pr-[7px] pl-[6.16px] bg-[#FAFAFA]
           shadow-[0px_1px_2px_0px_#0000004D] cursor-pointer

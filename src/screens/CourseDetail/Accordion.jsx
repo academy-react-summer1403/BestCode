@@ -46,6 +46,7 @@ const Accordion = () => {
             {buttonstate.map((state,index) => (
               <div onChange={ (e)=>handelevalue(e.target.value) } key={index} className={`collapse collapse-arrow bg-[#FFFF] shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ${buttonstate? '' :  'bg-blue1' } `}>
               <input type="checkbox" name="my-accordion-2" />
+
               <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9
                              max-smx3:text-[16px]
                              max-smx2:text-[13px]
@@ -56,6 +57,7 @@ const Accordion = () => {
                                max-smx3:left-10
                                max-lg:text-[16px] max-lg:
                                ">
+
                 ۲۰ جلسه . ۴ ساعت
                 </div>
               </div>

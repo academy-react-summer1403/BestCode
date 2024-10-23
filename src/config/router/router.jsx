@@ -15,6 +15,7 @@ import MyReserveCourse from '../../screens/Dashboard/MyReserveCourse'
 import SecuritySetting from '../../screens/Dashboard/SecuritySetting'
 import UserProfile from '../../screens/Dashboard/UserProfile'
 import MyFavorite from '../../screens/Dashboard/MyFavorite'
+import News from '../../screens/News/News'
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
         {
           path:'/courses',
           element:<Courses />,
+          errorElement: <Error/> ,
+        },
+        {
+          path:'/News',
+          element:<News />,
           errorElement: <Error/> ,
         }
       ]
