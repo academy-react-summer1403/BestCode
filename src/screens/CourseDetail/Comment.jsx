@@ -33,7 +33,7 @@ const Comment = () => {
                     alt="Michael Gough"
                   />
                 </div>
-                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">
+                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] max-smx2:text-[13px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">
                   کاربر | ali@gmail.com
                 </p>
                 <p class="text-sm text-[#888888] dark:text-gray-400 w-[70%] h-[50%] absolute bottom-[0px] right-[65px]">
@@ -46,29 +46,29 @@ const Comment = () => {
                   </time>
                 </p>
               </div>
-              <div className="flex w-[141px] h-[33px] cursor-pointer ">
+              <div className="flex w-[126px] h-[33px] cursor-pointer ">
                 <div className="h-[100%] w-[30%]  flex gap-1">
                   <span className="text-[#888888] text-[18px]"> ۶ </span>
                   <img
                     src={images.disLike}
                     alt=""
-                    className="h-[24px] w-[24px]"
+                    className="h-[73%] w-[56%]"
                   />
                 </div>
                 <div className="h-[100%] w-[30%]  flex gap-1">
                   <span className="text-[#888888] text-[18px]"> ۲۵ </span>
-                  <img src={images.Like} alt="" className="h-[22px] w-[22px]" />
+                  <img src={images.Like} alt="" className="h-[73%] w-[56%]" />
                 </div>
                 <div className="h-[100%] w-[40%]  flex">
                   <img
                     src={images.Replay}
                     alt=""
-                    className="h-[22px] w-[22px] mr-7 "
+                    className="h-[60%] w-[40%] mr-7 "
                   />
                 </div>
               </div>
             </footer>
-            <p class="text-gray-500 dark:text-gray-400">
+            <p class="text-gray-500 dark:text-gray-400 max-smx3:text-[11px]">
               سلام. من خيلي دوست دارم اين دوره رو بخرم ولي قيمتش خيلي بالاست، چه
               زماني دوباره اين دوره تخفيف ميخوره؟
             </p>
@@ -76,13 +76,7 @@ const Comment = () => {
           </article>
 
           <article class="p-6 mb-3 mx-auto relative bottom-4 shadow-[0_-2px_4px_0px_rgba(0,0,0,0.2)] text-base bg-[#ECECEC] rounded-xl border-r-4 border-[#01CEC9] dark:bg-gray-900
-                          smx1:
-                          smx:
-                          smx2:
-                          smx3:
-                          max-sm:  
-                          max-md:  
-                          max-lg: 
+                          
                           max-xl:h-[170px] max-xl:
                          ">
             <footer class="flex justify-between items-center mb-2 border-b-2 border-[#DDDDDD] relative">
@@ -94,7 +88,7 @@ const Comment = () => {
                     alt="Michael Gough"
                   />
                 </div>
-                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">
+                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] max-smx2:text-[13px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">
                   مهدی اصغری | مدرس
                 </p>
                 <p class="text-sm text-[#888888] dark:text-gray-400 w-[70%] h-[50%] absolute bottom-[0px] right-[65px]">
@@ -129,7 +123,7 @@ const Comment = () => {
                 </div>
               </div>
             </footer>
-            <p class="text-gray-500 dark:text-gray-400">
+            <p class="text-gray-500 dark:text-gray-400 max-smx3:text-[11px]">
               سلام عزیز. حدودا 9 روز دیگه (1 اردیبهشت) برای این دوره تخفیف
               خواهیم داشت. برای مطلع شدن از تخفیف‌ها و جشنواره‌ها لطفا خود سایت
               و سوشال های سبزلرن رو دنبال کنین 👌❤️{" "}
@@ -149,7 +143,7 @@ const Comment = () => {
                     alt="Michael Gough"
                   />
                 </div>
-                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">
+                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] max-smx2:text-[13px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">
                   کاربر | ali@gmail.com
                 </p>
                 <p class="text-sm text-[#888888] dark:text-gray-400 w-[70%] h-[50%] absolute bottom-[0px] right-[65px]">
@@ -184,7 +178,7 @@ const Comment = () => {
                 </div>
               </div>
             </footer>
-            <p class="text-gray-500 dark:text-gray-400">
+            <p class="text-gray-500 dark:text-gray-400 max-smx3:text-[11px]">
               سلام. من خيلي دوست دارم اين دوره رو بخرم ولي قيمتش خيلي بالاست، چه
               زماني دوباره اين دوره تخفيف ميخوره؟
             </p>
@@ -209,7 +203,7 @@ const Comment = () => {
                     alt="Michael Gough"
                   />
                 </div>
-                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">
+                <p class="inline-flex items-center w-[70%] h-[50%] text-[15px] max-smx2:text-[13px] text-[#003B39] dark:text-white relative bottom-3 right-2 ">
                   مهدی اصغری | مدرس
                 </p>
                 <p class="text-sm text-[#888888] dark:text-gray-400 w-[70%] h-[50%] absolute bottom-[0px] right-[65px]">
@@ -244,7 +238,7 @@ const Comment = () => {
                 </div>
               </div>
             </footer>
-            <p class="text-gray-500 dark:text-gray-400">
+            <p class="text-gray-500 dark:text-gray-400 max-smx3:text-[11px]">
               سلام عزیز. حدودا 9 روز دیگه (1 اردیبهشت) برای این دوره تخفیف
               خواهیم داشت. برای مطلع شدن از تخفیف‌ها و جشنواره‌ها لطفا خود سایت
               و سوشال های سبزلرن رو دنبال کنین 👌❤️{" "}

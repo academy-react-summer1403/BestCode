@@ -31,7 +31,7 @@ export default {
         'smx': '350px',
         'smx2':'400px',
         'smx3':'500px',
-  
+         'cd':'850px',
         'laptop': '1024px',
   
         'desktop': '1280px',
