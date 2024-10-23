@@ -9,7 +9,7 @@ const Comment = () => {
         نظرات{" "}
       </p>
 
-      <div className=" w-full h-[832px] mb-5 flex flex-wrap relative rounded-2xl shadow-[0_3px_5px_0px_rgba(0,0,0,3)] ">
+      <div className=" w-full h-[832px] bg-[#FFFF] mb-5 flex flex-wrap relative rounded-2xl shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]">
         <button
           class=" w-[185px] h-[37px] flex absolute left-5 top-4 rounded-lg border  py-2 px-4 text-center text-[15px] font-normal leading-[21px] transition-all shadow-sm hover:shadow-lg bg-[#00E2DC] text-[#005653] hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
           type="sumbit"
@@ -22,7 +22,7 @@ const Comment = () => {
           </p>
         </button>
 
-        <div class=" w-[95%] h-[313px] mt-[70px] mx-auto px-4 bg-[#F9F9F9] rounded-lg shadow-[0_3px_4px_0px_rgba(0,0,0,0.5)] ">
+        <div class=" w-[95%] h-[313px] mt-[70px] mx-auto px-4 bg-[#F9F9F9] rounded-lg shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)] ">
           <article class="p-2 text-base   dark:bg-gray-900 ">
             <footer class="flex justify-between items-center mb-2 border-b-2 relative">
               <div class="flex flex-wrap items-center w-[202px] h-[62px]  relative ">
@@ -138,7 +138,7 @@ const Comment = () => {
           </article>
         </div>
 
-        <div class="  h-[313px] w-[95%]  mx-auto px-4 bg-[#F9F9F9] rounded-lg shadow-[0_3px_4px_0px_rgba(0,0,0,0.5)] ">
+        <div class="  h-[313px] w-[95%]  mx-auto px-4 bg-[#F9F9F9] rounded-lg shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]">
           <article class="p-2 text-base   dark:bg-gray-900 ">
             <footer class="flex justify-between items-center mb-2 border-b-2 relative">
               <div class="flex flex-wrap items-center w-[202px] h-[62px]  relative ">

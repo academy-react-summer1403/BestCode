@@ -12,24 +12,18 @@ const CourseDetail = () => {
   
   return (
     <>
-  <div dir="rtl" className="  font-['BYekan'] ">
-    <div id="ADS" className=" h-[395px] w-[1251px]  mx-auto flex gap-[29px] mt-[35px]
-                            
-                          " >
+  <div dir="rtl" className="  font-['BYekan'] bg-[#F9F9F9] ">
+    <div id="ADS" className=" h-[395px] w-[81.3%] max-xl:w-[90%] max  mx-auto flex gap-[29px] mt-[35px]" >
          
        <Top />
     </div>
     
-  <div className=" flex gap-[30px] mt-7
+  <div className=" flex gap-[30px] mt-7 hidden
                  
                  
                  " >
     
-    <div id="right" className=" h-[2462px] w-[810px] flex flex-wrap mr-[133px]
-                                
-                                 
-                                "
-    >
+    <div id="right" className=" h-[2462px] w-[53.3%] flex flex-wrap mr-auto" >
 
       <div className=" h-[620px] w-full  flex  flex-wrap " >
         
@@ -38,11 +32,11 @@ const CourseDetail = () => {
         </div>
        
 
-        <div className=" h-[570px] w-[810px] shadow-[0_3px_5px_0px_rgba(0,0,0,3)] m-auto overflow-hidden relative rounded-2xl backdrop-opacity-60 bg-gradient-to-b from-[#ffffff] to-gray-400
+        <div className=" h-[570px] w-[810px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] m-auto overflow-hidden relative rounded-2xl backdrop-opacity-60 bg-gradient-to-b from-[#ffffff] to-gray-400
                          
                         "
                        >
-          <div className="w-[808px] border-2 m-auto pt-6 text-[18px] leading-[27px] font-normal aling-right text-slate-600 pl-10 pr-10
+          <div className="w-[100%] border-2 m-auto pt-6 text-[18px] leading-[27px] font-normal aling-right text-slate-600 pl-10 pr-10
                           " > 
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
@@ -57,9 +51,7 @@ const CourseDetail = () => {
 
       </div>
 
-      <div className=" h-[890px] w-full flex flex-wrap relative 
-                    
-                    " >
+      <div className=" h-[890px] w-full flex flex-wrap relative " >
         
         <Accordion />
 
@@ -73,14 +65,12 @@ const CourseDetail = () => {
 
     </div>
 
-    <div id="left" className=" h-[1616px] w-[412px] flex flex-wrap relative 
+    <div id="left" className=" h-[1616px] w-[27%] flex flex-wrap relative ml-auto 
                              
                               "
                               >
 
-      <div className=" h-[1015px] w-[412px] rounded-[15px] shadow-[0_3px_5px_0px_rgba(0,0,0,3)] flex flex-wrap relative
-                     
-                      ">
+      <div className=" h-[1015px] w-[100%] bg-[#FFFF] rounded-[15px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)] flex flex-wrap relative">
 
         <div className=" w-[367px] h-[71px]  flex mt-[24px] m-auto gap-[15px]
                     
@@ -157,7 +147,7 @@ const CourseDetail = () => {
          </div>
       </div>
 
-      <div className=" h-[601px] w-[412px] rounded-[15px] shadow-[0_3px_5px_0px_rgba(0,0,0,3)] flex flex-wrap mt-7 relative 
+      <div className=" h-[601px] w-[100%] bg-[#FFFF] rounded-[15px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)] flex flex-wrap mt-7 relative 
                        ">
 
         <div className=" h-[50px] w-[378px] rounded-t-xl mt-[16px] m-auto bg-[#E8E8E8] shadow-[0_1px_2px_0px_rgba(0,0,0,2)] relative">
