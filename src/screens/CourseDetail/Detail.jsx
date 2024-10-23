@@ -4,8 +4,7 @@ import images from '../../assets/img/coursDetail'
 const Detail = () => {
   return (
     <>
-   <div className=" w-[366px] h-[570px]  border-t-[#F6F6F6] border-b-[#F6F6F6] border-t-2 border-b-2 absolute top-[186px] right-[22px] flex flex-wrap
-                  ">
+   <div className=" w-[89%] h-[570px]  border-t-[#F6F6F6] border-b-[#F6F6F6] border-t-2 border-b-2 absolute top-[186px] right-[22px] flex flex-wrap">
           
           <div className=" w-full h-[71px] bg-[#F7F7F7] flex rounded-[10px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.2)] relative mt-5"> 
           
