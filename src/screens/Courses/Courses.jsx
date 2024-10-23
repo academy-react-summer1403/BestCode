@@ -34,9 +34,9 @@ const Courses = () => {
 
   return (
     <Formik>
-    <div className="  font-BYekan1 justify-center">
+    <div className="overflow-hidden   font-BYekan1 justify-center">
         <CourseSearch/>
-        {/* <div className="flex mx-auto justify-center gap-[20px] mt-[30px] ">
+        <div className="flex mx-auto justify-center gap-[20px] mt-[30px] ">
           <div className="h-[1252px] w-[919px] ">
                 <div className="w-full h-[45px] flex justify-between ">
                   <div className="h-full w-[100px]  flex gap-[10px]">
@@ -140,7 +140,7 @@ const Courses = () => {
               </div>                                      
             </div>
           </div>
-        </div> */}
+        </div>
     </div>
     </Formik>
   )

@@ -44,10 +44,20 @@ const Accordion = () => {
           <div className=" flex flex-col w-full gap-3 mt-7">
             
             {buttonstate.map((state,index) => (
-              <div onChange={ (e)=>handelevalue(e.target.value) } key={index} className={`collapse collapse-arrow bg-base-200 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ${buttonstate? '' :  'bg-blue1' } `}>
+              <div onChange={ (e)=>handelevalue(e.target.value) } key={index} className={`collapse collapse-arrow bg-[#FFFF] shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ${buttonstate? '' :  'bg-blue1' } `}>
               <input type="checkbox" name="my-accordion-2" />
-              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9 "> معرفی و نحوه استفاده از متد LifeCycle 
-                <div className=" absolute left-14 text-lg text-[#888888]">
+
+              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9
+                             max-smx3:text-[16px]
+                             max-smx2:text-[13px]
+                             max-lg:text-[18px] max-lg:pr-4
+                             "> معرفی و نحوه استفاده از متد LifeCycle 
+                <div className=" absolute left-14 text-lg text-[#888888]
+                               max-smx3:text-[12px]
+                               max-smx3:left-10
+                               max-lg:text-[16px] max-lg:
+                               ">
+
                 ۲۰ جلسه . ۴ ساعت
                 </div>
               </div>
