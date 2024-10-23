@@ -47,21 +47,13 @@ const Accordion = () => {
               <div onChange={ (e)=>handelevalue(e.target.value) } key={index} className={`collapse collapse-arrow bg-[#FFFF] shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ${buttonstate? '' :  'bg-blue1' } `}>
               <input type="checkbox" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9
-                             smx1:
-                             smx:
-                             smx2:
-                             smx3:
-                             max-sm:  
-                             max-md:  
+                             max-smx3:text-[16px]
+                             max-smx2:text-[13px]
                              max-lg:text-[18px] max-lg:pr-4
                              "> معرفی و نحوه استفاده از متد LifeCycle 
                 <div className=" absolute left-14 text-lg text-[#888888]
-                               smx1:
-                               smx:
-                               smx2:
-                               smx3:
-                               max-sm:  
-                               max-md:  
+                               max-smx3:text-[12px]
+                               max-smx3:left-10
                                max-lg:text-[16px] max-lg:
                                ">
                 ۲۰ جلسه . ۴ ساعت
