@@ -38,13 +38,13 @@ const Accordion = () => {
      
   return (
     <> 
-        <div className=" relative top-[17px] right-[3px] w-[105px] h-[32px] text-[#005351] font-bold  text-2xl "> سرفصل ها </div>
+        <div className=" relative top-[17px] right-[3px] w-[105px] h-[32px] text-[#005351] dark:text-blue-400 font-bold  text-2xl "> سرفصل ها </div>
     
         <div className="flex flex-wrap w-full mb-[565px] ">
           <div className=" flex flex-col w-full gap-3 mt-7">
             
             {buttonstate.map((state,index) => (
-              <div onChange={ (e)=>handelevalue(e.target.value) } key={index} className={`collapse collapse-arrow bg-[#FFFF] shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ${buttonstate? '' :  'bg-blue1' } `}>
+              <div onChange={ (e)=>handelevalue(e.target.value) } key={index} className={`collapse collapse-arrow bg-[#FFFF] dark:bg-gray-300 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ${buttonstate? '' :  'bg-blue1' } `}>
               <input type="checkbox" name="my-accordion-2" />
 
               <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9

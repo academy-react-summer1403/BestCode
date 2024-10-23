@@ -4,7 +4,7 @@ import images from '../../assets/img/coursDetail'
 const Top = () => {
   return (
     <>
-      <div className=" h-[101%] max-sm:h-[360px] w-[49%] max-sm:w-[90%] max-sm:mx-auto bg-[#FFFF] flex flex-wrap rounded-2xl shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]" 
+      <div className=" h-[101%] max-sm:h-[360px] w-[49%] max-sm:w-[90%] max-sm:mx-auto bg-[#FFFF] dark:bg-gray-300 flex flex-wrap rounded-2xl shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]" 
       >
         
         <div className=" h-[41px] w-[100%]  flex gap-[30%] max-lg:gap-[5%] max-md:gap-0 mt-[31px] max-md:mt-[20px] " >
