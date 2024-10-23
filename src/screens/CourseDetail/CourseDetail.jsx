@@ -25,7 +25,7 @@ const CourseDetail = () => {
       <div className=" h-[620px] w-full  flex  flex-wrap " >
         
         <div className=" h-[33px] w-[100%] " > 
-           <p className=" text-[25px] leading-[32px] font-bold aling-right text-[#005351] " > توضیحات </p> 
+           <p className=" text-[25px] leading-[32px] font-bold aling-right text-[#005351] dark:text-blue-400 " > توضیحات </p> 
         </div>
        
 
@@ -39,7 +39,7 @@ const CourseDetail = () => {
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
           </div>
           
-          <button class=" absolute bottom-[44px] right-[35%] rounded-full border border-[#01CEC9] py-2 px-4 text-center text-[20px] font-normal leading-[32px] transition-all shadow-sm hover:shadow-lg text-[#006865] hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none
+          <button class=" absolute bottom-[44px] right-[35%] rounded-full border border-[#01CEC9] py-2 px-4 text-center text-[20px] font-normal leading-[32px] transition-all shadow-sm hover:shadow-lg text-[#006865] dark:text-blue-400 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none
                           " type="button">
              مطالعه بیشتر +
           </button>
@@ -64,7 +64,7 @@ const CourseDetail = () => {
 
     <div id="left" className=" h-[1616px] w-[27%] max-md:w-[70%]  max-xl:w-[33%] max-cd:w-[40%] max-smx3:w-[92%] flex flex-wrap max-md:order-1 relative ml-auto max-md:mx-auto ">
 
-      <div className=" h-[1015px] w-[100%] bg-[#FFFF] rounded-[15px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)] flex flex-wrap relative">
+      <div className=" h-[1015px] w-[100%] bg-[#FFFF] dark:bg-gray-300 rounded-[15px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)] flex flex-wrap relative">
 
         <div className=" w-[90%] h-[71px]  flex mt-[24px] m-auto gap-[15px]">
 
@@ -104,7 +104,7 @@ const CourseDetail = () => {
           <div className=" w-[95px] h-[21px] text-[13px] " > درصد تکمیل دوره </div>
           <div className=" w-[27px] h-[21px] text-[15px] absolute left-2 " > 87% </div>
 
-          <div className=" w-full h-[8px] bg-[#F0F0F0] rounded-[7px] mb-[-7px] relative ">
+          <div className=" w-full h-[8px] bg-[#F0F0F0]  rounded-[7px] mb-[-7px] relative ">
             <div className=" w-[87%] h-[8px] bg-[#01CEC9] rounded-[7px] absolute left-0 "></div>
           </div>
         </div>
@@ -123,7 +123,7 @@ const CourseDetail = () => {
          </div>
       </div>
 
-      <div className=" h-[601px] w-[100%] bg-[#FFFF] rounded-[15px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)] flex flex-wrap mt-7 relative 
+      <div className=" h-[601px] w-[100%] bg-[#FFFF] dark:bg-gray-300 rounded-[15px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)] flex flex-wrap mt-7 relative 
                        ">
 
         <div className=" h-[50px] w-[378px] rounded-t-xl mt-[16px] m-auto bg-[#E8E8E8] shadow-[0_1px_2px_0px_rgba(0,0,0,2)] relative">

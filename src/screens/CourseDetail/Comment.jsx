@@ -4,7 +4,7 @@ import images from "../../assets/img/coursDetail";
 const Comment = () => {
   return (
     <>
-      <p className="relative top-[17px] right-[3px] w-[105px] h-[32px] text-[#005351] font-bold  text-2xl">
+      <p className="relative top-[17px] right-[3px] w-[105px] h-[32px] text-[#005351] dark:text-blue-400 font-bold  text-2xl">
         {" "}
         نظرات{" "}
       </p>
