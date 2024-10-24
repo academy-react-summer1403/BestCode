@@ -41,6 +41,9 @@ export default {
         'custom-blur':'backdrop-filter: blur(5px)',
 
       },
+      gradientColorStopPositions: {
+        33: 'background: linear-gradient(230.15deg, rgba(228, 137, 0, 0.15) 10.81%, rgba(1, 206, 201, 0.225) 86.96%)'
+      },
       screens: {
         'sm1':'320px',
         'smx': '350px',
