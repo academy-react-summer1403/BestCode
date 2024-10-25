@@ -5,55 +5,43 @@ import SliderCard from "../../components/LandingHolder/CourseSection/SliderCard/
 import { useState } from "react"
 import { SwiperSlide } from "swiper/react"
 import "../../components/Courses/Course.css"
+import "./RangeSlider.css"
+import SideBarFilter from "../../components/Courses/SideBarFilter"
+import ListCourse from "../../components/Courses/ListCourse"
+import FinalList from "../../components/Courses/FinalList"
+import FinalGrid from "../../components/Courses/FinalGrid"
+import {Slider} from "antd"
+ 
 
 
 const Courses = () => {
-
-  const [openbox,setOpenBox] =useState(false)
-  const handleAccordion = ()=>{
-    if(!openbox){
-      setOpenBox(true)
-    }else{
-      setOpenBox(false)
-    }
-  }
-
-
-  const [slidercard , setSliderCard] = useState([
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},    
-])
+ 
+  const [active, setActive]=useState(1)
 
 
   return (
     <Formik>
-    <div className="overflow-hidden   font-BYekan1 justify-center">
+    <div className="overflow-visible  text-black font-BYekan1 justify-center dark:bg-gray-800 pt-[77px] pb-4">
         <CourseSearch/>
-        <div className="flex mx-auto justify-center gap-[20px] mt-[30px] ">
-          <div className="h-[1252px] w-[919px] ">
-                <div className="w-full h-[45px] flex justify-between ">
-                  <div className="h-full w-[100px]  flex gap-[10px]">
-                    <button className="h-[45px] w-[45px] rounded-b-[1px] rounded-tl-[10px] rounded-tr-[1px] bg-[#E7E7E7]
-                    shadow-[0px_1px_2px_0px_#00000040] bg-[url(../33.svg)] bg-no-repeat bg-center"> </button>
-                    <button className="h-[45px] w-[45px] rounded-b-[1px] rounded-tl-[1px] rounded-tr-[10px] bg-[#FFFFFF]
-                    shadow-[0px_1px_2px_0px_#00000040] bg-[url(../34.svg)] bg-no-repeat bg-center "> </button>   
+        <div className="flex mx-auto w-[92%] justify-center gap-[40px]  dark:bg-gray-800 mt-10 ">
+          <div className=" lg:w-[72%] cd:w-[94%] ">
+                <div className="md:w-[80%] sm:w-[70%] cd:w-full h-[45px] cd:ml-0 sm:ml-[150px] md:ml-[100px] qr:ml-3 qr:mr-0 ab:mr-24 wx:mr-40 flex ab:justify-center sm:justify-between ">
+                  <div className="h-full   flex gap-[10px] cd:ml-0 md:ml-[-50px] sm:ml-[-40px]">
+                    <button onClick={()=>setActive(old=>old+1)} className="h-[45px] w-[45px] rounded-b-[1px] rounded-tl-[10px] rounded-tr-[1px] bg-[#E7E7E7]
+                    shadow-[0px_1px_2px_0px_#00000040] bg-[url(../33.svg)] bg-no-repeat bg-center dark:bg-gray-200"> </button>
+                    <button onClick={()=>setActive(old=>old-1)} className="h-[45px] w-[45px] rounded-b-[1px] rounded-tl-[1px] rounded-tr-[10px] bg-[#FFFFFF]
+                    shadow-[0px_1px_2px_0px_#00000040] bg-[url(../34.svg)] z-50  bg-no-repeat bg-center dark:bg-gray-200 "> </button>   
+                        <label id="label" htmlFor="my-drawer-4" className="dark:bg-gray-200 block lg:hidden drawer-button btn bg-white border-0 shadow-[0px_1px_2px_0px_#00000040] relative "><img src="../38.svg" className="mt-3"/></label>
                   </div>
-                  <div className="h-full w-[207px] flex  bg-[#FFFFFF] rounded-t-[10px] rounded-b-[1px] 
+                  <div className="h-full w-[207px] dark:bg-gray-200  bg-[#FFFFFF] rounded-t-[10px] rounded-b-[1px]  ml-20 op:ml-28 sm:ml-0 qr:flex hidden
                   shadow-[0px_1px_3px_0px_#00000040]">
                     <img src="../35.svg" className="h-[12px] w-[20px] ml-4 my-auto"/>
                     <button className="text-[22px] font-[400] my-auto ml-7">جدیدترین</button>
                     <img src="../36.svg" className="h-[18px] w-[27px] ml-6 my-auto"/>
                   </div>                  
                 </div>
-                <div className="w-[918px] h-[1170px]  mt-[35px] grid grid-cols-3 gap-x-[36px] gap-y-[35px] ">
-                    
+                {/* <div className="w-[100%] mx-auto  justify-center lg:ml-20 xl:ml-0 gh:ml-0 cd:ml-10  mt-[35px] grid gh:grid-cols-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-x-[10px] lg:gap-x-[0px] xl:gap-x-[36px] gap-y-[35px] "> */}
+                 {/* <div className="w-[100%] mx-auto  justify-end   mt-[35px] grid gap-4 ">                   
                     {slidercard.map((item , index)=> (
                
                    <SliderCard  
@@ -66,80 +54,35 @@ const Courses = () => {
                     /> 
                
          ))} 
-                                             
-                </div>
-          </div>
-          <div className="w-[311px] h-[880px] bg-[#FFFFFF] shadow-[0px_1px_2px_0px_#0000004D]">
-            <div className="w-[272px] h-[45px] rounded-t-[5px] rounded-b-[1px] bg-[#E7E7E7] 
-            shadow-[0px_1px_2px_0px_#00000040] mx-auto mt-[14px] flex ">
-              <img src="../37.svg" className="h-[25px] w-[25px] my-auto ml-[13px]"/>
-              <p className="text-[18px] font-[400] my-auto ml-[150px] text-[#333333]">فیلترها</p>
-              <img src="../38.svg" className="h-[22px] w-[22px] my-auto ml-2"/>
+                      {slidercard.map((item , index) =>(
+                          <ListCourse  
+                                title={item.title} 
+                                price={item.price}
+                                teacher={item.teacher}
+                                duration={item.duration}
+                                student={item.student}
+                                index={index}
+                            /> 
+                      ))}
 
-            </div>
-            <div className="grid gap-[15px] mx-auto w-[273px] mt-[18px]">
-              <div className={`w-[272px] h-[173px] shadow-[0px_1px_2px_0px_#00000040] bg-[#FAFAFA] ${openbox? 'h-[24px]':''}`}>
-                <ul onClick={handleAccordion} className="text-right border-b-[1px] tex-[18px] font-[400] mx-auto border-[#E6E6E6] w-[237px] h-[24px]  " >
-                  <span>تکنولوژی</span>
-                  <img src="../35.svg" className={`mt-[-15px] ${openbox? 'rotate-180 ' : ''}`}/>
-                  {openbox ?
-                  (<></>)
-                : (
-                  <><li><label for="check1" className="text-[16px]">Boot Strap</label><Field type="checkBox" id="check1" className="size-3 ml-2 mt-5"/></li>
-                  <li><label for="check2" className="text-[16px]">React</label><Field type="checkBox" id="check2" className="size-3 ml-2"/></li>                                   
-                  <li><label for="check3" className="text-[16px]">Java Script</label><Field type="checkBox" id="check3" className="size-3 ml-2"/></li>
-                  <li><label for="check4" className="text-[16px]">.Net Core</label><Field type="checkBox" id="check4" className="size-3 ml-2"/></li>
-                  <li><label for="check5" className="text-[16px]">tailwind</label><Field type="checkBox" id="check5" className="size-3 ml-2"/></li></>
-                )  
-                
-                }
-                </ul>
-              </div>
-              <div className={`w-[272px] h-[123px] shadow-[0px_1px_2px_0px_#00000040] bg-[#FAFAFA]` }>
-              <ul className={`text-right border-b-[1px] tex-[18px] font-[400] mx-auto border-[#E6E6E6] w-[237px] h-[24px]  ${openbox? 'h-[24px]':''}`} >
-              <span>تکنولوژی</span>
-              <img src="../35.svg" className={`mt-[-15px] ${openbox? 'rotate-180 ' : ''}`}/>
-                  <li><label for="check4" className="text-[16px]">شروع نشده</label><Field type="checkBox" id="check4" className="size-3 ml-2"/></li>
-                  <li><label for="check5" className="text-[16px]">در حال برگزاری</label><Field type="checkBox" id="check5" className="size-3 ml-2"/></li>                                   
-                  <li><label for="check6" className="text-[16px]">تمام شده</label><Field type="checkBox" id="check6" className="size-3 ml-2"/></li>
-                </ul>
-              </div>  
-              <div className="w-[272px] h-[173px] shadow-[0px_1px_2px_0px_#00000040] bg-[#FAFAFA]">
-              <ul className="text-right border-b-[1px] tex-[18px] font-[400] mx-auto border-[#E6E6E6] w-[237px] h-[24px] bg-[url(../35.svg)] bg-no-repeat bg-left " >
-                 امتیاز
-                  <li><label for="check10" className="text-[16px]  w-[85px] h-[17px]  bg-[url(../39.svg)]"> <img src="../39.svg" className="relative left-[131px] top-[3px]"/></label><Field type="checkBox" id="check10" className="size-3 ml-2 relative bottom-4"/></li>
-                  <li><label for="check11" className="text-[16px] w-[85px] bg-[url(../40.svg)]"><img src="../40.svg" className="relative left-[131px] bottom-3"/></label><Field type="checkBox" id="check11" className="size-3 ml-2 relative bottom-8"/></li>                                   
-                  <li><label for="check12" className="text-[16px] w-[85px] bg-[url(../41.svg)]"><img src="../41.svg" className="relative left-[131px] bottom-7"/></label><Field type="checkBox" id="check12" className="size-3 ml-2 relative bottom-12"/></li>
-                  <li><label for="check13" className="text-[16px] w-[85px] bg-[url(../42.svg)]"><img src="../42.svg" className="relative left-[131px] bottom-11"/></label><Field type="checkBox" id="check13" className="size-3 ml-2 relative bottom-16"/></li>
-                  <li><label for="check14" className="text-[16px] mt-[-20px] w-[85px] bg-[url(../43.svg)]"><img src="../43.svg"className="relative left-[131px] bottom-[60px]"/></label><Field type="checkBox" id="check14" className="size-3 ml-2 relative bottom-20"/></li>
-                </ul>
-              </div>
-              <div className="w-[272px] h-[127px] shadow-[0px_1px_2px_0px_#00000040] bg-[#FAFAFA]">
-              <ul className="text-right border-b-[1px] tex-[18px] font-[400] mx-auto border-[#E6E6E6] w-[237px] h-[24px] bg-[url(../35.svg)] bg-no-repeat bg-left " >
-                سطح
-                  <li><label for="check7" className="text-[16px]">مقدماتی</label><Field type="checkBox" id="check7" className="size-3 ml-2"/></li>
-                  <li><label for="check8" className="text-[16px]">متوسط</label><Field type="checkBox" id="check8" className="size-3 ml-2"/></li>                                   
-                  <li><label for="check9" className="text-[16px]">پیشرفته</label><Field type="checkBox" id="check9" className="size-3 ml-2"/></li>
-                </ul>
-              </div>    
-              <div className="w-[272px] h-[123px] shadow-[0px_1px_2px_0px_#00000040] bg-[#FAFAFA]">
-                <div className="bg-[url(../35.svg)] bg-no-repeat bg-left my-auto mx-auto border-b-[1px] tex-[18px] font-[400] border-[#E6E6E6] w-[237px] h-[24px] text-right">(تومان)قیمت 
-                        <div className="mt-12 mx-auto">
-                          <div className="w-[222px] h-[4px] mx-auto z-[3000] bg-[#FEE9CA]"><div className="w-[151px] h-[4px] mx-auto bg-[#FFA31A] relative "></div></div>
-                           <div className="relative w-[222px] mx-auto ">
-                            <input type="range" className="w-full h-[0px] relative bottom-[17px] bg-none appearance-none range-sm"/>
-                            <input type="range" className="w-full h-[0px] relative bottom-[41px] bg-none appearance-none"/>
-                           </div>
-                        </div> 
-                         
-                         
-                         
 
-                
-                </div>
-              </div>                                      
-            </div>
+                   <div className="gap-[5px] w-[300px] h-[26px] flex text-center text-[16px] text-[#777777] relative left-[340px]">
+                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] bg-[url(../Frame.svg)] bg-center bg-no-repeat  hover:bg-[#FFB800]"></div>
+                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FFB800] hover:bg-[#FFB800]">1</div>   
+                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] hover:bg-[#FFB800]">2</div>
+                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] hover:bg-[#FFB800]">...</div>   
+                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] hover:bg-[#FFB800]">6</div>   
+                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] hover:bg-[#FFB800]">7</div>
+                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] bg-[url(../Frame1.svg)] bg-center bg-no-repeat hover:bg-[#FFB800]"></div>                                                                         
+                    </div>                          
+                </div>  */}
+                {/* <FinalList/> */}
+                {/* <FinalGrid/> */}
+                {active==1?<FinalGrid setActive={setActive} />  :<FinalList/>}
+
           </div>
+            <SideBarFilter/>
+            
         </div>
     </div>
     </Formik>
