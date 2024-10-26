@@ -1,26 +1,50 @@
 import React from 'react'
 import images from "../../assets/img/NewsDetail";
+import Card from '../../components/common/SideCard/card';
+import CardNewsDetail from './CardNewsDetail';
+import TextBar from './TextBar';
+import RateBar from './RateBar';
+import Comment from '../../components/common/Comment/Comment';
 
 const NewsDetail = () => {
   
     return (
     <>
     
-      <div className="w-full h-full flex font-['BYekan1'] justify-center bg-[#f7f7f7] ">
+      <div className="w-full h-full flex font-['BYekan1'] justify-center bg-[#F9F9F9] ">
           
-          <div className=" w-[81%] h-[1000px] flex gap-4  border-2 border-red-700">
+          <div className=" w-[81%] flex gap-4  border-2 border-red-700">
              
-             <div id='Left' className="w-[40%] h-[100%] border-2 border-blue-500">
+             <div id='Left' className="w-[40%] h-fit border-2 border-blue-500 flex flex-wrap">
                 
                 <div className="w-[100%] h-[329px] flex justify-center dark:bg-gray-800 rounded-tr-[10px]  rounded-bl-[10px] rounded-tl-[75px] rounded-br-[10px] ">
                     <img className="shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]" src={images.Women} alt="" />
                 </div>
+                  
+
+                <div className=" h-[601px] w-[100%] bg-[#FFFF] dark:bg-gray-300 rounded-[15px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)] flex flex-wrap mt-7 relative ">
+
+                  <div className=" h-[50px] w-[92%] rounded-t-xl mt-[16px] m-auto bg-[#E8E8E8] shadow-[0_1px_2px_0px_rgba(0,0,0,2)] relative">
+              
+
+                    <span className=" w-[50%] h-[21px]  text-right text-[20px] leading-[21px] font-normal text-[#555555] absolute top-[14px] right-[27px]">
+                      دوره های مرتبط 
+                    </span>
+
+                  </div>
+
+                                                            <Card />
+
+                </div>
+
+
+                                                         <CardNewsDetail />
              </div>                         
 
 
-             <div id='Right' className="w-[60%] h-[100%] border-2 border-blue-500">
+             <div id='Right' className="w-[60%] h-[100%] flex flex-wrap border-2 border-blue-500">
                  
-                 <div dir='rtl' className="w-[100%] h-[149px] flex justify-center relative bg-[#01CEC939] rounded-tr-[75px]  rounded-bl-[10px] rounded-tl-[5px] rounded-br-[10px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]">
+                <div dir='rtl' className="w-[100%] h-[149px] flex justify-center relative bg-custom-gradient backdrop-blur-md rounded-tr-[75px]  rounded-bl-[10px] rounded-tl-[5px] rounded-br-[10px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]">
                         
                         <div className=" w-[100%] h-[86px] flex flex-wrap absolute right-[35px] top-[32px]  ">
                             <div className=" w-[14px] h-[14px] rounded-full bg-[#01CEC9] relative top-5   "></div>
@@ -56,7 +80,21 @@ const NewsDetail = () => {
                                   <img src={images.save} alt="" />
                                 </div>
                         </div>
-                 </div>
+                </div>
+                
+
+
+                                                          <TextBar />
+
+                                                          <RateBar />
+
+                <div dir='rtl' className=" h-[953px] w-full  flex flex-wrap relative p-0 " >
+                                                          <Comment />
+                </div>
+
+
+                  
+
              </div>
           </div>
       </div>

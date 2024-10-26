@@ -1,5 +1,5 @@
 import React from "react";
-import images from "../../assets/img/coursDetail";
+import images from "../../../assets/img/coursDetail/index";
 
 const Comment = () => {
   return (
