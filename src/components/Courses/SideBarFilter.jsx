@@ -8,7 +8,8 @@ import "../Courses/Course.css"
 
 const SideBarFilter =()=>{
 
-
+    const [minValue,setMinValue] = useState(0)
+    
     
   const [openbox,setOpenBox] =useState(false)
   const [openbox1,setOpenBox1] =useState(false)  
@@ -161,13 +162,13 @@ const SideBarFilter =()=>{
                     <input type="range" className="w-full h-[0px] relative bottom-[41px] bg-none appearance-none"/>
                    </div>
                    </div> */}
-
+                    <span>{minValue} </span>
                    
                    <Slider id="rangeInput"
                 max={200000000}
                 min={1}
                 className=" w-[90%] mx-auto  h-[0px] bg-[#FEE9CA]"
-                onChange={(f) => console.log(f[0]) &console.log(f[1])}
+                onChange={(f) => setMinValue(f[0]) &console.log(f[1])}
                 range
                 step={100000}
                 
@@ -305,7 +306,8 @@ const SideBarFilter =()=>{
           : (
             <div className="justify-start text-right relative bottom-2 pr-[10px]">
                                         <div className="mt-12 mx-auto">
-                  <div className="w-[222px] h-[4px] mx-auto z-[3000] bg-[#FEE9CA]"><div className="w-[151px] h-[4px] mx-auto bg-[#FFA31A] relative "></div></div>
+                 
+                 <div className="w-[222px] h-[4px] mx-auto z-[3000] bg-[#FEE9CA]"><div className="w-[151px] h-[4px] mx-auto bg-[#FFA31A] relative "></div></div>
                   <Slider id="rangeInput"
                 max={200000000}
                 min={1}
