@@ -5,9 +5,9 @@ const RateBar = () => {
   return (
     <>
 
-        <div className="w-[100%] h-[52px] flex relative mt-[20px] bg-white rounded-lg shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]">
+        <div className="w-[100%] h-[52px] flex relative mt-[20px] bg-white dark:bg-gray-200 rounded-lg shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]">
             
-             <div className="h-[100%] flex absolute left-6 gap-6 ">
+             <div className="h-[100%] flex absolute left-6 max-lg:left-1 gap-6 ">
                     <div className="flex items-center gap-2 order-2 ">
                         <img className="order-2" src={images.share} alt="" />
                         <div className="flex items-center text-[16px] font-normal text-[#888888] order-1">
@@ -33,7 +33,7 @@ const RateBar = () => {
 
              </div>
              
-             <div className="h-[100%] flex absolute right-6 gap-3 ">
+             <div className="h-[100%] flex absolute right-6 max-lg:right-1 gap-3 ">
 
                     <div className="flex text-center items-center order-2 text-[18px] font-normal text-[#888888]">
                      امتیاز ۳۵ نفر
