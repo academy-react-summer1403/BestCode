@@ -87,7 +87,7 @@ const NewsDetail = () => {
                                                           <RateBar />
 
                 <div dir='rtl' className=" h-[953px] w-full  flex flex-wrap relative p-0 " >
-                                                          <Comment />
+                                                         <Comment />
                 </div>
 
 
