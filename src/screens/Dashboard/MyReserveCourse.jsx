@@ -9,7 +9,7 @@ const MyReserveCourse = () => {
   const [row1 , setRow1] = useState([
     {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 , vaziet:'در انتظار تایید' , delete:images.fr12 , color:'#E48900' },
     {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 ,vaziet:'در انتظار تایید', delete:images.fr12, color:'#E48900' },
-      {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 ,vaziet:'تایید شده', delete:images.fr12, color:'#00C070'},
+    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 ,vaziet:'تایید شده', delete:images.fr12, color:'#00C070'},
     {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 , vaziet:'در انتظار تایید', delete:images.fr12 , color:'#E48900'},
     {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11, vaziet:'در انتظار تایید', delete:images.fr12 ,color:'#E48900'},
   ])
@@ -21,10 +21,14 @@ const MyReserveCourse = () => {
     { value: 'option3', label: 'ارزان ترین' },
   ];
 
-  const formStyle = `w-[519px] h-[40px] bg-[#FBFBFB] flex rounded-[25px] justify-between 
+  const formStyle = `xl:w-[519px] h-[40px] bg-[#FBFBFB] flex rounded-[25px] justify-between 
     items-center 
     shadow-[0px_1px_3px_0px_#00000026_inset]
    pl-[4px] pr-[27px]
+    max-lg:w-[400px]
+    max-xl:w-[519px]
+    max-md:w-[250px]
+    max-smx3:w-[250px]
 
   `
   const inputdivStyle = `w-[34px] h-[34px] bg-[#CC6E00] rounded-full flex justify-center items-center`
@@ -33,8 +37,15 @@ const MyReserveCourse = () => {
   border-none outline-none bg-transparent pb-[3px]
   `
   return (
-    <div className="w-[875px] grid justify-center mt-[16px] justify-items-center">
-       <div className="w-[875px] h-[40px]  flex justify-between " >
+    <div className="xl:w-[875px] grid justify-center mt-[16px] justify-items-center
+    max-smx3:dark:bg-gray-800 max-smx3:w-screen max-md:dark:bg-gray-800 max-md:w-screen 
+    ">
+       <div className="xl:w-[875px] h-[40px]  flex justify-between 
+       max-smx3:grid
+      max-smx3:justify-items-center max-smx3:gap-[20px] max-md:gap-[30px]
+      max-lg:gap-[100px]
+      max-xl:gap-[180px]
+       " >
        <div>
           <SelectOption  options={options} />
         </div>
@@ -45,28 +56,59 @@ const MyReserveCourse = () => {
          
         />
       </div> 
-      <div className="w-[874px] h-[545px]  mt-[53px] flex-col"> 
-      <div className="w-[874px] h-[32px] border-b-[1.5px] border-b-[#007875] pr-[133px] pl-[126px] 
-        flex justify-end">
-          <p className=" font-primaryMedium text-[17px] text-[#003B39]">وضعیت</p>
-          <p className="ml-[48px] font-primaryMedium text-[17px] text-[#003B39]" >قیمت(تومان)</p>
-          <p className="ml-[50px] font-primaryMedium text-[17px] text-[#003B39]" >تاریخ شروع</p>
-          <p className="ml-[79px] font-primaryMedium text-[17px] text-[#003B39]">مدرس دوره</p>
-          <p className="ml-[100px] font-primaryMedium text-[17px] text-[#003B39]">نام دوره</p>
+     <div className="xl:w-[874px] h-[545px]  mt-[53px] flex-col
+     max-smx3:w-[300px] max-smx3:overflow-x-scroll 
+    max-smx3:mt-[100px] max-md:overflow-x-scroll max-md:mt-[60px]
+    max-md:w-[480px] max-lg:w-[700px] max-lg:mt-[60px] max-xl:mt-[60px]
+    max-xl:w-[874px] max-lg:overflow-x-scroll
+  
+     "> 
+     <div className="max-smx3:w-[874px] max-md:w-[874px] max-lg:w-[874px]">
+              <div className="xl:w-[874px] h-[32px] border-b-[1.5px] border-b-[#007875] lg:pr-[133px] lg:pl-[126px] 
+               dark:border-b-[#59d7d3]
+                flex justify-end max-smx3:gap-[70px]
+                max-smx3:justify-center
+                max-smx3:pl-[50px]
+                max-md:justify-center
+                max-md:gap-[70px]
+                max-md:pl-[50px]
+                max-lg:justify-center
+                max-lg:gap-[80px]
+                ">
+                  <p className=" font-primaryMedium text-[17px] text-[#003B39]
+                  dark:text-[#59d7d3] max-smx3:ml-[-30px]
+                  max-md:ml-[-30px] max-lg:ml-[10px]
+                  ">وضعیت</p>
+                  <p className="lg:ml-[48px] font-primaryMedium text-[17px] text-[#003B39]
+                  dark:text-[#59d7d3] max-smx3:ml-[-10px] max-md:ml-[-10px]
+                  max-lg:ml-[-30px]
+                  " >قیمت(تومان)</p>
+                  <p className="lg:ml-[50px] font-primaryMedium text-[17px] text-[#003B39]
+                  dark:text-[#59d7d3] max-smx3:ml-[-10px]
+                  max-md:ml-[-20px] max-lg:ml-[-40px]
+                  " >تاریخ شروع</p>
+                  <p className="lg:ml-[79px] font-primaryMedium text-[17px] text-[#003B39]
+                  dark:text-[#59d7d3]
+                  ">مدرس دوره</p>
+                  <p className="lg:ml-[100px] font-primaryMedium text-[17px] text-[#003B39]
+                  dark:text-[#59d7d3]
+                  max-smx3:ml-[40px] max-md:ml-[40px]
+                  max-lg:ml-[10px]
+                  ">نام دوره</p>
+                </div>
+                <div className="xl:w-[874px] flex-col pt-[3px]" >
+                {row1.map((item , index) => ( 
+                    <Group145 
+                      item={item}
+                      index={index}
+                      key={index}
+                    />
+                ))}
+               
+                </div> 
         </div>
-        <div className="w-[874px] flex-col pt-[3px]" >
-        {row1.map((item , index) => ( 
-             <Group145 
-               item={item}
-               index={index}
-               key={index}
-             />
-        ))}
-        <div className="relative top-[180px]">
-         <PagiantionDashboard />
-         </div>
-        </div>
-      </div>
+      </div>  
+           <PagiantionDashboard />        
     </div>
   )
 }

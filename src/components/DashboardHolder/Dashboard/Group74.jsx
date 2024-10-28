@@ -6,7 +6,7 @@ const Group74 = () => {
     <Fragment>
        <div className='md:w-[424px] h-[105px]  relative mt-[5px] flex gap-[44px] max-md:grid max-smx3:gap-[20px]
         max-smx3:justify-center max-md:gap-[20px]  md:ml-0 
-        max-smx3:right-0 max-lg:gap-[20px] max-lg:mr-[-30px] max-md:mr-0
+        max-smx3:right-0 max-lg:gap-[20px] max-lg:mr-[-20px] max-md:mr-0
        '
        style={{direction:'ltr'}}
        >

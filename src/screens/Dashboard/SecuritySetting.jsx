@@ -53,20 +53,37 @@ const SecuritySetting = () => {
     }
   };
   return (
-    <div className="w-[856px] h-[527px]  mt-[16px]">
-      <div className="w-[856px] h-[50px]  flex pl-[371px] pr justify-between pr-[30px]" >                
+    <div className="xl:w-[856px] xl:h-[527px]  mt-[16px]
+    max-smx3:dark:bg-gray-800 max-smx3:w-screen max-smx3:px-[10px]
+    max-md:dark:bg-gray-800 max-md:w-screen max-md:px-[30px]
+     max-lg:dark:bg-gray-800 max-lg:w-screen max-lg:px-[100px]
+     max-xl:dark:bg-gray-800 max-xl:w-screen max-xl:px-[200px]
+     
+    ">
+      <div className="xl:w-[856px] h-[50px]  flex xl:pl-[371px]  justify-between xl:pr-[30px]
+      max-smx3:gap-[20px]  max-smx3:grid max-smx3:justify-center max-smx3:justify-items-center
+      max-md:gap-[30px]
+      " >                
           <p className="font-primaryMedium text-[20px] text-[#9D9D9D] mt-[16px] font-[400]">تنظیمات امنیتی</p>
 
-       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" className="w-[50px] h-[50px] ">
+       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" className="w-[50px] h-[50px]
+       dark:fill-gray-800
+       max-md:mt-[5px] 
+       
+       ">
                 <rect width="50" height="50" rx="10" fill="#F7F7F7"/>
                 <path d="M24.997 8C19.9312 8 16.6466 11.3313 12.762 12.5456C11.1826 13.0393 10.3928 13.2862 10.0732 13.6342C9.75357 13.9822 9.65998 14.4907 9.4728 15.5077C7.46978 26.3909 11.8478 36.4526 22.2889 40.3689C23.4108 40.7896 23.9716 41 25.0025 41C26.0333 41 26.5943 40.7896 27.7159 40.3689C38.1564 36.4524 42.5303 26.3909 40.5267 15.5077C40.3394 14.4905 40.2458 13.9819 39.9261 13.6339C39.6065 13.2859 38.8167 13.0392 37.2373 12.5457C33.3511 11.3316 30.0629 8 24.997 8Z" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M22.1488 22C20.2977 22 19.3722 23.2479 19.1665 24.0159C18.9608 24.7838 18.9608 27.5677 19.0842 28.7196C19.4956 30.1596 20.524 30.7547 21.5318 30.9467C22.4573 31.0235 26.3651 30.9947 27.4964 30.9947C29.1418 31.0235 30.3759 30.4475 30.8901 28.7196C30.9929 28.1437 31.0957 24.9758 30.8386 24.0159C30.2936 22.48 28.9361 22 27.9077 22H22.1488Z" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round"/>
                 <path d="M21 22C21 21.8783 21.0187 21.1778 21.0218 20.2965C21.0248 19.4911 20.9454 18.7146 21.3768 18.004C22.9932 15.1372 27.6348 15.4292 28.7816 18.3496C28.9802 18.8304 28.9923 19.5926 28.9863 20.2965C28.9788 21.1959 29 22 29 22" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round"/>
                 </svg>      
       </div>
-      <div className="w-[787px] h-[197px]  ml-[34px] mr-[35px] mt-[37px] ">
+     <div className="xl:w-[787px] h-[197px]  xl:ml-[34px] xl:mr-[35px] mt-[37px]
+      max-smx3:mt-[100px]
+     ">
       <button
-      className="w-full text-left py-4 h-[29px]  flex justify-between items-center focus:outline-none"
+      className="w-full max-smx3:gap-[180px] 
+      max-md:gap-[180px]
+      text-left py-4 h-[29px]  flex justify-between items-center focus:outline-none"
       onClick={() => toggleAccordion(0)}
       >
     {openIndex === 0 ? (
@@ -96,7 +113,7 @@ const SecuritySetting = () => {
       </button>
     <div
       className={`accordion-content ${
-        openIndex === 0  ? "block" : "hidden"
+        openIndex === 0  ? "block " : "hidden"
       } p-4 text-gray-700 transition-all duration-300`}
     >
      <div className="w-full ">
@@ -113,7 +130,10 @@ const SecuritySetting = () => {
       >
         {({ isSubmitting }) => (
           <Form className="grid mt-[9px] justify-center justify-items-center">
-          <div className="flex gap-[22px] justify-center"
+          <div className="flex gap-[22px] justify-center
+          max-smx3:grid
+          max-md:grid
+          "
           style={{direction:'rtl'}}
           >
             <div className="">
@@ -176,17 +196,23 @@ const SecuritySetting = () => {
              </svg>              
              <span className="text-[13px] w-[78px] font-[400]">ذخیره تغییرات</span>
             </button>
-            </div>
+            </div> 
           </Form>
         )}
       </Formik>
     </div>
    
-      </div>
-    </div> 
-    <div className="w-[787px] h-[63px]  ml-[34px] mr-[35px] mt-[40px]">
+      </div> 
+    </div>  
+    <div className="xl:w-[787px] h-[63px]  xl:ml-[34px] xl:mr-[35px] mt-[40px]
+    max-smx3:mt-[190px]  max-smx3:dark:bg-gray-800 
+    max-md:mt-[190px] 
+    
+    ">
     <button
-       className="w-full text-left py-4 h-[28px]  flex justify-between items-center focus:outline-none"
+       className="w-full text-left py-4 h-[28px]  flex justify-between items-center focus:outline-none
+       max-smx3:gap-[130px]
+       "
        onClick={() => toggleAccordion(1)}
       >
         {openIndex === 1 ? (
@@ -225,7 +251,15 @@ const SecuritySetting = () => {
           onSubmit={handleSubmit}
          >
             <Form >
-            <div className="ml-[268px] mt-[-10px] " >
+            <div className="xl:ml-[268px] xl:mt-[-10px] 
+            max-smx3:flex max-smx3:justify-center
+            max-md:flex max-md:justify-center
+            max-lg:flex 
+            max-lg:justify-center
+            max-xl:flex
+            max-xl:justify-center
+           
+            " >
             <label className="w-[211px] flex justify-between items-center">
               <Field type="checkbox" name="twoFactorAuth" className=' focus:ring-blue-500 appearance-none h-[15px] w-[15px] rounded-[3px] shadow-[0px_1px_3px_0px_#00000040_inset] bg-white 
               
@@ -240,7 +274,9 @@ const SecuritySetting = () => {
          </Formik>
         </div>
      </div>
-     <div className="w-[787px] h-[104px]  ml-[34px] mr-[35px] mt-[43px]">
+    <div className="xl:w-[787px] xl:h-[104px] 
+     max-smx3:h-[200px] max-md:h-[200px]
+    xl:ml-[34px] xl:mr-[35px] mt-[43px]">
     <button
        className="w-full text-left py-4 h-[28px]  flex justify-between items-center focus:outline-none"
        onClick={() => toggleAccordion(2)}
@@ -296,7 +332,7 @@ const SecuritySetting = () => {
             </Form>
          </Formik>
         </div>
-     </div>
+     </div>  
   </div>
   )
 }

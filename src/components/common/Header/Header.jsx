@@ -5,8 +5,8 @@ import SideBar from './SideBar/SideBar';
 import { useDarkMode } from '../../../../DarkModeContext.jsx';
 import { LuSunMedium } from "react-icons/lu";
 import { RiMoonFill } from "react-icons/ri";
-import { useNavigate } from 'react-router-dom';
-
+import { NavLink, useNavigate } from 'react-router-dom';
+import './Header.css'
 
 const Header = () => {
  
@@ -109,13 +109,24 @@ const HandleNavigate = () => {
                                '
                     style={{justifyContent:'right'}}
                    >
-                   <li className='cursor-pointer  flex ml-[10px]  '
+                   <NavLink className='cursor-pointer  flex ml-[10px]  '
                        style={{marginRight:'-1px'}}
-                    >تماس با ما</li>
-                   <li className='cursor-pointer  text-center '>اخبار و مقالات</li>
-                   <li className='cursor-pointer  text-center '>اساتید</li>
-                   <li className='cursor-pointer  text-center '>دوره ها</li>
-                   <li className='cursor-pointer   text-center  '>صفحه نخست</li>
+                    >تماس با ما</NavLink>
+                   <NavLink className='cursor-pointer  text-center '>اخبار و مقالات</NavLink>
+                   <NavLink className='cursor-pointer  text-center '>اساتید</NavLink>
+                   <NavLink    className={({ isActive }) =>
+                                `cursor-pointer text-center relative ${isActive ? 'active-nav' : ''}` 
+                           }
+                   to={'/course-detail'}
+                   >دوره ها</NavLink>
+                   <NavLink 
+                   to={'/'}
+                     className={({ isActive }) =>
+                    `cursor-pointer text-center relative ${isActive ? 'active-nav' : ''}` 
+               }
+                   
+                   
+                   >صفحه نخست</NavLink>
                 </ul>  
                 <div className='flex justify-end 
                                 w-[135px] h-[50px] 

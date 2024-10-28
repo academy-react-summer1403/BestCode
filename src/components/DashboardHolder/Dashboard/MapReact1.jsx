@@ -63,14 +63,45 @@ const MapReact1 = ({setValueField}) => {
             </div>
         </div>
         {isModalOpen && (
-        <div className="relative  bottom-[636px] right-[92px]">
-          <div className="absolute z-[9999999] w-[916px] h-[624px] bg-[#525252B2] rounded-[15px]
+        <div className="relative  bottom-[636px] xl:right-[92px] max-smx3:flex 
+        max-md:flex
+        max-md:justify-center
+        max-smx3:justify-center
+        max-lg:flex
+        max-lg:justify-center
+        max-xl:flex
+        max-xl:justify-center
+      
+        ">
+           <div className="absolute z-[9999999] xl:w-[916px] xl:h-[624px] bg-[#525252B2] xl:rounded-[15px]
+
             backdrop-blur-[13px]
-            shadow-[0px_2px_4px_0px_#00000040]
+            max-smx3:z-[1000]
             
+            max-smx3:h-screen
+            max-smx3:w-[300px]
+            shadow-[0px_2px_4px_0px_#00000040]
+            max-md:z-[1000]
+            max-md:h-screen
+            max-md:left-[-10px]
+            max-smx3:left-[-150px]
+            max-md:w-[300px]
+            max-lg:w-[400px]
+            max-lg:z-[1000]
+            max-xl:left-[-180px]
+            max-xl:w-[500px]
+            max-xl:z-[1000]
           "> 
                   <button  className='w-[26px] h-[26px] bg-[#B9B9B9] 
-                justify-center flex items-center absolute left-[864px] top-[30px]
+                justify-center flex items-center absolute xl:left-[864px] top-[30px]
+                max-smx3:z-[1001] max-smx3:left-[250px]
+                max-md:z-[1001]
+                max-md:left-[250px]
+                max-lg:z-[1001]
+                max-lg:left-[350px]
+                max-xl:z-[1001]
+                max-xl:left-[450px]
+                max-smx3:bg-white
                 rounded-full'
                 onClick={closeModal}
                 >
@@ -78,9 +109,9 @@ const MapReact1 = ({setValueField}) => {
                   <path d="M1.72313 1.72267L10.562 10.5615M10.562 1.72267L1.72313 10.5615" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                  </svg>
                 </button>
-                    <div className='w-[755px] h-[432px]  overflow-hidden mt-[96px] ml-[83px] gird
+                    <div className='xl:w-[755px] xl:h-[432px]  overflow-hidden xl:mt-[96px] xl:ml-[83px] gird
                     '>
-                <div className='w-[755px] h-[395px] rounded-[14px] overflow-hidden' >
+                <div className='xl:w-[755px] xl:h-[395px] xl:rounded-[14px] overflow-hidden' >
                   <MapContainer
                         center={[35.7665394, 51.4749824]} 
                         zoom={14}
@@ -99,7 +130,14 @@ const MapReact1 = ({setValueField}) => {
                       </div>  
                              <div className='w-[50px] h-[50px] bg-[#FFFFFF] rounded-full
                                 flex justify-center items-center  shadow-[0px_1px_3px_0px_#00000040]
-                                absolute bottom-[97px] left-[439px] z-[8000]
+                                absolute bottom-[97px] xl:left-[439px] z-[8000]
+                                max-smx3:left-[130px] max-smx3:top-[470px]
+                                max-md:left-[130px]
+                                max-lg:left-[170px]
+                                max-lg:top-[460px]
+                                max-xl:left-[220px]
+                                max-xl:top-[460px]
+                                
                                 '   
                                 onClick={handleMapClick}
                                 >
@@ -108,8 +146,10 @@ const MapReact1 = ({setValueField}) => {
                                        </svg>
                                  </div>
                                  {selectedCoords? (
-                              <div className='flex gap-[10px] items-center mt-[10px]'>
-                               <p className='font-primaryMedium text-[15px] text-[#FFFFFF]'>Lt :{selectedCoords.lat}</p>
+                              <div className='flex gap-[10px] items-center mt-[10px]
+                              max-smx3:mt-[40px]'>
+                               <p className='font-primaryMedium 
+                               text-[15px] text-[#FFFFFF]'>Lt :{selectedCoords.lat}</p>
                                <p className='font-primaryMedium text-[15px] text-[#FFFFFF]'>Lg :{selectedCoords.lng}</p>
                                  </div>
                             ) : (
@@ -117,11 +157,9 @@ const MapReact1 = ({setValueField}) => {
                                  <p className='font-primaryMedium text-[15px] text-[#FFFFFF]'>Lt :35.7665394</p>
                                  <p className='font-primaryMedium text-[15px] text-[#FFFFFF]'>Lg :51.4749824</p>
                               </div>  
-                           )
-                
-                }
+                           )}
                     </div>
-             </div>
+             </div> 
           </div>
           
           )

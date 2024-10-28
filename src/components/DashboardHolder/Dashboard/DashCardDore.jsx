@@ -30,7 +30,7 @@ const DashCardDore = ({namedore, time , img, teacher}) => {
                                          font-[700]
                                          font-primaryMedium text-center
                                          text-[#005250]
-
+                                         dark:text-[#59d7d3]
                            '
                             style={{direction:'rtl'}}
                            >

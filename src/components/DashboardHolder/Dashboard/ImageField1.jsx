@@ -1,6 +1,6 @@
 import React, { Fragment  , useState} from 'react'
 import images from '../../../assets/dashboardpng'
-import {Form , Formik , Field} from 'formik'
+import {Form , Formik , Field , ErrorMessage} from 'formik'
 
 const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPreviewImage}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,8 +46,8 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
    
   return (
     <Fragment>
-         <div className='mt-[-5px] relative top-[3px]' >
-          <div className='cursor-pointer w-[155px] h-[160px] rounded-full'>
+         <div className='xl:mt-[-5px] relative top-[3px]' >
+           <div className='cursor-pointer w-[155px] xl:h-[160px] rounded-full'>
             <img
                 src={previewImage? previewImage : images.eli433} 
                 alt="Profile"
@@ -55,8 +55,8 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
                 
                 className='mt-[7px] cursor-pointer w-[155px] h-[160px] rounded-full'
             />
-            </div>
-                <div className='relative top-[-42px] left-[8px] '>
+            </div> 
+                 <div className='relative top-[-42px] left-[8px] '>
                         <img src={images.vector61} />
                         <div className='absolute top-[7px] left-[55.44px] '>
                         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
@@ -64,9 +64,9 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
                             <path d="M19.6301 15.3999C19.6301 16.8002 19.0887 18.1432 18.1249 19.1334C17.1611 20.1236 15.8539 20.6799 14.4909 20.6799C13.1278 20.6799 11.8206 20.1236 10.8568 19.1334C9.89302 18.1432 9.35156 16.8002 9.35156 15.3999C9.35156 13.9995 9.89302 12.6566 10.8568 11.6664C11.8206 10.6762 13.1278 10.1199 14.4909 10.1199C15.8539 10.1199 17.1611 10.6762 18.1249 11.6664C19.0887 12.6566 19.6301 13.9995 19.6301 15.3999ZM22.1998 12.7599H22.2089V12.7693H22.1998V12.7599Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         </div>
-            </div> 
+            </div>  
             
-            <Field name="imgprofile">
+             <Field name="imgprofile">
             {({ field }) => (
             <input
                 {...field}
@@ -85,9 +85,18 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
             />
             )}
             </Field>
+            <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800
+                                            max-md:w-[150px]
+                                            ">
+                    <ErrorMessage name="img" component="div" 
+                            className="text-red-500 font-primaryMedium text-sm truncate" />
+                    </div> 
         </div>
-        {isModalOpen && (
-        <div className="relative  bottom-[294px] right-[100px]">
+       {isModalOpen && (
+        <div className="relative  bottom-[294px] right-[100px] max-smx3:hidden max-md:hidden max-lg:hidden
+        
+           max-xl:right-[150px]
+        ">
           <div className="absolute z-[9999999] w-[916px] h-[624px] bg-[#525252B2] rounded-[15px]
             backdrop-blur-[13px]
             shadow-[0px_2px_4px_0px_#00000040]
@@ -175,7 +184,7 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
             </div>
           </div>
         </div>
-      )}
+      )} 
     </Fragment>
   )
 }

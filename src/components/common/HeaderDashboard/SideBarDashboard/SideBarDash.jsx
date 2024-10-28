@@ -11,7 +11,7 @@ const SideBarDash = ({HandleClose}) => {
 
   return (
     <div className='fixed h-screen w-[40px]  bottom-0 top-0 right-0 bg-[#01CEC9] 
-       z-[8888]
+       z-[8888] xl:hidden
        shadow-[0px_1px_10px_0px_#00000040]
     ' >
              <NavLink to={'/user'} className=''>
