@@ -27,6 +27,14 @@
     font-style: normal;
     font-display:swap;
 }
+@layer utilities {
+    .bg-custom-gradient {
+      background: linear-gradient(256.47deg, rgba(1, 206, 201, 0.225) 19.45%, rgba(228, 137, 0, 0.15) 72.46%);
+    }
+    .bg-gradient-custom2 {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #bbbbbb 100%) !important;
+      }
+  }
 
 
 :root{
