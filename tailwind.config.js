@@ -1,5 +1,8 @@
+import { Slider } from 'antd';
+
 /** @type {import('tailwindcss').Config} */
 const flowbite = require("flowbite-react/tailwind");
+
 
 export default {
   darkMode: 'class',
@@ -12,6 +15,9 @@ export default {
 
   darkMode :'class',
   theme: {
+
+
+
     extend: {
 
       colors:{
@@ -59,7 +65,16 @@ export default {
         'desktop': '1280px',
         'ab':'320px',
         'cd' : '850px',
-        'ef' : '1150px'
+        'gh' : '950px',
+        'ij' : '900px',
+        'kl' : '810px',
+        'mn' : '710px',
+        'op' : '580px',
+        'qr' : '525px',
+        'st' : '480px',
+        'uv' : '435px', 
+        'wx' : '385px',
+        'ef' : '1150px',
       },
       backgroundSize: {
         'auto': 'auto',
