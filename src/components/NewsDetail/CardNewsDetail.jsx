@@ -9,7 +9,7 @@ import images from "../../assets/img/NewsDetail";
 
               <div className=" h-[50px] w-[92%] rounded-t-xl mt-[16px] m-auto bg-[#E8E8E8] shadow-[0_1px_2px_0px_rgba(0,0,0,2)] relative">
         
-                    <span className=" w-[50%] h-[21px] text-right text-[20px] leading-[21px] font-normal text-[#555555] absolute top-[14px] right-[27px]">
+                    <span className=" w-[70%] h-[21px] text-right text-[20px] leading-[21px] font-normal text-[#555555] absolute top-[14px] right-[27px]">
                          مطالب پیشنهادی
                     </span>
 

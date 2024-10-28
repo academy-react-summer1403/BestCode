@@ -1,9 +1,9 @@
 import React from 'react'
 import images from "../../assets/img/NewsDetail";
 import Card from '../../components/common/SideCard/card';
-import CardNewsDetail from './CardNewsDetail';
-import TextBar from './TextBar';
-import RateBar from './RateBar';
+import CardNewsDetail from '../../components/NewsDetail/CardNewsDetail';
+import TextBar from '../../components/NewsDetail/TextBar';
+import RateBar from '../../components/NewsDetail/RateBar';
 import Comment from '../../components/common/Comment/Comment';
 
 const NewsDetail = () => {
