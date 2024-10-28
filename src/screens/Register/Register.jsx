@@ -14,13 +14,13 @@ const Register = () => {
   const navigate=useNavigate()
   return (
     <>
-           <div  className="w-full h-screen flex font-BYekan  "   >
+           <div  className="w-full h-screen flex font-BYekan1 dark  "   >
         {/* <HeaderSignUp/> */}
-        <div className="w-full h-screen  justify-center flex dark:bg-slate-950" >
+        <div className="w-full h-screen  justify-center flex dark:bg-gray-800 " >
           <div className="lg:w-[869px] lg:h-[631px] cd:h-[550px] cd:w-[650px] duration-1000 
           md:w-[550px] md:h-[450px] sm:w-[500px] sm:h-[400px] xl:ml-0 lg:ml-[9%] cd:ml-[2%] pt-3 pl-10">
           
-          <div className="w-[869px] h-full  sm:bg-[url(../01.png)] bg-contain bg-no-repeat duration-1000">
+          <div className="w-[869px] h-full dark:sm:bg-[url(../80.png)] sm:bg-[url(../01.png)] bg-contain bg-no-repeat duration-1000">
             {/* <img src="./01.png" alt="image" className="w-full h-full relative " /> */}
        {active==1?<SignUpFirstStep  setActive={setActive} />:null }
        {active==2?<SignUpSecondStep setActive={setActive} />:null }
@@ -40,7 +40,7 @@ const Register = () => {
             <button onClick={()=>setActive(old=>old-1)} className="text-[#AAAAAA] sm:text-[18px] md:text-[20px] text-nowrap relative lg:right-[190px] 
             cd:mt-[310px] cd:right-[170px] xl:mt-[550px] lg:mt-[460px] ab:right-[350px] ab:mt-[70px] sm:right-[100px] sm:mt-[20px] md:right-[100px] md:mt-[120px] xl:right-[190px] dark:text-[#006865]">مرحله قبل</button> 
             
-           <button onClick={()=>navigate("/Login")} className="text-[#006865] md:text-[24px] sm:text-[20px] relative xl:bottom-[90px] xl:right-[110px]
+           <button onClick={()=>navigate("/Login")} className="text-[#006865] md:text-[24px] sm:text-[20px] relative xl:bottom-[80px] xl:right-[100px]
            lg:bottom-[120px] lg:right-[100px] ef:right-[100px] cd:bottom-[150px] cd:right-[90px] md:bottom-[190px] md:right-[30px] sm:bottom-[200px] sm:right-[50px] 
            ab:right-[450px] ab:bottom-[300px]" >ورود</button>         
       </div>   

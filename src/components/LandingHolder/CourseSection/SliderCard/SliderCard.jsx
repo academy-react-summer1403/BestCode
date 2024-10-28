@@ -7,10 +7,13 @@ const SliderCard = ({price, teacher, student , title , duration , img}) => {
   return (
   <div className='h-[323px] w-[266px] flex  justify-center justify-items-center items-center  pt-[18px] '>  
      <div className='w-[266px] h-[305px] bg-[#FFFFFF] rounded-[15px] shadow-lg border border-[#cccccc] relative  '>   
+  <div className='h-[323px] w-[266px] flex  justify-center justify-items-center items-center  pt-[18px]  '>  
+     <div className='w-[266px] h-[305px] dark:bg-gray-200 bg-[#FFFFFF] rounded-[15px] shadow-lg border border-[#cccccc]  relative '>   
+
        <div className='w-[233px] h-[151px] 
          absolute bottom-[172px]
          flex justify-center items-center bg-gradient-to-r from-[#A259FF] to-[#D47300]
-         rounded-[10px] z-[23232] ml-[16px]
+         rounded-[10px] z-[0] ml-[16px]
          '>
          <img src={img} className='w-[233px] h-[151px] rounded-[10px]' />
        </div>
@@ -60,7 +63,7 @@ const SliderCard = ({price, teacher, student , title , duration , img}) => {
                    mt-[7px]  pl-[2px]'>تومان</span>
                  <p  className='text-[23px] text-[#006865] mt-[-2px] '>{price}</p>
                </div>
-               <div className='mt-[3px] mr-[1px]' >
+               <div className='mt-[3px] mr-[1px] z-0' >
                   <img src={images.buyit} width={21.9} height={23} />
                </div>
                

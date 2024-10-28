@@ -1,60 +1,223 @@
-import react from 'react'
+import images from '../../assets/img/coursDetail'
+import { useState } from 'react';
 
 const Accordion = () => {
+   
+  const [isactive,setIsActive]=useState(false)
+
+  const [buttonstate,setButtonState]=useState([
+    {title:'معرفی Ajax',subtitle:'معرفی و نحوه استفاده از متد LifeCycle '},
+    {title:'معرفی Ajax',subtitle:'معرفی و نحوه استفاده از متد LifeCycle '},
+    {title:'معرفی Ajax',subtitle:'معرفی و نحوه استفاده از متد LifeCycle '},
+    {title:'معرفی Ajax',subtitle:'معرفی و نحوه استفاده از متد LifeCycle '},
+    {title:'معرفی Ajax',subtitle:'معرفی و نحوه استفاده از متد LifeCycle '},
+    {title:'معرفی Ajax',subtitle:'معرفی و نحوه استفاده از متد LifeCycle '},
+    {title:'معرفی Ajax',subtitle:'معرفی و نحوه استفاده از متد LifeCycle '},
+    {title:'معرفی Ajax',subtitle:'معرفی و نحوه استفاده از متد LifeCycle '},
+  ])
+  
+     const handelevalue = (e) =>{
+
+      console.log(e.value);
+     }
+
+
+  const OnClick = () => {
+      
+
+        if (!isactive) {
+          setIsActive(true)
+        }else{
+          setIsActive(false)
+        }
+
+      }
+       
+
+
+     
   return (
-    <>
+    <> 
+        <div className=" relative top-[17px] right-[3px] w-[105px] h-[32px] text-[#005351] dark:text-blue-400 font-bold  text-2xl "> سرفصل ها </div>
     
-<div id="accordion-color" data-accordion="collapse" data-active-classes="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white">
-  <h2 id="accordion-color-heading-1">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-color-body-1" aria-expanded="true" aria-controls="accordion-color-body-1">
-      <span>What is Flowbite?</span>
-      <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-      </svg>
-    </button>
-  </h2>
-  <div id="accordion-color-body-1" class="hidden" aria-labelledby="accordion-color-heading-1">
-    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-      <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-      <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
-    </div>
-  </div>
-  <h2 id="accordion-color-heading-2">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-color-body-2" aria-expanded="false" aria-controls="accordion-color-body-2">
-      <span>Is there a Figma file available?</span>
-      <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-      </svg>
-    </button>
-  </h2>
-  <div id="accordion-color-body-2" class="hidden" aria-labelledby="accordion-color-heading-2">
-    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-      <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-      <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
-    </div>
-  </div>
-  <h2 id="accordion-color-heading-3">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
-      <span>What are the differences between Flowbite and Tailwind UI?</span>
-      <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-      </svg>
-    </button>
-  </h2>
-  <div id="accordion-color-body-3" class="hidden" aria-labelledby="accordion-color-heading-3">
-    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-      <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
-      <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
-      <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-      <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
-        <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-        <li><a href="https://tailwindui.com/" rel="nofollow" class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+        <div className="flex flex-wrap w-full mb-[565px] ">
+          <div className=" flex flex-col w-full gap-3 mt-7">
+            
+            {buttonstate.map((state,index) => (
+              <div onChange={ (e)=>handelevalue(e.target.value) } key={index} className={`collapse collapse-arrow bg-[#FFFF] dark:bg-gray-300 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ${buttonstate? '' :  'bg-blue1' } `}>
+              <input type="checkbox" name="my-accordion-2" />
 
+              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9
+                             max-smx3:text-[16px]
+                             max-smx2:text-[13px]
+                             max-lg:text-[18px] max-lg:pr-4
+                             "> معرفی و نحوه استفاده از متد LifeCycle 
+                <div className=" absolute left-14 text-lg text-[#888888]
+                               max-smx3:text-[12px]
+                               max-smx3:left-10
+                               max-lg:text-[16px] max-lg:
+                               ">
 
+                ۲۰ جلسه . ۴ ساعت
+                </div>
+              </div>
+              
+              <div className="collapse-content bg-[#EEFFFF]">
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                
+              </div>
+              </div>
+            ))}
+            
+            {/*<div onClick={ Onclick } className={`collapse collapse-arrow bg-base-200 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] ${isactive? 'bg-blue1' :  '' } `}>
+              <input type="checkbox" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9"> معرفی و نحوه استفاده از متد LifeCycle 
+                <div className=" absolute left-14 text-lg text-[#888888]">
+                ۲۰ جلسه . ۴ ساعت
+                </div>
+              </div>
+              
+              <div className="collapse-content bg-[#EEFFFF]">
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+              </div>
+            </div>
+            <div onClick={ Onclick } className={`collapse collapse-arrow bg-base-200 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)]  ${isactive? 'bg-blue1' :  '' } `}>
+              <input type="checkbox" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9"> معرفی و نحوه استفاده از متد LifeCycle 
+                <div className=" absolute left-14 text-lg text-[#888888]">
+                ۲۰ جلسه . ۴ ساعت
+                </div>
+              </div>
+              
+              <div className="collapse-content bg-[#EEFFFF]">
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                
+              </div>
+            </div>
+            <div onClick={ Onclick } className={`collapse collapse-arrow bg-base-200 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)]  ${isactive? 'bg-blue1' :  '' } `}>
+              <input type="checkbox" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9"> معرفی و نحوه استفاده از متد LifeCycle 
+                <div className=" absolute left-14 text-lg text-[#888888]">
+                ۲۰ جلسه . ۴ ساعت
+                </div>
+              </div>
+              
+              <div className="collapse-content bg-[#EEFFFF]">
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                
+              </div>
+            </div>
+            <div onClick={ Onclick } className={`collapse collapse-arrow bg-base-200 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)]  ${isactive? 'bg-blue1' :  '' } `}>
+              <input type="checkbox" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9"> معرفی و نحوه استفاده از متد LifeCycle 
+                <div className=" absolute left-14 text-lg text-[#888888]">
+                ۲۰ جلسه . ۴ ساعت
+                </div>
+              </div>
+              
+              <div className="collapse-content bg-[#EEFFFF]">
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                
+              </div>
+            </div>
+            <div onClick={ Onclick } className={`collapse collapse-arrow bg-base-200 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)]  ${isactive? 'bg-blue1' :  '' } `}>
+              <input type="checkbox" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9"> معرفی و نحوه استفاده از متد LifeCycle 
+                <div className=" absolute left-14 text-lg text-[#888888]">
+                ۲۰ جلسه . ۴ ساعت
+                </div>
+              </div>
+              
+              <div className="collapse-content bg-[#EEFFFF]">
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                
+              </div>
+            </div>
+             <div onClick={ Onclick } className={`collapse collapse-arrow bg-base-200 shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)]  ${isactive? 'bg-blue1' :  '' } `}> 
+              <input type="checkbox" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-medium text-[#555555] flex relativ pr-9"> معرفی و نحوه استفاده از متد LifeCycle 
+                <div className=" absolute left-14 text-lg text-[#888888]">
+                ۲۰ جلسه . ۴ ساعت
+                </div>
+              </div>
+              
+              <div className="collapse-content bg-[#EEFFFF]">
+                <div className="collapse-title text-xl font-medium text-[#006865] flex relativ  border-b border-[#E5E5E5] h-10 "> معرفی Ajax
+                  <div className=" absolute left-9 text-lg text-[#006865]">
+                  15:36
+                  </div>
+                  <img src={images.play} alt="" className=" absolute left-2 h-5 w-5 mt-1"/>
+                </div>
+                
+              </div>
+            </div> */}
+
+            </div>
+          </div>
+
+          <div className={``}>
+
+          </div>
     </>
       
   )
