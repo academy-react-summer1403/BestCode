@@ -7,13 +7,23 @@ import eyse from './eyse.svg'
 import callender from './callender.svg'
 import person from './person.svg'
 import save from './save.svg'
+import ReactA from './ReactA.png'
+import Employ from './Employ.png'
+import Fig from './Fig.png'
+import star from './stars.png'
+import star1 from './stars1.png'
 
 
 
 
 export default{
    
-    save,
+   star1,
+   star,
+   Employ,
+   Fig, 
+   ReactA,
+   save,
    person,
    callender,
    eyse, 

@@ -1,11 +1,11 @@
 import React from "react";
-import Accordion from "./Accordion";
-import Comment from "./Comment";
-import Top from "./Top";
-import Detail from "./Detail";
+import Accordion from "../../components/CourseDetail/Accordion";
+import Top from "../../components/CourseDetail/Top";
+import Detail from "../../components/CourseDetail/Detail";
 import images from '../../assets/img/coursDetail';
+import Comment from '../../components/common/Comment/Comment.jsx';
+import Card from '../../components/common/SideCard/card';
 
-import Card from "./card";
 const CourseDetail = () => {
   
    
@@ -29,18 +29,14 @@ const CourseDetail = () => {
         </div>
        
 
-        <div className=" h-[570px] w-[810px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] m-auto overflow-hidden relative rounded-2xl backdrop-opacity-60 bg-gradient-to-b from-[#ffffff] to-gray-400
-                         
-                        "
+        <div className=" h-[570px] w-[810px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] m-auto overflow-hidden relative rounded-2xl backdrop-opacity-60 bg-gradient-to-b from-[#ffffff] to-gray-400"
                        >
-          <div className="w-[100%] border-2 m-auto pt-6 text-[18px] max-smx3:text-[14px] leading-[27px] font-normal aling-right text-slate-600 pl-10 pr-10
-                          " > 
+          <div className="w-[100%] border-2 m-auto pt-6 text-[18px] max-smx3:text-[14px] leading-[27px] font-normal aling-right text-slate-600 pl-10 pr-10 " > 
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
           </div>
           
-          <button class=" absolute bottom-[44px] right-[35%] rounded-full border border-[#01CEC9] py-2 px-4 text-center text-[20px] font-normal leading-[32px] transition-all shadow-sm hover:shadow-lg text-[#006865] dark:text-blue-400 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none
-                          " type="button">
+          <button class=" absolute bottom-[44px] right-[35%] rounded-full border border-[#01CEC9] py-2 px-4 text-center text-[20px] font-normal leading-[32px] transition-all shadow-sm hover:shadow-lg text-[#006865] dark:text-blue-400 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
              مطالعه بیشتر +
           </button>
         </div>
@@ -54,10 +50,8 @@ const CourseDetail = () => {
 
       </div>
       
-      <div className=" h-[953px] w-full  flex flex-wrap relative p-0
-                      
-                     " >
-        <Comment/>
+      <div className=" h-[953px] w-full  flex flex-wrap relative p-0 " >
+        <Comment />
       </div>
 
     </div>
@@ -129,9 +123,7 @@ const CourseDetail = () => {
         <div className=" h-[50px] w-[378px] rounded-t-xl mt-[16px] m-auto bg-[#E8E8E8] shadow-[0_1px_2px_0px_rgba(0,0,0,2)] relative">
      
 
-           <span className=" w-[114px] h-[21px]  text-center text-[20px] leading-[21px] font-normal text-[#555555] absolute top-[14px] right-[27px]
-                            
-                            ">
+           <span className=" w-[114px] h-[21px]  text-center text-[20px] leading-[21px] font-normal text-[#555555] absolute top-[14px] right-[27px]">
              دوره های مرتبط 
            </span>
 
