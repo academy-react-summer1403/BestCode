@@ -1,4 +1,4 @@
-import {useRef , useState} from 'react'
+import {useRef , useState , useEffect} from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {Autoplay , Navigation , Pagination} from 'swiper/modules'
@@ -7,17 +7,22 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination'
 import SliderCard from '../SliderCard/SliderCard';
 import SwiperNavButton from '../SwiperButton/SwiperButton';
+import { getCourseList } from '../../../../core/services/api/course';
 const SwiperComponent = () => {
-    const [slidercard , setSliderCard] = useState([
-        {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-        {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-        {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-        {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-        {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-        {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-        {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-        {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-    ])
+    const [slidercard , setSliderCard] = useState([])
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+   
+  
+  const getList = async () => {
+        const courses = await getCourseList(5)
+        console.log(courses)
+        setSliderCard(courses)
+      };
+  useEffect(() => {
+      getList();
+    }, []);
+    console.log('VITE_BASE_URL:', import.meta.env.VITE_BASE_URL)
 
     
 
@@ -102,12 +107,14 @@ const SwiperComponent = () => {
             }
           }}
       >        
-       {slidercard.map((item , index)=> (
+       {slidercard.slice(1).map((item , index)=> (
+       
                <SwiperSlide key={item} >
                    <SliderCard 
+                        img={item.tumbImageAddress}
                         title={item.title} 
-                        price={item.price}
-                        teacher={item.teacher}
+                        price={item.cost}
+                        teacher={item.teacherName}
                         duration={item.duration}
                         student={item.student}
                         index={index}

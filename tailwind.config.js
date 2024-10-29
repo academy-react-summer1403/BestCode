@@ -32,6 +32,7 @@ export default {
       },
       boxShadow: {'3xxl' : 'inset 4px 4px 6px rgba(0, 0, 0, 0.5)',
                  '3xxxl' : 'inset 0px 4.5px 6px rgba(0, 0, 0, 0.3)',
+                 
       },
       backgroundImage: {
 

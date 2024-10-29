@@ -1,21 +1,25 @@
 import images from '../../../../assets/landingpng'
 
 
-const SliderCard = ({price, teacher, student , title , duration}) => {
+const SliderCard = ({price, teacher, student , title , duration , img}) => {
 
   
   return (
+  <div className='h-[323px] w-[266px] flex  justify-center justify-items-center items-center  pt-[18px] '>  
+     <div className='w-[266px] h-[305px] bg-[#FFFFFF] rounded-[15px] shadow-lg border border-[#cccccc] relative  '>   
   <div className='h-[323px] w-[266px] flex  justify-center justify-items-center items-center  pt-[18px]  '>  
      <div className='w-[266px] h-[305px] dark:bg-gray-200 bg-[#FFFFFF] rounded-[15px] shadow-lg border border-[#cccccc]  relative '>   
+
        <div className='w-[233px] h-[151px] 
          absolute bottom-[172px]
          flex justify-center items-center bg-gradient-to-r from-[#A259FF] to-[#D47300]
          rounded-[10px] z-[0] ml-[16px]
          '>
-         <img src={images.figmaicons} width={71} height={71} />
+         <img src={img} className='w-[233px] h-[151px] rounded-[10px]' />
        </div>
        <div className='grid mt-[131px]'>
             <p className='
+                
                 text-[20px] 
                 text-right mr-[17px] 
                 font-primaryMedium 
@@ -43,7 +47,7 @@ const SliderCard = ({price, teacher, student , title , duration}) => {
               </div>
               <div className='grid gap-[7px] mt-[24px] justify-end justify-items-end'>
                  <div className='flex items-center  mr-[17px] gap-[7.7px] '>
-                     <p className='text-[16px] text-[#888888]'>{teacher}</p>
+                     <p className='text-[16px] text-[#888888] truncate'>{teacher}</p>
                      <img src={images.profile1} width={16.31} height={17}/>
                  </div>
                  <div className='flex items-center   mr-[19px] h-[16px] gap-[7.7px]'>
