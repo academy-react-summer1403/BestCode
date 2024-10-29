@@ -4,13 +4,14 @@ import images from '../../../assets/dashboardpng'
 const DashCardDore = ({namedore, time , img, teacher}) => {
   return (
     <Fragment>
-        <div className='w-[342px] h-[76px]  flex rounded-[10px]
+        <div className='xl:w-[342px] h-[76px]  flex rounded-[10px]
                                    bg-[#F9F9F9] 
                                    shadow-[0px_1px_2px_0px_#00000040]
                                    pr-[15px] pl-[9px]
                                    py-[8px]
                                    justify-between
                                    dark:bg-gray-800
+                                   max-md:px-[12px]
                                    '>
                          <div className='flex gap-[12px]'>
                           
@@ -29,7 +30,7 @@ const DashCardDore = ({namedore, time , img, teacher}) => {
                                          font-[700]
                                          font-primaryMedium text-center
                                          text-[#005250]
-
+                                         dark:text-[#59d7d3]
                            '
                             style={{direction:'rtl'}}
                            >
