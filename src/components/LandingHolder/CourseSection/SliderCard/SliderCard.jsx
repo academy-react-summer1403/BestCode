@@ -9,7 +9,6 @@ const SliderCard = ({price, teacher, student , title , duration , img}) => {
      <div className='w-[266px] h-[305px] bg-[#FFFFFF] rounded-[15px] shadow-lg border border-[#cccccc] relative  '>   
   <div className='h-[323px] w-[266px] flex  justify-center justify-items-center items-center  pt-[18px]  '>  
      <div className='w-[266px] h-[305px] dark:bg-gray-200 bg-[#FFFFFF] rounded-[15px] shadow-lg border border-[#cccccc]  relative '>   
-
        <div className='w-[233px] h-[151px] 
          absolute bottom-[172px]
          flex justify-center items-center bg-gradient-to-r from-[#A259FF] to-[#D47300]
@@ -70,6 +69,8 @@ const SliderCard = ({price, teacher, student , title , duration , img}) => {
             </div>
       </div>
   </div>
+</div>
+</div>
 </div>
   )
 }

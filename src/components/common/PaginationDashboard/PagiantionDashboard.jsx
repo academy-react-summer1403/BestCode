@@ -66,6 +66,7 @@ const PagiantionDashboard = () => {
              </div>
           </div>
           </div>
+          </div>
     </Fragment>
   )
 }
