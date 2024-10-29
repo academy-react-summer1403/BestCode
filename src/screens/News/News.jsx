@@ -5,7 +5,7 @@ import HeroSection from "../../components/News/HeroSection";
 import SideMenu from "../../components/News/SideMenu";
 import Selection from "../../components/News/Selection";
 
-
+ 
 
 
 const News = () => {
