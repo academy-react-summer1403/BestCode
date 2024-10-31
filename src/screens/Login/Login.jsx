@@ -20,7 +20,7 @@ const  Login = () => {
     
     return (
       <>
-            <div  className="w-full h-screen flex font-BYekan1 dark  overflow-hidden"    >
+            <div  className="w-full h-screen flex font-primaryRegular pt-[50px] overflow-hidden"    >
         {/* <HeaderSignUp/> */}
         <div className="w-full h-screen  justify-center flex dark:bg-gray-800" >
           <div className="lg:w-[869px] lg:h-[631px] cd:h-[550px] cd:w-[650px] duration-1000 

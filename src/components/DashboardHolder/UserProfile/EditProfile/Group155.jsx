@@ -32,6 +32,7 @@ const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChang
                                             as='textarea'
                                             className='xl:w-[308px]
                                             lg:w-[308px]
+                                            bg-transparent
                                             max-smx3:w-[200px]
                                             h-[148px] text-right outline-none
                                             shadow-[0px_1px_2px_0px_#00000033_inset] 

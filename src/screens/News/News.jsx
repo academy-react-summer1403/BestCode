@@ -13,7 +13,7 @@ const News = () => {
    
   return (
     <>
-      <div className="w-[100%]   flex flex-wrap relative bg-NewsBg bg-[#F9F9F9] dark:bg-gray-800 font-['BYekan1']">
+      <div className="w-[100%]   flex flex-wrap relative bg-NewsBg bg-[#F9F9F9] dark:bg-gray-800 font-primaryRegular">
         
                                                           <HeroSection />
 
@@ -33,12 +33,13 @@ const News = () => {
                                             
                                                    <Selection/>
 
-            <div className="w-[100%]  flex flex-wrap justify-center gap-[25px] ">
+            <div className="w-[100%]  flex flex-wrap justify-center gap-[25px] max-md:grid max-md:justify-items-center">
                                                     
                                                     <Card />
               
-                                                    
+                                                  <div className="mt-[50px]">
                                                      <PagiantionDashboard />
+                                                </div>
               
             </div>
           </div>

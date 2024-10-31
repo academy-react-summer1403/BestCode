@@ -15,7 +15,7 @@ const Dashboard = () => {
   ])
 
   return (
-    <div className='flex justify-center xl:pr-[32px] xl:pt-[27px]'>
+    <div className='flex justify-center xl:pr-[32px] xl:pt-[27px] '>
       <div className='xl:w-[797px] xl:h-[661px] ' >
          <div className='flex xl:gap-[37px] max-smx3:grid max-md:justify-between max-md:px-[40px] max-smx3:px-0
          max-smx3:justify-center   max-md:ml-0

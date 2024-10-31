@@ -27,6 +27,27 @@
     font-style: normal;
     font-display:swap;
 }
+
+
+
+
+@font-face {
+    font-family: 'BYekan';
+    src: url('../src/assets/fonts/BYekan+.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display:swap;
+}
+
+@font-face {
+    font-family: 'BYekan-bold';
+    src: url('../src/assets/fonts/BYekan-Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display:swap;
+}
+
+
 @layer utilities {
     .bg-custom-gradient {
       background: linear-gradient(256.47deg, rgba(1, 206, 201, 0.225) 19.45%, rgba(228, 137, 0, 0.15) 72.46%);

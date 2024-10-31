@@ -21,7 +21,7 @@ const Courses = () => {
 
   return (
     <Formik>
-    <div className="overflow-visible  text-black font-BYekan1 justify-center dark:bg-gray-800 pt-[77px] pb-4">
+    <div className="overflow-visible font-primaryRegular text-black  justify-center dark:bg-gray-800 pt-[77px] pb-4">
         <CourseSearch/>
         <div className="flex mx-auto w-[92%] justify-center gap-[40px]  dark:bg-gray-800 mt-10 ">
           <div className=" lg:w-[72%] cd:w-[94%] ">

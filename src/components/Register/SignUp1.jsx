@@ -3,14 +3,14 @@ import HeaderSignUp from "../../components/Register/header"
 import SignUpSecondStep from "./signUp2"
 import { Form,Formik,Field } from "formik"
 import { NavLink, useNavigate } from "react-router-dom";
-
+import { registerLevel1 } from "../../core/services/api/register";
 
 
 const signUpFirstStep = ({setActive}) => {
     const navigate=useNavigate()
     return(
-    <Formik>
-               <div className="flex  font-BYekan1 ab:ml-[90px] sm:ml-0  ">
+    <Formik initialValues={{phoneNumber:''}} onSubmit={(e)=> registerLevel1(e)}>
+               <div className="flex   ab:ml-[90px] sm:ml-0 font-primaryRegular ">
                 <img src="./04.png" alt="image" className=" cd:w-[60px] cd:h-[60px] lg:mt-[21%] cd:left-[2%] relative lg:ml-[22%]
                 cd:mt-[14%] cd:ml-[14%] md:ml-[10%] md:mt-[11%] md:w-[55px] md:h-[55px] ab:w-[50px] ab:h-[50px] ab:ml-[28%] ab:mt-[15%] ab:left-[1%]
                 sm:mt-[10%] sm:left-[1%] sm:ml-[8%]  md:left-[1%] duration-1000  dark:hidden "/>
@@ -25,13 +25,19 @@ const signUpFirstStep = ({setActive}) => {
             <h1 className=" text-[25px] leading-[35.46px] text-[#005351]   justify-center h-[10%] mt-[23%]  
                 text-center " >ایجاد حساب کاربری</h1>
 
-            <Field type="text" placeholder="تلفن همراه" className="  w-[70%] md:h-[47px] h-[40px] text-right rounded-[9px]  
-                bg-[#F7F7F7]  shadow-5xxx ml-[15%] mt-[12%]"/>
-                <button onClick={()=>setActive(old=>old+1)} className="w-[45%] h-[35px] sm:w-[50%] rounded-[21px] bg-[#E48900] text-white text-center font-700 ml-[27%] mt-[10%] mb-[15%]">
+            <Field type="text" placeholder="تلفن همراه" 
+              name='phoneNumber'
+            className="  w-[70%] md:h-[47px] h-[40px] text-right rounded-[9px]  
+                bg-[#F7F7F7]  shadow-5xxx ml-[15%] mt-[12%] 
+                shadow-[0px_1px_2px_0px_#00000040_inset] outline-none
+                "/>
+                <button  type="onsubmit" className="w-[45%] h-[35px] sm:w-[50%] rounded-[21px] bg-[#E48900] text-white text-center font-700 ml-[27%] mt-[10%] mb-[15%]">
                 دریافت کد تایید
                 </button>
-                <button onClick={()=>navigate("/Login")} className="text-[#008E8B] text-[12px] relative top-[25px] right-[65px] sm:right-[84px]
-                sm:top-[31px] ab:right-[75px] ab:top-[31px] cd:right-[105px] md:right-[92px] md:top-[35px] ">
+                <button className="text-[#008E8B] text-[12px] relative top-[25px] right-[65px] sm:right-[84px]
+                sm:top-[31px] ab:right-[75px] ab:top-[31px] cd:right-[105px] md:right-[92px] md:top-[35px] "
+                 type="onsubmit"
+                >
                     ورود
                 </button>
                 </Form>

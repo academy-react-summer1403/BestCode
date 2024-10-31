@@ -22,10 +22,12 @@ const LogInSecondStep = ({setActive}) => {
     <p className="w-[84%] h-[45px] dark:text-white ab:text-[10px] md:text-[13px] text-right ab:mt-[2px] md:mt-[12px] ml-[8%] ">کد تایید به شماره ۹۸۹۱۲۱۲۳۴۵۶۷+ ارسال شده است ، در
     صورت مغایرت روی ویرایش کلیک کنید</p>
         
-    <Field type="text" className="w-[70%] md:h-[48px] ab:h-[40px] cd:h-[58px] ab:mt-[8px] md:mt-[13px] text-right rounded-[9px]  bg-[#F7F7F7] shadow-[#00000040] shadow-[0px 1px 2px 0px  inset]   mt-[px] ml-[15%]" /> 
+    <Field type="text" className="w-[70%]
+    shadow-[0px_1px_2px_0px_#00000040_inset] outline-none
+    md:h-[48px] ab:h-[40px] cd:h-[58px] ab:mt-[8px] md:mt-[13px] text-right rounded-[9px]  bg-[#F7F7F7] shadow-[#00000040] shadow-[0px 1px 2px 0px  inset]   mt-[px] ml-[15%]" /> 
             <InputCode />
         
-        <p1 className="w-[25px] h-[15px] text-[#01B4AF] text-[12px] sm:ml-14 ab:ml-12 relative ab:bottom-[10px]  ">1:59</p1>
+        <p className="w-[25px] h-[15px] text-[#01B4AF] text-[12px] sm:ml-14 ab:ml-12 relative ab:bottom-[10px] mt-[10px] ">1:59</p>
         
         
         

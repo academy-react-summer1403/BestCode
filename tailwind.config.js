@@ -9,7 +9,6 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    flowbite.content(),
   ],
   important : "#root",
 
@@ -26,8 +25,8 @@ export default {
       },
 
       fontFamily: {
-        primaryRegular:['BYekan'],
-        primaryMedium:['BYekan-bold'],
+        'primaryRegular':['BYekan'],
+        'primaryMedium':['BYekan-bold'],
            'BYekan1':['BYekan1']
       },
       boxShadow: {'3xxl' : 'inset 4px 4px 6px rgba(0, 0, 0, 0.5)',
@@ -43,10 +42,9 @@ export default {
         'footerbg': "url('./src/assets/landingpng/Rectangle-141.png')",
         'category': "url('./src/assets/landingpng/Rectangle-2.png')",
         'sliderbg':"url('./src/assets/landingpng/Rectangle-23.png')",
-   
         'custom-gradient': 'linear-gradient(180deg, rgba(0, 252, 246, 0.8) -80.75%, rgba(0, 43, 42, 0.8) 100%)',
         'custom-blur':'backdrop-filter: blur(5px)',
-
+       
       },
       gradientColorStopPositions: {
         33: 'background: linear-gradient(230.15deg, rgba(228, 137, 0, 0.15) 10.81%, rgba(1, 206, 201, 0.225) 86.96%)'

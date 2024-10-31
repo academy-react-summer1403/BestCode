@@ -12,6 +12,8 @@ export default function Calender({value, onChange}) {
           pl-[12px]
           pr-[19px]
           h-[36px]
+                                        bg-transparent
+
           flex items-center justify-between "
           onClick={() => datePickerRef.current.openCalendar()}
    >
@@ -31,7 +33,7 @@ export default function Calender({value, onChange}) {
           height:'23px',
           color:'#005351',
           borderRadius: '5px',
-          
+          background:'transparent',
           fontFamily: 'var(--font-regular)',
           border:'none',
           outline:'none',

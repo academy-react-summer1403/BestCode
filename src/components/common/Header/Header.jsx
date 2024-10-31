@@ -113,12 +113,18 @@ const HandleNavigate = () => {
                    <NavLink className='cursor-pointer  flex ml-[10px]  '
                        style={{marginRight:'-1px'}}
                     >تماس با ما</NavLink>
-                   <NavLink className='cursor-pointer  text-center '>اخبار و مقالات</NavLink>
+                   <NavLink 
+                    className={({ isActive }) =>
+                      `cursor-pointer text-center relative ${isActive ? 'active-nav' : ''}` 
+                 }
+                   to={'/News'}
+                   
+                   >اخبار و مقالات</NavLink>
                    <NavLink className='cursor-pointer  text-center '>اساتید</NavLink>
                    <NavLink    className={({ isActive }) =>
                                 `cursor-pointer text-center relative ${isActive ? 'active-nav' : ''}` 
                            }
-                   to={'/course-detail'}
+                   to={'/courses'}
                    >دوره ها</NavLink>
                    <NavLink 
                    to={'/'}

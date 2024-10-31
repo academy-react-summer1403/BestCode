@@ -99,6 +99,7 @@ const HeroSection = () => {
                               items-center rounded-[10px] mt-[5px] pt-[20px]
                                lg:w-[170px]
                                lg:h-[90px]
+                               text-black
                               
                               '>
                             <span className='xl:text-[27px] lg:text-[22px]' > ۱۰۰۰ +</span> 
@@ -140,8 +141,9 @@ const HeroSection = () => {
                                  relative   bottom-[2px] bg-[#FFFFFF]
                                  lg:w-[170px]
                                  lg:h-[90px]
+                                 text-black
                                  ' >
-                          <span className='xl:text-[27px] lg:text-[22px]'  > ۵۰+ </span>
+                          <span className='xl:text-[27px] lg:text-[22px] '  > ۵۰+ </span>
                            &nbsp;  
                            <span className='xl:text-[27px] lg:text-[22px] relative left-[-4px]' >مدرس</span>
                    </p>
@@ -164,7 +166,7 @@ const HeroSection = () => {
                               justify-end font-bold text-[60px]
                               max-md:text-[50px]
                               max-sm:text-[40px]
-                              max-md:mr-[-4.5px] 
+                              max-md:mr-[-4.5px] text-black
                               dark:text-[#f7f7f7]
                               ">عنوان <span className="text-[#01CEC9] 
                                                          drop-shadow-[#0000004D]"

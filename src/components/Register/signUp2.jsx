@@ -5,7 +5,7 @@ import { Form,Formik,Field } from "formik"
 const SignUpSecondStep = ({setActive}) => {
     return(
        <Formik>
-               <div className="flex  ab:ml-[90px] sm:ml-0 ">
+               <div className="flex  ab:ml-[90px] sm:ml-0 font-primaryRegular">
                 <img src="./07.png" alt="image" className=" cd:w-[60px] cd:h-[60px] lg:mt-[33%] cd:left-[2%] relative lg:ml-[22%]
                 cd:mt-[26%] cd:ml-[14%] md:ml-[10%] md:mt-[21%] md:w-[55px] md:h-[55px] ab:w-[50px] ab:h-[50px] ab:ml-[28%] ab:mt-[25%] ab:left-[1%]
                 sm:mt-[19%] sm:left-[1%] sm:ml-[8%]  md:left-[1%] duration-1000 dark:hidden  "/>
@@ -22,7 +22,9 @@ const SignUpSecondStep = ({setActive}) => {
             <p className="w-[78%] h-[12%] text-[13px] text-right mt-[4%] ml-[11%] dark:text-white">کد تایید به شماره ۹۸۹۱۲۱۲۳۴۵۶۷+ ارسال شده است ، در
             صورت مغایرت روی ویرایش کلیک کنید</p>
                 
-            <Field type="text" className=" w-[67%] sm:h-[35px] ab:h-[40px] md:h-[59px] ab:mb-7 sm:mb-10 text-right rounded-[9px]  bg-[#F7F7F7] shadow-[#00000040] shadow-[0px 1px 2px 0px  inset]  ab:mt-[20px] md:mt-[35px] lg:mt-[41px] sm:mt-[20px] ml-[16%]" /> 
+            <Field type="text" className="
+            
+            w-[67%] sm:h-[35px] ab:h-[40px] md:h-[59px] ab:mb-7 sm:mb-10 text-right rounded-[9px]  bg-[#F7F7F7] shadow-[#00000040] shadow-[0px 1px 2px 0px  inset]  ab:mt-[20px] md:mt-[35px] lg:mt-[41px] sm:mt-[20px] ml-[16%]" /> 
                     <InputCode />
                 
                 <p1 className="w-[7%] h-[5%] text-[#01B4AF] text-[12px] relative md:bottom-[60px] ab:bottom-[45px] left-[20%]">1:59</p1>

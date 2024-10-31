@@ -29,6 +29,7 @@ const Group156 = ({setFieldValue}) => {
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
                               rounded-[5px]
+                              bg-transparent
                               h-[36px] 
                               placeholder:font-primaryMedium
                               placeholder:text-[#005351]
@@ -49,7 +50,9 @@ const Group156 = ({setFieldValue}) => {
                               type='text'
                               name='firstName'
                               placeholder='فلان'
-                              className='w-[200px] text-right outline-none
+                              className='w-[200px] 
+                              bg-transparent
+                              text-right outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               rounded-[5px] placeholder:text-[16px]
                               placeholder:font-primaryMedium
@@ -75,6 +78,8 @@ const Group156 = ({setFieldValue}) => {
                               className='w-[200px] outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
+                              bg-transparent
+                            
                               rounded-[5px]
                               text-right
                               text-[16px]
@@ -111,6 +116,8 @@ const Group156 = ({setFieldValue}) => {
                               className='w-[200px] text-right outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
+                                                            bg-transparent
+
                               rounded-[5px]
                               placeholder:text-[16px]
                               placeholder:font-primaryMedium
@@ -137,6 +144,8 @@ const Group156 = ({setFieldValue}) => {
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
                               rounded-[5px]
+                                                            bg-transparent
+
                               h-[36px] 
                               items-center
                               pl-[12px]
@@ -190,6 +199,8 @@ const Group156 = ({setFieldValue}) => {
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
                               rounded-[5px]
+                              bg-transparent
+
                               h-[36px] 
                               placeholder:text-[16px]
                               placeholder:font-primaryMedium
@@ -219,6 +230,7 @@ const Group156 = ({setFieldValue}) => {
                               placeholder:text-[#005351]
                               placeholder:pt-[5px]
                               placeholder:pl-[13px]
+                              bg-transparent
                               '
                             />
                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
@@ -250,6 +262,8 @@ const Group156 = ({setFieldValue}) => {
                               placeholder:text-[#005351]
                               placeholder:pt-[5px]
                               placeholder:pl-[13px]
+                              bg-transparent
+
                               '
                             />
                               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
@@ -282,6 +296,8 @@ const Group156 = ({setFieldValue}) => {
                               placeholder:text-[#005351]
                               placeholder:pt-[5px]
                               placeholder:pr-[14px]
+                              bg-transparent
+
                               '
                             />
                               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">

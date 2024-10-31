@@ -14,7 +14,7 @@ const Register = () => {
   const navigate=useNavigate()
   return (
     <>
-           <div  className="w-full h-screen flex font-BYekan1 dark  "   >
+           <div  className="w-full h-screen flex  font-primaryRegular  pt-[50px]"   >
         {/* <HeaderSignUp/> */}
         <div className="w-full h-screen  justify-center flex dark:bg-gray-800 " >
           <div className="lg:w-[869px] lg:h-[631px] cd:h-[550px] cd:w-[650px] duration-1000 
