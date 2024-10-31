@@ -8,8 +8,16 @@ import { registerLevel1 } from "../../core/services/api/register";
 
 const signUpFirstStep = ({setActive}) => {
     const navigate=useNavigate()
+
+    const HandleRegister =  async (values) => {
+     const result = await registerLevel1(values)
+     console.log(result)
+     if (result.success) {
+        navigate('/s')
+     }
+    }
     return(
-    <Formik initialValues={{phoneNumber:''}} onSubmit={(e)=> registerLevel1(e)}>
+    <Formik initialValues={{phoneNumber:''}} onSubmit={HandleRegister}>
                <div className="flex   ab:ml-[90px] sm:ml-0 font-primaryRegular ">
                 <img src="./04.png" alt="image" className=" cd:w-[60px] cd:h-[60px] lg:mt-[21%] cd:left-[2%] relative lg:ml-[22%]
                 cd:mt-[14%] cd:ml-[14%] md:ml-[10%] md:mt-[11%] md:w-[55px] md:h-[55px] ab:w-[50px] ab:h-[50px] ab:ml-[28%] ab:mt-[15%] ab:left-[1%]

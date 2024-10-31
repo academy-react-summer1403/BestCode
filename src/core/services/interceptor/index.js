@@ -11,17 +11,16 @@ const onSuccess =  (response) => {
 }
 
 const onError = (err) => {
-  // console.log(err)
-  // if(err.response.status >= 400 && err.response.status < 500 ) {
-  //   alert('API NOT FOUND')
-  // }
+   console.log(err)
+   if(err.response.status >= 400 && err.response.status < 500 ) {
+     alert('API NOT FOUND', err)
+ }
   return Promise.reject(err)
 }
 
 instance.interceptors.response.use(onSuccess , onError)
 instance.interceptors.request.use((opt) => {
-    opt.headers["Content-Type"] = "applications/json"
-    
+    opt.headers["Content-Type"] = "application/json"
     return opt
 })
 
