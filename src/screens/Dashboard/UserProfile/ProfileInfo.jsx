@@ -1,5 +1,6 @@
-import { Fragment , useState} from 'react'
+import { Fragment , useEffect, useState} from 'react'
 import images from '../../../assets/dashboardpng'
+import { getProfile } from '../../../core/services/api/user.js'
 
 const ProfileInfo = ({HandleActive}) => {
    const [isTooltipVisible, setTooltipVisible] = useState(false);
@@ -11,6 +12,11 @@ const ProfileInfo = ({HandleActive}) => {
    const hideTooltip = () => {
      setTooltipVisible(false);
    };
+
+
+
+  
+
   return (
     <Fragment>
          <div className="xl:w-[814px] 

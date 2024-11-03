@@ -1,5 +1,5 @@
 import { RouterProvider } from 'react-router-dom'
-import { DarkModeProvider } from '../DarkModeContext.jsx';
+import { DarkModeProvider } from './config/DarkModeContext.jsx';
 
 import ReactDOM from "react-dom/client";
 import "./index.css";

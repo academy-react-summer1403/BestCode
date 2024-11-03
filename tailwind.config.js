@@ -37,11 +37,11 @@ export default {
 
   
         'NewsBg': "url('./src/assets/img/News/mainBg.png)",
-
         'podcast': "url('./src/assets/landingpng/Rectangle-35.png')",
         'footerbg': "url('./src/assets/landingpng/Rectangle-141.png')",
         'category': "url('./src/assets/landingpng/Rectangle-2.png')",
         'sliderbg':"url('./src/assets/landingpng/Rectangle-23.png')",
+        'registerbg':"url('./src/assets/Register/bgregister.svg')",
         'custom-gradient': 'linear-gradient(180deg, rgba(0, 252, 246, 0.8) -80.75%, rgba(0, 43, 42, 0.8) 100%)',
         'custom-blur':'backdrop-filter: blur(5px)',
        

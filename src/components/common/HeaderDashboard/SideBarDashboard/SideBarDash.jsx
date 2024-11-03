@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import images from '../../../../assets/dashboardpng'
-import { useDarkMode } from '../../../../../DarkModeContext';
+import { useDarkMode } from '../../../../config/DarkModeContext';
 import { LuSunMedium } from "react-icons/lu";
 import { RiMoonFill } from "react-icons/ri";
 import { IoCloseCircle } from 'react-icons/io5'

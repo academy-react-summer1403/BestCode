@@ -1,8 +1,7 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import images from '../../assets/dashboardpng'
 import { DashCard, Group73, Group74, Group85 } from '../../components/DashboardHolder/Dashboard/index.js'
 import DashCardDore from '../../components/DashboardHolder/Dashboard/DashCardDore.jsx'
-
 const Dashboard = () => {
   const [card , setCard] = useState([
     {namedore:'آموزش جامع ری اکت جی اس' , teacher: 'مهدی اصغری', time: 'چهارشنبه ها . ۱۷:۳۰', img:images.rec111},
@@ -13,6 +12,11 @@ const Dashboard = () => {
     {namedore: 'آموزش کامل کار با figma' , teacher:'' ,time:'' ,img:images.rec115},
     {namedore:'آموزش کتابخانه های کاربردی js', teacher:'',time:'' , img:images.rec117}
   ])
+
+
+
+
+
 
   return (
     <div className='flex justify-center xl:pr-[32px] xl:pt-[27px] '>

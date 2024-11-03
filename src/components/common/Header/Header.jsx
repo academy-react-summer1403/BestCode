@@ -2,7 +2,7 @@ import { useState } from 'react';
 import images from '../../../assets/landingpng'
 import { IoReorderThreeOutline } from "react-icons/io5";
 import SideBar from './SideBar/SideBar';
-import { useDarkMode } from '../../../../DarkModeContext.jsx';
+import { useDarkMode } from '../../../config/DarkModeContext.jsx';
 import { LuSunMedium } from "react-icons/lu";
 import { RiMoonFill } from "react-icons/ri";
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -25,9 +25,8 @@ const nagivate = useNavigate()
   }
 } 
 
-{/*for test Project*/}
 const HandleNavigate = () => {
-  nagivate('/user')
+  nagivate('/login')
 }
 
  const HandleClose = () => {
