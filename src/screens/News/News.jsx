@@ -1,14 +1,30 @@
-import React from "react";
+import {useEffect , useState} from "react";
 import PagiantionDashboard from "../../components/common/PaginationDashboard/PagiantionDashboard";
 import Card from "../../components/News/Card";
 import HeroSection from "../../components/News/HeroSection";
 import SideMenu from "../../components/News/SideMenu";
 import Selection from "../../components/News/Selection";
+import { getNewsCard } from '../../core/services/api/News';
 
 
 
 
 const News = () => {
+  const [cardData, setCardData] = useState([]);
+  const [error, setError] = useState(null);
+
+  const getCardData1 = async () => {
+    const data = await getNewsCard()
+    console.log('data' , data) 
+    setCardData(data)
+
+  };
+  
+  useEffect(() => {
+   
+
+    getCardData1();
+  }, []);
   
    
   return (
@@ -16,7 +32,6 @@ const News = () => {
       <div className="w-[100%]   flex flex-wrap relative bg-NewsBg bg-[#F9F9F9] dark:bg-gray-800 font-primaryRegular">
         
                                                           <HeroSection />
-
 
         <div className="w-[100%]  flex max-sm:flex-col gap-7 ">
           <div

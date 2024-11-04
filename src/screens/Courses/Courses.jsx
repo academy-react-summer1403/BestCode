@@ -14,10 +14,19 @@ import {Slider} from "antd"
  
 
 
+
+
 const Courses = () => {
  
   const [active, setActive]=useState(1)
 
+   const [card , setCard] = useState([])
+ 
+  const getallcourse = async () => {
+      
+    const courses = await getCourseList1()
+     setCard(ourses)
+  }
 
   return (
     <Formik>
