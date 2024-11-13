@@ -142,7 +142,7 @@ const SecuritySetting = () => {
                 type="password"
                 name="currentPassword"
                 className="w-[220px] h-[39px] border-none outline-none shadow-[0px_1px_3px_0px_#00000033_inset]
-                rounded-[5px]
+                rounded-[5px] bg-transparent
                 "
               />
               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
@@ -157,7 +157,8 @@ const SecuritySetting = () => {
                 type="password"
                 name="newPassword"
                 className="w-[220px] h-[39px] border-none outline-none shadow-[0px_1px_3px_0px_#00000033_inset]
-                rounded-[5px]
+                rounded-[5px]  bg-transparent
+
                 "
               />
               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"  >
@@ -171,7 +172,8 @@ const SecuritySetting = () => {
                 type="password"
                 name="confirmPassword"
                 className="w-[220px] h-[39px] border-none outline-none shadow-[0px_1px_3px_0px_#00000033_inset]
-                rounded-[5px]
+                rounded-[5px]  bg-transparent
+
                 "
               />
               <div  className="h-[10px] border border-[#FFFFFF] dark:border-gray-800" >
@@ -324,6 +326,8 @@ const SecuritySetting = () => {
                 name="email"
                 className="w-[285px] h-[39px] border-none outline-none shadow-[0px_1px_3px_0px_#00000033_inset]
                 rounded-[5px] placeholder:text-left px-[14px] placeholder:font-primaryMedium placeholder:text-[14px]
+                                              bg-transparent
+
                 "
                 placeholder='example@gmail.com'
               /> 

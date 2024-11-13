@@ -13,14 +13,14 @@ const CourseDetail = () => {
   return (
     <>
   <div dir="rtl" className="  font-['BYekan'] bg-[#F9F9F9] dark:bg-gray-800 ">
-    <div id="ADS" className=" h-[395px] max-sm:h-fit w-[81.3%] max-xl:w-[90%] max-cd:w-[97%] max-md:w-[100%]  mx-auto flex max-sm:flex-col-reverse gap-[29px] max-cd:gap-[15px] max-md:gap-[5px] mt-[35px]" >
+    <div id="ADS" className=" h-[395px] max-sm:h-fit w-[81.3%] max-xl:w-[90%] max-cd:w-[97%] max-md:w-[100%]  mx-auto flex max-sm:flex-col-reverse gap-[29px] max-cd:gap-[15px] max-md:gap-[5px] pt-[35px]" >
          
        <Top />
     </div>
     
-  <div className=" flex max-md:flex-col gap-[30px] mt-7 " >
+  <div className=" flex max-md:flex-col gap-[30px] pt-7 " >
     
-    <div id="right" className=" h-[2462px] w-[53.3%] max-cd:w-[58%] max-md:w-[70%] max-smx3:w-[98%] flex flex-wrap max-md:order-2 mr-auto max-md:mx-auto " >
+    <div id="right" className=" w-[53.3%] max-cd:w-[58%] max-md:w-[70%] max-smx3:w-[98%] flex flex-wrap max-md:order-2 mr-auto max-md:mx-auto " >
 
       <div className=" h-[620px] w-full  flex  flex-wrap " >
         
@@ -44,7 +44,7 @@ const CourseDetail = () => {
 
       </div>
 
-      <div className=" h-[890px] w-full flex flex-wrap relative " >
+      <div className="  w-full flex flex-wrap relative " >
         
         <Accordion />
 

@@ -42,7 +42,7 @@ const HeroSection = () => {
               <div className=" w-[300px] h-[86px] flex flex-wrap absolute right-[33px] top-[40px]  ">
                 <div className=" w-[14px] h-[14px] rounded-full bg-[#01CEC9] relative top-5   "></div>
 
-                <div className=" w-[80%] h-[50%] font-bold text-[35px] leading-[50px] text-[#00000] mr-3 ">
+                <div className=" w-[80%] h-[50%] font-bold text-[35px] leading-[50px] text-[#000000] mr-3 ">
                   اخبار و مقالات
                 </div>
 

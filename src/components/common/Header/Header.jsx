@@ -2,7 +2,7 @@ import { useState } from 'react';
 import images from '../../../assets/landingpng'
 import { IoReorderThreeOutline } from "react-icons/io5";
 import SideBar from './SideBar/SideBar';
-import { useDarkMode } from '../../../../DarkModeContext.jsx';
+import { useDarkMode } from '../../../config/DarkModeContext.jsx';
 import { LuSunMedium } from "react-icons/lu";
 import { RiMoonFill } from "react-icons/ri";
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -25,9 +25,8 @@ const nagivate = useNavigate()
   }
 } 
 
-{/*for test Project*/}
 const HandleNavigate = () => {
-  nagivate('/user')
+  nagivate('/login')
 }
 
  const HandleClose = () => {
@@ -113,12 +112,18 @@ const HandleNavigate = () => {
                    <NavLink className='cursor-pointer  flex ml-[10px]  '
                        style={{marginRight:'-1px'}}
                     >تماس با ما</NavLink>
-                   <NavLink className='cursor-pointer  text-center '>اخبار و مقالات</NavLink>
+                   <NavLink 
+                    className={({ isActive }) =>
+                      `cursor-pointer text-center relative ${isActive ? 'active-nav' : ''}` 
+                 }
+                   to={'/News'}
+                   
+                   >اخبار و مقالات</NavLink>
                    <NavLink className='cursor-pointer  text-center '>اساتید</NavLink>
                    <NavLink    className={({ isActive }) =>
                                 `cursor-pointer text-center relative ${isActive ? 'active-nav' : ''}` 
                            }
-                   to={'/course-detail'}
+                   to={'/courses'}
                    >دوره ها</NavLink>
                    <NavLink 
                    to={'/'}

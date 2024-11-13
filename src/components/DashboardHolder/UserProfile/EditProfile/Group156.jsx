@@ -23,21 +23,26 @@ const Group156 = ({setFieldValue}) => {
                             ' >نام خانوادگی</label>
                             <Field
                               type='text'
-                              name='lastName'
+                              name='LName'
                               placeholder='فلان زاده فلان آبادی'
                               className='w-[200px] text-right outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
                               rounded-[5px]
+                              bg-transparent
                               h-[36px] 
+                              font-primaryRegular
+                              text-[#005351]
                               placeholder:font-primaryMedium
                               placeholder:text-[#005351]
                               placeholder:pt-[5px]
                               placeholder:pr-[13px]
+                              pt-[5px]
+                              pr-[13px]
                               '
                             />
                                <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
-                                <ErrorMessage name="lastName" component="div" 
+                                <ErrorMessage name="LName" component="div" 
                                 className="text-red-500 font-primaryMedium text-sm" />
                                 </div>
                            </div>
@@ -47,9 +52,11 @@ const Group156 = ({setFieldValue}) => {
                             ' >نام</label>
                             <Field
                               type='text'
-                              name='firstName'
+                              name='FName'
                               placeholder='فلان'
-                              className='w-[200px] text-right outline-none
+                              className='w-[200px] 
+                              bg-transparent
+                              text-right outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               rounded-[5px] placeholder:text-[16px]
                               placeholder:font-primaryMedium
@@ -60,7 +67,7 @@ const Group156 = ({setFieldValue}) => {
                               '
                             />
                               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
-                                <ErrorMessage name="firstName" component="div" 
+                                <ErrorMessage name="FName" component="div" 
                                 className="text-red-500 font-primaryMedium text-sm" />
                                 </div>
                             </div> 
@@ -70,11 +77,13 @@ const Group156 = ({setFieldValue}) => {
                             ' >جنسیت</label>
                             <Field
                               as='select'
-                              name='gender'
+                              name='Gender'
                               placeholder='gender'
                               className='w-[200px] outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
+                              bg-transparent
+                            
                               rounded-[5px]
                               text-right
                               text-[16px]
@@ -106,11 +115,13 @@ const Group156 = ({setFieldValue}) => {
                              text-[13px]  xl:mr-[12px]
                             ' >کد ملی</label>
                             <Field
-                              name='codemeli'
+                              name='NationalCode'
                               placeholder='کد ملی'
                               className='w-[200px] text-right outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
+                                                            bg-transparent
+
                               rounded-[5px]
                               placeholder:text-[16px]
                               placeholder:font-primaryMedium
@@ -122,7 +133,7 @@ const Group156 = ({setFieldValue}) => {
                               '
                             />
                                 <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
-                                <ErrorMessage name="codemeli" component="div" 
+                                <ErrorMessage name="NationalCode" component="div" 
                                 className="text-red-500 font-primaryMedium text-sm" />
                                 </div>
                            </div>
@@ -131,12 +142,14 @@ const Group156 = ({setFieldValue}) => {
                                 text-[13px]  xl:mr-[12px]
                               ' >شماره تلفن</label>
                             <Field
-                              name='phonenumber'
+                              name='phoneNumber'
                               placeholder='۰۹۳۹۶۴۲۱۲۳۴'
                               className='w-[200px]  outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
                               rounded-[5px]
+                                                            bg-transparent
+                              
                               h-[36px] 
                               items-center
                               pl-[12px]
@@ -163,19 +176,19 @@ const Group156 = ({setFieldValue}) => {
                                 shadow-[0px_1px_2px_0px_#00000033_inset] 
                                 rounded-[5px]'>                              
                             
-                            <Field name="birthday">
+                            <Field name="BirthDay">
                             
                           {({ field }) => (
                              <Calender
                                     value={field.value}
-                                    onChange={(value) => setFieldValue("birthday", value)} 
+                                    onChange={(value) => setFieldValue("BirthDay", value)} 
                              />
                              )}
                           </Field> 
                           
                              </div>   
                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
-                                <ErrorMessage name="birthday" component="div" 
+                                <ErrorMessage name="BirthDay" component="div" 
                                 className="text-red-500 font-primaryMedium text-sm" />
                                 </div>
                            </div> 
@@ -184,12 +197,14 @@ const Group156 = ({setFieldValue}) => {
                                 text-[13px]  xl:mr-[12px]
                               ' >تلگرام</label>
                             <Field
-                              name='telegram'
+                              name='TelegramLink'
                               placeholder='https://t.me/..'
                               className='w-[200px] text-left outline-none
                               shadow-[0px_1px_2px_0px_#00000033_inset] 
                               width-[200px]
                               rounded-[5px]
+                              bg-transparent
+
                               h-[36px] 
                               placeholder:text-[16px]
                               placeholder:font-primaryMedium
@@ -199,7 +214,7 @@ const Group156 = ({setFieldValue}) => {
                               '
                             />
                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
-                                <ErrorMessage name="telegram" component="div" 
+                                <ErrorMessage name="TelegramLink" component="div" 
                                 className="text-red-500 font-primaryMedium text-sm" />
                                 </div>
                            </div>
@@ -219,6 +234,7 @@ const Group156 = ({setFieldValue}) => {
                               placeholder:text-[#005351]
                               placeholder:pt-[5px]
                               placeholder:pl-[13px]
+                              bg-transparent
                               '
                             />
                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
@@ -235,7 +251,7 @@ const Group156 = ({setFieldValue}) => {
                                  xl:w-[430px] flex justify-end
                                ' >لینکداین</label>
                              <Field
-                              name='linkdin'
+                              name='LinkdinProfile'
                               placeholder='https://www.linkedin.com/in/...'
                               className='xl:w-[430px] text-left outline-none
                               max-smx3:w-[200px] truncate
@@ -250,10 +266,12 @@ const Group156 = ({setFieldValue}) => {
                               placeholder:text-[#005351]
                               placeholder:pt-[5px]
                               placeholder:pl-[13px]
+                              bg-transparent
+
                               '
                             />
                               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
-                                <ErrorMessage name="linkdin" component="div" 
+                                <ErrorMessage name="LinkdinProfile" component="div" 
                                 className="text-red-500 font-primaryMedium text-sm" />
                                 </div>
                             </div>
@@ -263,7 +281,7 @@ const Group156 = ({setFieldValue}) => {
                                  xl:w-[430px] flex justify-end 
                               ' >آدرس</label>
                             <Field
-                              name='address'
+                              name='HomeAdderess'
                               placeholder='مازندران - ساری - میدان خزر - جاده فرح آباد - خیابان دیمطوران - ساختمان هوتن ۱۲ - واحد ۱۵'
                               as='textarea'
                               className='xl:w-[430px] 
@@ -282,10 +300,12 @@ const Group156 = ({setFieldValue}) => {
                               placeholder:text-[#005351]
                               placeholder:pt-[5px]
                               placeholder:pr-[14px]
+                              bg-transparent
+
                               '
                             />
                               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
-                                <ErrorMessage name="address" component="div" 
+                                <ErrorMessage name="HomeAdderess" component="div" 
                                 className="text-red-500 font-primaryMedium text-sm" />
                                 </div>
                             </div> 

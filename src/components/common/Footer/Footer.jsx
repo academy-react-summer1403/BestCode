@@ -5,7 +5,7 @@ import Svg2 from './Svg2'
 const Footer = () => {
   return (
 
-      <footer className="grid   mt-[2px] dark:bg-gray-800" >
+      <footer className="grid   pt-[2px] dark:bg-gray-800" >
 
       <div className="h-[352px] w-full mb-[-7.5px] relative" >
         <div className='relative' >

@@ -1,20 +1,40 @@
-import { Fragment , useState , useRef } from 'react'
+import { Fragment , useState , useRef , useEffect } from 'react'
 import { Box } from "@mui/material";
 import {Form , Formik , Field} from 'formik'
 import images from '../../../assets/dashboardpng'
-
+import {EditProfileFunc} from '../../../core/services/api/user'
 import Group155 from '../../../components/DashboardHolder/UserProfile/EditProfile/Group155';
 import Group156 from '../../../components/DashboardHolder/UserProfile/EditProfile/Group156';
 import * as Yup from 'yup';
-const EditProfile = () => {
+const EditProfile = ({userInfo}) => {
   const [submittedDate, setSubmittedDate] = useState();
   const [previewImage, setPreviewImage] = useState(images.profile)
- 
+  console.log(userInfo)
 
-  const handleFormSubmit = (values) => {
-    console.log(values.birthday);
-    setSubmittedDate(values.birthday)
+  const handleFormSubmit = async (values) => {
+    // console.log(values.BirthDay.format?.("D MMMM YYYY"));
+    
+    console.log(values)
+    const formData = new FormData(); 
+         formData.append('LName', values.LName);  
+         formData.append('FName', values.FName);  
+         formData.append('UserAbout', values.UserAbout); 
+        //  formData.append('LinkdinProfile', values.LinkdinProfile);  
+        //  formData.append('TelegramLink', values.TelegramLink);  
+        //  formData.append('ReceiveMessageEvent', values.ReceiveMessageEvent); 
+         formData.append('HomeAdderess', values.HomeAdderess);  
+         formData.append('NationalCode', values.NationalCode);  
+        //  formData.append('Gender', values.Gender);
+         formData.append('BirthDay', '1998/2/11');
+        //  formData.append('Latitude', values.Latitude);  
+        //  formData.append('Longitude', values.Longitude); 
+         
+    const user = await EditProfileFunc(formData) 
+    // console.log(formData)
+    // EditProfileFunc(values)
   };
+
+
   const fileInputRef = useRef(null);
 
   const handleImageClick = () => {
@@ -35,88 +55,86 @@ const EditProfile = () => {
     
   };
 
-  const validationSchema = Yup.object().shape({
-    firstName: Yup.string()
-      .min(2, 'نام باید حداقل دو حرف باشد')
+   const validationSchema = Yup.object().shape({
+    FName: Yup.string()
+     .min(2, 'نام باید حداقل دو حرف باشد')
       .max(50, 'نام نمی‌تواند بیش از 50 حرف باشد')
-      .required('نام الزامی است'),
+     .required('نام الزامی است'),
   
-    lastName: Yup.string()
+    LName: Yup.string()
       .min(2, 'نام خانوادگی باید حداقل دو حرف باشد')
-      .max(50, 'نام خانوادگی نمی‌تواند بیش از 50 حرف باشد')
-      .required('نام خانوادگی الزامی است'),
+     .max(50, 'نام خانوادگی نمی‌تواند بیش از 50 حرف باشد')
+       .required('نام خانوادگی الزامی است'),
   
-    codemeli: Yup.string()
-      .matches(/^\d{10}$/, 'کد ملی باید ۱۰ رقم باشد')
-      .required('کد ملی الزامی است'),
+   NationalCode: Yup.string()
+       .matches(/^\d{10}$/, 'کد ملی باید ۱۰ رقم باشد')
+    .required('کد ملی الزامی است'),
   
-    telegram: Yup.string()
-      .matches(/^@[A-Za-z0-9_]{5,32}$/, 'نام کاربری تلگرام باید با @ شروع شود و حداقل ۵ و حداکثر ۳۲ کاراکتر باشد')
-      .required('نام کاربری تلگرام الزامی است'),
+   TelegramLink: Yup.string()
+    .matches(/^@[A-Za-z0-9_]{5,32}$/, 'نام کاربری تلگرام باید با @ شروع شود و حداقل ۵ و حداکثر ۳۲ کاراکتر باشد')
+     .required('نام کاربری تلگرام الزامی است'),
   
-    birthday: Yup.date()
-      .required('تاریخ تولد الزامی است')
+     BirthDay: Yup.date()
+       .required('تاریخ تولد الزامی است')
       .max(new Date(), 'تاریخ تولد نمی‌تواند در آینده باشد'),
   
-    phonenumber: Yup.string()
+     phonenumber: Yup.string()
       .matches(/^(\+98|0)?9\d{9}$/, 'شماره تماس باید شماره معتبر ایران باشد')
       .required('شماره تماس الزامی است'),
   
-    email: Yup.string()
-      .email('ایمیل نامعتبر است')
-      .required('ایمیل الزامی است'),
+  email: Yup.string()
+     .email('ایمیل نامعتبر است')
+    .required('ایمیل الزامی است'),
   
-    linkdin: Yup.string()
-      .url('لینک لینکداین نامعتبر است')
-      .matches(/^https:\/\/(www\.)?linkedin\.com\/.*$/, 'لینک باید از سایت لینکداین باشد')
-      .required('لینک لینکداین الزامی است'),
+   LinkdinProfile: Yup.string()
+     .url('لینک لینکداین نامعتبر است') .matches(/^https:\/\/(www\.)?linkedin\.com\/.*$/, 'لینک باید از سایت لینکداین باشد')
+     .required('لینک لینکداین الزامی است'),
   
-    address: Yup.string()
-      .min(10, 'آدرس باید حداقل ۱۰ حرف باشد')
-      .max(200, 'آدرس نمی‌تواند بیش از ۲۰۰ حرف باشد')
-      .required('آدرس الزامی است'),
+  HomeAdderess: Yup.string()
+     .min(10, 'آدرس باید حداقل ۱۰ حرف باشد')
+    .max(200, 'آدرس نمی‌تواند بیش از ۲۰۰ حرف باشد')
+   .required('آدرس الزامی است'),
    
+   UserAbout: Yup.string()
+     .max(500, 'نمی‌تواند بیش از ۵۰۰ حرف باشد'),
 
-    about: Yup.string()
-      .max(500, 'نمی‌تواند بیش از ۵۰۰ حرف باشد'),
-
-    img: Yup.mixed()
-      .required('آپلود عکس الزامی است')
-      .test(
-        'fileFormat',
-        'فرمت عکس باید jpg یا png باشد',
-        (value) => value && (value.type === 'image/jpeg' || value.type === 'image/png')
-      ),
-    location: Yup.object().shape({
-        lat: Yup.number()
-          .required('عرض جغرافیایی الزامی است'),
-        lng: Yup.number()
-          .required('طول جغرافیایی الزامی است'),
-      })
+ img: Yup.mixed()  .required('آپلود عکس الزامی است')
+  .test(
+      'fileFormat',
+    'فرمت عکس باید jpg یا png باشد',
+    (value) => value && (value.type === 'image/jpeg' || value.type === 'image/png')
+   ),
+ location: Yup.object().shape({
+     lat: Yup.number()
+       .required('عرض جغرافیایی الزامی است'),
+      lng: Yup.number()
+        .required('طول جغرافیایی الزامی است'),
+    })
    
-  });
+ });
 
 
 
 
-
+ 
   
   
   // console.log(submittedDate?.format?.("D MMMM YYYY"))
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    codemeli: "",
-    genre: "",
-    birthday: null,
-    phonenumber: "",
-    email:"",
-    telegram:"",
-    linkdin:"",
-    address:"",
-    img: "",
-    about:"",
-    location: { lat: "", lng: "" }
+    FName: userInfo?.fName,
+    LName: userInfo?.lName,
+    NationalCode: userInfo?.nationalCode,
+    Gender: userInfo?.gender,
+    BirthDay: userInfo?.birthDay,
+    phonenumber:userInfo?.phoneNumber,
+    email:userInfo?.email,
+    TelegramLink:userInfo?.telegramLink,
+    LinkdinProfile:userInfo?.linkdinProfile,
+    HomeAdderess:userInfo?.homeAdderess,
+    img: userInfo?.userImage?.puctureAddress,
+    UserAbout:userInfo?.userAbout,
+    Longitude:userInfo?.longitude,
+    Latitude:userInfo?.latitude,
   };
   return (
     <Fragment>
@@ -172,7 +190,7 @@ const EditProfile = () => {
                    <Formik 
                         onSubmit={handleFormSubmit}
                         initialValues={initialValues}
-                        validationSchema={validationSchema}
+                        // validationSchema={validationSchema}
                        
                     >
                        
@@ -214,9 +232,11 @@ const EditProfile = () => {
                          previewImage={previewImage}
                          setPreviewImage={setPreviewImage}
                          fileInputRef={fileInputRef}
+                         setFieldValue={setFieldValue}
                          handleFileChange={handleFileChange}
                          handleImageClick={handleImageClick}
                        />  
+                          
                        </Form>
                         )}
                     </Formik> 

@@ -1,8 +1,8 @@
 import images from '../../assets/dashboardpng'
-import { Fragment, useState } from 'react'
+import { Fragment, useState , useEffect } from 'react'
 import ProfileInfo from './UserProfile/ProfileInfo'
 import EditProfile from './UserProfile/EditProfile'
-
+import { getProfile } from '../../core/services/api/user'
 const UserProfile = () => {
   const [profile , setProfile] = useState([
     {firstname: 'فلان فلانی زاده فلان آبادی', last: '', email:'folani99@gmail.com ', birth:' ۱۱ / ۰۵ / ۷۸ ', 
@@ -16,12 +16,25 @@ const UserProfile = () => {
   const HandleActive = () => {
      setIsActive(true)
   }
+  const [userInfo , setUserInfo] = useState([])
+
+  const getProfileFunc = async () => {
+
+    const user = await getProfile()
+    setUserInfo(user)
+ }
+
+ useEffect(() => {
+    getProfileFunc()
+ },[])
+
+
   return (
      <Fragment>
         {isactive?  
-               <EditProfile />
+               <EditProfile userInfo={userInfo}  />
          : 
-               <ProfileInfo HandleActive={HandleActive} />  
+               <ProfileInfo HandleActive={HandleActive} userInfo={userInfo} />  
         }
      </Fragment>
   )

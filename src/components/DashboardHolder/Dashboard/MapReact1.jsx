@@ -2,6 +2,8 @@ import { Fragment  , useState } from 'react'
 import images from '../../../assets/dashboardpng'
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useFormikContext } from 'formik';
+
 import L from 'leaflet';
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -19,23 +21,32 @@ const LocationMarker = ({ setSelectedCoords }) => {
         setSelectedCoords({
           lat: e.latlng.lat,
           lng: e.latlng.lng,
+          
+
         });
+
       },
     });
     return null;
   };
 
 
-const MapReact1 = ({setValueField}) => {
+const MapReact1 = ({setValueField ,selectedCoords , setSelectedCoords , handleMapClick}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { setFieldValue } = useFormikContext();
+
     const handleModalClick = () => {
         setIsModalOpen(true);
     };
-    const [selectedCoords, setSelectedCoords] = useState({ lat: "", lng: "" });
-    const handleMapClick = () => {
-        setValueField("location.lat", selectedCoords.lat);
-        setValueField("location.lng", selectedCoords.lng);
-    };
+    const handleSubmitCoords = () => {
+      if (selectedCoords) {
+          setFieldValue("Latitude", selectedCoords.lat);
+          setFieldValue("Longitude", selectedCoords.lng);
+          alert("مختصات به فرم ارسال شد");
+      } else {
+          alert("ابتدا مختصات را از روی نقشه انتخاب کنید");
+      }
+  };
     
     const closeModal = () => {
         setIsModalOpen(false)
@@ -139,7 +150,7 @@ const MapReact1 = ({setValueField}) => {
                                 max-xl:top-[460px]
                                 
                                 '   
-                                onClick={handleMapClick}
+                                onClick={handleSubmitCoords}
                                 >
                                     <svg width="28" height="21" viewBox="0 0 28 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M24.1121 0.715431C24.8019 0.0164058 25.9204 0.0164058 26.6103 0.715431C27.2916 1.4059 27.3 2.52008 26.6353 3.22094L12.5222 19.9038C12.5086 19.921 12.4941 19.9374 12.4788 19.953C11.7889 20.6521 10.6705 20.6521 9.98067 19.953L1.39235 11.2504C0.70255 10.5514 0.70255 9.41808 1.39235 8.71905C2.08221 8.02003 3.20067 8.02003 3.89053 8.71905L11.1765 16.102L24.0653 0.768967C24.0798 0.75018 24.0954 0.732309 24.1121 0.715431Z" fill="#00A981"/>

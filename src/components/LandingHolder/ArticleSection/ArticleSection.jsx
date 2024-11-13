@@ -79,11 +79,12 @@ const ArticleSection = () => {
                                                transition-opacity duration-300 
                                                ease-in-out rounded-[20px]
                                                absolute inset-0 
-                                               bg-custom-gradient
                                                flex justify-center
                                                text-center items-center
+                                                 bg-gradient-to-t from-[rgb(0,43,42,0.8)]
+                                               to-[rgb(0,252,246,0.8)]
                               '>
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] 
+                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900]  text-black
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
@@ -108,14 +109,15 @@ const ArticleSection = () => {
                                                transition-opacity duration-300 
                                                ease-in-out rounded-[20px]
                                                absolute inset-0 
-                                               bg-custom-gradient
+                                               bg-gradient-to-t from-[rgb(0,43,42,0.8)]
+                                               to-[rgb(0,252,246,0.8)]
                                                flex justify-center
                                                text-center items-center
                               '>
                                 <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] 
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
-                                rounded-[20px] xl:mt-[121px]  cursor-pointer
+                                rounded-[20px] xl:mt-[121px]  cursor-pointer text-black
                                 flex justify-center items-center  max-smx3:w-[100px]' >
                                     مطالعه مطلب
                                 </p>
@@ -137,13 +139,14 @@ const ArticleSection = () => {
                                                transition-opacity duration-300 
                                                ease-in-out rounded-[20px]
                                                absolute inset-0 
-                                               bg-custom-gradient
+                                                 bg-gradient-to-t from-[rgb(0,43,42,0.8)]
+                                               to-[rgb(0,252,246,0.8)]
                                                flex justify-center
                                                text-center items-center
                                                xl:w-full xl:h-full
                                                lg:w-full lg:h-[168px]
                               '>
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] 
+                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
@@ -171,7 +174,8 @@ const ArticleSection = () => {
                                                transition-opacity duration-300 
                                                ease-in-out rounded-[20px]
                                                absolute inset-0 
-                                               bg-custom-gradient
+                                                 bg-gradient-to-t from-[rgb(0,43,42,0.8)]
+                                               to-[rgb(0,252,246,0.8)]
                                                flex justify-center
                                                text-center items-center
                                                xl:w-full xl:h-full 
@@ -179,7 +183,7 @@ const ArticleSection = () => {
                                                lg:w-full lg:h-[168px]
                               '>
                             
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] 
+                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
@@ -208,13 +212,14 @@ const ArticleSection = () => {
                                                transition-opacity duration-300 
                                                ease-in-out rounded-[20px]
                                                absolute inset-0 
-                                               bg-custom-gradient
                                                flex justify-center
                                                text-center 
                                                items-center
+                                                 bg-gradient-to-t from-[rgb(0,43,42,0.8)]
+                                               to-[rgb(0,252,246,0.8)]
                               '>
                             
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] 
+                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black 
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
@@ -238,13 +243,14 @@ const ArticleSection = () => {
                                                transition-opacity duration-300 
                                                ease-in-out rounded-[20px]
                                                absolute inset-0 
-                                               bg-custom-gradient
                                                flex justify-center
                                                text-center 
                                                items-center
+                                                 bg-gradient-to-t from-[rgb(0,43,42,0.8)]
+                                               to-[rgb(0,252,246,0.8)]
                               '>
                             
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] 
+                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer

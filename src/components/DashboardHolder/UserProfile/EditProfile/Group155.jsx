@@ -1,10 +1,15 @@
-import { Fragment } from 'react'
+import { Fragment , useState } from 'react'
 import ImageField1 from '../../Dashboard/ImageField1'
 import MapReact1 from '../../Dashboard/MapReact1'
 import { Field , ErrorMessage} from 'formik'
 const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChange , handleImageClick
     ,setFieldValue
 }) => {
+  const [selectedCoords, setSelectedCoords] = useState({ lat: "", lng: "" });
+  // const handleMapClick = () => {
+  //     setValueField("location.lat", selectedCoords.lat);
+  // };
+
   return (
     <Fragment>
          <div className='xl:w-[308px] xl:h-[604px] 
@@ -27,11 +32,12 @@ const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChang
                                               xl:w-[308px] flex justify-end 
                                             ' >درباره من</label>
                                           <Field
-                                            name='about'
+                                            name='UserAbout'
                                             placeholder='لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز با هدف بهبود ابزارهای کاربردی می باشد. '
                                             as='textarea'
                                             className='xl:w-[308px]
                                             lg:w-[308px]
+                                            bg-transparent
                                             max-smx3:w-[200px]
                                             h-[148px] text-right outline-none
                                             shadow-[0px_1px_2px_0px_#00000033_inset] 
@@ -48,14 +54,21 @@ const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChang
                                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800
                                             max-md:w-[150px]
                                             ">
-                                                <ErrorMessage name="about" component="div" 
+                                                <ErrorMessage name="َUserAbout" component="div" 
                                                 className="text-red-500 font-primaryMedium text-sm truncate" />
                                             </div>
                                       </div>
                                      <div className='grid justify-center justify-items-center
                                       xl:w-[308px] mt-[43px] xl:ml-[3px] relative
                                       '>
-                                     <MapReact1 setFieldValue={setFieldValue} />
+                                    
+                                     <MapReact1 
+                                     setFieldValue={setFieldValue} 
+                                     selectedCoords={selectedCoords}
+                                     setSelectedCoords={setSelectedCoords}
+                                    //  handleMapClick={handleMapClick}
+                                     />
+                                   
                                          <div className='xl:w-[277px] h-[35px]
                                          max-smx3:gap-[20px]
                                          max-md:gap-[20px]
@@ -86,7 +99,9 @@ const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChang
                                             max-xl:w-[150px]
                                             max-smx3:gap-[4px]
                                             h-[35px] flex justify-center gap-[12px]
-                                              rounded-[25px] bg-[#00E0DB] items-center'>         
+                                              rounded-[25px] bg-[#00E0DB] items-center'
+                                              type='submit'
+                                              >         
                                                 <span className='mt-[-0.5px]' >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                                     <path d="M5.99316 16.5V14.25C5.99316 12.8358 5.99316 12.1287 6.43239 11.6894C6.87162 11.25 7.57856 11.25 8.99239 11.25C10.4062 11.25 11.1131 11.25 11.5524 11.6894C11.9916 12.1287 11.9916 12.8358 11.9916 14.25V16.5" stroke="#003B39" stroke-width="1.5" stroke-linejoin="round"/>

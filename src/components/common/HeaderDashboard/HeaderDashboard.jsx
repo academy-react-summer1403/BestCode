@@ -5,7 +5,7 @@ import { IoReorderThreeOutline } from "react-icons/io5";
 import { LuSunMedium } from "react-icons/lu";
 import { RiMoonFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
-import { useDarkMode } from '../../../../DarkModeContext';
+import { useDarkMode } from '../../../config/DarkModeContext';
 import SideBarDash from './SideBarDashboard/SideBarDash';
 
 const HeaderDashboard = () => {

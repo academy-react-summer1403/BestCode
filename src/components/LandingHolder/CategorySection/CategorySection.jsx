@@ -45,6 +45,7 @@ const CategorySection = () => {
                                 max-md:text-[25px]
                                 md:text-[30px]
                                 dark:text-[#f7f7f7]
+                                text-black
                                 ' >محبوب ترین دسته بندی ها</p>
                    <span className='w-[12.49px] h-[13.05px]
                    bg-[#01CEC9] rounded-full mt-[-5px] ml-[10px]'></span>

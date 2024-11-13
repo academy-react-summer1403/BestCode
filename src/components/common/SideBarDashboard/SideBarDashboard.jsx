@@ -11,7 +11,7 @@ const SideBarDashboard = () => {
             <img  alt='teacher' src={images.profilepic} className='w-full h-full'
             />
           </div>  
-          <div className='w-[169px] h-[28px] font-primaryMedium text-[20px] mt-[21px] cursor-pointer'>
+          <div className='w-[169px] h-[28px] font-primaryMedium text-[20px] mt-[21px] cursor-pointer text-[#003B39]'>
              <p>فلان فلانی خوش آمدید</p>
           </div>
            <div className='w-[258px] mt-[27px]'>
