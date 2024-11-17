@@ -1,7 +1,10 @@
+import React, { lazy, Suspense } from 'react';  
+
+
 import { createBrowserRouter } from 'react-router-dom'
 import Layout from '../../components/Layout'
 import App from '../../app/App'
-import CourseDetail from '../../screens/CourseDetail/CourseDetail'
+// import CourseDetail from '../../screens/CourseDetail/CourseDetail'
 import Courses from '../../screens/Courses/Courses'
 import Login from '../../screens/Login/Login'
 import Error from '../../components/common/Error/Error'
@@ -17,20 +20,42 @@ import UserProfile from '../../screens/Dashboard/UserProfile'
 import MyFavorite from '../../screens/Dashboard/MyFavorite'
 import News from '../../screens/News/News'
 import NewsDetail from '../../screens/NewsDetails/NewsDetail'
+// import Landing from '../../screens/Landing/Landing';
+
+import ReactLoading from "react-loading";
+
+
+
+
+const loadComponentWithTimeout = (importFunction, timeout = 3000) => {
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error("Timed out loading component")), timeout)
+  );
+
+  return Promise.race([importFunction(), timeoutPromise]);
+};
+
+
+
+
+const Landing = lazy(() => loadComponentWithTimeout(() => import('../../screens/Landing/Landing')));;
+const CourseDetail = lazy(() => loadComponentWithTimeout(() => import('../../screens/CourseDetail/CourseDetail')));
+
+
 
 const router = createBrowserRouter([
     {
       path:'/',
-      element: <Layout />,
+      element: <App />,
       children: [
         {
           path:'/',
-          element: <App />,
+          element:<Landing />,
           errorElement:<Error/> 
         },
         {
-          path:'/course-detail',
-          element: <CourseDetail />,
+          path:'/course-detail/:uuid',
+          element:<CourseDetail/>,
           errorElement: <Error/> ,
         },
         {
@@ -44,7 +69,7 @@ const router = createBrowserRouter([
           errorElement: <Error/> ,
         },
         {
-          path:'/newsDetail',
+          path:'/news-Detail/:id',
           element:<NewsDetail />,
           errorElement: <Error/> ,
         }

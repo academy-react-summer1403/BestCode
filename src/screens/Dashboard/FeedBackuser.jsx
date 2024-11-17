@@ -4,6 +4,7 @@ import SearchForm from "../../components/common/SearchForm/SearchForm"
 import images from '../../assets/dashboardpng'
 import Group146 from "../../components/DashboardHolder/FeedBackUser/Group146"
 import PagiantionDashboard from "../../components/common/PaginationDashboard/PagiantionDashboard"
+import Skeleton from 'react-loading-skeleton';
 
 const FeedBack = () => {
   const [row2 , setRow2] = useState([
@@ -95,7 +96,7 @@ const FeedBack = () => {
           </div>
         </div>
    </div>   
-     <PagiantionDashboard />
+     {/* <PagiantionDashboard /> */}
  </div>
   )
 }

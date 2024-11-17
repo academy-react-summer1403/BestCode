@@ -1,21 +1,50 @@
-import React from "react";
+import {useState , useEffect } from "react";
 import Accordion from "../../components/CourseDetail/Accordion";
 import Top from "../../components/CourseDetail/Top";
 import Detail from "../../components/CourseDetail/Detail";
 import images from '../../assets/img/coursDetail';
 import Comment from '../../components/common/Comment/Comment.jsx';
 import Card from '../../components/common/SideCard/card';
+import {getCommentById, getCourseDetail, getCourseList } from '../../core/services/api/course'
+import { useParams } from 'react-router-dom';
 
 const CourseDetail = () => {
+  const [detail , setDetail] = useState([])
+  const [cards , setCards] = useState([])
+  const [comment , setComment] = useState([])
+  const [commentReply , setCommentReply] = useState([])
+  const {uuid} = useParams()
+  const getCourseDetail1 = async () => {
+    const data = await getCourseDetail(uuid)
+    setDetail(data)
+  }
+
   
+
+  const getComment = async () => {
+    const data2 = await getCommentById(uuid)
+    setComment(data2)
+  }
+
+  const getCourseCard = async () => {
+    const data1 = await getCourseList()
+    setCards(data1)
+  }
+
+  useEffect(()=> {
+      getCourseDetail1()
+      getCourseCard()
+      getComment()
+  },[])
    
   
   return (
     <>
-  <div dir="rtl" className="  font-['BYekan'] bg-[#F9F9F9] dark:bg-gray-800 ">
-    <div id="ADS" className=" h-[395px] max-sm:h-fit w-[81.3%] max-xl:w-[90%] max-cd:w-[97%] max-md:w-[100%]  mx-auto flex max-sm:flex-col-reverse gap-[29px] max-cd:gap-[15px] max-md:gap-[5px] pt-[35px]" >
-         
-       <Top />
+   <div dir="rtl" className="  font-['BYekan'] bg-[#F9F9F9] dark:bg-gray-800 ">
+     <div id="ADS" className=" h-[395px] max-sm:h-fit w-[81.3%] max-xl:w-[90%] max-cd:w-[97%] max-md:w-[100%]  mx-auto flex max-sm:flex-col-reverse gap-[29px] max-cd:gap-[15px] max-md:gap-[5px] pt-[35px]" >
+       <Top
+        detail={detail}
+       />
     </div>
     
   <div className=" flex max-md:flex-col gap-[30px] pt-7 " >
@@ -31,9 +60,10 @@ const CourseDetail = () => {
 
         <div className=" h-[570px] w-[810px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.3)] m-auto overflow-hidden relative rounded-2xl backdrop-opacity-60 bg-gradient-to-b from-[#ffffff] to-gray-400"
                        >
-          <div className="w-[100%] border-2 m-auto pt-6 text-[18px] max-smx3:text-[14px] leading-[27px] font-normal aling-right text-slate-600 pl-10 pr-10 " > 
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+          <div className="w-[100%] border-2 m-auto pt-6 
+          text-[18px] max-smx3:text-[14px] leading-[27px] 
+          font-normal aling-right text-slate-600 pl-10 pr-10 " > 
+          {detail?.describe}
           </div>
           
           <button class=" absolute bottom-[44px] right-[35%] rounded-full border border-[#01CEC9] py-2 px-4 text-center text-[20px] font-normal leading-[32px] transition-all shadow-sm hover:shadow-lg text-[#006865] dark:text-blue-400 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
@@ -51,7 +81,15 @@ const CourseDetail = () => {
       </div>
       
       <div className=" h-[953px] w-full  flex flex-wrap relative p-0 " >
-        <Comment />
+        
+             <Comment  
+              comment={comment}
+              uuid={uuid}
+             /> 
+    
+      
+  
+      
       </div>
 
     </div>
@@ -67,7 +105,7 @@ const CourseDetail = () => {
             <div className=" w-[42px] h-[43px]  absolute top-[16px] right-[42px] flex flex-wrap
                            
                           ">
-              <span className=" w-full h-[50%]  text-center text-[19px] leading-[21px] font-normal"> 216 </span>
+              <span className=" w-full h-[50%]  text-center text-[19px] leading-[21px] font-normal"> {detail?.capacity}</span>
               <span className=" w-full h-[50%]  text-center text-[15px] leading-[21px] font-normal text-[#888888] "> دانشجو </span>
             </div>
 
@@ -80,7 +118,7 @@ const CourseDetail = () => {
           <div className=" w-[49%] h-full bg-[#F7F7F7] flex rounded-[10px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.2)] relative">
 
            <div className=" w-[42px] h-[43px] absolute top-[18px] right-[40px] flex flex-wrap">
-              <span className=" w-full h-[50%]  text-center text-[19px] leading-[21px] font-normal"> 4.7 </span>
+              <span className=" w-full h-[50%]  text-center text-[19px] leading-[21px] font-normal"> {detail?.likeCount}</span>
               <span className=" w-full h-[50%]  text-center text-[15px] leading-[21px] font-normal text-[#888888] "> رضایت</span>
             </div>
 
@@ -128,9 +166,12 @@ const CourseDetail = () => {
            </span>
 
         </div>
-
-        <Card />
-
+      {cards.slice(0,3).map((item, index)=>( 
+        <Card 
+        item={item}
+        index={index}
+        />
+      ))} 
       </div>
 
     </div>

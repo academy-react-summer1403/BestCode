@@ -12,8 +12,6 @@ const Group146 = ({item , index}) => {
                       <img src={item.eye} />
                       
                     </div>
-                   
-                   
                     <div className="mr-[68px] w-[107px]">
                       <p className='font-primaryRegular text-[#555555] text-[14px] font-[700]
                       dark:text-white

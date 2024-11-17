@@ -9,22 +9,13 @@ import SliderCard from '../SliderCard/SliderCard';
 import SwiperNavButton from '../SwiperButton/SwiperButton';
 import { getCourseList } from '../../../../core/services/api/course';
 const SwiperComponent = () => {
-// const [slidercard , setSliderCard] = useState([
-//         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-//         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-//         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-//         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-//         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-//         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-//         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-//         {title:'دوره پیشرفته دیزاین', teacher:'حامد نظری', duration:'۷:۴۴' , price:'۱,۴۵۰,۰۰۰', student:'۵۰'},
-//     ])
+
   const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [slidercard, setSliderCard] = useState([])
   
   const getList = async () => {
-      const courses = await getCourseList(5)
+      const courses = await getCourseList()
         console.log(courses)
         setSliderCard(courses)
       };
@@ -115,16 +106,16 @@ const SwiperComponent = () => {
             }
           }}
       >        
-       {slidercard.slice(1).map((item , index)=> (
-       
+       {slidercard.map((item , index)=> (
                <SwiperSlide key={item} >
                    <SliderCard 
+                        courseId={item.courseId}
                         img={item.thumbImageAddress}
                         title={item.title} 
                         price={item.cost}
                         teacher={item.teacherName}
-                        duration={item.duration}
-                        student={item.student}
+                        duration={item.lastUpdate}
+                        student={item.currentUserRateNumber}
                         index={index}
                     /> 
                </SwiperSlide>

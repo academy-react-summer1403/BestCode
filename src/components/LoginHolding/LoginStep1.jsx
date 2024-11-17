@@ -4,18 +4,38 @@ import images from '../../assets/Login'
 import { loginAPI } from "../../core/services/api/auth"
 import { setItem } from "../../core/services/common/storage.services"
 import { NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify'
+
+
+
 
 const LoginStep1 = ({HandleLoginConfirm}) => {
   const navigate = useNavigate()
   const [userValues, setUserValues] = useState(null);
 
-    const HandleSubmit = async  (values) => {
+  const HandleSubmit = async (values) => {
+    try {
         const user = await loginAPI(values)
-        navigate('/user')
+
         if (user?.token) {
-          setItem("token", user.token);
-      }
-    } 
+            
+            setItem("token", user.token)
+            if(user?.success) {   
+
+              navigate('/user')
+              toast.success("ورود با موفقیت انجام شد")
+
+            } else {
+             toast.error('خطا در ورود دوباره تلاش کنید')
+            }
+           
+        } else {
+            throw new Error("نام کاربری یا رمز عبور اشتباه است.")
+        }
+    } catch (error) {
+        toast.error(error.message || "خطا در ورود، لطفاً دوباره تلاش کنید.")
+    }
+}
 
   
   return (
@@ -57,53 +77,49 @@ const LoginStep1 = ({HandleLoginConfirm}) => {
                           onSubmit={(e) =>HandleSubmit(e)}
                       >
                            <Form >
-                           <div 
-                              className='w-[277px] h-[47px] bg-transparent shadow-[0px_1px_2px_0px_#00000040_inset]
-                              rounded-[9px]
-                              text-right
-                              outline-none
-                              border-none
-                              placeholder:mr-[19px]
-                              placeholder:text-right
-                              pt-[14px] font-primaryMedium
-                              pb-[15px]
-                              flex justify-between
-                              gap-[3px]
-                              px-[12px]
-                              
-                              
-                              '
+                           <div  
+                             className="mb-[10px]"
                            >
                               <Field
-                               className='bg-transparent outline-none  placeholder:bg-transparent
-                               w-[100px] border border-black
+                               className='w-[277px] h-[47px] bg-transparent shadow-[0px_1px_2px_0px_#00000040_inset]
+                               rounded-[9px]
+                               text-right
+                               outline-none
+                               border-none
+                               placeholder:text-[12px]
+                               placeholder:text-right
+                               pt-[14px] font-primaryMedium
+                               pb-[15px]
+                               flex justify-between
+                               gap-[3px]
+                               px-[12px]
+                               
+                               
                                '
+                               placeholder='ایمیل یا شماره همراه'
                                name='phoneOrGmail'
                             />
-                            <p className='text-[12px]'>شماره همراه یا ایمیل</p>
                             </div>
                             <div 
-                              className='w-[277px] h-[47px] bg-transparent shadow-[0px_1px_2px_0px_#00000040_inset]
-                              rounded-[9px]
-                              text-right
-                              outline-none
-                              border-none
-                              placeholder:mr-[19px]
-                              placeholder:text-right
-                              pt-[14px] font-primaryMedium
-                              pb-[15px]
-                              flex justify-between
-                              gap-[3px]
-                              px-[12px]
-                              '
+                            
                            >
                               <Field
-                               className='bg-transparent outline-none  placeholder:bg-transparent
-                               w-[100px] border border-black
-                               '
+                                  className='w-[277px] h-[47px] bg-transparent shadow-[0px_1px_2px_0px_#00000040_inset]
+                                  rounded-[9px]
+                                  text-right
+                                  outline-none
+                                  border-none
+                                  placeholder:text-[12px]
+                                  placeholder:text-right
+                                  pt-[14px] font-primaryMedium
+                                  pb-[15px]
+                                  flex justify-between
+                                  gap-[3px]
+                                  px-[12px]
+                                  '
+                               placeholder='رمز عبور'
                                name='password'
                             />
-                            <p className='text-[12px]'>رمز عبور</p>
                             </div>
                     <div className="flex justify-between">  
                     <p className="font-primaryMedium text-[11px] text-[#E48900]">فراموشی رمز عبور</p>

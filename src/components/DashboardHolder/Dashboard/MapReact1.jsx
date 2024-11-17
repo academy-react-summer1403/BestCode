@@ -31,10 +31,9 @@ const LocationMarker = ({ setSelectedCoords }) => {
   };
 
 
-const MapReact1 = ({setValueField ,selectedCoords , setSelectedCoords , handleMapClick}) => {
+const MapReact1 = ({setValueField , handleMapClick ,setFieldValue}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { setFieldValue } = useFormikContext();
-
+    const [selectedCoords, setSelectedCoords] = useState({ lat: "", lng: "" });
     const handleModalClick = () => {
         setIsModalOpen(true);
     };

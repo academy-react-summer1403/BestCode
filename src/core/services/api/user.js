@@ -3,7 +3,7 @@ import http from '../interceptor'
 export const getProfile = async (user) => {
     try {
         const response = await http.get('/SharePanel/GetProfileInfo')
-        console.log(response)
+        
         return response;
     } catch(error) {
         return false
@@ -12,25 +12,63 @@ export const getProfile = async (user) => {
 
 export const EditProfileFunc = async (user) => {
     try {
-      
-        const data = new FormData();
-        const keys = Object.keys(user)
-        keys.forEach((key) => {
-            const item = user[keys]
-            data.append(key,item);
-        })
-
-        console.log(data)
-        
-        const response = await http.put('/SharePanel/UpdateProfileInfo', data, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            }
-        });
-
+        const response = await http.put('/SharePanel/UpdateProfileInfo', user);
         return response;
     } catch (error) {
         console.error("Error updating profile:", error);
         return false;
     }
 };
+
+
+export const getmyCourse = async () => {
+    try {
+        const response = await http.get('/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=10&SortingCol=DESC&SortType=LastUpdate&Query=')
+        
+        return response
+    } catch(error) {
+
+        return []
+    }
+}
+
+export const getReserveCourse = async () => {
+    try {
+        const response = await http.get('/SharePanel/GetMyCoursesReserve')
+
+        return response
+    } catch(error) {
+        return []
+    }
+}
+
+export const getFavoriteCourse = async () => {
+    try {
+        const response = await http.get('/SharePanel/GetMyFavoriteCourses')
+
+        return response
+    } catch(error) {
+        return []
+    }
+}
+
+export const getNewsdash = async () => {
+    try {
+        const response = await http.get('/News/GetListNewsCategory')
+   
+        return response
+    } catch (error) {
+        return []
+    }
+}
+
+export const getCourseDash = async () => {
+    try {
+        const response = await http.get('/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=10&SortingCol=Active&SortType=DESC&TechCount=0')
+ 
+        return response
+    } catch(err) {
+        return []
+    }
+}
+

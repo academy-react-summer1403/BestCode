@@ -2,19 +2,22 @@ import { useState , useEffect} from 'react'
 import images from '../../assets/dashboardpng'
 import { DashCard, Group73, Group74, Group85 } from '../../components/DashboardHolder/Dashboard/index.js'
 import DashCardDore from '../../components/DashboardHolder/Dashboard/DashCardDore.jsx'
+import { getCourseDash } from '../../core/services/api/user.js'
 const Dashboard = () => {
-  const [card , setCard] = useState([
-    {namedore:'آموزش جامع ری اکت جی اس' , teacher: 'مهدی اصغری', time: 'چهارشنبه ها . ۱۷:۳۰', img:images.rec111},
-    {namedore: 'پکیج آموزش کار با API های کاربری' , teacher: 'محسن اسفندیاری', time: '' ,img:images.rec113},
-    
-  ])
+  const [card , setCard] = useState([])
   const [cardore , setCardore] = useState([
-    {namedore: 'آموزش کامل کار با figma' , teacher:'' ,time:'' ,img:images.rec115},
-    {namedore:'آموزش کتابخانه های کاربردی js', teacher:'',time:'' , img:images.rec117}
   ])
 
 
+  const getCourseDash1 = async () => {
+     const data = await getCourseDash()
+     setCardore(data?.courseFilterDtos.slice(0, 2) || [])
+     setCard(data?.courseFilterDtos.slice(0, 2) || [])
+  }
 
+  useEffect(()=> {
+     getCourseDash1()
+  })
 
 
 
@@ -58,10 +61,10 @@ const Dashboard = () => {
                     {cardore.map((item , index) => (
                       <>
                         <DashCardDore
-                          namedore={item.namedore}
-                          teacher={item.teacher}
-                          time={item.time}
-                          img={item.img}
+                              namedore={item.title}
+                              teacher={item.teacherName}
+                              time={item.lastUpdate}
+                              img={item.tumbImageAddress}
                          />
                      </>
                      ))} 
@@ -88,10 +91,10 @@ const Dashboard = () => {
                    {card.map((item , index) => (
                       <>
                          <DashCard
-                           namedore={item.namedore}
-                           teacher={item.teacher}
-                           time={item.time}
-                           img={item.img}
+                           namedore={item.title}
+                           teacher={item.teacherName}
+                           time={item.lastUpdate}
+                           img={item.tumbImageAddress}
                        />
                     </>
                     ))}
