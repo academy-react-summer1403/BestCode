@@ -1,29 +1,17 @@
-import {useState, useEffect}from "react";
+import React from "react";
 import PagiantionDashboard from "../../components/common/PaginationDashboard/PagiantionDashboard";
 import Card from "../../components/News/Card";
 import HeroSection from "../../components/News/HeroSection";
 import SideMenu from "../../components/News/SideMenu";
 import Selection from "../../components/News/Selection";
+import { getNewsCard } from '../../core/services/api/News';
 
 import { getNewsFilter } from "../../core/services/api/course";
 
 
 const News = () => {
- const [card , setCard] = useState([])
-  const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 6
-  const indexOfLastItem = currentPage * itemsPerPage
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage
-  const currentItems = card.slice(indexOfFirstItem, indexOfLastItem)
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
- const GetallCardNew = async () => {
-    const data = await getNewsFilter()
-    setCard(data?.news)
- }
-    useEffect(()=> {
-       GetallCardNew()
-    }, [])
+  
+   
   return (
     <>
   
@@ -31,7 +19,7 @@ const News = () => {
         
                                                           <HeroSection />
 
-       
+
         <div className="w-[100%]  flex max-sm:flex-col gap-7 ">
           <div
             id="left"

@@ -15,7 +15,7 @@ const SwiperComponent = () => {
     const [slidercard, setSliderCard] = useState([])
   
   const getList = async () => {
-      const courses = await getCourseList()
+      const courses = await getCourseList(5)
         console.log(courses)
         setSliderCard(courses)
       };
@@ -109,7 +109,6 @@ const SwiperComponent = () => {
        {slidercard.map((item , index)=> (
                <SwiperSlide key={item} >
                    <SliderCard 
-                        courseId={item.courseId}
                         img={item.thumbImageAddress}
                         title={item.title} 
                         price={item.cost}

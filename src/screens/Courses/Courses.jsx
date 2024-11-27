@@ -11,6 +11,8 @@ import FinalGrid from "../../components/Courses/FinalGrid"
 import { getTech , getAllCourse } from "../../core/services/api/course"
 
 
+
+
 const Courses = () => {
  
   const [active, setActive]=useState(1)
@@ -35,6 +37,13 @@ const Courses = () => {
     setSliderCard(data?.courseFilterDtos)
   }
 
+   const [card , setCard] = useState([])
+ 
+  const getallcourse = async () => {
+      
+    const courses = await getCourseList1()
+     setCard(ourses)
+  }
 
 
   const [gettech , setGettech] = useState([])
