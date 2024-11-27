@@ -1,17 +1,20 @@
 
-import { useState } from "react"
+import { useState , useEffect } from "react"
 import { Field } from "formik"
-
+import { getFilterCourseBytech } from "../../core/services/api/course"
 import Daisyui from "daisyui"
 import {Slider} from "antd" 
 import "../Courses/Course.css"
 
-const SideBarFilter =()=>{
+const SideBarFilter =({HandleCheck , check})=>{
+  
 
-    const [minValue,setMinValue] = useState(0)
+
+
+  const [minValue,setMinValue] = useState(0)
     
     
-  const [openbox,setOpenBox] =useState(false)
+  const [openbox,setOpenBox]  =useState(false)
   const [openbox1,setOpenBox1] =useState(false)  
   const [openbox2,setOpenBox2] =useState(false)
   const [openbox3,setOpenBox3] =useState(false)    
@@ -51,7 +54,18 @@ const SideBarFilter =()=>{
       setOpenBox4(false)
     }
   }
-    return(<>
+  const [tech , setTech] = useState([])
+   const getFilterbytech1 = async () => {
+     const data = await getFilterCourseBytech()
+     setTech(data)
+    }
+
+    useEffect(()=> {
+       getFilterbytech1()
+    }, [])
+  
+    return(
+    <>
      <div className="w-[23%] h-[880px] dark:bg-gray-200 hidden lg:block drawer drawer-end bg-[#FFFFFF] shadow-[0px_1px_2px_0px_#0000004D]">
      <div className="w-[85%]  ef:w-[92%]  mx-auto h-[45px] rounded-t-[5px] rounded-b-[1px] bg-[#E7E7E7] 
      shadow-[0px_1px_2px_0px_#00000040]  mt-[14px] flex ">
@@ -66,20 +80,38 @@ const SideBarFilter =()=>{
           
          <div onClick={handleAccordion} className="justify-between flex  w-[90%] mx-auto border-[#E6E6E6] dark:border-[#EBF9F982] border-b ">    
                <img src="../35.svg" className={`my-auto rotate-180  ${openbox? 'rotate-0 ' : ''}`}/><span className="text-right ">تکنولوژی</span></div>
+             
+      
+      {openbox ? (
+        <></>
+      ) : (
+        <div className="mt-[20px]">
+          {tech.map((item, index) => (
+            <div
+              key={index}
+              className="justify-start text-right relative bottom-2 pr-[10px] mt-[3px]"
+            >
+              <label
+                htmlFor={`check${index}`}
+                className="text-[16px]"
+              >
+                {item.techName}
+              </label>
+              <input
+                type="checkbox"
+                id={`check${index}`}
+                name={item.techName}
+                value={item.id}
+                 checked={check.includes(item.id)}
+                onChange={() => HandleCheck(item.id)}
+                className="size-3 ml-2"
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
-          {openbox ?
-          (<></>)
-        : (
-          <div className="justify-start text-right relative bottom-2 pr-[10px]">
-          <div><label for="check1" className="text-[16px]">Boot Strap</label><Field type="checkBox" id="check1" className="size-3 ml-2 mt-5"/></div>
-          <div><label for="check2" className="text-[16px]">React</label><Field type="checkBox" id="check2" className="size-3 ml-2"/></div>                                   
-          <div><label for="check3" className="text-[16px]">Java Script</label><Field type="checkBox" id="check3" className="size-3 ml-2"/></div>
-          <div><label for="check4" className="text-[16px]">.Net Core</label><Field type="checkBox" id="check4" className="size-3 ml-2"/></div>
-          <div><label for="check5" className="text-[16px]">tailwind</label><Field type="checkBox" id="check5" className="size-3 ml-2"/></div></div>
-        )  
-        
-        }
-        
+
       </div>
         <div className={`w-[85%] ml-1 ef:w-[92%] h-[123px] ef:mx-auto shadow-[0px_1px_2px_0px_#00000040] dark:bg-gray-800 
         dark:text-white  rounded-[6px] bg-[#FAFAFA] ${openbox1? 'h-[24px]':''}`}>
@@ -121,11 +153,6 @@ const SideBarFilter =()=>{
           }
           
         </div>
-      {/* <div><label for="check10" className="text-[16px]  w-[85px] h-[17px]  bg-[url(../39.svg)]"> <img src="../39.svg" className="relative left-[131px] top-[3px]"/></label><Field type="checkBox" id="check10" className="size-3 ml-2 relative bottom-4"/></div>
-          <div><label for="check11" className="text-[16px] w-[85px] bg-[url(../40.svg)]"><img src="../40.svg" className="relative left-[131px] bottom-3"/></label><Field type="checkBox" id="check11" className="size-3 ml-2 relative bottom-8"/></div>                                   
-          <div><label for="check12" className="text-[16px] w-[85px] bg-[url(../41.svg)]"><img src="../41.svg" className="relative left-[131px] bottom-7"/></label><Field type="checkBox" id="check12" className="size-3 ml-2 relative bottom-12"/></div>
-          <div><label for="check13" className="text-[16px] w-[85px] bg-[url(../42.svg)]"><img src="../42.svg" className="relative left-[131px] bottom-11"/></label><Field type="checkBox" id="check13" className="size-3 ml-2 relative bottom-16"/></div>
-          <div><label for="check14" className="text-[16px] mt-[-20px] w-[85px] bg-[url(../43.svg)]"><img src="../43.svg"className="relative left-[131px] bottom-[60px]"/></label><Field type="checkBox" id="check14" className="size-3 ml-2 relative bottom-20"/></div> */}
       <div className={`w-[85%] ml-1 ef:w-[92%] h-[123px] ef:mx-auto shadow-[0px_1px_2px_0px_#00000040] dark:bg-gray-800 
         dark:text-white  rounded-[6px] bg-[#FAFAFA] ${openbox3? 'h-[24px]':''}`}>
           
@@ -155,16 +182,9 @@ const SideBarFilter =()=>{
             (<></>)
           : (
             <div className="justify-start text-right relative bottom-2 pr-[10px]">
-                                        {/* <div className="mt-12 mx-auto">
-                  <div className="w-[222px] h-[4px] mx-auto z-[3000] bg-[#FEE9CA]"><div className="w-[151px] h-[4px] mx-auto bg-[#FFA31A] relative "></div></div>
-                   <div className="relative w-[222px] mx-auto ">
-                    <input type="range" className="w-full h-[0px] relative bottom-[17px] bg-none appearance-none range-sm"/>
-                    <input type="range" className="w-full h-[0px] relative bottom-[41px] bg-none appearance-none"/>
-                   </div>
-                   </div> */}
                     <span>{minValue} </span>
                    
-                   <Slider id="rangeInput"
+              <Slider id="rangeInput"
                 max={200000000}
                 min={1}
                 className=" w-[90%] mx-auto  h-[0px] bg-[#FEE9CA]"
@@ -197,8 +217,6 @@ const SideBarFilter =()=>{
   <div className="drawer drawer-end  ">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content ">
-    {/* Page content here */}
-    {/* <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary mr-4 relative cd:right-[90%]">Open drawer</label> */}
   </div>
   <div className="drawer-side  z-50 ">
     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -271,11 +289,7 @@ const SideBarFilter =()=>{
           }
           
         </div>
-      {/* <div><label for="check10" className="text-[16px]  w-[85px] h-[17px]  bg-[url(../39.svg)]"> <img src="../39.svg" className="relative left-[131px] top-[3px]"/></label><Field type="checkBox" id="check10" className="size-3 ml-2 relative bottom-4"/></div>
-          <div><label for="check11" className="text-[16px] w-[85px] bg-[url(../40.svg)]"><img src="../40.svg" className="relative left-[131px] bottom-3"/></label><Field type="checkBox" id="check11" className="size-3 ml-2 relative bottom-8"/></div>                                   
-          <div><label for="check12" className="text-[16px] w-[85px] bg-[url(../41.svg)]"><img src="../41.svg" className="relative left-[131px] bottom-7"/></label><Field type="checkBox" id="check12" className="size-3 ml-2 relative bottom-12"/></div>
-          <div><label for="check13" className="text-[16px] w-[85px] bg-[url(../42.svg)]"><img src="../42.svg" className="relative left-[131px] bottom-11"/></label><Field type="checkBox" id="check13" className="size-3 ml-2 relative bottom-16"/></div>
-          <div><label for="check14" className="text-[16px] mt-[-20px] w-[85px] bg-[url(../43.svg)]"><img src="../43.svg"className="relative left-[131px] bottom-[60px]"/></label><Field type="checkBox" id="check14" className="size-3 ml-2 relative bottom-20"/></div> */}
+    
       <div className={`w-[272px] h-[123px] mx-auto shadow-[0px_1px_2px_0px_#00000040] dark:bg-gray-800 
         dark:text-white  rounded-[6px] bg-[#FAFAFA] ${openbox3? 'h-[24px]':''}`}>
           
@@ -308,19 +322,30 @@ const SideBarFilter =()=>{
                                         <div className="mt-12 mx-auto">
                  
                  <div className="w-[222px] h-[4px] mx-auto z-[3000] bg-[#FEE9CA]"><div className="w-[151px] h-[4px] mx-auto bg-[#FFA31A] relative "></div></div>
-                  <Slider id="rangeInput"
-                max={200000000}
-                min={1}
-                className=" w-[90%] mx-auto  h-[0px] bg-[#FEE9CA]"
-                onChange={(f) => console.log(f[0]) &console.log(f[1])}
-                range
-                step={100000}
-                
-                defaultValue={[1, 20000000]}
-                styles={{track:{background:"#FFA31A",position:"relative",bottom:"2px"},thumb:{background:"yellow"}}}
-                
-
-              />
+                 <Slider
+                    range
+                    min={1}
+                    max={200000000}
+                    step={100000}
+                    defaultValue={[1, 20000000]}
+                    className=" mx-auto relative "
+                    trackStyle={[
+                      { backgroundColor: "#FFA31A", height: "8px" , position:'relative' ,left:'100px'},
+                    ]}
+                    handleStyle={[
+                      {
+                        height: "24px",
+                        width: "24px",
+                        backgroundColor: "yellow",
+                        border: "2px solid #FFA31A",
+                        marginTop: "-8px",
+                      },
+                    ]}
+                    railStyle={{
+                      backgroundColor: "#FEE9CA",
+                      height: "8px",
+                    }}
+      />
               <div className="flex items-end justify-end gap-5  mr-2">
               <div><label for="check21" className="text-[16px]">غیر رایگان</label><Field type="checkBox" id="check21" className="size-3 ml-2 "/></div>             
               <div><label for="check20" className="text-[16px]">رایگان</label><Field type="checkBox" id="check20" className="size-3 ml-2 "/></div>                                   

@@ -1,4 +1,4 @@
-import {useEffect , useState} from "react";
+import React from "react";
 import PagiantionDashboard from "../../components/common/PaginationDashboard/PagiantionDashboard";
 import Card from "../../components/News/Card";
 import HeroSection from "../../components/News/HeroSection";
@@ -6,32 +6,19 @@ import SideMenu from "../../components/News/SideMenu";
 import Selection from "../../components/News/Selection";
 import { getNewsCard } from '../../core/services/api/News';
 
-
+import { getNewsFilter } from "../../core/services/api/course";
 
 
 const News = () => {
-  const [cardData, setCardData] = useState([]);
-  const [error, setError] = useState(null);
-
-  const getCardData1 = async () => {
-    const data = await getNewsCard()
-    console.log('data' , data) 
-    setCardData(data)
-
-  };
-  
-  useEffect(() => {
-   
-
-    getCardData1();
-  }, []);
   
    
   return (
     <>
+  
       <div className="w-[100%]   flex flex-wrap relative bg-NewsBg bg-[#F9F9F9] dark:bg-gray-800 font-primaryRegular">
         
                                                           <HeroSection />
+
 
         <div className="w-[100%]  flex max-sm:flex-col gap-7 ">
           <div
@@ -48,15 +35,26 @@ const News = () => {
                                             
                                                    <Selection/>
 
-            <div className="w-[100%]  flex flex-wrap justify-center gap-[25px] max-md:grid max-md:justify-items-center">
+            <div className="w-[100%] h-[600px] flex flex-wrap justify-center gap-[25px] max-md:grid max-md:justify-items-center">
                                                     
-                                                    <Card />
+            {currentItems.map((item, index) =>(
+              <Card 
+                item={item}
+              /> 
+              ))} 
               
-                                                  <div className="mt-[50px]">
-                                                     <PagiantionDashboard />
-                                                </div>
+                                           
               
             </div>
+            <div className="absolute top-[1400px] left-[900px]">
+                                                     <PagiantionDashboard
+                                                       paginate={paginate}
+                                                       row={card}
+                                                       itemsPerPage={itemsPerPage}
+                                                       currentPage={currentPage}
+                                                     
+                                                     />
+                                                </div>  
           </div>
         </div>
       </div>

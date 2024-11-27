@@ -1,19 +1,22 @@
 import Group145 from "../../components/DashboardHolder/MyReserveCourse/Group145"
 import PagiantionDashboard from "../../components/common/PaginationDashboard/PagiantionDashboard"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SelectOption  from "../../components/common/SelectOption/SelectOption"
 import SearchForm from "../../components/common/SearchForm/SearchForm"
-
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import images from '../../assets/dashboardpng'
+import { getReserveCourse } from "../../core/services/api/user"
 const MyReserveCourse = () => {
-  const [row1 , setRow1] = useState([
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 , vaziet:'در انتظار تایید' , delete:images.fr12 , color:'#E48900' },
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 ,vaziet:'در انتظار تایید', delete:images.fr12, color:'#E48900' },
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 ,vaziet:'تایید شده', delete:images.fr12, color:'#00C070'},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11 , vaziet:'در انتظار تایید', delete:images.fr12 , color:'#E48900'},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.fr11, vaziet:'در انتظار تایید', delete:images.fr12 ,color:'#E48900'},
-  ])
-  
+  const [row1 , setRow1] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const toPersianNumber = (number) => {
+    const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
+    return number
+      .toString()
+      .replace(/\d/g, (digit) => persianDigits[digit]);
+  };
 
   const options = [
     { value: 'option1', label: 'جدید ترین' },
@@ -24,7 +27,7 @@ const MyReserveCourse = () => {
   const formStyle = `xl:w-[519px] h-[40px] bg-[#FBFBFB] flex rounded-[25px] justify-between 
     items-center 
     shadow-[0px_1px_3px_0px_#00000026_inset]
-   pl-[4px] pr-[27px]
+    pl-[4px] pr-[27px]
     max-lg:w-[400px]
     max-xl:w-[519px]
     max-md:w-[250px]
@@ -36,6 +39,30 @@ const MyReserveCourse = () => {
   placeholder:text-[#AAAAAA] placeholder:text-[16px] place-holder:font-[400] text-right
   border-none outline-none bg-transparent pb-[3px]
   `
+  const getReserveCourse1  = async () => {
+    try {
+     const data = await getReserveCourse()
+     setRow1(data)
+    } catch(error) {
+         console.log(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+  useEffect(()=> {
+     getReserveCourse1()
+  },[])
+
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = row1.slice(indexOfFirstItem, indexOfLastItem)
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  
   return (
     <div className="xl:w-[875px] grid justify-center mt-[16px] justify-items-center
     max-smx3:dark:bg-gray-800 max-smx3:w-screen max-md:dark:bg-gray-800 max-md:w-screen 
@@ -96,8 +123,17 @@ const MyReserveCourse = () => {
                   max-lg:ml-[10px]
                   ">نام دوره</p>
                 </div>
+                {loading ? (
+        <ul>
+          {Array(10).fill().map((_, index) => (
+            <li key={index}>
+              <Skeleton height={40} width={`100%`}  />
+            </li>
+          ))}
+        </ul>
+      ) : (
                 <div className="xl:w-[874px] flex-col pt-[3px]" >
-                {row1.map((item , index) => ( 
+                {currentItems.map((item , index) => ( 
                     <Group145 
                       item={item}
                       index={index}
@@ -106,9 +142,16 @@ const MyReserveCourse = () => {
                 ))}
                
                 </div> 
+      )}
         </div>
       </div>  
-           <PagiantionDashboard />        
+        
+          <PagiantionDashboard 
+            paginate={paginate}
+            row={row1}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+          />
     </div>
   )
 }

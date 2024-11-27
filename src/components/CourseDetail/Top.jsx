@@ -1,7 +1,14 @@
 import React from 'react'
 import images from '../../assets/img/coursDetail'
 
-const Top = () => {
+const toPersianNumber = (number) => {
+  const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
+  return number
+    .toString()
+    .replace(/\d/g, (digit) => persianDigits[digit]);
+};
+
+const Top = ({detail}) => {
   return (
     <>
       <div className=" h-[101%] max-sm:h-[360px] w-[49%] max-sm:w-[90%] max-sm:mx-auto bg-[#FFFF] dark:bg-gray-300 flex flex-wrap rounded-2xl shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]" 
@@ -11,7 +18,7 @@ const Top = () => {
         
         
             <div className=" h-[41px] w-[335px] mr-[33px] text-[25px] max-smx2:text-[20px] leading-[42px] font-bold align-middle flex flex-nowrap text-[#333333]">
-                <p>  دوره تخصصی و جامع  React Js </p> 
+                <p> {detail?.title} </p> 
             </div>
             <div className=" h-[27px] w-[27px]" >
               <img src={images.save} alt="" />
@@ -19,8 +26,10 @@ const Top = () => {
         </div>
 
         <div className=" w-[100%]  ">
-             <div className=" h-[100%] w-[93%]  m-auto text-[18px] max-smx2:text-[15px] leading-[27px] font-normal aling-right text-slate-600"> 
-            حدود 40 ساعت آموزش جامع و تخصصی ری اکت!  شما در دوره آموزش ری اکت ReactJS ، این کتابخانه قدرتمند و پر استفاده جاوا اسکریپت را به صورت کاملا پروژه محور و کاربردی یاد میگیرید
+             <div className=" h-[100%] w-[93%]  
+             
+             m-auto text-[18px] max-smx2:text-[15px] leading-[27px] font-normal aling-right text-slate-600"> 
+             {detail?.miniDescribe}
             </div>
         </div>
         
@@ -30,13 +39,16 @@ const Top = () => {
             
                <img src={images.person} alt="" className=" h-[21px] w-[18px] mr-[10%]" />
 
-               <span className=" text-[20px] leading-[10px] font-normal text-[#005B58] mr-[8px] mt-[3px] "> مهدی اصغری </span>
+               <span className=" text-[20px] leading-[10px]
+               
+               
+               font-normal text-[#005B58] mr-[8px] mt-[3px] "> {detail?.teacherName}</span>
 
             </div>
 
             <div className=" h-[25px] w-[210px] flex max-md:mr-[5%]" >
             
-               <span className=" text-[23px] leading-[10px] font-normal text-[#005B58] max-md:order-3"> ۳,۴۰۰,۰۰۰ </span>
+               <span className=" text-[23px] leading-[10px] font-normal text-[#005B58] max-md:order-3"> {detail?.cost} </span>
                <span className=" text-[14px] leading-[15px] font-normal ml-3 mr-1 text-[#006865] max-md:order-2"> تومان </span>
                <img src={images.money} alt="" className=" h-[20px] w-[23px] max-md:order-1" />
 
@@ -55,7 +67,7 @@ const Top = () => {
     </div>
 
     <div className=" h-[101%]  w-[49%] max-sm:w-[90%] max-sm:mx-auto " >
-    <img src={images.ads} className=" w-[101%] h-[103%] "/>
+    <img src={detail?.imageAddress} className=" w-[101%] h-[103%] "/>
     </div>
     </>
   )

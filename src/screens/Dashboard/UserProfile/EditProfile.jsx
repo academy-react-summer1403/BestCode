@@ -6,32 +6,35 @@ import {EditProfileFunc} from '../../../core/services/api/user'
 import Group155 from '../../../components/DashboardHolder/UserProfile/EditProfile/Group155';
 import Group156 from '../../../components/DashboardHolder/UserProfile/EditProfile/Group156';
 import * as Yup from 'yup';
+import moment from 'moment-jalaali'
+import dayjs from 'dayjs';
+
+
 const EditProfile = ({userInfo}) => {
   const [submittedDate, setSubmittedDate] = useState();
   const [previewImage, setPreviewImage] = useState(images.profile)
-  console.log(userInfo)
 
   const handleFormSubmit = async (values) => {
-    // console.log(values.BirthDay.format?.("D MMMM YYYY"));
-    
-    console.log(values)
+   
+    const validateBirthday = dayjs(values.BirthDay).locale("en").format("YYYY-MM-DD")
+    console.log(validateBirthday)
+    const genderValue = values.Gender === 'male' ? false : true; 
     const formData = new FormData(); 
          formData.append('LName', values.LName);  
          formData.append('FName', values.FName);  
          formData.append('UserAbout', values.UserAbout); 
-        //  formData.append('LinkdinProfile', values.LinkdinProfile);  
-        //  formData.append('TelegramLink', values.TelegramLink);  
-        //  formData.append('ReceiveMessageEvent', values.ReceiveMessageEvent); 
+         formData.append('LinkdinProfile', values.LinkdinProfile);  
+         formData.append('TelegramLink', values.TelegramLink);  
+         formData.append('ReceiveMessageEvent', false); 
          formData.append('HomeAdderess', values.HomeAdderess);  
          formData.append('NationalCode', values.NationalCode);  
-        //  formData.append('Gender', values.Gender);
-         formData.append('BirthDay', '1998/2/11');
-        //  formData.append('Latitude', values.Latitude);  
-        //  formData.append('Longitude', values.Longitude); 
-         
+         formData.append('Gender', genderValue);
+         formData.append('BirthDay',  validateBirthday);
+         formData.append('Latitude', values.Latitude);  
+         formData.append('Longitude', values.Longitude); 
     const user = await EditProfileFunc(formData) 
-    // console.log(formData)
-    // EditProfileFunc(values)
+   
+   
   };
 
 

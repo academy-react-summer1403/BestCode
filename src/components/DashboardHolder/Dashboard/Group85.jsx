@@ -1,9 +1,30 @@
-import {Fragment} from 'react'
+import {Fragment , useState , useEffect} from 'react'
 import images from '../../../assets/dashboardpng'
+import { getNewsdash } from '../../../core/services/api/user'
+import moment from 'moment-jalaali';
+
+const toPersianDate = (date) => {
+  return moment(date).format('jYYYY/jMM/jDD');
+};
+
+
+
 
 const Group85 = () => {
+  const [news , setNews] = useState([])
+  const getNewsdash1 = async () => {
+    const data = await getNewsdash()
+
+    setNews(data)
+     
+  }
+
+  useEffect(() => {
+    getNewsdash1()
+  })
   return (
     <Fragment>
+        
         <div className='xl:w-[797px] xl:h-[210px]  xl:border xl:border-[#f7f7f7]
         dark:border-gray-800 mt-[30px] relative box-content max-md:flex max-md:justify-center '  >
             <div className='h-[50px] w-[50px] absolute xl:left-[41px] dark:bg-gray-800
@@ -22,7 +43,7 @@ const Group85 = () => {
 
                  <div className='grid xl:w-[710px] justify-start  max-md:dark:bg-gray-800
                    xl:ml-[8px] justify-items-start max-smx3:w-screen max-md:justify-center max-md:w-screen
-                   
+                   max-md:justify-items-center
 
                  ' 
                  style={{direction:'rtl'}}
@@ -36,62 +57,41 @@ const Group85 = () => {
                             dark:text-white
                             '>جدید ترین اخبار و مقالات
                          </p> 
-                        <div className='mb-[12px] grid   dark:text-white max-md:pt-[40px] '>
+                      
+                        <div className='mb-[12px] grid   dark:text-white max-md:pt-[40px] 
+                        max-md:gap-[30px] max-md:p-[20px] max-xl:gap-0
+                        '>
+
+                        {news.slice(0,3).map((item, index) => (
+       
+    
                         <div className='xl:flex xl:justify-between text-[14px] 
                            xl:w-[710px] font-primaryMedium max-lg:mt-[20px] max-md:mt-0
                          text-[#555555] items-center max-md:grid max-md:justify-items-center h-[38.34px]
                            max-smx3:mt-0 max-lg:flex max-lg:gap-[350px] max-xl:gap-[380px]
-                           max-xl:flex max-xl:mt-[50px]    
-                           max-md:gap-0
+                           max-xl:flex max-xl:mt-[50px] 
+                           max-md:gap-0  border-dashed max-lg:w-[750px]
+                           max-md:w-full max-xl:w-full max-xl:justify-between
+                           
+                                        border-b-[1px] border-[#AAAAAA] 
                       ' >
-                          <p className='h-[20px] max-smx3:w-[310px] max-smx3:text-center dark:text-[#979797]
-                          
-                          ' >دوره آموزش جامع از پایه تا پیشرفته  Next.js منتشر شد.
+                          <p className='h-[20px] max-smx3:w-[200px] max-smx3:text-center dark:text-[#979797]
+                             truncate   max-md:w-[310px] max-lg:w-full
+                          ' >
+                        {item.googleTitle} 
 
                             <span className='xl:mr-[7px] text-[#DC0000]' >جدید</span>
                           </p>
-                           <p  className='text-[13px] text-[#999999] max-smx3:mt-[30px] max-md:mt-[20px]' 
+                           <p  className='text-[13px] text-[#999999] max-smx3:mt-[1px] max-md:mt-[1px]' 
                               style={{direction:'ltr'}}
-                          >۱۴۰۲ / ۱۱ / ۳۰</p> 
-                        </div>
-                          <div className='flex justify-between text-[14px] xl:w-[710px]
-                                        font-primaryMedium 
-                                         text-[#555555]
-                                        items-center 
-                                        border-t-[1px] border-dashed
-                                        border-b-[1px] border-[#AAAAAA] 
-                                        h-[38.34px]
-                                        max-md:grid max-md:justify-items-center 
-                                        max-smx3:mt-[40px]
-                                        max-md:h-[60px]
-                                        max-md:mt-[30px]
-                                        max-md:justify-center
-                           '>
-                          <p className='h-[20px] max-smx3:w-[310px] max-smx3:text-center dark:text-[#979797]' >تخفیف ویژه دوره ری اکت را از دست ندهید.</p>
-                        <p style={{direction:'ltr'}} 
-                          className='text-[13px] text-[#999999] max-md:flex '
-                         >۱۴۰۲ / ۱۱ / ۲۵</p> 
-                         </div>
-                        <div className='flex justify-between text-[14px] xl:w-[710px]
-                                    font-primaryMedium 
-                                    text-[#555555]
-                                     items-center 
-                                     h-[38.34px]
-                                     max-md:grid max-md:justify-items-center 
-                                     max-md:justify-center
-                                     max-md:h-[60px]
-                                     max-md:mt-[10px]
-                                   
-                          '>
-                           <p className='h-[20px] dark:text-[#979797]'>دوره آموزش  tailwind  به روز شد.</p>
-                           <p className='text-[13px] text-[#999999]
-                           max-smx3:w-[310px] max-smx3:text-center
-                           '     style={{direction:'ltr'}} >۱۴۰۲ / ۱۱ / ۲۳</p>
-                         </div>   
+                          >{toPersianDate(item.insertDate)}</p> 
+                        </div>  
+                    ))}
+                       
                          </div>  
                  </div> 
               </div> 
-         </div>
+         </div> 
     </Fragment>
   )
 }

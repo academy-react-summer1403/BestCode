@@ -1,8 +1,9 @@
-import  {useState}  from 'react'
+import  {Fragment, useState}  from 'react'
 import images from '../../assets/Login'
 import LoginStep1 from '../../components/LoginHolding/LoginStep1'
 import LoginStep2 from '../../components/LoginHolding/LoginStep2'
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 const Login = () => {
  const [loginconfirm , setLoginConfirm] = useState(false)
  const HandleLoginConfirm = () => {
@@ -16,6 +17,9 @@ const Login = () => {
 
 
   return (
+    <Fragment >
+          <ToastContainer  />
+
     <div className='w-full h-screen relative ' >
      <div className='w-[952px] h-[631px]  mt-[227px] mb-[166px] ml-[285px] mr-[203px]
      flex'>
@@ -67,6 +71,7 @@ const Login = () => {
        </div>
        </div>
     </div>
+  </Fragment>
   )
 }
 

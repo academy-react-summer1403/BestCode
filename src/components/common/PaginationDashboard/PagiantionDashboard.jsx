@@ -1,71 +1,58 @@
 import React, { Fragment } from 'react'
 
-const PagiantionDashboard = () => {
+const toPersianNumber = (number) => {
+  const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
+  return number
+    .toString()
+    .replace(/\d/g, (digit) => persianDigits[digit]);
+};
+
+
+
+const PagiantionDashboard = ({paginate, row, itemsPerPage, currentPage}) => {
   return (
     <Fragment>
 
-         <div className="w-[180px] h-[22px]  mt-[-23px] flex items-center gap-[4.4px]
-          max-smx3:mt-[100px]  max-smx3:mb-[100px] max-md:mt-[60px] max-md:mb-[60px]
-          max-lg:mt-[60px] max-xl:mt-[46px]
-         " >
-
-         <div className="w-[180px] h-[22px] mt-[46px] flex items-center gap-[4.4px]" >
-
-          <div className="w-[22px] h-[22px]  rounded-full flex justify-center justify-items-center
+      <div className="flex gap-[10px]">
+           <div className="w-[22px] h-[22px]  rounded-full flex justify-center justify-items-center
           items-center text-[14px] text-[#333333] font-primaryRegular pr-[7px] pl-[6.16px] bg-[#FAFAFA]
           shadow-[0px_1px_2px_0px_#0000004D] cursor-pointer
-" >
+            " 
+            onClick={() => currentPage > 1 && paginate(currentPage - 1)}
+            >
             <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
               <path d="M5.18164 9.125L1.05664 5L5.18164 0.875" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div className="w-[22px] h-[22px] bg-[#FFB800] rounded-full flex justify-center justify-items-center
-          shadow-[0px_1px_2px_0px_#0000004D] 
-          items-center text-[14px] text-[#333333] font-primaryRegular pr-[7px] pl-[6.16px] cursor-pointer" >
-            <span className="w-[8.8px] h-[14.9px] flex justify-center items-center  pb-[4px] mt-[1px]">۱</span>
-            </div>
-          <div className="w-[22px] h-[22px] bg-[#FAFAFA] rounded-full flex justify-center justify-items-center
-          shadow-[0px_1px_2px_0px_#0000004D] cursor-pointer
-          items-center text-[14px] text-[#333333] font-primaryRegular pr-[6px] pl-[6.16px]">
-               <span className="w-[8.8px] h-[14.9px] flex justify-center items-center  pb-[4px] mt-[1px]">۲</span>
-          </div>
-          <div className="w-[22px] h-[22px] bg-[#FAFAFA] rounded-full flex justify-center justify-items-center
-          shadow-[0px_1px_2px_0px_#0000004D] 
-          items-center text-[14px] text-[#777777] font-primaryRegular pr-[5.5px] pl-[6.16px] cursor-pointer"    
-          >
-              <span className="w-[15px] h-[14.9px] flex justify-center items-center  pb-[1px] mt-[1px]">...</span>
-          </div>
-          <div
-              className="w-[22px] h-[22px] bg-[#FAFAFA] rounded-full flex justify-center justify-items-center
-              shadow-[0px_1px_2px_0px_#0000004D] 
-              items-center text-[14px] text-[#333333] font-primaryRegular pr-[6px] pl-[6.16px]
-              cursor-pointer
-              "
-          >
-            <span className="w-[8.8px] h-[14.9px] flex justify-center items-center  pb-[4px] mt-[1px]">۶</span>
-          </div>
-          <div
-              className="w-[22px] h-[22px] bg-[#FAFAFA] rounded-full flex justify-center justify-items-center
-              shadow-[0px_1px_2px_0px_#0000004D] 
-              items-center text-[14px] text-[#333333] font-primaryRegular pr-[6px] pl-[6.16px]
-              cursor-pointer
-              "
-          >
-            <span className="w-[8.8px] h-[14.9px] flex justify-center items-center  pb-[2.5px] mt-[1px]">۷</span>
-          </div>
-          <div>
-           <div className="w-[22px] h-[22px]  rounded-full flex justify-center justify-items-center
-          items-center text-[14px] text-[#333333] font-primaryRegular pr-[7px] pl-[6.16px] bg-[#FAFAFA]
-          shadow-[0px_1px_2px_0px_#0000004D] 
-          cursor-pointer
-    " >
-           <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
-            <path d="M1.33496 0.875L5.45996 5L1.33496 9.125" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            
-             </div>
-          </div>
-          </div>
+           {[...Array(Math.ceil(row.length / itemsPerPage)).keys()].map(page => (
+                    <button key={page + 1} onClick={() => paginate(page + 1)}  
+                    className={`w-[22px] h-[22px]  rounded-full flex justify-center justify-items-center
+          shadow-[0px_1px_2px_0px_#0000004D] ${
+            currentPage === page + 1 ? "bg-[#FFB800]" : "bg-white"
+        }
+          items-center text-[14px] text-[#333333] font-primaryRegular pr-[7px] pl-[6.16px] cursor-pointer`}
+                    >
+                    
+                 <span className="w-[8.8px] h-[14.9px] flex justify-center items-center  pb-[4px] mt-[1px]">
+                        {toPersianNumber(page + 1)}
+                        </span>
+                    </button>
+                ))}
+                       <div className="w-[22px] h-[22px]  rounded-full flex justify-center justify-items-center
+                        items-center text-[14px] text-[#333333] font-primaryRegular pr-[7px] pl-[6.16px] bg-[#FAFAFA]
+                        shadow-[0px_1px_2px_0px_#0000004D] 
+                        cursor-pointer
+                  " 
+                  onClick={() =>
+                    currentPage < Math.ceil(row1.length / itemsPerPage) &&
+                    paginate(currentPage + 1)
+                }
+                  
+                  >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                          <path d="M1.33496 0.875L5.45996 5L1.33496 9.125" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>      
+                     </div>
           </div>
     </Fragment>
   )

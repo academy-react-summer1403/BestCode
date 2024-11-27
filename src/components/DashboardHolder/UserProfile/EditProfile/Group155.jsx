@@ -5,7 +5,6 @@ import { Field , ErrorMessage} from 'formik'
 const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChange , handleImageClick
     ,setFieldValue
 }) => {
-  const [selectedCoords, setSelectedCoords] = useState({ lat: "", lng: "" });
   // const handleMapClick = () => {
   //     setValueField("location.lat", selectedCoords.lat);
   // };
@@ -64,8 +63,6 @@ const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChang
                                     
                                      <MapReact1 
                                      setFieldValue={setFieldValue} 
-                                     selectedCoords={selectedCoords}
-                                     setSelectedCoords={setSelectedCoords}
                                     //  handleMapClick={handleMapClick}
                                      />
                                    

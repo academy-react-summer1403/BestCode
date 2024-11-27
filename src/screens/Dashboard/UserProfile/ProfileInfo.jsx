@@ -1,10 +1,19 @@
 import { Fragment , useEffect, useState} from 'react'
 import images from '../../../assets/dashboardpng'
 import { getProfile } from '../../../core/services/api/user.js'
+import moment from 'moment-jalaali';
+
+const toPersianDate = (date) => {
+   return moment(date).format('jYYYY/jMM/jDD');
+ };
+ 
+
+
 
 const ProfileInfo = ({HandleActive}) => {
    const [isTooltipVisible, setTooltipVisible] = useState(false);
-
+   const [dataInfo , setDataInfo] = useState([])
+   const [malw , setMale] = useState('')
    const showTooltip = () => {
      setTooltipVisible(true);
    };
@@ -14,7 +23,21 @@ const ProfileInfo = ({HandleActive}) => {
    };
 
 
+  const getProfileInfo1 = async () => {
+    const data = await getProfile()
+     setDataInfo(data)
+  }
 
+  useEffect(()=> {
+     getProfileInfo1()
+     if(dataInfo?.gender) {
+      setMale('زن')
+
+     } else {
+       setMale('مرد')
+
+     }
+  },[dataInfo?.gender])
   
 
   return (
@@ -69,31 +92,39 @@ const ProfileInfo = ({HandleActive}) => {
                <div className='flex gap-[4px]'>
                   <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
                   ' >نام و نام خانوادگی :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >فلان فلانی زاده فلان آبادی</span>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{dataInfo?.lName} {dataInfo?.fName}</span>
                </div>
                <div className='flex gap-[4px]'>
                  <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
 
                   ' >کد ملی :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                  {dataInfo? ( <span className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{dataInfo?.nationalCode}</span>
+               ) : ( 
+               <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+               )}
+                 
                </div>
                <div className='flex gap-[4px]'>
                  <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
 
                   ' >ایمیل :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >folani99@gmail.com</span>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{dataInfo?.email}</span>
                </div>
                <div className='flex gap-[4px]'>
                  <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
 
                   ' >تاریخ تولد :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >۱۱ / ۰۵ / ۷۸</span>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{toPersianDate(dataInfo?.birthDay)}</span>
                </div>
                <div className='flex gap-[4px]'>
                 <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
 
                   ' >جنسیت :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                  {malw?   <span className='text-[17px] font-primaryMedium text-[#CC6E00]' >{malw}</span> : 
+                   <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                  }
+                 
+                 
                </div> 
                <div className='flex gap-[4px] xl:w-[334px] h-[70px] overflow-hidden leading-[24.11px]'>
                  <p className='text-[17px] font-primaryMedium text-[#CC6E00] max-smx3:w-[300px]  
@@ -107,11 +138,7 @@ const ProfileInfo = ({HandleActive}) => {
                     onMouseLeave={hideTooltip}
                     className='cursor-pointer'
                     >
-                     لورم ایپسوم متن ساختگی با تولید سادگی  
-                     نامفهوم از صنعت چاپ و با استفاده 
-                     از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون 
-                     و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز 
-                     و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</span> 
+                     {dataInfo.userAbout}</span> 
                     </p>
                     {isTooltipVisible && (
                                
@@ -124,11 +151,7 @@ const ProfileInfo = ({HandleActive}) => {
                                  onMouseEnter={showTooltip}
                                  onMouseLeave={hideTooltip}
                                  >
-                                         لورم ایپسوم متن ساختگی با تولید سادگی  
-                                          نامفهوم از صنعت چاپ و با استفاده 
-                                          از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون 
-                                          و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز 
-                                          و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                        {dataInfo?.userAbout}
                                  </div>
                       )}
                </div>
@@ -138,19 +161,19 @@ const ProfileInfo = ({HandleActive}) => {
               <div className='flex gap-[4px]'>
                   <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
                   ' >شماره همراه :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >۰۹۳۹۲۲۲۹۹۹۹</span>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{dataInfo?.phoneNumber}</span>
                </div>
                <div className='flex gap-[4px]'>
                  <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
 
                   ' >تلگرام :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{dataInfo?.telegramLink}</span>
                </div>
                <div className='flex gap-[4px]'>
                  <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
 
                   ' >لینکداین :</p>
-                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                  <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{dataInfo?.linkdinProfile}</span>
                </div> 
                 <div className='flex gap-[4px] xl:w-[334px] h-[52px]
                max-smx3:w-[300px] 
@@ -162,7 +185,7 @@ const ProfileInfo = ({HandleActive}) => {
                   ' ><span className='text-[16px] text-[#ABABAB] font-[400] ml-[4px]
 
                   ' >آدرس :</span> 
-                   مازندران - ساری - میدان خزر - جاده فرح آباد خیابان دیمطوران  - ساختمان هوتن ۱۲ -واحد ۱۵
+                    {dataInfo?.homeAdderess}
                     </p>
                </div> 
                  <div className='flex xl:w-[319px] h-[120px]  justify-between
@@ -172,16 +195,16 @@ const ProfileInfo = ({HandleActive}) => {
                      <div className='flex-col flex gap-[4px] '>
                          <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400]
                      ' >طول جغرافیایی :</p>
-                     <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                     <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{dataInfo?.latitude}</span>
                    </div>
                     <div className='flex-col flex gap-[4px] '>
                       <p className='text-[16px] font-primaryMedium text-[#ABABAB] font-[400] 
                      ' >عرض جغرافیایی :</p>
-                     <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >--</span>
+                     <span  className='text-[17px] font-primaryMedium text-[#CC6E00]'  >{dataInfo?.longitude}</span>
                     </div>
                     </div>
                     <div className='w-[120px] h-[120px] rounded-full '>
-                       <img src={images.Eli51} />
+                       <img src={dataInfo?.currentPictureAddress} />
                     </div>
                </div>  
               

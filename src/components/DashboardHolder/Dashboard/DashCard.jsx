@@ -1,5 +1,10 @@
 import { Fragment } from "react"
 import images from '../../../assets/dashboardpng'
+import moment from 'moment-jalaali';
+
+const toPersianDate = (date) => {
+  return moment(date).format('jYYYY/jMM/jDD');
+};
 
 const DashCard = ({namedore, time , img, teacher}) => {
   return (
@@ -24,7 +29,7 @@ const DashCard = ({namedore, time , img, teacher}) => {
                            font-primaryMedium text-[#D47300] mt-[37px] 
                            h-[21px] items-center flex
                            '>
-                            {time}
+                            {toPersianDate(time)}
                            </p>
                          </div>
                       <div className='grid gap-[20px] justify-items-end'>

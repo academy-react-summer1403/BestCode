@@ -1,17 +1,14 @@
+
 import { Formik,Form,Field } from "formik"
 import CourseSearch from "../../components/Courses/CourseSearch"
-import { Children } from "react"
-import SliderCard from "../../components/LandingHolder/CourseSection/SliderCard/SliderCard"
-import { useState } from "react"
-import { SwiperSlide } from "swiper/react"
+
+import { useState , useEffect } from "react"
 import "../../components/Courses/Course.css"
 import "./RangeSlider.css"
 import SideBarFilter from "../../components/Courses/SideBarFilter"
-import ListCourse from "../../components/Courses/ListCourse"
 import FinalList from "../../components/Courses/FinalList"
 import FinalGrid from "../../components/Courses/FinalGrid"
-import {Slider} from "antd"
- 
+import { getTech , getAllCourse } from "../../core/services/api/course"
 
 
 
@@ -19,6 +16,26 @@ import {Slider} from "antd"
 const Courses = () => {
  
   const [active, setActive]=useState(1)
+  const [check , setCheck] = useState([])
+  const [checkbox, setCheckbox] = useState(false)
+  const HandleCheck = (id) => {
+    if (check.includes(id)) {
+      const updatedItems = check.filter((item) => item !== id);
+      setCheck(updatedItems);
+      if (updatedItems.length === 0) {
+        setCheckbox(false)
+      }
+    } else {
+      setCheck([...check, id]);
+      setCheckbox(true)
+    }
+  };
+  const [slidercard , setSliderCard] = useState([])
+
+  const getCardCourse = async () => {
+    const data = await getAllCourse()
+    setSliderCard(data?.courseFilterDtos)
+  }
 
    const [card , setCard] = useState([])
  
@@ -28,6 +45,41 @@ const Courses = () => {
      setCard(ourses)
   }
 
+
+  const [gettech , setGettech] = useState([])
+ 
+  const getTechList = async () => {
+    if (checkbox) {
+    const data = await getTech(check)    
+    setSliderCard(data?.courseFilterDtos) 
+     console.log(data)
+    } else {
+      return console.log('err')
+    }
+
+  
+  }
+  
+  useEffect(()=>{
+    if (checkbox) {
+      getTechList();
+    } else {
+      getCardCourse();
+    }
+  },[checkbox])
+  const [minValue, setMinValue] = useState(1);
+  const [maxValue, setMaxValue] = useState(20000000);
+  const [filteredData, setFilteredData] = useState([]);
+  const handleFilter = ([min, max]) => {
+    setMinValue(min);
+    setMaxValue(max);
+
+    const result = data.filter(
+      (item) => item.cost >= min && item.cost <= max
+    );
+    setFilteredData(result);
+    console.log("Filtered Data:", result);
+  };
   return (
     <Formik>
     <div className="overflow-visible font-primaryRegular text-black  justify-center dark:bg-gray-800 pt-[77px] pb-4">
@@ -49,48 +101,14 @@ const Courses = () => {
                     <img src="../36.svg" className="h-[18px] w-[27px] ml-6 my-auto"/>
                   </div>                  
                 </div>
-                {/* <div className="w-[100%] mx-auto  justify-center lg:ml-20 xl:ml-0 gh:ml-0 cd:ml-10  mt-[35px] grid gh:grid-cols-3 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-x-[10px] lg:gap-x-[0px] xl:gap-x-[36px] gap-y-[35px] "> */}
-                 {/* <div className="w-[100%] mx-auto  justify-end   mt-[35px] grid gap-4 ">                   
-                    {slidercard.map((item , index)=> (
-               
-                   <SliderCard  
-                        title={item.title} 
-                        price={item.price}
-                        teacher={item.teacher}
-                        duration={item.duration}
-                        student={item.student}
-                        index={index}
-                    /> 
-               
-         ))} 
-                      {slidercard.map((item , index) =>(
-                          <ListCourse  
-                                title={item.title} 
-                                price={item.price}
-                                teacher={item.teacher}
-                                duration={item.duration}
-                                student={item.student}
-                                index={index}
-                            /> 
-                      ))}
-
-
-                   <div className="gap-[5px] w-[300px] h-[26px] flex text-center text-[16px] text-[#777777] relative left-[340px]">
-                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] bg-[url(../Frame.svg)] bg-center bg-no-repeat  hover:bg-[#FFB800]"></div>
-                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FFB800] hover:bg-[#FFB800]">1</div>   
-                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] hover:bg-[#FFB800]">2</div>
-                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] hover:bg-[#FFB800]">...</div>   
-                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] hover:bg-[#FFB800]">6</div>   
-                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] hover:bg-[#FFB800]">7</div>
-                            <div className="size-[25px] rounded-[50%] shadow-[0px_1px_2px_0px_#0000004D] bg-[#FAFAFA] bg-[url(../Frame1.svg)] bg-center bg-no-repeat hover:bg-[#FFB800]"></div>                                                                         
-                    </div>                          
-                </div>  */}
-                {/* <FinalList/> */}
-                {/* <FinalGrid/> */}
-                {active==1?<FinalGrid setActive={setActive} />  :<FinalList/>}
+                {active==1?<FinalGrid 
+                slidercard={slidercard}
+                setActive={setActive} />  :<FinalList/>}
 
           </div>
-            <SideBarFilter/>
+            <SideBarFilter HandleCheck={HandleCheck} check={check}
+              
+            />
             
         </div>
     </div>

@@ -1,19 +1,41 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Group149 from "../../components/DashboardHolder/MyFavorite/Group149"
 import images from '../../assets/dashboardpng'
 import PagiantionDashboard from "../../components/common/PaginationDashboard/PagiantionDashboard"
-const Favorite = () => {
-  const [row3 , setRow3] = useState([
-    {img:images.jrr,coursename:'دوره آموزش  جامع  Js' , sorting:'دوره آموزشی', timestart:'۱۴۰۳/۰۳/۰۲ , ۱۶:۲۷' , eye:images.eye , delete:images.fr12
-      , writer:'ادمین'},
-    {img:images.jrr,coursename:'دوره آموزش  جامع  Js' , sorting:'دوره آموزشی', timestart:'۱۴۰۳/۰۳/۰۲ , ۱۶:۲۷' , eye:images.eye , delete:images.fr12
-      ,writer:'ادمین'
-    },
-    {img:images.fr56   ,coursename:'چگونه مدیر پروژه بهتری باشیم' , sorting:'اخبار و مقالات', timestart:'۱۴۰۳/۰۳/۰۲ , ۱۶:۲۷' , eye:images.eye,delete:images.fr12,
-      writer:'مهدی اصغری'
-    },
+import { getFavoriteCourse } from "../../core/services/api/user"
+import Skeleton from 'react-loading-skeleton';
 
-  ])
+const Favorite = () => {
+  const [row3 , setRow3] = useState([])  
+  const [loading, setLoading] = useState(true)
+
+
+  const getFavoriteCourse1 = async () => {
+    try {
+    setLoading(true)
+    const result = await getFavoriteCourse()
+    setRow3(result?.favoriteCourseDto)
+    } catch(error) {
+     console.log(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+
+  console.log(row3)
+  useEffect(()=> {
+    getFavoriteCourse1()
+  }, [])
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = row3.slice(indexOfFirstItem, indexOfLastItem)
+  console.log(row3)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
   return (
     <div className="xl:w-[875px] grid justify-center mt-[16px] justify-items-center 
     max-smx3:dark:bg-gray-800 max-smx3:w-screen max-md:w-screen max-md:dark:bg-gray-800
@@ -46,20 +68,37 @@ const Favorite = () => {
                 ">عنوان</p>
               </div>
               <div className="w-[874px] flex-col pt-[3px]" >
-              {row3.map((item , index) => ( 
-                  <Group149 
-                    item={item}
-                    index={index}
-                    key={index}
-                  />
-              ))}
+              {loading ? (
+        <ul>
+          {Array(10).fill().map((_, index) => (
+            <li key={index}>
+              <Skeleton height={40} width={`100%`}  />
+            </li>
+          ))}
+        </ul>
+      ) : (
+       <div>
+        {currentItems.map((item , index) => ( 
+             <Group149 
+               item={item}
+               index={index}
+               key={index}
+             />
+        ))}
+        </div>
+      )}
           
               
              
               </div>
         </div>
       </div>
-      <PagiantionDashboard/>
+      <PagiantionDashboard 
+            paginate={paginate}
+            row={row3}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+          />
     </div>
   )
 }

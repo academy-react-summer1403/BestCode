@@ -1,10 +1,11 @@
-import { useState } from "react"
-import images from '../../assets/dashboardpng'
+import { useEffect, useState } from "react"
 import Group144 from "../../components/DashboardHolder/MyCourse/Group144"
 import SearchForm from "../../components/common/SearchForm/SearchForm"
 import SelectOption from '../../components/common/SelectOption/SelectOption'
 import PagiantionDashboard from "../../components/common/PaginationDashboard/PagiantionDashboard"
-
+import { getmyCourse } from "../../core/services/api/user"
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 const MyCourse = () => {
   const formStyle = `xl:w-[519px] h-[40px] bg-[#FBFBFB] flex rounded-[25px] justify-between 
     items-center 
@@ -21,25 +22,43 @@ const MyCourse = () => {
   border-none outline-none bg-transparent pb-[3px] 
   `
 
-  const [row , setRow] = useState([
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
-    {img:images.jrr , coursename:'دوره آموزش  جامع  Js' , teacher:'دکتر محمدحسین بحرالعلومی' , timestart:'۱۴۰۳ / ۰۳ / ۱۸' , price:'۲,۵۰۰,۰۰۰' , eye:images.eye},
+  const [row , setRow] = useState([])
+  const [loading, setLoading] = useState(true)
+  const courseCount = row?.length || 0;
 
+  console.log(courseCount)
 
-  ])
+  const getMyCourse1 = async () => {
+    try {
+      setLoading(true); 
+      
+      const data = await getmyCourse();
+      setRow(data?.listOfMyCourses || []);
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    } finally {
+      setLoading(false);  
+    }
+  };
+  
+
+  useEffect(() => {
+      getMyCourse1()
+  },[]) 
 
   const options = [
     { value: 'option1', label: 'جدید ترین' },
     { value: 'option2', label: 'محبوب ترین' },
     { value: 'option3', label: 'ارزان ترین' },
   ];
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = row.slice(indexOfFirstItem, indexOfLastItem)
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
   return (
     <div className="xl:w-[875px] grid justify-center mt-[16px] justify-items-center
     max-smx3:dark:bg-gray-800 max-smx3:w-screen max-md:w-screen max-md:dark:bg-gray-800
@@ -91,8 +110,17 @@ const MyCourse = () => {
           font-primaryMedium text-[17px] text-[#003B39] ">نام دوره</p>
         </div>
         <div className="xl:w-[874px] flex-col pt-[3px]   " >
-      
-        {row.map((item , index) => ( 
+        {loading ? (
+        <ul>
+          {Array(10).fill().map((_, index) => (
+            <li key={index}>
+              <Skeleton height={40} width={`100%`}  />
+            </li>
+          ))}
+        </ul>
+      ) : (
+       <div>
+        {currentItems.map((item , index) => ( 
              <Group144 
                item={item}
                index={index}
@@ -100,11 +128,18 @@ const MyCourse = () => {
              />
         ))}
         </div>
+      )}
+        </div>
        
         </div>  
        
       </div> 
-        <PagiantionDashboard />    
+      <PagiantionDashboard 
+            paginate={paginate}
+            row={row}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+          />
     </div>
   )
 }
