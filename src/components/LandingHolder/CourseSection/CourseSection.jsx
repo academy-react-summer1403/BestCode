@@ -1,18 +1,36 @@
 import images from '../../../assets/landingpng'
 import SwiperComponent from "./SwiperComponent/SwiperComponent"
+import { useBgColor } from '../../BgChangeAdmin/BgColorContext';
 
 const CourseSection = () => {
+  const { bgColor , setBgColor} = useBgColor();
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);
   return (
   
     <section className=' xl:justify-center  
                       dark:bg-gray-800
-                       grid  max-md:w-full sm1:w-full'>
+                       grid  max-md:w-full sm1:w-full'
+                       style={{backgroundColor:bgColor}}
+                       >
        <div className='xl:w-[1247px] justify-center grid 
                        max-md:w-full
                        duration-700
                        xl:mt-[112px]
                        max-md:mt-[20px]
-        '>
+        '
+        style={{backgroundColor:bgColor}}
+
+        >
           <div className='xl:w-[319px] h-[93px] grid xl:ml-[35px] xl:mb-[41px]
                           max-md:ml-[13px] 
           ' >
@@ -34,7 +52,10 @@ const CourseSection = () => {
                                 max-md:text-[16px]
                                 max-md:mt-[-15px]
                                 md:text-[18px]
-                                '>به روز ترین دوره هایی که میتونید پیدا کنید</p>
+                                '
+                                style={{color: bgColor === "" ? '#AAAAAA': textColor
+                                }}
+                                >به روز ترین دوره هایی که میتونید پیدا کنید</p>
               </div>
           </div> 
         </div>   
@@ -59,7 +80,10 @@ const CourseSection = () => {
                     height={15} 
               />
               <p className='font-primaryRegular text-[#AAAAAA] mb-[2px]
-                            '>همه دوره ها</p>
+                            '
+                            style={{color: bgColor === "" ? '#AAAAAA': textColor
+                            }}
+                            >همه دوره ها</p>
             </div>
           </div>    
 

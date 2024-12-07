@@ -4,7 +4,7 @@ import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom'
 import Layout from '../../components/Layout'
 import App from '../../app/App'
-// import CourseDetail from '../../screens/CourseDetail/CourseDetail'
+import CourseDetail from '../../screens/CourseDetail/CourseDetail'
 import Courses from '../../screens/Courses/Courses'
 import Login from '../../screens/Login/Login'
 import Error from '../../components/common/Error/Error'
@@ -20,26 +20,27 @@ import UserProfile from '../../screens/Dashboard/UserProfile'
 import MyFavorite from '../../screens/Dashboard/MyFavorite'
 import News from '../../screens/News/News'
 import NewsDetail from '../../screens/NewsDetails/NewsDetail'
-// import Landing from '../../screens/Landing/Landing';
-
+import Landing from '../../screens/Landing/Landing';
+import PrivateRoute from '../../screens/PrivateRoute/PrivateRoute';
 import ReactLoading from "react-loading";
-
+import PrivateRoute1 from '../../screens/PrivateRoute1/PrivateRoute1'
 
 
 
 const loadComponentWithTimeout = (importFunction, timeout = 3000) => {
-  const timeoutPromise = new Promise((_, reject) =>
-    setTimeout(() => reject(new Error("Timed out loading component")), timeout)
+   const timeoutPromise = new Promise((_, reject) =>
+     setTimeout(() => reject(new Error("Timed out loading component")), timeout)
   );
 
   return Promise.race([importFunction(), timeoutPromise]);
+  // console.log('sdsd')
 };
 
 
 
 
-const Landing = lazy(() => loadComponentWithTimeout(() => import('../../screens/Landing/Landing')));;
-const CourseDetail = lazy(() => loadComponentWithTimeout(() => import('../../screens/CourseDetail/CourseDetail')));
+// const Landing = lazy(() => loadComponentWithTimeout(() => import('../../screens/Landing/Landing')));;
+// const CourseDetail = lazy(() => loadComponentWithTimeout(() => import('../../screens/CourseDetail/CourseDetail')));
 
 
 
@@ -80,51 +81,36 @@ const router = createBrowserRouter([
       element:<MainLayout />,
       children: [
         {
-          path:'user',
-          element:<Dashboard />,
-          errorElement: <Error />
-        },
-        {
-          path:'feedback',
-          element:<FeedBackuser />,
-          errorElement: <Error />
-        },
-        {
-          path:'mycourse',
-          element: <MyCourse />,
-          errorElement: <Error />
-        },
-        {
-          path:'myreservecourse',
-          element: <MyReserveCourse />,
-          errorElement: <Error />
-        },
-        {
-          path:'securitysetting',
-          element: <SecuritySetting />,
-          errorElement: <Error />
-        },
-        {
-          path:'userprofile',
-          element: <UserProfile/>,
-          errorElement: <Error />,
-        },
-        {
-          path:'myfavorite',
-          element:<MyFavorite />,
-          errorElement: <Error />
+          element: <PrivateRoute />, 
+          children: [
+            { path: "user", element: <Dashboard /> },
+            { path: "feedback", element: <FeedBackuser /> },
+            { path: "mycourse", element: <MyCourse /> },
+            { path: "myreservecourse", element: <MyReserveCourse /> },
+            { path: "securitysetting", element: <SecuritySetting /> },
+            { path: "userprofile", element: <UserProfile /> },
+            { path: "myfavorite", element: <MyFavorite /> },
+          ],
         },
       ]
     },
     {
-      path: '/login',
-      element:<Login />,
-      errorElement: <Error/> ,
+      path: "/login",
+      element: (
+        <PrivateRoute1>
+          <Login />
+        </PrivateRoute1>
+      ),
+      errorElement: <Error />,
     },
     {
-      path:'/register',
-      element: <Register />,
-      errorElement: <Error/> ,
+      path: "/register",
+      element: (
+        <PrivateRoute1>
+          <Register />
+        </PrivateRoute1>
+      ),
+      errorElement: <Error />,
     },
     {
       path: "*",

@@ -1,12 +1,38 @@
-import React, { Fragment  , useState} from 'react'
+import  { Fragment  , useState ,useRef  } from 'react'
 import images from '../../../assets/dashboardpng'
 import {Form , Formik , Field , ErrorMessage} from 'formik'
+import { AddProfileImage, SelectProfileImage } from '../../../core/services/api/user';
+import toast from 'react-hot-toast';
 
-const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPreviewImage}) => {
+const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPreviewImage , userInfo , setRefetch
+
+  ,bgColor
+}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [previewImage1 , setPreviewImage1] = useState(images.profilepic)
     const [confirmedImage, setConfirmedImage] = useState(null);
+    const [image1 , setImage1] = useState([])
+    const formikRef = useRef();
+    const [selectedId, setSelectedId] = useState(null);
 
+    const handleImageClick1 = async (id) => {
+      setSelectedId(id);
+      try {
+        setConfirmedImage(previewImage);
+        
+       
+    
+        const formData = new FormData();
+        formData.append("ImageId", id);
+    
+        const result = await SelectProfileImage(formData);
+        
+        toast.success('عملیات موفقیت آمیز بود')
+        setRefetch((old)=> old + 1)
+      } catch (error) {
+        console.error("Error in handleConfirm:", error);
+      }
+    };
     const handleImageClick = () => {
         fileInputRef.current.click();
         setIsModalOpen(true);
@@ -21,35 +47,41 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
     const closeModal = () => {
         setIsModalOpen(false)
     };
-    const handleFileChange2 = (event) => {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        
-        reader.onloadend = () => {
-          setPreviewImage1(reader.result)
-        };
-        
-        reader.readAsDataURL(file)
-      }
-    };
+  
 
-    const handleConfirm = () => {
-      setConfirmedImage(previewImage);
-      setPreviewImage(previewImage) 
+    const handleConfirm = async () => {
+      try {
+        setConfirmedImage(previewImage);
+        
+      
+    
+        const formData = new FormData();
+        formData.append("formFile", image1);
+    
+        const result = await AddProfileImage(formData);
+        toast.success('عملیات موفقیت آمیز بود')
+        setRefetch((old)=> old + 1)
+      } catch (error) {
+        console.error("Error in handleConfirm:", error);
+      }
+  
     };
+     
+ 
 
      const handleDelete = () => {
        setConfirmedImage("");
        setPreviewImage(previewImage)
+       setRefetch((old)=> old + 1)
     }
    
   return (
     <Fragment>
          <div className='xl:mt-[-5px] relative top-[3px]' >
+
            <div className='cursor-pointer w-[155px] xl:h-[160px] rounded-full'>
             <img
-                src={previewImage? previewImage : images.eli433} 
+                src={previewImage? previewImage : userInfo?.currentPictureAddress} 
                 alt="Profile"
                 onClick={handleImageClick}
                 
@@ -65,13 +97,19 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
                         </svg>
                         </div>
             </div>  
-            
-             <Field name="imgprofile">
+            <Formik
+        innerRef={formikRef}
+        initialValues={{ imgprofile: null }}
+      >
+        <Form >
+             <Field name="formFile">
             {({ field }) => (
+           
             <input
                 {...field}
                 type="file"
-                ref={fileInputRef}
+                 ref={fileInputRef}
+             
                 style={{ display: 'none' }} 
                 accept="image/png, image/jpeg"
                 onChange={(event) => {
@@ -79,15 +117,23 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
                 if (file) {
                     field.onChange(event)
                     handleFileChange(event)
+                    setImage1(file)
                 }
                 
                 }}
             />
+     
             )}
+            
             </Field>
+              </Form>
+            </Formik >
             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800
                                             max-md:w-[150px]
-                                            ">
+                                            "
+                                            style={{borderColor:bgColor}}
+
+                                            >
                     <ErrorMessage name="img" component="div" 
                             className="text-red-500 font-primaryMedium text-sm truncate" />
                     </div> 
@@ -118,7 +164,7 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
              </div>
              <div className='mt-[-5px] w-[771px] justify-center flex'> 
               <img onClick={() => fileInputRef.current.click()}
-                       src={previewImage? previewImage : images.profilepic} 
+                       src={previewImage? previewImage : userInfo?.currentPictureAddress} 
                        alt="Profile"
                        className=' cursor-pointer w-[300px] h-[300px] rounded-[15px] mr-[80px]'
               />
@@ -133,9 +179,11 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
                 </svg>
               </div>
              </div>
-             <div className='flex gap-[30px] justify-start w-[771px] relative top-[30px]'>
-              <div className='absolute w-[26px] h-[26px] bg-[#FFFFFF] rounded-full justify-center
-               flex items-center left-[-9px] bottom-[120px]
+             <div className='flex  gap-[30px] justify-start w-[771px] top-[30px]
+              overflow-x-scroll mt-[20px]
+             '>
+              <div className='absolute w-[26px] h-[26px] bg-[#0f0e0e] rounded-full justify-center
+               flex items-center left-[105px] bottom-[195px] 
                
               '
                onClick={handleDelete}
@@ -144,18 +192,21 @@ const ImageField1 = ({previewImage ,  handleFileChange , fileInputRef , setPrevi
                              <path d="M1.62902 1.62904L10.2601 10.2601M10.2601 1.62904L1.62902 10.2601" stroke="#CB0000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                </div>
-        
-           
+          {userInfo?.userImage.length > 0 && <>
+           {userInfo?.userImage.map((item, index)=> (
+            
                 <img 
-                       src={previewImage? previewImage : images.profilepic} 
+                       src={item.puctureAddress} 
                        alt="Profile"
                        className='cursor-pointer w-[110px] h-[110px] rounded-[10px]'
+                       onClick={() => {
+                        handleImageClick1(item.id); 
+                        setPreviewImage(item.puctureAddress); 
+                      }}
                />
-                <img 
-                       src={previewImage? previewImage : images.profilepic} 
-                       alt="Profile"
-                       className=' cursor-pointer w-[110px] h-[110px] rounded-[10px]'
-               /> 
+       
+            ))}</>
+            }
                   {confirmedImage? (  
               <>
               <img

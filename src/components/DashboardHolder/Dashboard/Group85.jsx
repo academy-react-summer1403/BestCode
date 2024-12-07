@@ -10,7 +10,7 @@ const toPersianDate = (date) => {
 
 
 
-const Group85 = () => {
+const Group85 = ({bgColor}) => {
   const [news , setNews] = useState([])
   const getNewsdash1 = async () => {
     const data = await getNewsdash()
@@ -26,7 +26,9 @@ const Group85 = () => {
     <Fragment>
         
         <div className='xl:w-[797px] xl:h-[210px]  xl:border xl:border-[#f7f7f7]
-        dark:border-gray-800 mt-[30px] relative box-content max-md:flex max-md:justify-center '  >
+        dark:border-gray-800 mt-[30px] relative max-md:flex max-md:justify-center ' 
+        style={{borderColor:bgColor}}
+         >
             <div className='h-[50px] w-[50px] absolute xl:left-[41px] dark:bg-gray-800
               shadow-[0px_1px_2px_0px_#00000040] flex justify-center items-center rounded-[10px]
               bg-[#f7f7f7] max-md:mt-[10px]             

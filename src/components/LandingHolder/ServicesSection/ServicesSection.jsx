@@ -1,11 +1,27 @@
 import images from '../../../assets/landingpng'
+import { useBgColor } from '../../BgChangeAdmin/BgColorContext';
 
 
 
 
 const ServicesSection = () => {
+  const { bgColor , setBgColor} = useBgColor();
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);
   return (
-    <section className='h-[516px] grid justify-center  dark:bg-gray-800'>
+    <section className='h-[516px] grid justify-center  dark:bg-gray-800'
+    style={{backgroundColor:bgColor}}
+
+    >
         <div className='xl:w-[1247px] flex justify-center xl:mt-[62.34px]
         max-md:w-full duration-700
         '>
@@ -24,6 +40,8 @@ const ServicesSection = () => {
                    <p className='font-primaryRegular text-[#AAAAAA]
                    max-md:mr-[15px] max-md:text-[16px]
                    text-[20px]' 
+                   style={{color: bgColor === "" ? '#AAAAAA': textColor
+                   }}
                    >مجموعه ای از تمام  هر آنچه شما نیاز دارید
                    </p>
                </div>

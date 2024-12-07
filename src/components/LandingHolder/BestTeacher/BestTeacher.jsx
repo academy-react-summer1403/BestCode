@@ -1,12 +1,28 @@
 import images from '../../../assets/landingpng'
+import { useBgColor } from '../../BgChangeAdmin/BgColorContext';
 
 
 const BestTeacher = () => {
+  const { bgColor , setBgColor} = useBgColor();
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);
   return (
     <section className="h-[573px] pt-[106px]
     duration-700 dark:bg-gray-800 
-   
-    "> 
+    
+    "
+    style={{backgroundColor:bgColor}}
+
+    > 
    <div style={{backgroundImage:`url(${images.rec667})`,
              backgroundRepeat:'no-repeat', backgroundPosition:'center', 
               backgroundSize: 'auto 400px',
@@ -209,7 +225,10 @@ const BestTeacher = () => {
                                            max-md:text-[15px] max-md:mr-[3px] max-md:pb-[4px]
                                            max-lg:text-[20px]
                                            dark:text-[#f7f7f7]
-                                           '>رو همینجا پیدا میکنید!!</span>  
+                                           '
+                                           style={{color: bgColor === "" ? '#006865': textColor
+                                           }}
+                                           >رو همینجا پیدا میکنید!!</span>  
                         </div>
                         <div className='flex justify-center'>
                             <p className='font-primaryRegular text-[20px] 
@@ -218,7 +237,10 @@ const BestTeacher = () => {
                                            max-md:text-[15px]
                                            max-lg:text-[17px]
                                            dark:text-[#989898]
-                                         '>
+                                         '
+                                         style={{color: bgColor === "" ? '#777777': textColor
+                                         }}
+                                         >
                                 برجسته ترین اساتید بزرگترین مجموعه برنامه نویسی
                                 <br/>
                                 استان مازندران رو بهترین بشناسیم

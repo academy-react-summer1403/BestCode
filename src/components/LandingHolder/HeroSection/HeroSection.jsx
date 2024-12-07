@@ -1,8 +1,40 @@
 import images from '../../../assets/landingpng'
-
+import { useBgColor } from '../../BgChangeAdmin/BgColorContext';
 import SearchForm from '../../common/SearchForm/SearchForm'
+import { getHeroDetail } from '../../../core/services/api/Hero';
+import { useEffect, useState } from 'react';
+
+
+
+
 
 const HeroSection = () => {
+   const [hero , setHero] = useState([])
+  
+   const GetH5 = async () => {
+     const data = await getHeroDetail()
+     setHero(data)
+   }
+
+   useEffect(()=> {
+     GetH5()
+   }, [])
+
+
+
+  const { bgColor , setBgColor} = useBgColor();
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);
+
   const formStyle =`w-[416.34px] h-[64.81px] ml-[40.8px]
                     shadow-lg pl-[6.3px] rounded-[35px] 
                     py-[7.2px] flex items-center justify-between 
@@ -38,7 +70,9 @@ const HeroSection = () => {
                                       smx:h-[49.94px]
                                       smx:w-[48.57px] `                    
   return (
-    <section className='h-[652px] flex justify-center   dark:bg-gray-800 '>
+    <section className='h-[652px] flex justify-center   dark:bg-gray-800 '
+    style={{backgroundColor:bgColor}}
+    >
         <div className='h-[625px] flex max-md:w-full max-lg:w-full
                         w-[1247px] pt-[11px] max-md:justify-end mt-[1px] 
                         justify-between 
@@ -102,7 +136,7 @@ const HeroSection = () => {
                                text-black
                               
                               '>
-                            <span className='xl:text-[27px] lg:text-[22px]' > ۱۰۰۰ +</span> 
+                            <span className='xl:text-[27px] lg:text-[22px]' > {hero.studentCount} +</span> 
                               &nbsp;
                               <span className='xl:text-[27px] lg:text-[22px] relative left-[-4px]'>دانشجو</span>
                 </p>
@@ -143,7 +177,7 @@ const HeroSection = () => {
                                  lg:h-[90px]
                                  text-black
                                  ' >
-                          <span className='xl:text-[27px] lg:text-[22px] '  > ۵۰+ </span>
+                          <span className='xl:text-[27px] lg:text-[22px] '  > {hero.teacherCount}+ </span>
                            &nbsp;  
                            <span className='xl:text-[27px] lg:text-[22px] relative left-[-4px]' >مدرس</span>
                    </p>
@@ -181,6 +215,9 @@ const HeroSection = () => {
                               dark:text-[#f7f7f7]
 
                                                  "
+                 
+                                                 style={{color: bgColor === "" ? '#555555': textColor
+                                                 }}
                  >مرجع اموزش زنده و تعاملی برنامه نویسی حوزه وب 
                 <br/>
                  با دسترسی به بیش از هفت هزار ویدیوی اموزشی به زبان فارسی

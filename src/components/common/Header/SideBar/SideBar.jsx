@@ -2,12 +2,30 @@ import images from '../../../../assets/landingpng'
 import { IoCloseCircle } from 'react-icons/io5'
 import { LuSunMedium } from "react-icons/lu";
 import { RiMoonFill } from "react-icons/ri";
-
+import { useBgColor } from '../../../BgChangeAdmin/BgColorContext';
 
 
 const SideBar = ({HandleClose , toggleDarkMode , isDarkMode}) => {
+  const { bgColor , setBgColor} = useBgColor();
+
+
+const getComplementaryColor = (hexColor) => {
+  const color = hexColor.replace("#", "");
+  
+  const r = 255 - parseInt(color.substring(0, 2), 16);
+  const g = 255 - parseInt(color.substring(2, 4), 16);
+  const b = 255 - parseInt(color.substring(4, 10), 16);
+
+  return `rgb(${r}, ${g}, ${b})`;
+};
+
+const textColor = getComplementaryColor(bgColor);
+
   return (
-    <div className="h-screen w-full dark:bg-gray-800 ">
+    <div className="h-screen w-full dark:bg-gray-800 "
+    style={{ backgroundColor: bgColor }}
+
+    >
         
          <div className='flex justify-between   mt-[20px] px-6 items-center'  >
             <div className='flex items-center gap-[6px]'>

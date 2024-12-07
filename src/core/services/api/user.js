@@ -72,3 +72,19 @@ export const getCourseDash = async () => {
     }
 }
 
+export const AddProfileImage = async (formData) => {
+
+    const response = await http.post('/SharePanel/AddProfileImage', formData)
+ 
+    return response
+}
+
+export const SelectProfileImage = async (formData) => {
+    const response = await http.post('/SharePanel/SelectProfileImage' ,formData)
+    return response
+}
+
+export const DeletProfileImage = async (formData) => {
+    const response = await http.delete('/SharePanel/DeleteProfileImage')
+    return response
+}

@@ -1,11 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import images from '../../../assets/landingpng'
-
-
+import { useBgColor } from '../../BgChangeAdmin/BgColorContext';
+import { getNewsCard } from '../../../core/services/api/News';
+import { NavLink } from 'react-router-dom';
 
 const ArticleSection = () => {
+  const { bgColor , setBgColor} = useBgColor();
+  const [card , setCard ] = useState([])
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);
+
+  const getNEWS6 = async ()=> {
+     const data  = await getNewsCard()
+     setCard(data)
+     console.log(data?.news)
+     
+  }
+
+  useEffect(() => {
+    getNEWS6()
+  },[])
+
+
   return (
-    <section className=' lg:h-[864.34px] grid justify-center dark:bg-gray-800'>
+    <section className=' lg:h-[864.34px] grid justify-center dark:bg-gray-800'
+    style={{backgroundColor:bgColor}}
+
+    >
         <div className='xl:w-[1247px] flex justify-center 
                         xl:mt-[126px]
                         max-smx3:mt-[500px]
@@ -34,6 +64,8 @@ const ArticleSection = () => {
                    text-center xl:mr-[5px] mr-[20px] 
                    
                    max-md:mt-[-10px]' 
+                   style={{color: bgColor === "" ? '#AAAAAA': textColor
+                   }}
                    > خـــودت رو با خـــبر کن ! 
                    </p>
                </div>
@@ -84,14 +116,16 @@ const ArticleSection = () => {
                                                  bg-gradient-to-t from-[rgb(0,43,42,0.8)]
                                                to-[rgb(0,252,246,0.8)]
                               '>
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900]  text-black
+                                <NavLink className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900]  text-black
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
                                 flex justify-center items-center  max-smx3:w-[100px]
-                                ' >
+                                '
+                                to={`news-Detail/ea25a551-0ab0-ef11-b6ed-e2b8c6c9e309`}
+                                >
                                     مطالعه مطلب
-                                </p>
+                                </NavLink>
                                 
                               </div> 
                           
@@ -114,13 +148,15 @@ const ArticleSection = () => {
                                                flex justify-center
                                                text-center items-center
                               '>
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] 
+                                <NavLink className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] 
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer text-black
-                                flex justify-center items-center  max-smx3:w-[100px]' >
+                                flex justify-center items-center  max-smx3:w-[100px]' 
+                                to={`news-Detail/3311d299-dcb3-ef11-b6ee-fd09e32c9077`}
+                                >
                                     مطالعه مطلب
-                                </p>
+                                </NavLink>
                                 
                               </div> 
                       </div>
@@ -146,14 +182,16 @@ const ArticleSection = () => {
                                                xl:w-full xl:h-full
                                                lg:w-full lg:h-[168px]
                               '>
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
+                                <NavLink className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
                                 flex justify-center items-center  max-smx3:w-[100px]
-                                ' >
+                                '
+                                to={`news-Detail/ea25a551-0ab0-ef11-b6ed-e2b8c6c9e309`}
+                                >
                                     مطالعه مطلب
-                                </p>
+                                </NavLink>
                                 
                               </div> 
                      </div> 
@@ -183,13 +221,15 @@ const ArticleSection = () => {
                                                lg:w-full lg:h-[168px]
                               '>
                             
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
+                                <NavLink className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
-                                flex justify-center items-center  max-smx3:w-[100px]' >
+                                flex justify-center items-center  max-smx3:w-[100px]' 
+                                to={`news-Detail/ea25a551-0ab0-ef11-b6ed-e2b8c6c9e309`}
+                                >
                                     مطالعه مطلب
-                                </p>
+                                </NavLink>
                               </div>
                       </div>
                       <div className='flex xl:gap-[23px] max-md:flex max-smx3:gap-[10px]
@@ -219,13 +259,15 @@ const ArticleSection = () => {
                                                to-[rgb(0,252,246,0.8)]
                               '>
                             
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black 
+                                <NavLink className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black 
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
-                                flex justify-center items-center  max-smx3:w-[100px]' >
+                                flex justify-center items-center  max-smx3:w-[100px]' 
+                                to={`news-Detail/ea25a551-0ab0-ef11-b6ed-e2b8c6c9e309`}
+                                >
                                     مطالعه مطلب
-                                </p>
+                                </NavLink>
                               </div> 
                        </div>
                        <div className='xl:w-[250px] xl:h-[250px] 
@@ -250,13 +292,14 @@ const ArticleSection = () => {
                                                to-[rgb(0,252,246,0.8)]
                               '>
                             
-                                <p className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
+                                <NavLink className='xl:w-[120px] xl:h-[27.43px] bg-[#E48900] text-black
                                 font-primaryMedium font-[400] xl:text-[15px] max-smx3:h-[25px] 
                                 max-smx3:text-[13px] smx3:w-[103px] smx3:h-[26px] smx3:text-[14px]
                                 rounded-[20px] xl:mt-[121px]  cursor-pointer
-                                flex justify-center items-center  max-smx3:w-[100px]' >
+                                flex justify-center items-center  max-smx3:w-[100px]'
+                                to={`news-Detail/ea25a551-0ab0-ef11-b6ed-e2b8c6c9e309`} >
                                     مطالعه مطلب
-                                </p>
+                                </NavLink>
                               </div>  
                         </div>
                      </div> 
@@ -273,7 +316,10 @@ const ArticleSection = () => {
                  <p className='lg:text-[20px] 
                  md:text-[18px]
                  max-md:text-[16px]
-                 max-md:mt-[-3px] font-primaryRegular text-[#AAAAAA]'>مشاهده بیشتر</p>
+                 max-md:mt-[-3px] font-primaryRegular text-[#AAAAAA]'
+                 style={{color: bgColor === "" ? '#AAAAAA': textColor
+                 }}
+                 >مشاهده بیشتر</p>
             </div>
         </div>
     </section>

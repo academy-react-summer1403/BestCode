@@ -3,7 +3,7 @@ import ImageField1 from '../../Dashboard/ImageField1'
 import MapReact1 from '../../Dashboard/MapReact1'
 import { Field , ErrorMessage} from 'formik'
 const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChange , handleImageClick
-    ,setFieldValue
+    ,setFieldValue , userInfo , setRefetch , bgColor
 }) => {
   // const handleMapClick = () => {
   //     setValueField("location.lat", selectedCoords.lat);
@@ -24,6 +24,9 @@ const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChang
                                             handleFileChange={handleFileChange} 
                                             fileInputRef={fileInputRef}
                                             setPreviewImage={setPreviewImage}
+                                            userInfo={userInfo}
+                                            setRefetch={setRefetch}
+                                            bgColor={bgColor}
                                   /> 
                                       <div className='mt-[-36px] relative top-[5px]' >
                                           <label className='text-[#979797] font-primaryMedium
@@ -52,7 +55,10 @@ const Group155 = ({previewImage , setPreviewImage, fileInputRef ,handleFileChang
                                           />
                                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800
                                             max-md:w-[150px]
-                                            ">
+                                            "
+                                            style={{borderColor:bgColor}}
+
+                                            >
                                                 <ErrorMessage name="َUserAbout" component="div" 
                                                 className="text-red-500 font-primaryMedium text-sm truncate" />
                                             </div>

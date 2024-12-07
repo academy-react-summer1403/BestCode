@@ -18,7 +18,6 @@ const toPersianNumber = (number) => {
 
 
 const SliderCard = ({price, teacher, student , title , duration , courseId ,img}) => {
-
   
   return (
   <div className='h-[323px] w-[266px] flex  justify-center justify-items-center items-center  pt-[18px]  '>  
@@ -39,6 +38,7 @@ const SliderCard = ({price, teacher, student , title , duration , courseId ,img}
                 font-primaryMedium 
                 text-[#444444] 
                 mt-[10px]
+                truncate
                 '
                 to={`/course-detail/${courseId}`}
                 >

@@ -10,7 +10,7 @@ import moment from 'moment-jalaali'
 import dayjs from 'dayjs';
 
 
-const EditProfile = ({userInfo}) => {
+const EditProfile = ({userInfo , setRefetch , bgColor}) => {
   const [submittedDate, setSubmittedDate] = useState();
   const [previewImage, setPreviewImage] = useState(images.profile)
 
@@ -32,13 +32,14 @@ const EditProfile = ({userInfo}) => {
          formData.append('BirthDay',  validateBirthday);
          formData.append('Latitude', values.Latitude);  
          formData.append('Longitude', values.Longitude); 
+        
     const user = await EditProfileFunc(formData) 
    
    
   };
 
 
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef();
 
   const handleImageClick = () => {
     fileInputRef.current.click();
@@ -101,12 +102,6 @@ const EditProfile = ({userInfo}) => {
    UserAbout: Yup.string()
      .max(500, 'نمی‌تواند بیش از ۵۰۰ حرف باشد'),
 
- img: Yup.mixed()  .required('آپلود عکس الزامی است')
-  .test(
-      'fileFormat',
-    'فرمت عکس باید jpg یا png باشد',
-    (value) => value && (value.type === 'image/jpeg' || value.type === 'image/png')
-   ),
  location: Yup.object().shape({
      lat: Yup.number()
        .required('عرض جغرافیایی الزامی است'),
@@ -193,7 +188,7 @@ const EditProfile = ({userInfo}) => {
                    <Formik 
                         onSubmit={handleFormSubmit}
                         initialValues={initialValues}
-                        // validationSchema={validationSchema}
+                        validationSchema={validationSchema}
                        
                     >
                        
@@ -228,16 +223,21 @@ const EditProfile = ({userInfo}) => {
                      
                      
                       <Group156 
+                      bgColor={bgColor}
                          setFieldValue={setFieldValue}
                          
                        />
                        <Group155 
+                            bgColor={bgColor}
+
                          previewImage={previewImage}
+                         setRefetch={setRefetch}
                          setPreviewImage={setPreviewImage}
                          fileInputRef={fileInputRef}
                          setFieldValue={setFieldValue}
                          handleFileChange={handleFileChange}
                          handleImageClick={handleImageClick}
+                         userInfo={userInfo}
                        />  
                           
                        </Form>

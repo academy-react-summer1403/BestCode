@@ -1,8 +1,21 @@
 import {useState} from 'react'
 import images from '../../../assets/landingpng'
 import CatItem from './CatItem/CatItem'
-
+import { useBgColor } from '../../BgChangeAdmin/BgColorContext'
 const CategorySection = () => {
+  const { bgColor , setBgColor} = useBgColor();
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);
+   
    const [catitem, setCatItem] = useState([   
       {title:'امنیت شبکه', src:images.securitysvg , width:'113px' , mt:'28px' , height:'35px' ,mbq:'0px'}, 
       {title:'بازی سازی', src:images.gamecon , width:'92px' , mt:'28px', height:'35px', mbq:'0px'},
@@ -17,7 +30,10 @@ const CategorySection = () => {
                         duration-700
                         dark:bg-gray-800
                         w-full
-                        '>
+                        '
+                        style={{backgroundColor:bgColor}}
+
+                        >
        <div className='w-full grid justify-center
                         xl:mt-[70px] 
                         max-md:mt-[-380px]

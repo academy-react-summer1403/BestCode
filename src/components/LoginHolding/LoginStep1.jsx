@@ -6,19 +6,21 @@ import { setItem } from "../../core/services/common/storage.services"
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
 
-
+import { useAuth } from "../Authenticated/Authenticated"
 
 
 const LoginStep1 = ({HandleLoginConfirm}) => {
   const navigate = useNavigate()
   const [userValues, setUserValues] = useState(null);
+  const { authenticated, login, logout , setAuthenticated} = useAuth();
+
 
   const HandleSubmit = async (values) => {
     try {
         const user = await loginAPI(values)
 
         if (user?.token) {
-            
+            setAuthenticated(true)
             setItem("token", user.token)
             if(user?.success) {   
 

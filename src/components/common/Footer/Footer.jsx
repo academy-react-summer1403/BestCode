@@ -1,11 +1,27 @@
 import images from '../../../assets/landingpng'
 import Svg2 from './Svg2'
-
+import { useBgColor } from '../../BgChangeAdmin/BgColorContext';
 
 const Footer = () => {
+  const { bgColor , setBgColor} = useBgColor();
+
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);
   return (
 
-      <footer className="grid   pt-[2px] dark:bg-gray-800" >
+      <footer className="grid   pt-[2px] dark:bg-gray-800" 
+      style={{backgroundColor:bgColor}}
+
+      >
 
       <div className="h-[352px] w-full mb-[-7.5px] relative" >
         <div className='relative' >
@@ -21,7 +37,10 @@ const Footer = () => {
             max-lg:bg-[#01CEC926]
             max-lg:dark:bg-[#1a424d]
            
-            ">
+            "
+            style={{backgroundColor:bgColor}}
+
+            >
             <div className='mb-[32px] flex xl:w-[1247px] 
                                            lg:w-[1024px]          
                                            xl:gap-[157px]                 
@@ -57,7 +76,10 @@ const Footer = () => {
                                lg:top-0
                                xl:top-0
                                dark:text-[#f7f7f7]
-                               ' >مجموعه آموزشی فلان فعالیت خود را &nbsp;از سال &nbsp;&nbsp;۱۳۹۰   &nbsp;آغاز کرده است و
+                               ' 
+                               style={{color: bgColor === "" ? '#006865': textColor
+                               }}
+                               >مجموعه آموزشی فلان فعالیت خود را &nbsp;از سال &nbsp;&nbsp;۱۳۹۰   &nbsp;آغاز کرده است و
                    <br />
                    امروز به بزرگترین کلونی برنامه نویسی شمال کشور تبدیل شده است</p>
                    <p className='text-[#00605D] font-primaryMedium xl:text-right 
@@ -67,12 +89,18 @@ const Footer = () => {
                                max-lg:mt-[10px]
                                max-md:text-[15px]
                                max-lg:text-[16px]
-                               '>
+                               '
+                               style={{color: bgColor === "" ? '#00605D': textColor
+                               }}
+                               >
                    ساری ، میدان خــزر ، جــاده فــرح آباد ، جنب 
                    <br />
                     مجتمع دنیای آرزو<span className='text-[15px] text-[#004F4D] 
                     max-md:mr-[10px] max-lg:mr-[10px]
                     lg:mr-[43px]  dark:text-[#f7f7f7]'
+                    style={{color: bgColor === "" ? '#004F4D': textColor
+                    }}
+
                     >۴۳۳۳۲۰۰۰ -   ۱ ۱ ۰</span>
                    </p>
               </div>   
@@ -107,7 +135,9 @@ const Footer = () => {
                                     items-center duration-700 '>
                        <p className='font-primaryMedium text-[#FFFFFF] text-[15px]
                        max-md:text-[13px]
-                       ' >info@pazhooheshgah.ir</p>
+                       ' 
+                    
+                       >info@pazhooheshgah.ir</p>
                     </div>
                     <div className='flex justify-center gap-[6.22px] max-md:mt-[-10px]
                     max-lg:mt-[-10px]
@@ -150,21 +180,24 @@ const Footer = () => {
               <div className='flex w-[219px] h-[104px] gap-[22px] mr-[10px]'
                style={{direction:'ltr'}}> 
                 <div className='h-[104px] w-[219px] flex gap-[2px]'>
-                     <div className='grid w-[93px] h-[104px] justify-center justify-items-end 
-                      '>
+                     <div className='grid w-[93px] h-[104px] justify-center justify-items-end text-[#77A9A8]
+                      '
+                      style={{color: bgColor === "" ? '#77A9A8': textColor
+                      }}
+                      >
                        
                           <p className='
                           
-                          xl:text-[16px] font-primaryRegular text-[#77A9A8]'>اساتید برتر</p>             
+                          xl:text-[16px] font-primaryRegular '>اساتید برتر</p>             
                       
                   
-                          <p className='text-[16px] font-primaryRegular text-[#77A9A8]'>دسته بندی ها</p> 
+                          <p className='text-[16px] font-primaryRegular '>دسته بندی ها</p> 
                      
                     
-                          <p className='text-[16px] font-primaryRegular text-[#77A9A8]'>خدمات ما</p>
+                          <p className='text-[16px] font-primaryRegular '>خدمات ما</p>
                       
                    
-                          <p className='text-[16px] font-primaryRegular text-[#77A9A8]'>ورود به حساب</p>
+                          <p className='text-[16px] font-primaryRegular ]'>ورود به حساب</p>
                           
                      </div>
                      <div className='grid items-center relative top-[2px]'>
@@ -175,19 +208,23 @@ const Footer = () => {
                      </div>
                    </div>
                    <div className='h-[104px] w-[219px] flex'>
-                     <div className='grid w-[93px] h-[104px] justify-center justify-items-end
-                      '>
+                     <div className='grid w-[93px] h-[104px] justify-center justify-items-end text-[#77A9A8]
+                      
+                      '
+                      style={{color: bgColor === "" ? '#77A9A8': textColor
+                      }}
+                      >
                        
-                          <p className='text-[16px] font-primaryRegular text-[#77A9A8]'>دوره ها</p>             
+                          <p className='text-[16px] font-primaryRegular '>دوره ها</p>             
                       
                   
-                          <p className='text-[16px] font-primaryRegular text-[#77A9A8]'>اخبار و مقالات</p> 
+                          <p className='text-[16px] font-primaryRegular '>اخبار و مقالات</p> 
                      
                     
-                          <p className='text-[16px] font-primaryRegular text-[#77A9A8]'> پادکست ها</p>
+                          <p className='text-[16px] font-primaryRegular '> پادکست ها</p>
                       
                    
-                          <p className='text-[16px] font-primaryRegular text-[#77A9A8]'>تماس با ما</p>
+                          <p className='text-[16px] font-primaryRegular '>تماس با ما</p>
                           
                      </div>
                      <div className='grid items-center relative top-[2px]'>

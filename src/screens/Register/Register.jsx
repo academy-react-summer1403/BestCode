@@ -3,11 +3,30 @@ import images from '../../assets/Register'
 import { useState } from 'react';
 import { registerLevel1 } from "../../core/services/api/register"
 import { registerLevel3 } from '../../core/services/api/register';
-
+import { useBgColor } from '../../components/BgChangeAdmin/BgColorContext.jsx';
 import RegisterStep2 from '../../components/Registerholding/RegisterStep2.jsx';
 import RegisterStep1 from '../../components/Registerholding/RegisterStep1.jsx';
 import RegisterStep3 from '../../components/Registerholding/RegisterStep3.jsx';
+import { NavLink } from 'react-router-dom';
 const Register = () => {
+  const { bgColor , setBgColor} = useBgColor();
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  
+  
+  
+  
+  
+  const textColor = getComplementaryColor(bgColor);
+
  const [isConfirm , setIsConfirm] = useState(false)
  const [account , setAccount] = useState(false)   
 
@@ -34,8 +53,11 @@ const Register = () => {
   };
 
  return (
-    <div className='w-full h-screen relative ' >
-     <div className='w-[952px] h-[631px]  mt-[227px] mb-[166px] ml-[285px] mr-[203px]
+    <div className='w-full h-screen relative ' 
+    style={{backgroundColor:bgColor}}
+
+    >
+     <div className='w-[952px] h-[631px]  pt-[80px] mb-[166px] ml-[285px] mr-[203px]
      flex'>
        <div className='
        w-[869px] h-[631px]  relative
@@ -87,15 +109,23 @@ const Register = () => {
              <path d="M9.84375 12.1875L5.15625 7.5L9.84375 2.8125" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
              </svg>
             </div>  
-             <p className='font-primaryRegular mb-[3px] text-[20px]'>صفحه اصلی</p>    
+             <NavLink className='font-primaryRegular mb-[3px] text-[20px]'
+             to={'/'}
+             style={{justifyContent:'right' ,
+              color: bgColor === "" ? '#555555': textColor
+               }}
+             >صفحه اصلی</NavLink>    
           </div>
           )}    
           
          </div>
          <div className='font-primaryMedium font-[700] text-[24px] text-[#006865] mt-[102px] ml-[12px]'>
          <p>ثبت نام</p>
-
-         <p className='mt-[68px]'>ورود</p>
+     <div className='mt-[68px]'>
+         <NavLink className='mt-[68px] cursor-pointer'
+         to={'/login'}
+         >ورود</NavLink>
+         </div>
        </div>
        </div>
     </div>

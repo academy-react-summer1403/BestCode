@@ -5,14 +5,33 @@ import { getFilterCourseBytech } from "../../core/services/api/course"
 import Daisyui from "daisyui"
 import {Slider} from "antd" 
 import "../Courses/Course.css"
+import { getCourseType , getCourseLevel } from "../../core/services/api/course"
 
-const SideBarFilter =({HandleCheck , check})=>{
+const SideBarFilter =({HandleCheck , check , handleChange , handleChange1
+, minValue , maxValue ,setMaxValue, setMinValue
+
+
+})=>{
+  const [type , setType] = useState([])
+  const [level , setLevel] = useState([])
+  const getlevelCourse1 = async () => {
+    const result = await getCourseLevel()
+    setLevel(result)
+  }
+
+  const getTypeCourse1 = async () => {
+    const result = await getCourseType()
+    setType(result)
+  }
   
+  useEffect(()=> {
+    getTypeCourse1()
+    getlevelCourse1()
+  }, [])
 
 
-
-  const [minValue,setMinValue] = useState(0)
-    
+ 
+    console.log(minValue, maxValue)
     
   const [openbox,setOpenBox]  =useState(false)
   const [openbox1,setOpenBox1] =useState(false)  
@@ -66,7 +85,7 @@ const SideBarFilter =({HandleCheck , check})=>{
   
     return(
     <>
-     <div className="w-[23%] h-[880px] dark:bg-gray-200 hidden lg:block drawer drawer-end bg-[#FFFFFF] shadow-[0px_1px_2px_0px_#0000004D]">
+     <div className="w-[23%]  dark:bg-gray-200 hidden lg:block drawer drawer-end bg-[#FFFFFF] shadow-[0px_1px_2px_0px_#0000004D]">
      <div className="w-[85%]  ef:w-[92%]  mx-auto h-[45px] rounded-t-[5px] rounded-b-[1px] bg-[#E7E7E7] 
      shadow-[0px_1px_2px_0px_#00000040]  mt-[14px] flex ">
        <img src="../37.svg" className="h-[25px] w-[25px] my-auto ml-[10px]"/>
@@ -75,17 +94,22 @@ const SideBarFilter =({HandleCheck , check})=>{
 
      </div>
      <div className="grid gap-[15px] mx-auto w-[90%] mt-[18px]">
-      <div className={`w-[85%] ml-1 ef:w-[92%] h-[173px] ef:mx-auto shadow-[0px_1px_2px_0px_#00000040] dark:bg-gray-800 
+      <div className={`w-[85%] ml-1 ef:w-[92%] ef:mx-auto shadow-[0px_1px_2px_0px_#00000040] dark:bg-gray-800 
         dark:text-white  rounded-[6px] bg-[#FAFAFA] ${openbox? 'h-[24px]':''}`}>
           
-         <div onClick={handleAccordion} className="justify-between flex  w-[90%] mx-auto border-[#E6E6E6] dark:border-[#EBF9F982] border-b ">    
+         <div onClick={handleAccordion} 
+         className="justify-between flex
+          
+         w-[90%] mx-auto border-[#E6E6E6] dark:border-[#EBF9F982] border-b 
+         
+         ">    
                <img src="../35.svg" className={`my-auto rotate-180  ${openbox? 'rotate-0 ' : ''}`}/><span className="text-right ">تکنولوژی</span></div>
              
       
       {openbox ? (
         <></>
       ) : (
-        <div className="mt-[20px]">
+        <div className="mt-[20px] h-[356px] overflow-y-scroll">
           {tech.map((item, index) => (
             <div
               key={index}
@@ -102,7 +126,7 @@ const SideBarFilter =({HandleCheck , check})=>{
                 id={`check${index}`}
                 name={item.techName}
                 value={item.id}
-                 checked={check.includes(item.id)}
+                checked={check.includes(item.id)}
                 onChange={() => HandleCheck(item.id)}
                 className="size-3 ml-2"
               />
@@ -122,10 +146,21 @@ const SideBarFilter =({HandleCheck , check})=>{
           {openbox1 ?
           (<></>)
         : (
-          <div className="justify-start text-right relative bottom-2 pr-[10px]">
-          <div><label for="check6" className="text-[16px]">شروع نشده</label><Field type="checkBox" id="check6" className="size-3 ml-2 mt-5"/></div>
-          <div><label for="check7" className="text-[16px]">در حال برگزاری</label><Field type="checkBox" id="check7" className="size-3 ml-2"/></div>                                   
-          <div><label for="check8" className="text-[16px]">تمام شده</label><Field type="checkBox" id="check8" className="size-3 ml-2"/></div>
+          <div className="justify-start text-right relative bottom-2 pr-[10px] mt-[20px]">
+          {type.map((item) => (
+            <div key={item.id}> 
+              <label htmlFor={`check-${item.id}`} className="text-[16px]">
+                {item.typeName}
+              </label>
+              <input
+                type="radio"
+                id={`check-${item.id}`} 
+                className="size-3 ml-2"
+                name="item1" 
+                onChange={() => handleChange1(item.id)}
+              />
+            </div>
+            ))}                                   
           </div>
         )  
         
@@ -159,17 +194,31 @@ const SideBarFilter =({HandleCheck , check})=>{
           <div onClick={handleAccordion3} className="justify-between flex  w-[90%] mx-auto border-[#E6E6E6]  dark:border-[#EBF9F982] border-b ">    
                 <img src="../35.svg" className={`my-auto rotate-180  ${openbox3? 'rotate-0 ' : ''}`}/><span className="text-right ">سطح</span></div>
 
-            {openbox3 ?
-            (<></>)
-          : (
-            <div className="justify-start text-right relative bottom-2 pr-[10px]">
-            <div><label for="check15" className="text-[16px]">مقدماتی</label><Field type="checkBox" id="check15" className="size-3 ml-2 mt-5"/></div>
-            <div><label for="check16" className="text-[16px]">متوسط</label><Field type="checkBox" id="check16" className="size-3 ml-2"/></div>                                   
-            <div><label for="check17" className="text-[16px]">پیشرفته</label><Field type="checkBox" id="check17" className="size-3 ml-2"/></div>
+        
+                {openbox1 ?
+          (<></>)
+        : (
+          <div className="justify-start text-right bottom-2 pr-[10px] mt-[20px]
+          overflow-y-scroll h-[80px]
+          ">
+          {level.map((item) => (
+            <div key={item.id}> 
+              <label htmlFor={`check-${item.id}`} className="text-[16px]">
+                {item.levelName}
+              </label>
+              <input
+                type="radio"
+                id={`check-${item.id}`} 
+                className="size-3 ml-2"
+                name="item" 
+                onChange={() => handleChange1(item.id)}
+              />
             </div>
-          )  
-          
-          }
+            ))}                                   
+          </div>
+        )  
+        
+        }
           
         </div>   
         <div className={`w-[85%] ml-1 ef:w-[92%] h-[123px] ef:mx-auto shadow-[0px_1px_2px_0px_#00000040] dark:bg-gray-800 
@@ -312,39 +361,38 @@ const SideBarFilter =({HandleCheck , check})=>{
         <div className={`w-[272px] h-[123px] mx-auto shadow-[0px_1px_2px_0px_#00000040] dark:bg-gray-800 
         dark:text-white  rounded-[6px] bg-[#FAFAFA] ${openbox4? 'h-[24px]':''}`}>
           
-          <div onClick={handleAccordion4} className="justify-between flex  w-[90%] mx-auto border-[#E6E6E6] border-b ">    
-                <img src="../35.svg" className={`my-auto rotate-180 ${openbox4? 'rotate-0 ' : ''}`}/><span className="text-right ">قیمت(تومان)</span></div>
+          <div onClick={handleAccordion4} className="justify-between flex  w-[90%] mx-auto
+          pb-[30px]
+          border-[#E6E6E6] border-b ">    
+                <img src="../35.svg" className={`my-auto rotate-180 ${openbox4? 'rotate-0 ' : ''}`}/><span className="text-right 
+                ">قیمت(تومان)</span></div>
 
             {openbox4 ?
             (<></>)
           : (
-            <div className="justify-start text-right relative bottom-2 pr-[10px]">
-                                        <div className="mt-12 mx-auto">
+            <div className="justify-start text-right relative bottom-2 pr-[10px]
+            mt-[30px]
+            ">
+                                        <div className="mt-12 mx-auto ">
                  
                  <div className="w-[222px] h-[4px] mx-auto z-[3000] bg-[#FEE9CA]"><div className="w-[151px] h-[4px] mx-auto bg-[#FFA31A] relative "></div></div>
-                 <Slider
-                    range
-                    min={1}
-                    max={200000000}
-                    step={100000}
-                    defaultValue={[1, 20000000]}
-                    className=" mx-auto relative "
-                    trackStyle={[
-                      { backgroundColor: "#FFA31A", height: "8px" , position:'relative' ,left:'100px'},
-                    ]}
-                    handleStyle={[
-                      {
-                        height: "24px",
-                        width: "24px",
-                        backgroundColor: "yellow",
-                        border: "2px solid #FFA31A",
-                        marginTop: "-8px",
-                      },
-                    ]}
-                    railStyle={{
-                      backgroundColor: "#FEE9CA",
-                      height: "8px",
-                    }}
+                 {/* <span>{minValue}</span> - <span>{maxValue}</span> */}
+      <Slider
+        id="rangeInput"
+        max={200000000}
+        min={1}
+        className="w-[90%] mx-auto h-[0px] bg-[#FEE9CA] mt-[30px]"
+        onChange={(f) => {
+          setMinValue(f[0]);
+          setMaxValue(f[1]);
+        }}
+        range
+        step={100000}
+        defaultValue={[1, 20000000]}
+        styles={{
+          track: { background: "#FFA31A", position: "relative", bottom: "2px" },
+          thumb: { background: "yellow" },
+        }}
       />
               <div className="flex items-end justify-end gap-5  mr-2">
               <div><label for="check21" className="text-[16px]">غیر رایگان</label><Field type="checkBox" id="check21" className="size-3 ml-2 "/></div>             

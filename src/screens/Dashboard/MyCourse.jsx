@@ -6,6 +6,7 @@ import PagiantionDashboard from "../../components/common/PaginationDashboard/Pag
 import { getmyCourse } from "../../core/services/api/user"
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { searchCourse } from "../../core/services/api/course"
 const MyCourse = () => {
   const formStyle = `xl:w-[519px] h-[40px] bg-[#FBFBFB] flex rounded-[25px] justify-between 
     items-center 
@@ -20,6 +21,7 @@ const MyCourse = () => {
   const inputStyle =`xl:w-[189px] placeholder:font-primaryMedium
   placeholder:text-[#AAAAAA] placeholder:text-[16px] place-holder:font-[400] text-right
   border-none outline-none bg-transparent pb-[3px] 
+  placeholder:font-primaryMedium
   `
 
   const [row , setRow] = useState([])
@@ -27,6 +29,9 @@ const MyCourse = () => {
   const courseCount = row?.length || 0;
 
   console.log(courseCount)
+
+  
+
 
   const getMyCourse1 = async () => {
     try {
@@ -57,7 +62,18 @@ const MyCourse = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   const currentItems = row.slice(indexOfFirstItem, indexOfLastItem)
 
+
+   
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  const handleSearch = async (query) => {
+     console.log(query)
+     const data = await searchCourse(query)
+     setRow(data?.listOfMyCourses || [])
+  }
+
+
 
   return (
     <div className="xl:w-[875px] grid justify-center mt-[16px] justify-items-center
@@ -74,7 +90,8 @@ const MyCourse = () => {
         <div>
           <SelectOption  options={options} />
         </div> 
-        <SearchForm 
+        <SearchForm
+         handleSearch={handleSearch} 
          formStyle={formStyle}
          inputdivStyle={inputdivStyle}
          inputStyle={inputStyle}

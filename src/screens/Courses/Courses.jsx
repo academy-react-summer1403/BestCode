@@ -8,30 +8,75 @@ import "./RangeSlider.css"
 import SideBarFilter from "../../components/Courses/SideBarFilter"
 import FinalList from "../../components/Courses/FinalList"
 import FinalGrid from "../../components/Courses/FinalGrid"
-import { getTech , getAllCourse } from "../../core/services/api/course"
+import { getTech , getAllCourse, getCourseType, filterByTypeCourse, filterByLevelCourse, filterbyCostdp } from "../../core/services/api/course"
 
+import { useBgColor } from "../../components/BgChangeAdmin/BgColorContext"
 
 
 
 const Courses = () => {
- 
+  const { bgColor , setBgColor} = useBgColor();
+
+
+const getComplementaryColor = (hexColor) => {
+  const color = hexColor.replace("#", "");
+  
+  const r = 255 - parseInt(color.substring(0, 2), 16);
+  const g = 255 - parseInt(color.substring(2, 4), 16);
+  const b = 255 - parseInt(color.substring(4, 10), 16);
+
+  return `rgb(${r}, ${g}, ${b})`;
+};
+
+const textColor = getComplementaryColor(bgColor);
+
+
+
+
+
   const [active, setActive]=useState(1)
   const [check , setCheck] = useState([])
   const [checkbox, setCheckbox] = useState(false)
-  const HandleCheck = (id) => {
+ 
+  const HandleCheck = async (id) => {
+    let updatedItems;
+  
     if (check.includes(id)) {
-      const updatedItems = check.filter((item) => item !== id);
-      setCheck(updatedItems);
-      if (updatedItems.length === 0) {
-        setCheckbox(false)
-      }
+      updatedItems = check.filter((item) => item !== id);
     } else {
-      setCheck([...check, id]);
-      setCheckbox(true)
+      updatedItems = [...check, id];
+    }
+  
+    setCheck(updatedItems);
+    
+    const isNotEmpty = updatedItems.length > 0;
+    setCheckbox(isNotEmpty);
+  
+    if (isNotEmpty) {
+      await getTechList(updatedItems);
     }
   };
-  const [slidercard , setSliderCard] = useState([])
 
+  const [selectedId1, setSelectedId1] = useState(null); 
+  const [selectedId2, setSelectedId2] = useState(null); 
+
+  const handleChange =  async (id) => {
+    setSelectedId1(id); 
+    const data = await filterByTypeCourse(id)
+    setSliderCard(data?.courseFilterDtos)
+    
+  };
+
+  const handleChange1 =  async (id) => {
+    setSelectedId2(id); 
+    const data = await filterByLevelCourse(id)
+    setSliderCard(data?.courseFilterDtos)
+    
+  };
+
+
+
+  const [slidercard , setSliderCard] = useState([])
   const getCardCourse = async () => {
     const data = await getAllCourse()
     setSliderCard(data?.courseFilterDtos)
@@ -39,50 +84,58 @@ const Courses = () => {
 
    const [card , setCard] = useState([])
  
-  const getallcourse = async () => {
-      
-    const courses = await getCourseList1()
-     setCard(ourses)
-  }
+ 
 
 
   const [gettech , setGettech] = useState([])
  
-  const getTechList = async () => {
-    if (checkbox) {
-    const data = await getTech(check)    
-    setSliderCard(data?.courseFilterDtos) 
-     console.log(data)
-    } else {
-      return console.log('err')
-    }
+  const getTechList = async (updatedItems) => {
 
+    try {
+      const listTech = updatedItems.join(",");
+      console.log("sdsad" , listTech)
   
-  }
+      const data = await getTech(1, listTech);
   
-  useEffect(()=>{
+      if (data) {
+        setSliderCard(data?.courseFilterDtos);
+        console.log(data);
+      } else {
+        console.error("داده‌ای از سرور دریافت نشد.");
+      }
+    } catch (error) {
+      console.error("خطا در ارسال به بک‌اند:", error);
+    }
+  };
+  // useEffect(()=> {
+  //   getCardCourse()
+  //   getTechList()
+  // }, [])
+ useEffect(()=>{
     if (checkbox) {
-      getTechList();
+       getTechList();
     } else {
       getCardCourse();
     }
-  },[checkbox])
+   },[checkbox])
   const [minValue, setMinValue] = useState(1);
   const [maxValue, setMaxValue] = useState(20000000);
   const [filteredData, setFilteredData] = useState([]);
-  const handleFilter = ([min, max]) => {
-    setMinValue(min);
-    setMaxValue(max);
-
-    const result = data.filter(
-      (item) => item.cost >= min && item.cost <= max
-    );
-    setFilteredData(result);
-    console.log("Filtered Data:", result);
+  const handleFilter = async () => {
+    const result =  await filterbyCostdp(minValue , maxValue)
+    setSliderCard(result?.courseFilterDtos)
   };
+
+  useEffect(() => {
+    handleFilter()
+  } , [minValue, maxValue])
   return (
     <Formik>
-    <div className="overflow-visible font-primaryRegular text-black  justify-center dark:bg-gray-800 pt-[77px] pb-4">
+    <div className="overflow-visible font-primaryRegular text-black  justify-center dark:bg-gray-800 pt-[77px] pb-4"
+           style={{ backgroundColor: bgColor }}
+
+    
+    >
         <CourseSearch/>
         <div className="flex mx-auto w-[92%] justify-center gap-[40px]  dark:bg-gray-800 mt-10 ">
           <div className=" lg:w-[72%] cd:w-[94%] ">
@@ -101,14 +154,24 @@ const Courses = () => {
                     <img src="../36.svg" className="h-[18px] w-[27px] ml-6 my-auto"/>
                   </div>                  
                 </div>
-                {active==1?<FinalGrid 
+            <div className="mb-[200px]">
+              {active?<FinalGrid 
                 slidercard={slidercard}
-                setActive={setActive} />  :<FinalList/>}
-
+                setActive={setActive} />  :<FinalList
+                slidercard={slidercard}
+                />
+                }
+                </div>
           </div>
-            <SideBarFilter HandleCheck={HandleCheck} check={check}
-              
-            />
+          <SideBarFilter HandleCheck={HandleCheck}
+          handleChange={handleChange}
+          handleChange1={handleChange1}
+          check={check}
+          minValue={minValue}
+          maxValue={maxValue}
+          setMinValue={setMinValue}
+          setMaxValue={setMaxValue}
+            /> 
             
         </div>
     </div>

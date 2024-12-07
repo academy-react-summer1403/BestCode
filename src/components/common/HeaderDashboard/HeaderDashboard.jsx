@@ -10,7 +10,7 @@ import SideBarDash from './SideBarDashboard/SideBarDash';
 
 const HeaderDashboard = () => {
  
-  
+const navigate = useNavigate()
    
 const { isDarkMode, toggleDarkMode } = useDarkMode()
  
@@ -25,7 +25,6 @@ const nagivate = useNavigate()
   }
 } 
 
-{/*for test Project*/}
 
 
  const HandleClose = () => {
@@ -100,7 +99,8 @@ const nagivate = useNavigate()
                 `}>
                    <img 
                        src={images.logo} 
-                     
+                       className='cursor-pointer'
+                       onClick={()=>nagivate('/')}
                     /> 
                       {sidebar? (    
                   

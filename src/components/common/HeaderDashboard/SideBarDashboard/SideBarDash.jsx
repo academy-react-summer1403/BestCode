@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import images from '../../../../assets/dashboardpng'
 import { useDarkMode } from '../../../../config/DarkModeContext';
 import { LuSunMedium } from "react-icons/lu";
@@ -8,7 +8,6 @@ import { IoCloseCircle } from 'react-icons/io5'
 
 const SideBarDash = ({HandleClose}) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode()
-
   return (
     <div className='fixed h-screen w-[40px]  bottom-0 top-0 right-0 bg-[#01CEC9] 
        z-[8888] xl:hidden

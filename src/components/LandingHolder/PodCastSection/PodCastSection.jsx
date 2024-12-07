@@ -1,6 +1,19 @@
 import images from '../../../assets/landingpng'
+import { useBgColor } from '../../BgChangeAdmin/BgColorContext';
 
 const PodCastSection = () => {
+   const { bgColor , setBgColor} = useBgColor();
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);
   return (
      <section className="h-[536px] grid justify-center  mb-[-2px] max-md:pl-[15px]
                                                                   max-smx2:pl-0
@@ -12,7 +25,10 @@ const PodCastSection = () => {
                          dark:bg-gray-800
                          xl:pt-[34px]
                          xl:mt-0
-                  " >
+                  " 
+                  style={{backgroundColor:bgColor}}
+
+                  >
            <div className='xl:w-[1247px] lg:w-full flex justify-center 
                            max-md:w-full
            '>
@@ -35,6 +51,8 @@ const PodCastSection = () => {
                    max-md:mr-[20px]
 
                    ' 
+                   style={{color: bgColor === "" ? '#AAAAAA': textColor
+                   }}
                    >مجموعه ای از تمام   آنچه شما نیاز دارید
                    </p>
                </div>

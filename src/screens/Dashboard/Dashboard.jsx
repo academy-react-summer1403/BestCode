@@ -3,7 +3,25 @@ import images from '../../assets/dashboardpng'
 import { DashCard, Group73, Group74, Group85 } from '../../components/DashboardHolder/Dashboard/index.js'
 import DashCardDore from '../../components/DashboardHolder/Dashboard/DashCardDore.jsx'
 import { getCourseDash } from '../../core/services/api/user.js'
+import { useBgColor } from '../../components/BgChangeAdmin/BgColorContext.jsx'
 const Dashboard = () => {
+  const { bgColor , setBgColor} = useBgColor();
+
+
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+
+  const textColor = getComplementaryColor(bgColor);
+
+
+
   const [card , setCard] = useState([])
   const [cardore , setCardore] = useState([
   ])
@@ -22,17 +40,28 @@ const Dashboard = () => {
 
 
   return (
-    <div className='flex justify-center xl:pr-[32px] xl:pt-[27px] '>
+    <div className='flex justify-center xl:pr-[32px] xl:pt-[27px] '
+     
+    >
       <div className='xl:w-[797px] xl:h-[661px] ' >
          <div className='flex xl:gap-[37px] max-smx3:grid max-md:justify-between max-md:px-[40px] max-smx3:px-0
          max-smx3:justify-center   max-md:ml-0
          '
           style={{direction:'rtl'}} 
          > 
-            <Group74 /> 
-            <Group73 /> 
+            <Group74 
+            bgColor={bgColor}
+            textColor={textColor}
+            /> 
+            <Group73 
+            bgColor={bgColor}
+            textColor={textColor}
+            /> 
             </div>
-             <Group85 />   
+             <Group85 
+             bgColor={bgColor}
+             
+             />   
            <div className='xl:w-[751px] xl:h-[252px]  xl:mt-[59px]  xl:ml-[20px]
                             grid max-smx3:mt-[-10px] max-md:pr-[50px] max-smx3:pr-0
                             max-smx3:mr-0 max-smx3:h-screen max-smx3:dark:bg-gray-800 max-smx3:grid
@@ -61,10 +90,12 @@ const Dashboard = () => {
                     {cardore.map((item , index) => (
                       <>
                         <DashCardDore
+                        bgColor={bgColor}
                               namedore={item.title}
                               teacher={item.teacherName}
                               time={item.lastUpdate}
                               img={item.tumbImageAddress}
+                              
                          />
                      </>
                      ))} 
@@ -91,6 +122,8 @@ const Dashboard = () => {
                    {card.map((item , index) => (
                       <>
                          <DashCard
+                           bgColor={bgColor}
+
                            namedore={item.title}
                            teacher={item.teacherName}
                            time={item.lastUpdate}

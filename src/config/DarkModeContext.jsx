@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { useBgColor } from '../components/BgChangeAdmin/BgColorContext';
 
 const DarkModeContext = createContext();
 
@@ -7,9 +8,11 @@ export const useDarkMode = () => {
 };
 
 export const DarkModeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
 
+  const [isDarkMode, setIsDarkMode] = useState(false)
+  const { setBgColor } = useBgColor();
   const toggleDarkMode = () => {
+    setBgColor(isDarkMode ? "" : "#1f2937")
     setIsDarkMode((prev) => !prev);
     document.documentElement.classList.toggle('dark')
   };

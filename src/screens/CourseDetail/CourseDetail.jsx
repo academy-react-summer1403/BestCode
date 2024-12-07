@@ -5,21 +5,79 @@ import Detail from "../../components/CourseDetail/Detail";
 import images from '../../assets/img/coursDetail';
 import Comment from '../../components/common/Comment/Comment.jsx';
 import Card from '../../components/common/SideCard/card';
-import {getCommentById, getCourseDetail, getCourseList } from '../../core/services/api/course'
+import {getCommentById, getCourseDetail, getCourseList , postComment , ReserveCourse} from '../../core/services/api/course'
 import { useParams } from 'react-router-dom';
+import { IoMdClose } from "react-icons/io";
+import * as Yup from "yup";
+import { useBgColor } from "../../components/BgChangeAdmin/BgColorContext.jsx";
+
+import {Formik , Form , Field} from 'formik'
+import { setItem } from "../../core/services/common/storage.services.js";
+
+
 
 const CourseDetail = () => {
+  const { bgColor , setBgColor} = useBgColor();
+   
+ 
+  
+  const getComplementaryColor = (hexColor) => {
+    const color = hexColor.replace("#", "");
+    
+    const r = 255 - parseInt(color.substring(0, 2), 16);
+    const g = 255 - parseInt(color.substring(2, 4), 16);
+    const b = 255 - parseInt(color.substring(4, 10), 16);
+  
+    return `rgb(${r}, ${g}, ${b})`;
+  };
+  
+  const textColor = getComplementaryColor(bgColor);  
   const [detail , setDetail] = useState([])
   const [cards , setCards] = useState([])
   const [comment , setComment] = useState([])
   const [commentReply , setCommentReply] = useState([])
   const {uuid} = useParams()
+  const validationSchema = Yup.object().shape({
+    subject: Yup.string()
+      .min(5, "موضوع باید حداقل 3 کاراکتر باشد")
+      .required("وارد کردن موضوع اجباری است"),
+    description: Yup.string()
+      .min(10, "توضیحات باید حداقل 10 کاراکتر باشد")
+      .required("وارد کردن توضیحات اجباری است"),
+  });
+
+  const initialValues = {
+    subject: "",
+    description: "",
+  };
+  setItem('courseId', uuid)
+
+  const ReserveCOurseUSer = async () => {
+    const add = {
+      courseId: uuid
+    }     
+    const data = await ReserveCourse(add)
+ }
+  
+  const handleSubmit = async (values) => {
+    console.log("Submitted Data:", values);
+    const formData = new FormData(); 
+    formData.append('CourseId',uuid);  
+    formData.append('Title', values.subject);  
+    formData.append('Describe', values.description); 
+    const user = await postComment(formData) 
+
+    setIsOpen(false); 
+  };
+
+
+
   const getCourseDetail1 = async () => {
     const data = await getCourseDetail(uuid)
     setDetail(data)
   }
 
-  
+  const [open , setIsOpen] = useState(false)
 
   const getComment = async () => {
     const data2 = await getCommentById(uuid)
@@ -31,6 +89,10 @@ const CourseDetail = () => {
     setCards(data1)
   }
 
+  const HandleOpen = () => {
+    setIsOpen(true)
+  }
+
   useEffect(()=> {
       getCourseDetail1()
       getCourseCard()
@@ -40,10 +102,15 @@ const CourseDetail = () => {
   
   return (
     <>
-   <div dir="rtl" className="  font-['BYekan'] bg-[#F9F9F9] dark:bg-gray-800 ">
+   <div dir="rtl" className="  font-['BYekan'] bg-[#F9F9F9] dark:bg-gray-800 "
+                style={{ backgroundColor: bgColor }}
+
+   >
+     
      <div id="ADS" className=" h-[395px] max-sm:h-fit w-[81.3%] max-xl:w-[90%] max-cd:w-[97%] max-md:w-[100%]  mx-auto flex max-sm:flex-col-reverse gap-[29px] max-cd:gap-[15px] max-md:gap-[5px] pt-[35px]" >
        <Top
         detail={detail}
+        ReserveCOurseUSer={ReserveCOurseUSer}
        />
     </div>
     
@@ -80,16 +147,95 @@ const CourseDetail = () => {
 
       </div>
       
-      <div className=" h-[953px] w-full  flex flex-wrap relative p-0 " >
-        
+      <div className=" w-full  flex flex-wrap relative p-0 mt-[20px] " >
+      <div className="flex justify-between w-full">
+        <p className="text-[25px] text-[#005351]">نظرات</p>
+      <div className="bg-[#00E2DC] w-[185px] text-[#005653] flex justify-center 
+        gap-[8.38px] 
+        h-[37px] rounded-[7px] items-center mt-[31px] cursor-pointer hover:bg-[#3df3ed]"
+        onClick={HandleOpen}
+        >
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+        <path d="M5.82813 7.5C5.82813 7.57874 5.79685 7.65425 5.74117 7.70992C5.6855 7.7656 5.60999 7.79687 5.53125 7.79687C5.45251 7.79687 5.377 7.7656 5.32133 7.70992C5.26565 7.65425 5.23438 7.57874 5.23438 7.5C5.23438 7.42126 5.26565 7.34575 5.32133 7.29008C5.377 7.2344 5.45251 7.20312 5.53125 7.20312C5.60999 7.20312 5.6855 7.2344 5.74117 7.29008C5.79685 7.34575 5.82813 7.42126 5.82813 7.5ZM5.82813 7.5H5.53125M8.79688 7.5C8.79688 7.57874 8.7656 7.65425 8.70992 7.70992C8.65425 7.7656 8.57874 7.79687 8.5 7.79687C8.42126 7.79687 8.34575 7.7656 8.29008 7.70992C8.2344 7.65425 8.20313 7.57874 8.20313 7.5C8.20313 7.42126 8.2344 7.34575 8.29008 7.29008C8.34575 7.2344 8.42126 7.20312 8.5 7.20312C8.57874 7.20312 8.65425 7.2344 8.70992 7.29008C8.7656 7.34575 8.79688 7.42126 8.79688 7.5ZM8.79688 7.5H8.5M11.7656 7.5C11.7656 7.57874 11.7343 7.65425 11.6787 7.70992C11.623 7.7656 11.5475 7.79687 11.4688 7.79687C11.39 7.79687 11.3145 7.7656 11.2588 7.70992C11.2032 7.65425 11.1719 7.57874 11.1719 7.5C11.1719 7.42126 11.2032 7.34575 11.2588 7.29008C11.3145 7.2344 11.39 7.20312 11.4688 7.20312C11.5475 7.20312 11.623 7.2344 11.6787 7.29008C11.7343 7.34575 11.7656 7.42126 11.7656 7.5ZM11.7656 7.5H11.4688M15.625 7.5C15.625 11.1068 12.4346 14.0312 8.5 14.0312C7.81694 14.0321 7.13678 13.9424 6.47729 13.7645C5.54769 14.4183 4.41367 14.7153 3.28292 14.6012C3.1572 14.5891 3.03201 14.572 2.90767 14.5498C3.29785 14.0899 3.56433 13.5382 3.68192 12.9467C3.75317 12.5849 3.57663 12.2334 3.31221 11.9761C2.11125 10.8076 1.375 9.23296 1.375 7.5C1.375 3.89317 4.56542 0.96875 8.5 0.96875C12.4346 0.96875 15.625 3.89317 15.625 7.5Z" stroke="#005351" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p className="text-[15px] cursor-pointer
+        "
+     
+        >ارسال  دیدگاه جدید
+        </p>
+      </div>
+        </div>
+        {open && 
+        <>
+             <div 
+              className="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 z-[22221]" 
+         />
+          <div className="fixed top-[150px] left-[400px]  bottom-0 h-[400px] w-[750px]
+           backdrop:blur-sm 
+                  bg-gray-200 rounded-[7px] shadow-lg z-[22222]
+           ">
+            <div className="flex justify-between">
+          <p className="font-primaryMedium mx-[10px] mt-[10px] font-bold text-[20px] 
+          text-[#005351] 
+          ">ارسال نظر</p>
+          <p className="font-primaryMedium mx-[10px] mt-[10px] font-bold text-[20px] 
+          text-[#005351] 
+          ">
+            <IoMdClose onClick={() =>setIsOpen(false)} />
+          </p>
+          </div>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+     {({ errors, touched }) => (
+
+           <Form className="flex items-center justify-center h-full gap-[20px] mt-[-30px]">
+            <div className="grid gap-[4px]">
+              <label>موضوع</label>
+              <Field 
+               name="subject"
+
+              className="border-none outline-none h-[30px]
+              w-[500px] rounded-[7px] px-[10px] bg-white
+             "
+             placeholder="لطفا موضوع دیدگاه خود را وارد کنین..."
+              />
+               {errors.subject && touched.subject && (
+                <span className="text-red-500 text-sm">{errors.subject}</span>
+              )}
+              <label >توضیحات</label>
+                <Field className="border-none outline-none h-[200px]
+                 w-[500px] rounded-[7px] px-[10px] bg-white
+                " 
+                name="description"
+
+                as='textarea'
+                 placeholder="لطفا دیدگاه خود را وارد کنید..."
+                />
+                  {errors.description && touched.description && (
+                <span className="text-red-500 text-sm">{errors.description}</span>
+              )}
+                </div>
+                <button
+                 className="bg-[#00E2DC] text-white px-[10px] py-[5px] rounded-[5px] 
+                 w-[100px] h-[40px] mt-[250px]
+                 "
+                 type="submit"
+                > ارسال دیدگاه</button>
+           </Form>
+     )}
+              </Formik>
+            </div>
+        </>
+          }
+           {comment.map((item, index) => (
              <Comment  
-              comment={comment}
+              item={item}
               uuid={uuid}
              /> 
-    
-      
-  
-      
+            ))}
       </div>
 
     </div>

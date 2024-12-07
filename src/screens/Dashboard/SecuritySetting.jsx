@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {Formik , Form , Field , ErrorMessage} from 'formik'
+import { useBgColor } from "../../components/BgChangeAdmin/BgColorContext";
 
 import * as Yup from 'yup';
 
@@ -9,6 +10,8 @@ import * as Yup from 'yup';
 
 
 const SecuritySetting = () => {
+  const { bgColor , setBgColor} = useBgColor();
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
@@ -145,7 +148,10 @@ const SecuritySetting = () => {
                 rounded-[5px] bg-transparent
                 "
               />
-              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                            style={{borderColor:bgColor}}
+
+              >
               <ErrorMessage name="currentPassword" component="div" 
               className="text-red-500 font-primaryMedium text-sm" />
               </div>
@@ -161,7 +167,9 @@ const SecuritySetting = () => {
 
                 "
               />
-              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"  >
+              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800" 
+              style={{borderColor:bgColor}}
+              >
               <ErrorMessage name="newPassword" component="div" className="text-red-500 font-primaryMedium text-sm" />
               </div>
             </div>
@@ -176,7 +184,10 @@ const SecuritySetting = () => {
 
                 "
               />
-              <div  className="h-[10px] border border-[#FFFFFF] dark:border-gray-800" >
+              <div  className="h-[10px] border border-[#FFFFFF] dark:border-gray-800" 
+                            style={{borderColor:bgColor}}
+
+              >
                 <ErrorMessage name="confirmPassword" component="div" 
                  className="text-red-500 font-primaryMedium text-sm" />
               </div>

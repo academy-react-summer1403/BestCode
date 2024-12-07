@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { Field , ErrorMessage} from 'formik'
 import Calender from '../../../../screens/Dashboard/UserProfile/Calender1'
-const Group156 = ({setFieldValue}) => {
+const Group156 = ({setFieldValue ,bgColor}) => {
   return (
     <Fragment>
         <div className='grid xl:grid-cols-2  text-right
@@ -41,7 +41,10 @@ const Group156 = ({setFieldValue}) => {
                               pr-[13px]
                               '
                             />
-                               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                               <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                                        style={{borderColor:bgColor}}
+
+                               >
                                 <ErrorMessage name="LName" component="div" 
                                 className="text-red-500 font-primaryMedium text-sm" />
                                 </div>
@@ -66,9 +69,15 @@ const Group156 = ({setFieldValue}) => {
                               placeholder:pr-[13px]
                               '
                             />
-                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                              
+                              style={{borderColor:bgColor}}
+                              >
                                 <ErrorMessage name="FName" component="div" 
-                                className="text-red-500 font-primaryMedium text-sm" />
+                                className="text-red-500 font-primaryMedium text-sm"
+                                
+
+                                />
                                 </div>
                             </div> 
                            <div className='max-smx3:grid max-md:grid max-lg:grid max-xl:grid' >
@@ -132,9 +141,15 @@ const Group156 = ({setFieldValue}) => {
 
                               '
                             />
-                                <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                                <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                                                                style={{borderColor:bgColor}}
+
+                                >
                                 <ErrorMessage name="NationalCode" component="div" 
-                                className="text-red-500 font-primaryMedium text-sm" />
+                                className="text-red-500 font-primaryMedium text-sm"
+                                
+
+                                />
                                 </div>
                            </div>
                             <div className='max-smx3:grid max-md:grid max-lg:grid max-xl:grid'  >
@@ -160,9 +175,14 @@ const Group156 = ({setFieldValue}) => {
                                placeholder:text-[#005351]
                               '
                             />
-                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                                                             style={{borderColor:bgColor}}
+
+                             >
                                 <ErrorMessage name="phonenumber" component="div" 
-                                className="text-red-500 font-primaryMedium text-sm" />
+                                className="text-red-500 font-primaryMedium text-sm" 
+
+                                />
                                 </div>
                            </div> 
                            <div className='max-smx3:grid max-md:grid max-lg:grid max-xl:grid'>
@@ -187,9 +207,14 @@ const Group156 = ({setFieldValue}) => {
                           </Field> 
                           
                              </div>   
-                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                                                             style={{borderColor:bgColor}}
+
+                             >
                                 <ErrorMessage name="BirthDay" component="div" 
-                                className="text-red-500 font-primaryMedium text-sm" />
+                                className="text-red-500 font-primaryMedium text-sm"
+
+                                />
                                 </div>
                            </div> 
                            <div className='max-smx3:grid max-md:grid max-lg:grid max-xl:grid'>
@@ -213,9 +238,14 @@ const Group156 = ({setFieldValue}) => {
                               placeholder:pl-[13px]
                               '
                             />
-                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                                                             style={{borderColor:bgColor}}
+
+                             >
                                 <ErrorMessage name="TelegramLink" component="div" 
-                                className="text-red-500 font-primaryMedium text-sm" />
+                                className="text-red-500 font-primaryMedium text-sm" 
+
+                                />
                                 </div>
                            </div>
                            <div className='max-smx3:grid max-md:grid max-lg:grid max-xl:grid'>
@@ -237,9 +267,14 @@ const Group156 = ({setFieldValue}) => {
                               bg-transparent
                               '
                             />
-                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                             <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                                                             style={{borderColor:bgColor}}
+
+                             >
                                 <ErrorMessage name="email" component="div" 
-                                className="text-red-500 font-primaryMedium text-sm" />
+                                className="text-red-500 font-primaryMedium text-sm" 
+
+                                />
                                 </div>
                            </div>
                            <div className='grid xl:gap-[70px]
@@ -270,9 +305,15 @@ const Group156 = ({setFieldValue}) => {
 
                               '
                             />
-                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                                                              style={{borderColor:bgColor}}
+
+                              >
                                 <ErrorMessage name="LinkdinProfile" component="div" 
-                                className="text-red-500 font-primaryMedium text-sm" />
+                                className="text-red-500 font-primaryMedium text-sm"
+                                       
+
+                                />
                                 </div>
                             </div>
                              <div className='max-lg:mt-[20px] max-xl:mt-[30px]' >
@@ -304,9 +345,14 @@ const Group156 = ({setFieldValue}) => {
 
                               '
                             />
-                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800">
+                              <div className="h-[10px] border border-[#FFFFFF] dark:border-gray-800"
+                                                              style={{borderColor:bgColor}}
+
+                              >
                                 <ErrorMessage name="HomeAdderess" component="div" 
-                                className="text-red-500 font-primaryMedium text-sm" />
+                                className="text-red-500 font-primaryMedium text-sm"
+
+                                />
                                 </div>
                             </div> 
                            </div>  

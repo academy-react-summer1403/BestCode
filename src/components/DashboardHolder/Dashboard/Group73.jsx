@@ -46,7 +46,7 @@ const CircularProgress = ({ percentage }) => {
 };
 
 
-const Group73 = () => {
+const Group73 = ({bgColor ,textColor}) => {
   const [completionPercentage, setCompletionPercentage] = useState(0);
   const getProfileCompletionPercentage = async () => {
     try {
@@ -94,6 +94,8 @@ const Group73 = () => {
                   className='font-primaryMedium text-[#ABABAB] text-[16px] font-[400] leading-[22.7px]
                    max-smx3:text-[13px] max-md:ml-[20px] max-lg:mt-[10px] max-lg:mr-[20px]
                   '
+                  style={{color: bgColor === "" ? '#A7A7A7': textColor
+                  }}
                  >برای شرکت در دوره ها باید حداقل ٪ ۸۰ از پروفایل خود را تکمیل کنید.</p>
               </div>
             </div>

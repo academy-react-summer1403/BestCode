@@ -12,7 +12,7 @@ const toPersianNumber = (number) => {
 
 
 
-const Group74 = () => {
+const Group74 = ({textColor , bgColor}) => {
   const [count , setCount] = useState([])
   const [count1 , setCount1] = useState([])
 
@@ -68,12 +68,21 @@ const Group74 = () => {
                        font-primaryMedium 
                        text-[25px] text-[#FFB800] flex items-center
                        pt-[4px] max-smx3:text-[20px] max-md:text-[23px]
-                    ' >
-                      <span className='text-[30px] ml-[4px] max-smx2:text-[25px]  max-md:text-[28px]'>{toPersianNumber(courseCount1)}</span>    
+                    '
+                    style={{color: bgColor === "" ? '#FFB00': textColor
+                    }}
+                    >
+                      <span className='text-[30px] ml-[4px] max-smx2:text-[25px]  max-md:text-[28px]'
+                        style={{color: bgColor === "" ? '#FFB00': textColor
+                        }}
+                      >{toPersianNumber(courseCount1)}</span>    
                       دوره</p>
                     <span className='w-[86px] h-[26px] text-[#A7A7A7] text-[18px] font-primaryMedium
                     font-[400] max-smx3:text-[15px] max-md:text-[17px]
-                    ' >رزرو کرده اید</span>
+                    '
+                    style={{color: bgColor === "" ? '#A7A7A7': textColor
+                    }}
+                    >رزرو کرده اید</span>
                  </div>
               </div>
               <div className='w-[190px] h-[105px] relative ' >
@@ -89,12 +98,20 @@ const Group74 = () => {
                     font-primaryMedium 
                     text-[25px] text-[#00B4AF] flex items-center
                     pt-[4px] max-smx2:text-[20px] max-md:text-[23px] 
-                    ' >
-                      <span className='text-[30px] max-smx2:text-[25px]  max-md:text-[28px] ml-[4px]'>{toPersianNumber(courseCount)}</span>    
+                    ' 
+                    style={{color: bgColor === "" ? '#00B4AF': textColor
+                    }}
+                    >
+                      <span className='text-[30px] max-smx2:text-[25px]  max-md:text-[28px] ml-[4px]'
+                      
+                      >{toPersianNumber(courseCount)}</span>    
                       دوره</p>
                     <span className='w-[86px] h-[26px] text-[#A7A7A7] text-[18px] font-primaryMedium
                     font-[400] max-smx3:text-[15px] max-md:text-[17px] 
-                    ' >شرکت کرده اید</span>
+                    '
+                    style={{color: bgColor === "" ? '#A7A7A7': textColor
+                    }}
+                    >شرکت کرده اید</span>
                  </div>
               </div>
             </div>

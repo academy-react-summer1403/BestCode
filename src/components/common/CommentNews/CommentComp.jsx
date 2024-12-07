@@ -1,10 +1,11 @@
 import { useState , useEffect } from 'react';
 import moment from 'moment-jalaali';
-import {getReplyComment , postReplayComment} from '../../../core/services/api/course'
+import {getReplayComment , PostReplyNewsComment} from '../../../core/services/api/News'
 import { IoMdClose } from "react-icons/io";
 import * as Yup from "yup";
 
 import {Formik , Form , Field} from 'formik'
+import { getItem } from '../../../core/services/common/storage.services';
 const toPersianDate = (date) => {
     return moment(date).format('jYYYY/jMM/jDD');
   };
@@ -12,9 +13,11 @@ const toPersianDate = (date) => {
 
 const CommentComp = ({item, uuid}) => {
     const [cmReply , setCmReply] = useState([])
+    const userId = getItem("userId")
     
     const getReplyCm = async () => {
-        const data = await getReplyComment(uuid, item.id)
+        const data = await getReplayComment(item.id)
+        console.log(data)
         setCmReply(data)
     }
     useEffect(()=> {
@@ -36,13 +39,20 @@ const CommentComp = ({item, uuid}) => {
       };
       
       const handleSubmit = async (values) => {
-        console.log("Submitted Data:", values);
-        const formData = new FormData(); 
-        formData.append('CommentId', item.id)
-        formData.append('CourseId',uuid);  
-        formData.append('Title', values.subject);  
-        formData.append('Describe', values.description); 
-        const user = await postReplayComment(formData) 
+        const formData = {
+          newsId: uuid,
+          userIpAddress: "198.1.1.1",
+          title: values.subject,
+          describe: values.description,
+          userId: userId,
+          parentId: item.id
+        }
+        // const formData = new FormData(); 
+        // formData.append('CommentId', item.id)
+        // formData.append('CourseId',uuid);  
+        // formData.append('Title', values.subject);  
+        // formData.append('Describe', values.description); 
+          const user = await PostReplyNewsComment(formData) 
     
         setIsOpen(false); 
       };
@@ -57,11 +67,11 @@ const CommentComp = ({item, uuid}) => {
  return (
     <>
        {open && 
-       <> 
-         <div 
-              className="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 z-[22221]" 
-         />
-          <div className="fixed top-[150px] left-[400px]  bottom-0 h-[400px] w-[750px] 
+       <>
+        <div 
+      className="fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 z-[22221]" 
+    />
+          <div className="fixed top-[150px] left-[400px] bottom-0 h-[400px] w-[750px] 
                   bg-gray-200 rounded-[7px] shadow-lg z-[22222]
            ">
             <div className="flex justify-between">
@@ -118,7 +128,7 @@ const CommentComp = ({item, uuid}) => {
      )}
               </Formik>
             </div>
-       </>
+      </>
           }
    {cmReply.map((it , index) =>( 
    

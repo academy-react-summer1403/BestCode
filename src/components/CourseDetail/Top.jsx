@@ -8,7 +8,7 @@ const toPersianNumber = (number) => {
     .replace(/\d/g, (digit) => persianDigits[digit]);
 };
 
-const Top = ({detail}) => {
+const Top = ({detail , ReserveCOurseUSer}) => {
   return (
     <>
       <div className=" h-[101%] max-sm:h-[360px] w-[49%] max-sm:w-[90%] max-sm:mx-auto bg-[#FFFF] dark:bg-gray-300 flex flex-wrap rounded-2xl shadow-[0_1px_2px_0px_rgba(0,0,0,0.25)]" 
@@ -27,22 +27,21 @@ const Top = ({detail}) => {
 
         <div className=" w-[100%]  ">
              <div className=" h-[100%] w-[93%]  
-             
+             mr-[33px]
              m-auto text-[18px] max-smx2:text-[15px] leading-[27px] font-normal aling-right text-slate-600"> 
              {detail?.miniDescribe}
             </div>
         </div>
         
-        <div className=" h-[50px] w-[100%]  flex max-md:flex-col gap-[33%] max-xl:gap-[25%] max-lg:gap-[8%]  ">
+        <div className=" h-[50px] w-full  justify-between flex max-md:flex-col   ">
 
-            <div className=" h-[43px] w-[210px] flex">
+            <div className=" h-[43px] w-[400px] flex">
             
                <img src={images.person} alt="" className=" h-[21px] w-[18px] mr-[10%]" />
 
-               <span className=" text-[20px] leading-[10px]
+               <span className=" text-[20px] 
                
-               
-               font-normal text-[#005B58] mr-[8px] mt-[3px] "> {detail?.teacherName}</span>
+               font-normal text-[#005B58] mr-[8px] mt-[-6px] "> {detail?.teacherName}</span>
 
             </div>
 
@@ -57,7 +56,9 @@ const Top = ({detail}) => {
         </div>
         
         <div className=" h-[55px] w-[100%] flex  ">
-            <button className=" h-[55px] w-[347px] m-auto bg-[#FF8A00] rounded-[9px] relative"> 
+            <button className=" h-[55px] w-[347px] m-auto bg-[#FF8A00] rounded-[9px] relative"
+            onClick={ReserveCOurseUSer}
+            > 
             <span className=" mr-8 mt-[50px] text-[25px] max-smx2:text-[19px] text-[#FFFFFF] font-bold "> شرکت در دوره! </span>
             <img src={images.Bpik} alt="" className=" h-[20px] w-[23px] mr-[80px] mt-[-25px]  " />
 
@@ -67,7 +68,9 @@ const Top = ({detail}) => {
     </div>
 
     <div className=" h-[101%]  w-[49%] max-sm:w-[90%] max-sm:mx-auto " >
-    <img src={detail?.imageAddress} className=" w-[101%] h-[103%] "/>
+    <img src={detail?.imageAddress} className=" w-[101%] h-[103%]
+     bg-gradient-to-r from-[#A259FF] to-[#D47300] rounded-md
+    "/>
     </div>
     </>
   )

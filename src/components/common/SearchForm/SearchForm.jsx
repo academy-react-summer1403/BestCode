@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import images from '../../../assets/landingpng'
 
-const SearchForm = ({formStyle , inputStyle ,inputdivStyle,placeHolder}) => {
+const SearchForm = ({formStyle , inputStyle ,inputdivStyle,placeHolder, handleSearch}) => {
   return (
     <Fragment>
         <form className={formStyle}>  
@@ -12,7 +12,8 @@ const SearchForm = ({formStyle , inputStyle ,inputdivStyle,placeHolder}) => {
                                 height={24.97} 
                           />
                       </div>
-                      <input  
+                      <input    
+                               onChange={(e)=>handleSearch(e.target.value)}
                                placeholder='...دنبال چی میگردی؟'
                                className={inputStyle}
                     />

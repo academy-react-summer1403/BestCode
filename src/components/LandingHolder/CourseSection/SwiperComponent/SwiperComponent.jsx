@@ -114,6 +114,7 @@ const SwiperComponent = () => {
                         price={item.cost}
                         teacher={item.teacherName}
                         duration={item.lastUpdate}
+                        courseId={item.courseId}
                         student={item.currentUserRateNumber}
                         index={index}
                     /> 

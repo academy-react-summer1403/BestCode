@@ -1,21 +1,25 @@
 
 import { useState , useEffect } from "react"
 import SliderCard from "../LandingHolder/CourseSection/SliderCard/SliderCard"
-import { getAllCourse } from "../../core/services/api/course"
+// import { getAllCourse } from "../../core/services/api/course"
 import PagiantionDashboard from '../common/PaginationDashboard/PagiantionDashboard'
 
 
 const FinalGrid =({slidercard})=>{
   
 
+
+
+
+
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage = 6
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
-    const currentItems = slidercard.slice(indexOfFirstItem, indexOfLastItem)
+    const currentItems = slidercard.slice(indexOfFirstItem, indexOfLastItem) || 0
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-
+    
 
     return(
          <div className="w-[100%] mx-auto  justify-center lg:ml-20 
@@ -24,7 +28,7 @@ const FinalGrid =({slidercard})=>{
           lg:gap-x-[0px] xl:gap-x-[36px] gap-y-[35px] ">      
       {slidercard.length > 0 ? (<>          
        {currentItems.map((item , index)=> (
-       <SliderCard  
+          <SliderCard  
                     courseId={item.courseId}
                     img={item.tumbImageAddress}
                     title={item.title} 
@@ -40,8 +44,8 @@ const FinalGrid =({slidercard})=>{
 )}  
 
 
-       <div className="absolute xl:left-[500px] xl:top-[1500px]">
-                      <PagiantionDashboard
+       <div className="absolute  xl:top-[1500px] left-[400px]">
+                      <PagiantionDashboard   
                                             paginate={paginate}
                                             row={slidercard}
                                             itemsPerPage={itemsPerPage}
